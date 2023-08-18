@@ -64,6 +64,10 @@
             <main class="flex-auto mx-auto max-w-2xl lg:max-w-5xl">
                 <div class="px-4 sm:px-12 lg:px-20">
                     @yield('body')
+
+                    <div class="max-w-[180px] my-20 mx-auto">
+                        <img src="{{ Vite::asset('resources/images/pollen.svg') }}">
+                    </div>
                 </div>
             </main>
             @wpfooter
