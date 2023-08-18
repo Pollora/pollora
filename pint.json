@@ -1,0 +1,15 @@
+{
+    "preset": "laravel",
+    "rules": {
+        "declare_strict_types": true
+    },
+    "exclude": [
+        "data/",
+        ".data/",
+        "public/cms/",
+        ".doc/",
+        ".github/",
+        "htdocs/content/plugins/",
+        "vendor/"
+    ]
+}
