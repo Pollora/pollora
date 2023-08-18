@@ -1,8 +1,8 @@
 {
-    "name": "laravel/laravel",
+    "name": "pollen/pollen",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "description": "The skeleton application for the Pollen framework.",
+    "keywords": ["pollen", "laravel", "framework", "wordpress"],
     "license": "MIT",
     "require": {
         "php": "^8.1",
