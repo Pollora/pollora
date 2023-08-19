@@ -22,9 +22,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
  * WordPress routes
  */
 Route::any('single', function () {
-    return view('theme::post');
+    return view('post');
 });
 
 Route::any('page', function () {
-    return view('theme::page');
+    return view('page');
 });

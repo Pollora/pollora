@@ -13,6 +13,6 @@ class HomeController extends Controller
     {
         $post = Post::find(WordPress::id());
 
-        return view('theme::home', ['post' => $post]);
+        return view('home', ['post' => $post]);
     }
 }

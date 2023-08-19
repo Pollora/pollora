@@ -1,4 +1,4 @@
-@extends('theme::layouts.main')
+@extends('layouts.main')
 
 @section('body')
     <div class="mt-9">
