@@ -24,6 +24,10 @@ Pollen bridges the gap between Laravel and WordPress, combining the power and fl
 
 Pollen is designed to be versatile, intuitive, and the perfect tool for projects that demand the strengths of both Laravel and WordPress.
 
+## Documentation
+
+The documentation is in work in progress but you will find it [here](https://github.com/AmphiBee/pollen-documentation)
+
 ## Pollen Sponsors
 
 We extend our heartfelt gratitude to our sponsors for supporting Pollen's development. If you're interested in sponsoring, contact me at [olivier@amphibee.fr](mailto:olivier@amphibee.fr).
