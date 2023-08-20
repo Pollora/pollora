@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use Pollen\Support\Facades\Asset;
 
-class AppServiceProvider extends ServiceProvider
+class AssetServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
@@ -23,6 +22,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Asset::add('app','resources/css/app.css')
+            ->toFrontend()
+            ->useVite();
+
+        Asset::add('app','resources/js/app.js')
+            ->toFrontend()
+            ->useVite();
     }
 }
