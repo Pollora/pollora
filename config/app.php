@@ -166,15 +166,16 @@ return [
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
-        \App\Providers\AssetServiceProvider::class,
+        App\Providers\AssetServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        \App\Providers\MenuServiceProvider::class,
+        App\Providers\MenuServiceProvider::class,
     ])->toArray(),
 
     'hooks' => [
+        //
     ],
 
     /*
@@ -193,6 +194,7 @@ return [
         'Hash' => Pollen\Support\Facades\WPHash::class,
         'Loop' => Pollen\Support\Facades\Loop::class,
         'Query' => Pollen\Support\Facades\Query::class,
+        'Asset' => Pollen\Support\Facades\Asset::class,
     ])->toArray(),
 
     /*

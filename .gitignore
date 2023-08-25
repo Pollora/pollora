@@ -20,3 +20,4 @@ yarn-error.log
 /.vscode
 .docker
 .data
+/themes/pollen/node_modules/

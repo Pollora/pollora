@@ -3,9 +3,7 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build",
-        "dev:pollen": "vite --config themes/pollen/vite.config.js",
-        "build:pollen": "vite build --config themes/pollen/vite.config.js"
+        "build": "vite build"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",

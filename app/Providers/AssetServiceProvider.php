@@ -6,6 +6,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Pollen\Support\Facades\Asset;
+use Qirolab\Theme\Theme;
 
 class AssetServiceProvider extends ServiceProvider
 {
@@ -22,11 +23,10 @@ class AssetServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Asset::add('app','resources/css/app.css')
+        Asset::add('pollen/app-style', Theme::path('css/app.css'))
             ->toFrontend()
             ->useVite();
-
-        Asset::add('app','resources/js/app.js')
+        Asset::add('pollen/app-js',Theme::path('js/app.js'))
             ->toFrontend()
             ->useVite();
     }
