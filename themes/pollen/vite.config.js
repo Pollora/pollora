@@ -1,21 +1,16 @@
-import { defineConfig } from 'vite';
-import laravel from 'laravel-vite-plugin';
+import { defineConfig } from "vite";
+import laravel from "laravel-vite-plugin";
 import { readFileSync } from 'node:fs';
-import path from 'path';
-
-let publicPath = path.resolve(__dirname) + '/../../public';
 
 export default defineConfig({
     plugins: [
         laravel({
-            publicDirectory: '/../../public',
             input: [
-                'css/app.css',
-                'js/app.js'
+                "themes/pollen/css/app.css",
+                "themes/pollen/js/app.js"
             ],
-            hotFile: publicPath + '/hot',
+            //hotFile: publicPath + '/hot',
             buildDirectory: "build/pollen",
-            refresh: true,
         }),
         {
             name: "blade",

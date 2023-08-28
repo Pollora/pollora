@@ -12,6 +12,9 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    build: {
+      emptyOutDir: false,
+    },
     server: {
         cors: true,
         strictPort: true,

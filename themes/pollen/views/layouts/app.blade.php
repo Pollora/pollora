@@ -64,7 +64,7 @@
                     @yield('body')
 
                     <div class="max-w-[200px] my-20 mx-auto">
-                        <img src="{{ Vite::asset('images/pollen.svg') }}">
+                        <img src="{{ Vite::asset('resources/images/pollen.svg') }}">
                     </div>
                 </div>
             </main>
