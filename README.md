@@ -14,7 +14,7 @@ Pollen bridges the gap between Laravel and WordPress, combining the power and fl
 - Laravel's [Expressive routing](https://laravel.com/docs/routing).
 - [Eloquent ORM](https://laravel.com/docs/eloquent) with [Corcel](https://github.com/corcel/corcel) models out of the box,
 - Configuration-based methods so you can register your custom post types and taxonomies directly from `config/post-types.php` and `config/taxonomy.php`. You can also use the PostType and Taxonomy fluent classes,
-- Similarly, for theme setup, handle the registration and configuration of menus, sidebars, and theme supports within `config/theme.php`,
+- Similarly, for theme setup, handle the registration and configuration of menus, sidebars, and theme supports within `themes/{your-theme}/config/`,
 - Unified [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) management,
 - Hook (anytime, anywhere !) and Hookable classes (provided by the great [Themosis framework](https://framework.themosis.com)),
 - Blade directive designed for WordPress provided by the awesome [Sage Directives](https://log1x.github.io/sage-directives-docs/) package,
