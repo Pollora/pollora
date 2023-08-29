@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
-use Pollen\Support\Facades\Asset;
 
 class AppServiceProvider extends ServiceProvider
 {

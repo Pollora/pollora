@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
-use Pollen\Theme\Commands\MakeThemeCommand;
 
 class Kernel extends HttpKernel
 {

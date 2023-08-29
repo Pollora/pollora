@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Providers;
+namespace App\Providers\Theme\Pollen;
 
 use Illuminate\Support\ServiceProvider;
 use Pollen\Support\Facades\Asset;
@@ -26,7 +26,7 @@ class AssetServiceProvider extends ServiceProvider
         Asset::add('pollen/app-style', Theme::path('css/app.css'))
             ->toFrontend()
             ->useVite();
-        Asset::add('pollen/app-js',Theme::path('js/app.js'))
+        Asset::add('pollen/app-js', Theme::path('js/app.js'))
             ->toFrontend()
             ->useVite();
     }
