@@ -35,7 +35,7 @@ We extend our heartfelt gratitude to our sponsors for supporting Pollen's develo
 
 ## Contributing
 
-Considering a contribution to Pollen? Our contribution guide is coming soon!
+Considering a contribution to Pollen? Our [contribution guide is here!](CONTRIBUTE.md)
 
 ## Security Vulnerabilities
 
