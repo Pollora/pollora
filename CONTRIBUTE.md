@@ -7,7 +7,7 @@ Thank you for taking the time to contribute to the Pollen project! This project 
 ## Prerequisites
 
 1. Install Git on your local machine.
-2. Fork the Pollen projet: `https://github.com/AmphiBee/pollen`.
+2. Fork the Pollen projet: [https://github.com/AmphiBee/pollen](https://github.com/AmphiBee/pollen).
 3. Clone your fork on your local machine.
 
 > **Note:** Installing Git Flow is optional, but if you choose not to use it, please adhere to the branch naming convention as described below.
