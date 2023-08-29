@@ -1,4 +1,4 @@
-# Contribution Guide for Pollen Project
+# Contribution Guide
 
 ## Introduction
 
