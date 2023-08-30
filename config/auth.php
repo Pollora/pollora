@@ -39,7 +39,7 @@ return [
 
     'guards' => [
         'web' => [
-            'driver' => 'session',
+            'driver' => 'wp',
             'provider' => 'users',
         ],
     ],
@@ -63,8 +63,8 @@ return [
 
     'providers' => [
         'users' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'driver' => 'wp',
+            'model' => \Pollen\Models\User::class,
         ],
 
         // 'users' => [
