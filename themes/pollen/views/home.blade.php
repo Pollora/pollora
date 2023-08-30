@@ -5,9 +5,8 @@
         <div class="relative">
             @query([
                 'post_type' => 'page',
-                'limit' => 1,
+                'pagename' => 'sample-page'
             ])
-
             @posts
                 <div class="max-w-2xl">
                     <h1 class="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl">@title</h1>
