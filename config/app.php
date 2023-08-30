@@ -190,10 +190,6 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
-        'Hash' => Pollen\Support\Facades\WPHash::class,
-        'Loop' => Pollen\Support\Facades\Loop::class,
-        'Query' => Pollen\Support\Facades\Query::class,
-        'Asset' => Pollen\Support\Facades\Asset::class,
     ])->toArray(),
 
     /*

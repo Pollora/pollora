@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace App\Providers\Theme\Pollen;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 use Pollen\Support\Facades\Asset;
-use Qirolab\Theme\Theme;
+use Pollen\Support\Facades\Theme;
 
 class AssetServiceProvider extends ServiceProvider
 {
