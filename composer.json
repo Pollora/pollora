@@ -4,6 +4,12 @@
     "description": "The skeleton application for the Pollen framework.",
     "keywords": ["pollen", "laravel", "framework", "wordpress"],
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    ],
     "require": {
         "php": "^8.1",
         "barryvdh/laravel-ide-helper": "^2.13",
