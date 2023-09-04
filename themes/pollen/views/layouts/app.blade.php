@@ -61,7 +61,7 @@
 
             <main class="flex-auto mx-auto max-w-2xl lg:max-w-5xl">
                 <div class="px-4 sm:px-12 lg:px-20">
-                    @yield('body')
+                    @yield('content')
 
                     <div class="max-w-[200px] my-20 mx-auto">
                         <img src="{{ Vite::asset('resources/images/pollen.svg') }}">

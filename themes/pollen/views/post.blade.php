@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('body')
+@section('content')
     @loop
         @include('parts.content')
     @endloop

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('body')
+@section('content')
     <div class="mt-9">
         <div class="relative">
             @query([

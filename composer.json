@@ -19,7 +19,8 @@
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
         "pollen/framework": "dev-main",
-        "roots/wp-password-bcrypt": "^1.0"
+        "roots/wp-password-bcrypt": "^1.0",
+        "wpackagist-plugin/safe-svg": "^2.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -63,7 +64,7 @@
     "extra": {
         "wordpress-install-dir": "public/cms",
         "installer-paths": {
-            "public/content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+            "public/content/mu-plugins/{$name}/": ["type:wordpress-muplugin", "wpackagist-plugin/safe-svg"],
             "public/content/plugins/{$name}/": ["type:wordpress-plugin"],
             "public/content/themes/{$name}/": ["type:wordpress-theme"]
         },
