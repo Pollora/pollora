@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Providers\Theme\Pollen;
 
 use Illuminate\Support\ServiceProvider;
+use Pollen\Support\Facades\Action;
 use Pollen\Support\Facades\Asset;
 use Pollen\Support\Facades\Theme;
 
