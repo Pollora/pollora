@@ -13,17 +13,21 @@
         {
             "type": "composer",
             "url": "https://wpackagist.org"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:AmphiBee/pollen-woocommerce.git"
         }
     ],
     "require": {
         "php": "^8.2",
+        "pollen/framework": "dev-main",
         "barryvdh/laravel-ide-helper": "^3.0",
         "guzzlehttp/guzzle": "^7.2",
-        "johnpbloch/wordpress": "^6.3",
+        "johnpbloch/wordpress": "^6.5",
         "laravel/framework": "^11.10",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
-        "pollen/framework": "dev-main",
         "roots/wp-password-bcrypt": "^1.0",
         "wpackagist-plugin/safe-svg": "^2.2"
     },
@@ -94,9 +98,10 @@
             "pestphp/pest-plugin": true,
             "php-http/discovery": true,
             "johnpbloch/wordpress-core-installer": true,
-            "cweagans/composer-patches": true
+            "cweagans/composer-patches": true,
+            "composer/installers": true
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true
 }
