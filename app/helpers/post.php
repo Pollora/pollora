@@ -82,7 +82,7 @@ if (! function_exists('entry_footer')) {
     function entry_footer()
     {
         // Hide category and tag text for pages.
-        if ('post' === get_post_type()) {
+        if (get_post_type() === 'post') {
             /* translators: used between list items, there is a space after the comma */
             $categories_list = get_the_category_list(esc_html__(', ', APP_TD));
 
@@ -148,12 +148,12 @@ if (! function_exists('comments_title')) {
     /**
      * Return the comments title.
      *
-     * @param  int  $count The number of comments.
+     * @param  int  $count  The number of comments.
      * @return string
      */
     function comments_title($count)
     {
-        if (1 === $count) {
+        if ($count === 1) {
             return sprintf(
                 esc_html__('One thought on &ldquo;%1$s&rdquo;', APP_TD),
                 '<span>'.get_the_title().'</span>'

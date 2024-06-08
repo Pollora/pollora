@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /**
  * Edit this file in order to configure the Gutenberg editor
  */
