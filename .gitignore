@@ -22,3 +22,4 @@ Taskfile.yml
 .docker
 .data
 /themes/pollen/node_modules/
+public/content/object-cache.php
