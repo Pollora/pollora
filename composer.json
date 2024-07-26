@@ -24,7 +24,7 @@
         "pollen/framework": "dev-main",
         "barryvdh/laravel-ide-helper": "^3.0",
         "guzzlehttp/guzzle": "^7.2",
-        "johnpbloch/wordpress": "^6.5",
+        "johnpbloch/wordpress": "^6.6",
         "laravel/framework": "^11.18",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
