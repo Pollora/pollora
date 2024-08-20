@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "46ea50141df005e9c7ef86dd578dc857",
+    "content-hash": "d158a848034a06badf7ca714e72e121f",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -558,26 +558,26 @@
         },
         {
             "name": "composer/pcre",
-            "version": "3.2.0",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/pcre.git",
-                "reference": "ea4ab6f9580a4fd221e0418f2c357cdd39102a90"
+                "reference": "1637e067347a0c40bbb1e3cd786b20dcab556a81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/pcre/zipball/ea4ab6f9580a4fd221e0418f2c357cdd39102a90",
-                "reference": "ea4ab6f9580a4fd221e0418f2c357cdd39102a90",
+                "url": "https://api.github.com/repos/composer/pcre/zipball/1637e067347a0c40bbb1e3cd786b20dcab556a81",
+                "reference": "1637e067347a0c40bbb1e3cd786b20dcab556a81",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4 || ^8.0"
             },
             "conflict": {
-                "phpstan/phpstan": "<1.11.8"
+                "phpstan/phpstan": "<1.11.10"
             },
             "require-dev": {
-                "phpstan/phpstan": "^1.11.8",
+                "phpstan/phpstan": "^1.11.10",
                 "phpstan/phpstan-strict-rules": "^1.1",
                 "phpunit/phpunit": "^8 || ^9"
             },
@@ -617,7 +617,7 @@
             ],
             "support": {
                 "issues": "https://github.com/composer/pcre/issues",
-                "source": "https://github.com/composer/pcre/tree/3.2.0"
+                "source": "https://github.com/composer/pcre/tree/3.3.0"
             },
             "funding": [
                 {
@@ -633,7 +633,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-07-25T09:36:02+00:00"
+            "time": "2024-08-19T19:43:53+00:00"
         },
         {
             "name": "cweagans/composer-patches",
@@ -2158,16 +2158,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v11.20.0",
+            "version": "v11.21.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "3cd7593dd9b67002fc416b46616f4d4d1da3e571"
+                "reference": "9d9d36708d56665b12185493f684abce38ad2d30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/3cd7593dd9b67002fc416b46616f4d4d1da3e571",
-                "reference": "3cd7593dd9b67002fc416b46616f4d4d1da3e571",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/9d9d36708d56665b12185493f684abce38ad2d30",
+                "reference": "9d9d36708d56665b12185493f684abce38ad2d30",
                 "shasum": ""
             },
             "require": {
@@ -2360,7 +2360,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-08-06T14:39:21+00:00"
+            "time": "2024-08-20T15:00:52+00:00"
         },
         {
             "name": "laravel/pint",
@@ -2430,16 +2430,16 @@
         },
         {
             "name": "laravel/prompts",
-            "version": "v0.1.24",
+            "version": "v0.1.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/prompts.git",
-                "reference": "409b0b4305273472f3754826e68f4edbd0150149"
+                "reference": "7b4029a84c37cb2725fc7f011586e2997040bc95"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/prompts/zipball/409b0b4305273472f3754826e68f4edbd0150149",
-                "reference": "409b0b4305273472f3754826e68f4edbd0150149",
+                "url": "https://api.github.com/repos/laravel/prompts/zipball/7b4029a84c37cb2725fc7f011586e2997040bc95",
+                "reference": "7b4029a84c37cb2725fc7f011586e2997040bc95",
                 "shasum": ""
             },
             "require": {
@@ -2482,9 +2482,9 @@
             "description": "Add beautiful and user-friendly forms to your command-line applications.",
             "support": {
                 "issues": "https://github.com/laravel/prompts/issues",
-                "source": "https://github.com/laravel/prompts/tree/v0.1.24"
+                "source": "https://github.com/laravel/prompts/tree/v0.1.25"
             },
-            "time": "2024-06-17T13:58:22+00:00"
+            "time": "2024-08-12T22:06:33+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -2679,16 +2679,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "2.5.1",
+            "version": "2.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "ac815920de0eff6de947eac0a6a94e5ed0fb147c"
+                "reference": "b650144166dfa7703e62a22e493b853b58d874b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/ac815920de0eff6de947eac0a6a94e5ed0fb147c",
-                "reference": "ac815920de0eff6de947eac0a6a94e5ed0fb147c",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/b650144166dfa7703e62a22e493b853b58d874b0",
+                "reference": "b650144166dfa7703e62a22e493b853b58d874b0",
                 "shasum": ""
             },
             "require": {
@@ -2701,8 +2701,8 @@
             },
             "require-dev": {
                 "cebe/markdown": "^1.0",
-                "commonmark/cmark": "0.31.0",
-                "commonmark/commonmark.js": "0.31.0",
+                "commonmark/cmark": "0.31.1",
+                "commonmark/commonmark.js": "0.31.1",
                 "composer/package-versions-deprecated": "^1.8",
                 "embed/embed": "^4.4",
                 "erusev/parsedown": "^1.0",
@@ -2781,7 +2781,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-07-24T12:52:09+00:00"
+            "time": "2024-08-16T11:46:16+00:00"
         },
         {
             "name": "league/config",
@@ -3055,16 +3055,16 @@
         },
         {
             "name": "log1x/sage-directives",
-            "version": "v2.0.4",
+            "version": "v2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Log1x/sage-directives.git",
-                "reference": "a58a9e223067d3ad2b5adb781e9556dde83371db"
+                "reference": "c391f84f94b2040f758ee60f9682521345eb864c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Log1x/sage-directives/zipball/a58a9e223067d3ad2b5adb781e9556dde83371db",
-                "reference": "a58a9e223067d3ad2b5adb781e9556dde83371db",
+                "url": "https://api.github.com/repos/Log1x/sage-directives/zipball/c391f84f94b2040f758ee60f9682521345eb864c",
+                "reference": "c391f84f94b2040f758ee60f9682521345eb864c",
                 "shasum": ""
             },
             "require": {
@@ -3111,7 +3111,7 @@
             ],
             "support": {
                 "issues": "https://github.com/log1x/sage-directives/issues",
-                "source": "https://github.com/Log1x/sage-directives/tree/v2.0.4"
+                "source": "https://github.com/Log1x/sage-directives/tree/v2.0.5"
             },
             "funding": [
                 {
@@ -3119,7 +3119,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-06-21T14:04:26+00:00"
+            "time": "2024-08-16T09:00:47+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -3224,16 +3224,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "3.7.0",
+            "version": "3.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "cb4374784c87d0a0294e8513a52eb63c0aff3139"
+                "reference": "bbd3eef89af8ba66a3aa7952b5439168fbcc529f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/cb4374784c87d0a0294e8513a52eb63c0aff3139",
-                "reference": "cb4374784c87d0a0294e8513a52eb63c0aff3139",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/bbd3eef89af8ba66a3aa7952b5439168fbcc529f",
+                "reference": "bbd3eef89af8ba66a3aa7952b5439168fbcc529f",
                 "shasum": ""
             },
             "require": {
@@ -3326,7 +3326,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-07-16T22:29:20+00:00"
+            "time": "2024-08-19T06:22:39+00:00"
         },
         {
             "name": "nette/schema",
@@ -3392,20 +3392,20 @@
         },
         {
             "name": "nette/utils",
-            "version": "v4.0.4",
+            "version": "v4.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/utils.git",
-                "reference": "d3ad0aa3b9f934602cb3e3902ebccf10be34d218"
+                "reference": "736c567e257dbe0fcf6ce81b4d6dbe05c6899f96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/utils/zipball/d3ad0aa3b9f934602cb3e3902ebccf10be34d218",
-                "reference": "d3ad0aa3b9f934602cb3e3902ebccf10be34d218",
+                "url": "https://api.github.com/repos/nette/utils/zipball/736c567e257dbe0fcf6ce81b4d6dbe05c6899f96",
+                "reference": "736c567e257dbe0fcf6ce81b4d6dbe05c6899f96",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0 <8.4"
+                "php": "8.0 - 8.4"
             },
             "conflict": {
                 "nette/finder": "<3",
@@ -3472,9 +3472,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/utils/issues",
-                "source": "https://github.com/nette/utils/tree/v4.0.4"
+                "source": "https://github.com/nette/utils/tree/v4.0.5"
             },
-            "time": "2024-01-17T16:50:36+00:00"
+            "time": "2024-08-07T15:39:19+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -8580,16 +8580,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "11.3.0",
+            "version": "11.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "a8dce73a8938dfec7ac0daa91bdbcaae7d7188a3"
+                "reference": "fe179875ef0c14e90b75617002767eae0a742641"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a8dce73a8938dfec7ac0daa91bdbcaae7d7188a3",
-                "reference": "a8dce73a8938dfec7ac0daa91bdbcaae7d7188a3",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/fe179875ef0c14e90b75617002767eae0a742641",
+                "reference": "fe179875ef0c14e90b75617002767eae0a742641",
                 "shasum": ""
             },
             "require": {
@@ -8610,7 +8610,7 @@
                 "phpunit/php-timer": "^7.0.1",
                 "sebastian/cli-parser": "^3.0.2",
                 "sebastian/code-unit": "^3.0.1",
-                "sebastian/comparator": "^6.0.1",
+                "sebastian/comparator": "^6.0.2",
                 "sebastian/diff": "^6.0.2",
                 "sebastian/environment": "^7.2.0",
                 "sebastian/exporter": "^6.1.3",
@@ -8660,7 +8660,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.3.0"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.3.1"
             },
             "funding": [
                 {
@@ -8676,7 +8676,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-08-02T03:56:43+00:00"
+            "time": "2024-08-13T06:14:23+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -8850,16 +8850,16 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "6.0.1",
+            "version": "6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "131942b86d3587291067a94f295498ab6ac79c20"
+                "reference": "450d8f237bd611c45b5acf0733ce43e6bb280f81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/131942b86d3587291067a94f295498ab6ac79c20",
-                "reference": "131942b86d3587291067a94f295498ab6ac79c20",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/450d8f237bd611c45b5acf0733ce43e6bb280f81",
+                "reference": "450d8f237bd611c45b5acf0733ce43e6bb280f81",
                 "shasum": ""
             },
             "require": {
@@ -8915,7 +8915,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/comparator/issues",
                 "security": "https://github.com/sebastianbergmann/comparator/security/policy",
-                "source": "https://github.com/sebastianbergmann/comparator/tree/6.0.1"
+                "source": "https://github.com/sebastianbergmann/comparator/tree/6.0.2"
             },
             "funding": [
                 {
@@ -8923,7 +8923,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-07-03T04:48:07+00:00"
+            "time": "2024-08-12T06:07:25+00:00"
         },
         {
             "name": "sebastian/complexity",
@@ -9734,5 +9734,5 @@
         "php": "^8.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
