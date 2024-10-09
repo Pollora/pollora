@@ -26,13 +26,15 @@ const getDevServerConfig = () => {
     };
 };
 
+
 const getThemeConfig = () => ({
-    base: "./",
+    base: ".",
     input: ["./assets/app.js"],
     publicDirectory,
     hotFile: path.join(publicDirectory, `${themeName}.hot`),
     buildDirectory: path.join( "build", themeName)
 });
+
 
 export default defineConfig({
     plugins: [
