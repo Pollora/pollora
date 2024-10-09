@@ -6,6 +6,9 @@
 /public/storage
 /storage/*.key
 /vendor
+.phpstorm.meta.php
+_ide_helper.php
+.ddev
 .env
 .env.backup
 .env.production

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Providers\Theme\Pollen\AssetServiceProvider;
+use App\Providers\Theme\Default\AssetServiceProvider;
 
 /*
 |--------------------------------------------------------------------------

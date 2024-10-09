@@ -11,8 +11,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $post = Post::find(WordPress::id());
 
-        return view('home', ['post' => $post]);
+        return view('home');
     }
 }

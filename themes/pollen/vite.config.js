@@ -1,17 +1,42 @@
 import { defineConfig } from "vite";
 import laravel from "laravel-vite-plugin";
-import { readFileSync } from 'node:fs';
+import path from 'path';
+
+const isDevelopment = !!process.env.DDEV_PRIMARY_URL;
+const port = 5173;
+const publicDirectory = "../../public";
+const themeName = path.basename(__dirname);
+
+const getDevServerConfig = () => {
+    if (!isDevelopment) return {};
+
+    const hostname = new URL(process.env.DDEV_PRIMARY_URL).hostname;
+    return {
+        server: {
+            host: '0.0.0.0',
+            port,
+            strictPort: true,
+            origin: `${process.env.DDEV_PRIMARY_URL}:${port}`,
+            hmr: {
+                host: hostname,
+                port,
+                protocol: 'wss',
+            }
+        }
+    };
+};
+
+const getThemeConfig = () => ({
+    base: "./",
+    input: ["./assets/app.js"],
+    publicDirectory,
+    hotFile: path.join(publicDirectory, `${themeName}.hot`),
+    buildDirectory: path.join( "build", themeName)
+});
 
 export default defineConfig({
     plugins: [
-        laravel({
-            input: [
-                "themes/pollen/css/app.css",
-                "themes/pollen/js/app.js"
-            ],
-            //hotFile: publicPath + '/hot',
-            buildDirectory: "build/pollen",
-        }),
+        laravel(getThemeConfig()),
         {
             name: "blade",
             handleHotUpdate({ file, server }) {
@@ -24,19 +49,5 @@ export default defineConfig({
             },
         },
     ],
-    server: {
-        cors: true,
-        strictPort: true,
-        port: 5173,
-        host: '0.0.0.0',
-        open: false,
-        hmr: {
-            port: 5173,
-            clientPort: 5173,
-        },
-        https: {
-            key: readFileSync('/etc/certs/local-key.pem'),
-            cert: readFileSync('/etc/certs/local-cert.pem'),
-        }
-    },
+    ...getDevServerConfig()
 });

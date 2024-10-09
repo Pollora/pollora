@@ -17,5 +17,5 @@ declare(strict_types=1);
  *                              to the media custom field. If string, used as the display name ;)
  */
 return [
-    'pollen_sample' => [200, 125, false],
+    'theme_sample' => [200, 125, false],
 ];

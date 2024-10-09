@@ -1,8 +1,14 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-    content: [
-        "./themes/pollen/**/*.{blade.php,js,vue,ts}",
-    ],
+module.exports = {
+    content: {
+        relative: true,
+        files: [
+            "./../../resources/views/**/*.blade.php",
+            "./views/**/*.blade.php",
+            "./assets/**/*.{js,css}",
+            "./assets/**/*.{js,css}",
+        ],
+    },
     theme: {
         extend: {},
     },
