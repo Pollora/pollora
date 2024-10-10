@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2ada4391bc35aee21cbea3ce070127ed",
+    "content-hash": "8d427a5a3205720fa381debc2ec8da53",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -2304,16 +2304,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v11.27.1",
+            "version": "v11.27.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "2634ad4a6a71da3288943f058a8abbfec6a65ebb"
+                "reference": "a51d1f2b771c542324a3d9b76a98b1bbc75c0ee9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/2634ad4a6a71da3288943f058a8abbfec6a65ebb",
-                "reference": "2634ad4a6a71da3288943f058a8abbfec6a65ebb",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/a51d1f2b771c542324a3d9b76a98b1bbc75c0ee9",
+                "reference": "a51d1f2b771c542324a3d9b76a98b1bbc75c0ee9",
                 "shasum": ""
             },
             "require": {
@@ -2509,7 +2509,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-10-08T20:25:59+00:00"
+            "time": "2024-10-09T04:17:35+00:00"
         },
         {
             "name": "laravel/pint",
@@ -4055,12 +4055,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AmphiBee/pollen-framework.git",
-                "reference": "5681565cb42923cdec3b1c0e855a2721b8bc3724"
+                "reference": "e470b3a7994bc18a20926fce2efc5d61cf69b6ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AmphiBee/pollen-framework/zipball/5681565cb42923cdec3b1c0e855a2721b8bc3724",
-                "reference": "5681565cb42923cdec3b1c0e855a2721b8bc3724",
+                "url": "https://api.github.com/repos/AmphiBee/pollen-framework/zipball/e470b3a7994bc18a20926fce2efc5d61cf69b6ab",
+                "reference": "e470b3a7994bc18a20926fce2efc5d61cf69b6ab",
                 "shasum": ""
             },
             "require": {
@@ -4092,14 +4092,11 @@
             "type": "project",
             "extra": {
                 "patches": {
-                    "pollen/framework": [
-                        "patches/php-stubs-wordpress-stubs-wordpress-stubs-php.patch"
-                    ],
                     "johnpbloch/wordpress-core": {
-                        "Patch __ method in l10n to stop conflicting with Laravel": "patches/wordpress-core.patch"
+                        "Patch __ method in l10n to stop conflicting with Laravel": "https://raw.githubusercontent.com/AmphiBee/pollen-framework/refs/heads/main/patches/wordpress-core.patch"
                     },
                     "php-stubs/wordpress-stubs": {
-                        "Rename __ and wp_mail functions": "patches/wordpress-stubs.patch"
+                        "Rename __ and wp_mail functions": "https://raw.githubusercontent.com/AmphiBee/pollen-framework/refs/heads/main/patches/wordpress-stubs.patch"
                     }
                 },
                 "laravel": {
@@ -4150,7 +4147,7 @@
                 "issues": "https://github.com/AmphiBee/pollen-framework/issues",
                 "source": "https://github.com/AmphiBee/pollen-framework/tree/main"
             },
-            "time": "2024-10-04T12:09:42+00:00"
+            "time": "2024-10-09T07:12:50+00:00"
         },
         {
             "name": "pollen/query",
@@ -8272,35 +8269,35 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "11.0.6",
+            "version": "11.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "ebdffc9e09585dafa71b9bffcdb0a229d4704c45"
+                "reference": "f7f08030e8811582cc459871d28d6f5a1a4d35ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/ebdffc9e09585dafa71b9bffcdb0a229d4704c45",
-                "reference": "ebdffc9e09585dafa71b9bffcdb0a229d4704c45",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/f7f08030e8811582cc459871d28d6f5a1a4d35ca",
+                "reference": "f7f08030e8811582cc459871d28d6f5a1a4d35ca",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-libxml": "*",
                 "ext-xmlwriter": "*",
-                "nikic/php-parser": "^5.1.0",
+                "nikic/php-parser": "^5.3.1",
                 "php": ">=8.2",
-                "phpunit/php-file-iterator": "^5.0.1",
+                "phpunit/php-file-iterator": "^5.1.0",
                 "phpunit/php-text-template": "^4.0.1",
                 "sebastian/code-unit-reverse-lookup": "^4.0.1",
                 "sebastian/complexity": "^4.0.1",
                 "sebastian/environment": "^7.2.0",
                 "sebastian/lines-of-code": "^3.0.1",
-                "sebastian/version": "^5.0.1",
+                "sebastian/version": "^5.0.2",
                 "theseer/tokenizer": "^1.2.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "^11.0"
+                "phpunit/phpunit": "^11.4.1"
             },
             "suggest": {
                 "ext-pcov": "PHP extension that provides line coverage",
@@ -8338,7 +8335,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
                 "security": "https://github.com/sebastianbergmann/php-code-coverage/security/policy",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/11.0.6"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/11.0.7"
             },
             "funding": [
                 {
@@ -8346,7 +8343,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-08-22T04:37:56+00:00"
+            "time": "2024-10-09T06:21:38+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -9564,16 +9561,16 @@
         },
         {
             "name": "sebastian/version",
-            "version": "5.0.1",
+            "version": "5.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/version.git",
-                "reference": "45c9debb7d039ce9b97de2f749c2cf5832a06ac4"
+                "reference": "c687e3387b99f5b03b6caa64c74b63e2936ff874"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/version/zipball/45c9debb7d039ce9b97de2f749c2cf5832a06ac4",
-                "reference": "45c9debb7d039ce9b97de2f749c2cf5832a06ac4",
+                "url": "https://api.github.com/repos/sebastianbergmann/version/zipball/c687e3387b99f5b03b6caa64c74b63e2936ff874",
+                "reference": "c687e3387b99f5b03b6caa64c74b63e2936ff874",
                 "shasum": ""
             },
             "require": {
@@ -9606,7 +9603,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/version/issues",
                 "security": "https://github.com/sebastianbergmann/version/security/policy",
-                "source": "https://github.com/sebastianbergmann/version/tree/5.0.1"
+                "source": "https://github.com/sebastianbergmann/version/tree/5.0.2"
             },
             "funding": [
                 {
@@ -9614,7 +9611,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-07-03T05:13:08+00:00"
+            "time": "2024-10-09T05:16:32+00:00"
         },
         {
             "name": "symfony/yaml",
