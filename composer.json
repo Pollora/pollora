@@ -21,7 +21,7 @@
         "barryvdh/laravel-ide-helper": "^3.0",
         "guzzlehttp/guzzle": "^7.9",
         "johnpbloch/wordpress": "^6.6",
-        "laravel/framework": "^11.27",
+        "laravel/framework": "^11.28",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "roots/wp-password-bcrypt": "^1.0",
