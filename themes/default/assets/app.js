@@ -4,6 +4,12 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+
+import.meta.glob([
+    '../assets/images/**',
+    '../assets/fonts/**',
+]);
+
 import "./js/bootstrap.js";
 
 // styles
