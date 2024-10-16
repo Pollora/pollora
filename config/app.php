@@ -3,7 +3,9 @@
 declare(strict_types=1);
 
 return [
-
+    'hooks' => [
+        // Make something hookable here.
+    ],
     'conditions' => [
         'is_404' => '404',
         'is_archive' => 'archive',
