@@ -80,11 +80,7 @@
                 "type:wordpress-theme"
             ]
         },
-        "laravel": {
-            "dont-discover": [
-                "qirolab/laravel-themer"
-            ]
-        },
+        "laravel": {},
         "enable-patching": true
     },
     "config": {
