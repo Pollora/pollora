@@ -7,7 +7,7 @@ Thank you for taking the time to contribute to the Pollora project! This project
 ## Prerequisites
 
 1. Install Git on your local machine.
-2. Fork the Pollora projet: [https://github.com/AmphiBee/pollora](https://github.com/AmphiBee/pollora).
+2. Fork the Pollora projet: [https://github.com/Pollora/pollora](https://github.com/Pollora/pollora).
 3. Clone your fork on your local machine.
 
 > **Note:** Installing Git Flow is optional, but if you choose not to use it, please adhere to the branch naming convention as described below.
