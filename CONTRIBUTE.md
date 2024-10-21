@@ -29,7 +29,7 @@ Thank you for taking the time to contribute to the Pollora project! This project
 ### Documentation
 
 - **Technical Part**: Document classes, functions, methods, and variables using appropriate code comments.
-- **Functional Part**: Update Pollora's documentation on the corresponding repository: [Pollora Documentation](https://github.com/AmphiBee/pollora-documentation).
+- **Functional Part**: Update Pollora's documentation on the corresponding repository: [Pollora Documentation](https://github.com/pollora/documentation).
 
 ## Submitting the Pull Request
 
