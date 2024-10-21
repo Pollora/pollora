@@ -27,7 +27,7 @@ Pollora is designed to be versatile, intuitive, and the perfect tool for project
 
 ## Documentation
 
-The documentation is in work in progress but you will find it [here](https://github.com/AmphiBee/pollora-documentation)
+The documentation is in work in progress but you will find it [here](https://github.com/pollora/documentation)
 
 ## Pollora Sponsors
 
