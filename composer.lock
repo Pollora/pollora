@@ -4,41 +4,41 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1e17e2391c413569119ea6aeee443181",
+    "content-hash": "1bbd812bc7bb91158977e4ead50a8f40",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
-            "version": "v3.1.0",
+            "version": "v3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-ide-helper.git",
-                "reference": "591e7d665fbab8a3b682e451641706341573eb80"
+                "reference": "7956ccb4943f8532d008c17a1094b34bb6394d56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/591e7d665fbab8a3b682e451641706341573eb80",
-                "reference": "591e7d665fbab8a3b682e451641706341573eb80",
+                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/7956ccb4943f8532d008c17a1094b34bb6394d56",
+                "reference": "7956ccb4943f8532d008c17a1094b34bb6394d56",
                 "shasum": ""
             },
             "require": {
-                "barryvdh/reflection-docblock": "^2.1.1",
+                "barryvdh/reflection-docblock": "^2.1.2",
                 "composer/class-map-generator": "^1.0",
                 "ext-json": "*",
-                "illuminate/console": "^10 || ^11",
-                "illuminate/database": "^10.38 || ^11",
-                "illuminate/filesystem": "^10 || ^11",
-                "illuminate/support": "^10 || ^11",
+                "illuminate/console": "^11.15",
+                "illuminate/database": "^11.15",
+                "illuminate/filesystem": "^11.15",
+                "illuminate/support": "^11.15",
                 "nikic/php-parser": "^4.18 || ^5",
-                "php": "^8.1",
+                "php": "^8.2",
                 "phpdocumentor/type-resolver": "^1.1.0"
             },
             "require-dev": {
                 "ext-pdo_sqlite": "*",
                 "friendsofphp/php-cs-fixer": "^3",
-                "illuminate/config": "^9 || ^10 || ^11",
-                "illuminate/view": "^9 || ^10 || ^11",
+                "illuminate/config": "^11.15",
+                "illuminate/view": "^11.15",
                 "mockery/mockery": "^1.4",
-                "orchestra/testbench": "^8 || ^9",
+                "orchestra/testbench": "^9.2",
                 "phpunit/phpunit": "^10.5",
                 "spatie/phpunit-snapshot-assertions": "^4 || ^5",
                 "vimeo/psalm": "^5.4"
@@ -49,7 +49,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.1-dev"
+                    "dev-master": "3.2-dev"
                 },
                 "laravel": {
                     "providers": [
@@ -86,7 +86,7 @@
             ],
             "support": {
                 "issues": "https://github.com/barryvdh/laravel-ide-helper/issues",
-                "source": "https://github.com/barryvdh/laravel-ide-helper/tree/v3.1.0"
+                "source": "https://github.com/barryvdh/laravel-ide-helper/tree/v3.2.0"
             },
             "funding": [
                 {
@@ -98,7 +98,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-07-12T14:20:51+00:00"
+            "time": "2024-10-17T16:43:13+00:00"
         },
         {
             "name": "barryvdh/reflection-docblock",
@@ -1429,16 +1429,16 @@
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "6ea8dd08867a2a42619d65c3deb2c0fcbf81c8f8"
+                "reference": "f9c436286ab2892c7db7be8c8da4ef61ccf7b455"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/6ea8dd08867a2a42619d65c3deb2c0fcbf81c8f8",
-                "reference": "6ea8dd08867a2a42619d65c3deb2c0fcbf81c8f8",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/f9c436286ab2892c7db7be8c8da4ef61ccf7b455",
+                "reference": "f9c436286ab2892c7db7be8c8da4ef61ccf7b455",
                 "shasum": ""
             },
             "require": {
@@ -1492,7 +1492,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/promises/issues",
-                "source": "https://github.com/guzzle/promises/tree/2.0.3"
+                "source": "https://github.com/guzzle/promises/tree/2.0.4"
             },
             "funding": [
                 {
@@ -1508,7 +1508,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-07-18T10:29:17+00:00"
+            "time": "2024-10-17T10:06:22+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -4009,29 +4009,29 @@
             "time": "2024-10-13T11:25:22+00:00"
         },
         {
-            "name": "pollen/entity",
+            "name": "pollora/entity",
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/AmphiBee/WordPressEntity.git",
-                "reference": "aa26f525663e28ea3f96207622b8f76797dfcdfb"
+                "url": "https://github.com/Pollora/WordPressEntity.git",
+                "reference": "83968a1c1d07cf9fb0cfc34f3636d9a69e8a2efc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AmphiBee/WordPressEntity/zipball/aa26f525663e28ea3f96207622b8f76797dfcdfb",
-                "reference": "aa26f525663e28ea3f96207622b8f76797dfcdfb",
+                "url": "https://api.github.com/repos/Pollora/WordPressEntity/zipball/83968a1c1d07cf9fb0cfc34f3636d9a69e8a2efc",
+                "reference": "83968a1c1d07cf9fb0cfc34f3636d9a69e8a2efc",
                 "shasum": ""
             },
             "require": {
                 "johnbillion/extended-cpts": "^5.0",
                 "php": "^8.1",
-                "pollen/wordpress-args": "dev-main"
+                "pollora/wordpress-args": "dev-main"
             },
             "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Pollen\\Entity\\": "src/"
+                    "Pollora\\Entity\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -4047,23 +4047,23 @@
             ],
             "description": "Create WordPress post type and taxonomy in a fluent way !",
             "support": {
-                "issues": "https://github.com/AmphiBee/WordPressEntity/issues",
-                "source": "https://github.com/AmphiBee/WordPressEntity/tree/main"
+                "issues": "https://github.com/Pollora/WordPressEntity/issues",
+                "source": "https://github.com/Pollora/WordPressEntity/tree/main"
             },
-            "time": "2024-06-08T04:49:44+00:00"
+            "time": "2024-10-21T11:35:25+00:00"
         },
         {
-            "name": "pollen/framework",
+            "name": "pollora/framework",
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/AmphiBee/pollen-framework.git",
-                "reference": "ee732578f3893c2f6adab391c0becba0a111dce4"
+                "url": "https://github.com/Pollora/framework.git",
+                "reference": "45f02d078eb2766f5115d79c792f40fef0309bba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AmphiBee/pollen-framework/zipball/ee732578f3893c2f6adab391c0becba0a111dce4",
-                "reference": "ee732578f3893c2f6adab391c0becba0a111dce4",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/45f02d078eb2766f5115d79c792f40fef0309bba",
+                "reference": "45f02d078eb2766f5115d79c792f40fef0309bba",
                 "shasum": ""
             },
             "require": {
@@ -4074,8 +4074,8 @@
                 "jgrossi/corcel": "^8.0",
                 "log1x/sage-directives": "^2.0",
                 "php": "^8.2.0",
-                "pollen/entity": "dev-main",
-                "pollen/query": "dev-main",
+                "pollora/entity": "dev-main",
+                "pollora/query": "dev-main",
                 "roots/bedrock-autoloader": "^1.0",
                 "watson/rememberable": "^6.1"
             },
@@ -4096,28 +4096,28 @@
             "extra": {
                 "patches": {
                     "johnpbloch/wordpress-core": {
-                        "Patch __ method in l10n to stop conflicting with Laravel": "https://raw.githubusercontent.com/AmphiBee/pollen-framework/refs/heads/main/patches/wordpress-core.patch"
+                        "Patch __ method in l10n to stop conflicting with Laravel": "https://raw.githubusercontent.com/Pollora/framework/refs/heads/main/patches/wordpress-core.patch"
                     },
                     "php-stubs/wordpress-stubs": {
-                        "Rename __ and wp_mail functions": "https://raw.githubusercontent.com/AmphiBee/pollen-framework/refs/heads/main/patches/wordpress-stubs.patch"
+                        "Rename __ and wp_mail functions": "https://raw.githubusercontent.com/Pollora/framework/refs/heads/main/patches/wordpress-stubs.patch"
                     }
                 },
                 "laravel": {
                     "providers": [
-                        "Pollen\\Providers\\PollenServiceProvider"
+                        "Pollora\\Providers\\PolloraServiceProvider"
                     ],
                     "aliases": {
-                        "Wordpress": "Pollen\\Support\\WordPress",
-                        "Action": "Pollen\\Support\\Facades\\Action",
-                        "Filter": "Pollen\\Support\\Facades\\Filter",
-                        "Query": "Pollen\\Support\\Facades\\Query",
-                        "Hash": "Pollen\\Support\\Facades\\WPHash",
-                        "Loop": "Pollen\\Support\\Facades\\Loop",
-                        "Ajax": "Pollen\\Support\\Facades\\Ajax",
-                        "PostType": "Pollen\\Support\\Facades\\PostType",
-                        "Taxonomy": "Pollen\\Support\\Facades\\Taxonomy",
-                        "Theme": "Pollen\\Support\\Facades\\Theme",
-                        "Asset": "Pollen\\Support\\Facades\\Asset"
+                        "Wordpress": "Pollora\\Support\\WordPress",
+                        "Action": "Pollora\\Support\\Facades\\Action",
+                        "Filter": "Pollora\\Support\\Facades\\Filter",
+                        "Query": "Pollora\\Support\\Facades\\Query",
+                        "Hash": "Pollora\\Support\\Facades\\WPHash",
+                        "Loop": "Pollora\\Support\\Facades\\Loop",
+                        "Ajax": "Pollora\\Support\\Facades\\Ajax",
+                        "PostType": "Pollora\\Support\\Facades\\PostType",
+                        "Taxonomy": "Pollora\\Support\\Facades\\Taxonomy",
+                        "Theme": "Pollora\\Support\\Facades\\Theme",
+                        "Asset": "Pollora\\Support\\Facades\\Asset"
                     }
                 }
             },
@@ -4126,7 +4126,7 @@
                     "src/helpers.php"
                 ],
                 "psr-4": {
-                    "Pollen\\": "src/"
+                    "Pollora\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -4147,29 +4147,29 @@
             ],
             "description": "Laravel & WordPress blend for coding as sweet as honey. Join the hive!",
             "support": {
-                "issues": "https://github.com/AmphiBee/pollen-framework/issues",
-                "source": "https://github.com/AmphiBee/pollen-framework/tree/main"
+                "issues": "https://github.com/Pollora/framework/issues",
+                "source": "https://github.com/Pollora/framework/tree/main"
             },
-            "time": "2024-10-16T12:47:31+00:00"
+            "time": "2024-10-21T11:39:11+00:00"
         },
         {
-            "name": "pollen/query",
+            "name": "pollora/query",
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/AmphiBee/Query.git",
-                "reference": "78104fc7b50fc25be7ae524bca078c5616075c35"
+                "url": "https://github.com/Pollora/Query.git",
+                "reference": "ce630efd60eb615f42771cced446dee4035ebb3a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AmphiBee/Query/zipball/78104fc7b50fc25be7ae524bca078c5616075c35",
-                "reference": "78104fc7b50fc25be7ae524bca078c5616075c35",
+                "url": "https://api.github.com/repos/Pollora/Query/zipball/ce630efd60eb615f42771cced446dee4035ebb3a",
+                "reference": "ce630efd60eb615f42771cced446dee4035ebb3a",
                 "shasum": ""
             },
             "require": {
                 "laravel/pint": "^1.13",
                 "php": "^8.1.0",
-                "pollen/wordpress-args": "dev-main"
+                "pollora/wordpress-args": "dev-main"
             },
             "require-dev": {
                 "nunomaduro/phpinsights": "^2.8",
@@ -4180,7 +4180,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Pollen\\Query\\": "src/"
+                    "Pollora\\Query\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -4196,23 +4196,23 @@
             ],
             "description": "Create WP Query in a fluent way.",
             "support": {
-                "issues": "https://github.com/AmphiBee/Query/issues",
-                "source": "https://github.com/AmphiBee/Query/tree/main"
+                "issues": "https://github.com/Pollora/Query/issues",
+                "source": "https://github.com/Pollora/Query/tree/1.0"
             },
-            "time": "2024-02-25T14:11:56+00:00"
+            "time": "2024-10-21T11:23:48+00:00"
         },
         {
-            "name": "pollen/wordpress-args",
+            "name": "pollora/wordpress-args",
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/AmphiBee/WordPressArguments.git",
-                "reference": "ee3b573d14a1f64ef67ba4dd418800cde418e22b"
+                "url": "https://github.com/Pollora/WordPressArguments.git",
+                "reference": "b15077c6eb035032739c55098039b5128d5d7598"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AmphiBee/WordPressArguments/zipball/ee3b573d14a1f64ef67ba4dd418800cde418e22b",
-                "reference": "ee3b573d14a1f64ef67ba4dd418800cde418e22b",
+                "url": "https://api.github.com/repos/Pollora/WordPressArguments/zipball/b15077c6eb035032739c55098039b5128d5d7598",
+                "reference": "b15077c6eb035032739c55098039b5128d5d7598",
                 "shasum": ""
             },
             "require": {
@@ -4222,7 +4222,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Pollen\\WordPressArgs\\": "src/"
+                    "Pollora\\WordPressArgs\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -4238,10 +4238,10 @@
             ],
             "description": "Manipulate WordPress arguments as an object.",
             "support": {
-                "issues": "https://github.com/AmphiBee/WordPressArguments/issues",
-                "source": "https://github.com/AmphiBee/WordPressArguments/tree/main"
+                "issues": "https://github.com/Pollora/WordPressArguments/issues",
+                "source": "https://github.com/Pollora/WordPressArguments/tree/1.0"
             },
-            "time": "2024-06-08T06:01:30+00:00"
+            "time": "2024-10-21T11:28:14+00:00"
         },
         {
             "name": "psr/clock",
@@ -8595,16 +8595,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "11.4.1",
+            "version": "11.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "7875627f15f4da7e7f0823d1f323f7295a77334e"
+                "reference": "1863643c3f04ad03dcb9c6996c294784cdda4805"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/7875627f15f4da7e7f0823d1f323f7295a77334e",
-                "reference": "7875627f15f4da7e7f0823d1f323f7295a77334e",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/1863643c3f04ad03dcb9c6996c294784cdda4805",
+                "reference": "1863643c3f04ad03dcb9c6996c294784cdda4805",
                 "shasum": ""
             },
             "require": {
@@ -8618,21 +8618,21 @@
                 "phar-io/manifest": "^2.0.4",
                 "phar-io/version": "^3.2.1",
                 "php": ">=8.2",
-                "phpunit/php-code-coverage": "^11.0.6",
+                "phpunit/php-code-coverage": "^11.0.7",
                 "phpunit/php-file-iterator": "^5.1.0",
                 "phpunit/php-invoker": "^5.0.1",
                 "phpunit/php-text-template": "^4.0.1",
                 "phpunit/php-timer": "^7.0.1",
                 "sebastian/cli-parser": "^3.0.2",
                 "sebastian/code-unit": "^3.0.1",
-                "sebastian/comparator": "^6.1.0",
+                "sebastian/comparator": "^6.1.1",
                 "sebastian/diff": "^6.0.2",
                 "sebastian/environment": "^7.2.0",
                 "sebastian/exporter": "^6.1.3",
                 "sebastian/global-state": "^7.0.2",
                 "sebastian/object-enumerator": "^6.0.1",
                 "sebastian/type": "^5.1.0",
-                "sebastian/version": "^5.0.1"
+                "sebastian/version": "^5.0.2"
             },
             "suggest": {
                 "ext-soap": "To be able to generate mocks based on WSDL files"
@@ -8675,7 +8675,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.4.1"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.4.2"
             },
             "funding": [
                 {
@@ -8691,7 +8691,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-10-08T15:38:37+00:00"
+            "time": "2024-10-19T13:05:19+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -8865,16 +8865,16 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "6.1.0",
+            "version": "6.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "fa37b9e2ca618cb051d71b60120952ee8ca8b03d"
+                "reference": "5ef523a49ae7a302b87b2102b72b1eda8918d686"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/fa37b9e2ca618cb051d71b60120952ee8ca8b03d",
-                "reference": "fa37b9e2ca618cb051d71b60120952ee8ca8b03d",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/5ef523a49ae7a302b87b2102b72b1eda8918d686",
+                "reference": "5ef523a49ae7a302b87b2102b72b1eda8918d686",
                 "shasum": ""
             },
             "require": {
@@ -8930,7 +8930,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/comparator/issues",
                 "security": "https://github.com/sebastianbergmann/comparator/security/policy",
-                "source": "https://github.com/sebastianbergmann/comparator/tree/6.1.0"
+                "source": "https://github.com/sebastianbergmann/comparator/tree/6.1.1"
             },
             "funding": [
                 {
@@ -8938,7 +8938,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-09-11T15:42:56+00:00"
+            "time": "2024-10-18T15:00:48+00:00"
         },
         {
             "name": "sebastian/complexity",
@@ -9741,7 +9741,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "pollen/framework": 20
+        "pollora/framework": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
@@ -9749,5 +9749,5 @@
         "php": "^8.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

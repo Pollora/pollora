@@ -2,12 +2,12 @@
 
 ## Introduction
 
-Thank you for taking the time to contribute to the Pollen project! This project aims to integrate WordPress into a Laravel application. We adhere to Laravel's development conventions and respect Git Flow's branch naming conventions.
+Thank you for taking the time to contribute to the Pollora project! This project aims to integrate WordPress into a Laravel application. We adhere to Laravel's development conventions and respect Git Flow's branch naming conventions.
 
 ## Prerequisites
 
 1. Install Git on your local machine.
-2. Fork the Pollen projet: [https://github.com/AmphiBee/pollen](https://github.com/AmphiBee/pollen).
+2. Fork the Pollora projet: [https://github.com/AmphiBee/pollora](https://github.com/AmphiBee/pollora).
 3. Clone your fork on your local machine.
 
 > **Note:** Installing Git Flow is optional, but if you choose not to use it, please adhere to the branch naming convention as described below.
@@ -29,7 +29,7 @@ Thank you for taking the time to contribute to the Pollen project! This project 
 ### Documentation
 
 - **Technical Part**: Document classes, functions, methods, and variables using appropriate code comments.
-- **Functional Part**: Update Pollen's documentation on the corresponding repository: [Pollen Documentation](https://github.com/AmphiBee/pollen-documentation).
+- **Functional Part**: Update Pollora's documentation on the corresponding repository: [Pollora Documentation](https://github.com/AmphiBee/pollora-documentation).
 
 ## Submitting the Pull Request
 
@@ -61,7 +61,7 @@ After submitting, please label the bug report with the `bug` label provided in G
 
 ### Follow-Up
 
-Please try to keep the conversation focused on fixing the reported bug. We appreciate your help in making Pollen better.
+Please try to keep the conversation focused on fixing the reported bug. We appreciate your help in making Pollora better.
 
 ## Support
 

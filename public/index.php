@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Illuminate\Http\Request;
 
-require_once __DIR__.'/../vendor/pollen/framework/src/helpers.php';
+require_once __DIR__.'/../vendor/pollora/framework/src/helpers.php';
 
 define('LARAVEL_START', microtime(true));
 

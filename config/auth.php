@@ -14,7 +14,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'wp',
-            'model' => \Pollen\Models\User::class,
+            'model' => \Pollora\Models\User::class,
         ],
     ],
 

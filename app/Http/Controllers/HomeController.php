@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use Pollen\Models\Post;
-use Pollen\Support\WordPress;
+use Pollora\Models\Post;
+use Pollora\Support\WordPress;
 
 class HomeController extends Controller
 {

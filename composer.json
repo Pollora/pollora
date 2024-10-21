@@ -1,9 +1,9 @@
 {
-    "name": "pollen/pollen",
+    "name": "pollora/pollora",
     "type": "project",
-    "description": "The skeleton application for the Pollen framework.",
+    "description": "The skeleton application for the Pollora framework.",
     "keywords": [
-        "pollen",
+        "pollora",
         "laravel",
         "framework",
         "wordpress"
@@ -17,7 +17,7 @@
     ],
     "require": {
         "php": "^8.2",
-        "pollen/framework": "dev-main",
+        "pollora/framework": "dev-main",
         "barryvdh/laravel-ide-helper": "^3.0",
         "guzzlehttp/guzzle": "^7.9",
         "johnpbloch/wordpress": "^6.6",
@@ -41,7 +41,7 @@
         ],
         "psr-4": {
             "App\\": "app/",
-            "Pollen\\Wiper\\": "public/content/mu-plugins/wiper/src/",
+            "Pollora\\Wiper\\": "public/content/mu-plugins/wiper/src/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }

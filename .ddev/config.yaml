@@ -1,4 +1,4 @@
-name: pollen
+name: pollora
 type: wordpress
 docroot: public
 php_version: "8.2"
