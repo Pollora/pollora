@@ -92,7 +92,8 @@
             "php-http/discovery": true,
             "johnpbloch/wordpress-core-installer": true,
             "cweagans/composer-patches": true,
-            "composer/installers": true
+            "composer/installers": true,
+            "pollora/helper-overrider": true
         }
     },
     "minimum-stability": "dev",

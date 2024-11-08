@@ -5,7 +5,6 @@ use Symfony\Component\Console\Input\ArgvInput;
 
 define('LARAVEL_START', microtime(true));
 
-require_once __DIR__.'/vendor/pollora/framework/src/helpers.php';
 // Register the Composer autoloader...
 require __DIR__.'/vendor/autoload.php';
 

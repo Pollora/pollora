@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Providers\Theme\Default\AssetServiceProvider;
+use App\Themes\Default\Providers\AssetServiceProvider;
 
 /*
 |--------------------------------------------------------------------------

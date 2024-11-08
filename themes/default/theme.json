@@ -135,17 +135,25 @@
             "dropCap": false,
             "fontFamilies": [
                 {
-                    "fontFamily": "Poppins,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji",
-                    "name": "Poppins",
-                    "slug": "poppins",
+                    "fontFamily": "Inter var,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji",
+                    "name": "Inter var",
+                    "slug": "inter-var",
                     "fontFace": [
                         {
-                            "fontFamily": "Poppins",
-                            "fontWeight": "400",
+                            "fontFamily": "Inter var",
+                            "fontWeight": "100 900",
                             "fontStyle": "normal",
                             "fontDisplay": "swap",
                             "fontStretch": "normal",
-                            "src": ["file:./assets/fonts/Poppins-Regular.ttf"]
+                            "src": ["file:./fonts/Inter-Regular.woff2"]
+                        },
+                        {
+                            "fontFamily": "Inter var",
+                            "fontWeight": "100 900",
+                            "fontStyle": "italic",
+                            "fontDisplay": "swap",
+                            "fontStretch": "normal",
+                            "src": ["file:./fonts/Inter-Italic.woff2"]
                         }
                     ]
                 }

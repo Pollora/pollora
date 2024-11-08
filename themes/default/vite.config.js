@@ -28,15 +28,15 @@ const getDevServerConfig = () => {
 
 
 const getThemeConfig = () => ({
-    base: ".",
+    base: "/themes/" + themeName,
     input: ["./assets/app.js"],
     publicDirectory,
     hotFile: path.join(publicDirectory, `${themeName}.hot`),
     buildDirectory: path.join( "build", themeName)
 });
 
-
 export default defineConfig({
+    base: "/themes/" + themeName,
     plugins: [
         laravel(getThemeConfig()),
         {
@@ -53,3 +53,4 @@ export default defineConfig({
     ],
     ...getDevServerConfig()
 });
+
