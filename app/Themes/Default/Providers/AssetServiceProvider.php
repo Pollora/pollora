@@ -24,6 +24,7 @@ class AssetServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Asset::add('default/script', 'assets/app.js')
+            ->container('theme')
             ->toFrontend()
             ->useVite();
     }
