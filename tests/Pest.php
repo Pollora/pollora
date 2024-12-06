@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
 |--------------------------------------------------------------------------
 | Test Case
@@ -34,4 +36,3 @@
 | global functions to help you to reduce the number of lines of code in your test files.
 |
 */
-

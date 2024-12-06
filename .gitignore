@@ -25,4 +25,5 @@ Taskfile.yml
 /.vscode
 .docker
 .data
+*.sql
 public/content/object-cache.php

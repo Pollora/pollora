@@ -78,7 +78,7 @@
                 @yield('content')
 
                 <div class="max-w-[200px] my-20 mx-auto">
-                    <img src="{{ Vite::image('pollora.svg') }}">
+                    <img src="{{ Asset::url('assets/images/pollora.svg') }}">
                 </div>
             </div>
         </main>

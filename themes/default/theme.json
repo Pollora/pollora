@@ -145,7 +145,7 @@
                             "fontStyle": "normal",
                             "fontDisplay": "swap",
                             "fontStretch": "normal",
-                            "src": ["file:./fonts/Inter-Regular.woff2"]
+                            "src": ["file:./assets/fonts/Inter-Regular.woff2"]
                         },
                         {
                             "fontFamily": "Inter var",
@@ -153,7 +153,7 @@
                             "fontStyle": "italic",
                             "fontDisplay": "swap",
                             "fontStretch": "normal",
-                            "src": ["file:./fonts/Inter-Italic.woff2"]
+                            "src": ["file:./assets/fonts/Inter-Italic.woff2"]
                         }
                     ]
                 }

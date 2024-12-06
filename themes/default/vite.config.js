@@ -37,6 +37,9 @@ const getThemeConfig = () => ({
 
 export default defineConfig({
     base: "/themes/" + themeName,
+    build: {
+        emptyOutDir: false,
+    },
     plugins: [
         laravel(getThemeConfig()),
         {

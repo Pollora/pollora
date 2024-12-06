@@ -12,4 +12,3 @@ if (
 }
 
 $GLOBALS['wpdb'] = new WordPressDatabase;
-
