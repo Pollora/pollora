@@ -24,21 +24,4 @@ return [
     */
 
     'inherit' => null,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Asset directories
-    |--------------------------------------------------------------------------
-    |
-    | Configure the directories for different asset types.
-    |
-    */
-
-    'asset_dir' => [
-        'root' => 'assets',
-        'images' => 'images',
-        'fonts' => 'fonts',
-        'css' => 'css',
-        'js' => 'js',
-    ],
 ];
