@@ -20,7 +20,7 @@
     <div class="entry-content mt-6 prose prose-stone">
         {!! Loop::content(sprintf(
             wp_kses(
-                __('Continue reading<span class="screen-reader-text"> "%s"</span>', APP_TD),
+                __('Continue reading<span class="screen-reader-text"> "%s"</span>', 'pollora'),
                 [
                     'span' => [
                         'class' => []
@@ -31,7 +31,7 @@
         )) !!}
         {!!
             wp_link_pages([
-                'before' => '<div class="page-links">'.esc_html__('Pages:', APP_TD),
+                'before' => '<div class="page-links">'.esc_html__('Pages:', 'pollora'),
                 'after' => '</div>',
                 'echo' => false
             ]);
