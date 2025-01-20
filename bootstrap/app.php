@@ -24,9 +24,7 @@ return Application::configure(basePath: dirname(__DIR__))
 
         $middleware->throttleApi();
 
-        $middleware->alias([
-            'theme' => \Qirolab\Theme\Middleware\ThemeMiddleware::class,
-        ]);
+        $middleware->alias([]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

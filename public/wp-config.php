@@ -19,7 +19,6 @@ declare(strict_types=1);
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Facade;
 
-require_once __DIR__.'/../vendor/pollora/framework/src/helpers.php';
 require_once __DIR__.'/../vendor/autoload.php';
 
 /*
