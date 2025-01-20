@@ -1,0 +1,9 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "components/wpgb.css";
+@import "components/variation-swatches.css";
+@import "components/select2.css";
+@import "components/privacy-text.css";
+@import "components/rte.css";
+@import "layout/single-product.css";

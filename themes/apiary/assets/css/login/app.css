@@ -1,0 +1,72 @@
+body.login {
+    @apply font-sans flex w-full;
+}
+
+#login {
+    @apply py-4;
+}
+
+#loginform label:not([for="rememberme"]) {
+    @apply block text-sm italic font-medium mb-1 mt-3;
+}
+
+.login h1 a {
+    @apply bg-contain w-full h-32 mb-0;
+}
+
+#login {
+    @apply w-full max-w-lg;
+}
+
+#loginform {
+    @apply bg-transparent shadow-none border-none mt-0;
+}
+
+.login #nav {
+    @apply text-center mt-0 mb-6;
+}
+
+.login .button.wp-hide-pw {
+    @apply h-16;
+}
+
+a:focus,
+.login .button.wp-hide-pw:focus {
+    @apply shadow-none border-0;
+}
+
+.login .button.wp-hide-pw .dashicons {
+}
+
+.login form .input,
+.login form input[type=text],
+.login input[type=text] {
+    @apply bg-transparent !important;
+    @apply block rounded-none w-full border-0 border-b focus:shadow-none text-lg py-4;
+}
+
+#loginform .forgetmenot {
+    @apply mt-4;
+}
+
+#loginform .button-primary {
+    @apply mt-4 py-2 px-12 text-base border border-solid font-sans font-light mx-auto;
+}
+
+#loginform .gfield_consent_description,
+#loginform .field_description_below .gfield_consent_description {
+    @apply overflow-visible border-none p-0 mb-0;
+}
+
+#loginform .gfield_consent_description a,
+#loginform .field_description_below .gfield_consent_description a {
+    @apply underline hover:no-underline;
+}
+
+#loginform .gfield input[type="checkbox"] + label {
+    @apply ml-2;
+}
+
+#loginform input[type="checkbox"] {
+    @apply rounded;
+}

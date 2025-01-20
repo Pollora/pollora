@@ -1,0 +1,1020 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-12 18:53+0100\n"
+"PO-Revision-Date: 2022-12-12 18:54+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#: resources/Providers/AdminCustomizerProvider.php:64
+msgid "Variation Swatches for WooCommerce Settings"
+msgstr "Variation Swatches for WooCommerce Settings"
+
+#: resources/Providers/AdminCustomizerProvider.php:65
+msgid "Swatches"
+msgstr "Échantillons"
+
+#: resources/Providers/Fields/MenuFieldsProvider.php:23
+msgid "Enable highlight?"
+msgstr "Activer la mise en avant ?"
+
+#: resources/Providers/Fields/MenuFieldsProvider.php:28
+msgid "First highlight"
+msgstr "Première mise en avant"
+
+#: resources/Providers/Fields/MenuFieldsProvider.php:29
+#: resources/Providers/Fields/MenuFieldsProvider.php:34
+msgid "Image"
+msgstr "Image"
+
+#: resources/Providers/Fields/MenuFieldsProvider.php:30
+#: resources/Providers/Fields/MenuFieldsProvider.php:35
+msgid "Title"
+msgstr "Titre"
+
+#: resources/Providers/Fields/MenuFieldsProvider.php:31
+#: resources/Providers/Fields/MenuFieldsProvider.php:36
+msgid "Link"
+msgstr "Lien"
+
+#: resources/Providers/Fields/MenuFieldsProvider.php:33
+msgid "Second highlight"
+msgstr "Seconde mise en avant"
+
+#: resources/Providers/Gutenberg/PatternServiceProvider.php:98
+#, php-format
+msgid ""
+"Could not register file \"%s\" as a block pattern (\"Slug\" field missing)"
+msgstr ""
+"Impossible d'enregistrer le fichier \"%s\" en tant que modèle de bloc (champ "
+"\"Slug\" manquant)"
+
+#: resources/Providers/Gutenberg/PatternServiceProvider.php:112
+#, php-format
+msgid ""
+"Could not register file \"%1$s\" as a block pattern (invalid slug \"%2$s\")"
+msgstr ""
+"Impossible d'enregistrer le fichier \"%1$s\" en tant que modèle de bloc "
+"(slug invalide \"%2$s\")"
+
+#: resources/Providers/Gutenberg/PatternServiceProvider.php:130
+#, php-format
+msgid ""
+"Could not register file \"%s\" as a block pattern (\"Title\" field missing)"
+msgstr ""
+"Impossible d'enregistrer le fichier \"%s\" en tant que modèle de bloc (champ "
+"\"Titre\" manquant)"
+
+#: inc/template-tags.php:25
+#, php-format
+msgctxt "post date"
+msgid "Posted on %s"
+msgstr "Publié le %s"
+
+#: inc/template-tags.php:41
+#, php-format
+msgctxt "post author"
+msgid "by %s"
+msgstr "par %s"
+
+#: inc/template-tags.php:88
+msgid ", "
+msgstr ", "
+
+#: inc/template-tags.php:93
+#, php-format
+msgid "Posted in %1$s"
+msgstr "Publié dans %1$s"
+
+#: inc/template-tags.php:99
+msgctxt "list item separator"
+msgid ", "
+msgstr ", "
+
+#: inc/template-tags.php:104
+#, php-format
+msgid "Tagged %1$s"
+msgstr "Étiqueté %1$s"
+
+#: inc/template-tags.php:116
+#, php-format
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr ""
+"Laisser un commentaire <span class=\"screen-reader-text\">sur %s</span>"
+
+#: inc/template-tags.php:133 views/parts/content-page.blade.php:23
+#: views/woocommerce/checkout.blade.php:13
+#, python-format, php-format
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr "Modifier <span class=\"screen-reader-text\">%s</span>"
+
+#: inc/template-tags.php:160
+#, php-format
+msgid "One thought on &ldquo;%1$s&rdquo;"
+msgstr "Une pensée sur &ldquo;%1$s&rdquo;"
+
+#: inc/template-tags.php:182
+#, php-format
+msgid "Try looking in the monthly archives. %1$s"
+msgstr "Tentez de regarder dans les archives mensuelles. %1$s"
+
+#: views/errors/404.blade.php:6
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Oups ! Cette page est introuvable."
+
+#: views/errors/404.blade.php:9
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or a search?"
+msgstr ""
+"Il semble qu'il n'y ait rien par ici, essayez peut-être un des liens ci-"
+"dessous ou une recherche ?"
+
+#: views/errors/404.blade.php:13
+msgid "Most Used Categories"
+msgstr "Catégories les plus utilisées"
+
+#: views/comments/list.blade.php:15
+msgid "Comments are closed."
+msgstr "Les commentaires sont fermés."
+
+#: views/parts/content.blade.php:22
+#, python-format
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+"Poursuivre la lecture <span class=\"screen-reader-text”> \"%s\" </span>"
+
+#: views/parts/content.blade.php:33 views/parts/content-page.blade.php:11
+#: views/woocommerce/checkout/thankyou.blade.php:49
+msgid "Pages:"
+msgstr "Pages :"
+
+#: views/parts/header/header-1/menu-mobile.blade.php:12
+msgid "Close menu"
+msgstr "Fermer le menu"
+
+#: views/parts/header/header-1/menu-mobile.blade.php:71
+#: views/parts/header/header-1/header.blade.php:74
+msgid "My Account"
+msgstr "Mon compte"
+
+#: views/parts/header/header-1/menu-mobile.blade.php:73
+#: views/parts/header/header-1/header.blade.php:76
+msgid "Login / Register"
+msgstr "Connexion / Inscription"
+
+#: views/parts/header/header-1/header.blade.php:63
+msgid "Search"
+msgstr "Rechercher"
+
+#: views/parts/header/header-1/header.blade.php:94
+msgid "items in cart, view bag"
+msgstr "articles dans le panier, voir le panier"
+
+#: views/parts/content-none.blade.php:3
+msgid "Nothing Found"
+msgstr "Aucun résultat"
+
+#: views/parts/content-none.blade.php:10
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"Prêt à publier votre premier article ? <a href=\"%1$s\">Commencez ici</a>."
+
+#: views/parts/content-none.blade.php:21
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Désolé, mais rien ne correspond à vos termes de recherche. Veuillez "
+"réessayer avec d'autres mots-clés."
+
+#: views/parts/content-none.blade.php:24
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Il semble que ce que vous cherchez est introuvable. Essayez une autre "
+"recherche."
+
+#: views/pages/search.blade.php:6
+#, python-format
+msgid "Search Results for: %s"
+msgstr "Résultats de recherche pour : %s"
+
+#: views/woocommerce/order/order-again.blade.php:24
+msgid "Order again"
+msgstr "Commander une nouvelle fois"
+
+#: views/woocommerce/order/order-details-customer.blade.php:21
+#: views/woocommerce/myaccount/my-address.blade.php:24
+#: views/woocommerce/myaccount/my-address.blade.php:33
+#: views/woocommerce/myaccount/form-edit-address.blade.php:18
+msgid "Billing address"
+msgstr "Adresse de facturation"
+
+#: views/woocommerce/order/order-details-customer.blade.php:24
+#: views/woocommerce/order/order-details-customer.blade.php:40
+#: views/woocommerce/single-product/meta.blade.php:27
+msgid "N/A"
+msgstr "ND"
+
+#: views/woocommerce/order/order-details-customer.blade.php:37
+#: views/woocommerce/myaccount/my-address.blade.php:25
+#: views/woocommerce/myaccount/form-edit-address.blade.php:18
+msgid "Shipping address"
+msgstr "Adresse de livraison"
+
+#: views/woocommerce/order/order-downloads.blade.php:28
+msgid "Downloads"
+msgstr "Téléchargements"
+
+#: views/woocommerce/order/order-downloads.blade.php:74
+msgid "&infin;"
+msgstr "&infin;"
+
+#: views/woocommerce/order/order-downloads.blade.php:82
+msgid "Never"
+msgstr "Jamais"
+
+#: views/woocommerce/order/form-tracking.blade.php:27
+msgid ""
+"To track your order please enter your Order ID in the box below and press "
+"the \"Track\" button. This was given to you on your receipt and in the "
+"confirmation email you should have received."
+msgstr ""
+"Pour suivre votre commande, veuillez renseigner votre identifiant de "
+"commande dans la boite ci-dessous et cliquer le bouton &laquo;&nbsp;"
+"Suivre&nbsp;&raquo;. Il vous a été donné sur votre reçu et dans l&rsquo;e-"
+"mail de confirmation que vous avez du recevoir."
+
+#: views/woocommerce/order/form-tracking.blade.php:29
+msgid "Order ID"
+msgstr "ID de commande"
+
+#: views/woocommerce/order/form-tracking.blade.php:31
+msgid "Billing email"
+msgstr "Email de facturation"
+
+#: views/woocommerce/order/form-tracking.blade.php:35
+msgid "Track"
+msgstr "Suivre"
+
+#: views/woocommerce/order/order-details.blade.php:87
+msgid "Order details"
+msgstr "Détails de la commande"
+
+#: views/woocommerce/order/order-details.blade.php:156
+msgid "Note:"
+msgstr "Remarque :"
+
+#: views/woocommerce/order/order-details-item.blade.php:58
+#: views/woocommerce/cart/cart.blade.php:89
+#: views/woocommerce/global/quantity-input.blade.php:24
+msgid "Quantity"
+msgstr "Quantité"
+
+#: views/woocommerce/order/order-details-item.blade.php:64
+msgid "Price"
+msgstr "Prix"
+
+#: views/woocommerce/order/tracking.blade.php:33
+#: views/woocommerce/myaccount/view-order.blade.php:27
+msgid "Order #%1$s was placed on %2$s and is currently %3$s."
+msgstr ""
+"La commande numero #%1$s a été effectuée le %2$s et est actuellement %3$s."
+
+#: views/woocommerce/order/tracking.blade.php:46
+#: views/woocommerce/myaccount/view-order.blade.php:38
+msgid "Order updates"
+msgstr "Mettre à jour les commandes"
+
+#: views/woocommerce/order/tracking.blade.php:55
+#: views/woocommerce/myaccount/view-order.blade.php:58
+msgid "l jS \\o\f F Y, h:ia"
+msgstr "l jS \\o F Y, h:ia"
+
+#: views/woocommerce/cart/cart-shipping.blade.php:52
+msgid "Free"
+msgstr "Gratuit"
+
+#: views/woocommerce/cart/cart-shipping.blade.php:83
+#, python-format
+msgid "Shipping to %s."
+msgstr "Livraison à %s."
+
+#: views/woocommerce/cart/cart-shipping.blade.php:85
+msgid "Change address"
+msgstr "Modifier l’adresse"
+
+#: views/woocommerce/cart/cart-shipping.blade.php:88
+msgid "Shipping options will be updated during checkout."
+msgstr "Les options d’expédition seront mises à jour lors du paiement."
+
+#: views/woocommerce/cart/cart-shipping.blade.php:98
+#: views/woocommerce/cart/mini-cart.blade.php:130
+msgid "Shipping costs are calculated during checkout."
+msgstr "Les frais de livraison sont calculés lors du paiement."
+
+#: views/woocommerce/cart/cart-shipping.blade.php:100
+msgid "Enter your address to view shipping options."
+msgstr "Saisissez votre adresse pour voir les options d'expédition."
+
+#: views/woocommerce/cart/cart-shipping.blade.php:105
+msgid ""
+"There are no shipping options available. Please ensure that your address has "
+"been entered correctly, or contact us if you need any help."
+msgstr ""
+"Il n’y a pas d’options d’expédition disponibles. Veuillez vous assurer que "
+"votre adresse a été saisie correctement ou contactez-nous si vous avez "
+"besoin d’aide."
+
+#: views/woocommerce/cart/cart-shipping.blade.php:108
+#, python-format
+msgid "No shipping options were found for %s."
+msgstr "Aucune option d'expédition n'a été trouvée pour %s."
+
+#: views/woocommerce/cart/cart-shipping.blade.php:110
+msgid "Enter a different address"
+msgstr "Entrez une adresse différente"
+
+#: views/woocommerce/cart/cart-empty.blade.php:37
+msgid "Return to shop"
+msgstr "Retour à la boutique"
+
+#: views/woocommerce/cart/proceed-to-checkout-button.blade.php:2
+msgid "Proceed to checkout"
+msgstr "Procéder au paiement"
+
+#: views/woocommerce/cart/cart-totals.blade.php:20
+msgid "Cart totals"
+msgstr "Total du panier"
+
+#: views/woocommerce/cart/cart-totals.blade.php:24
+#: views/woocommerce/cart/mini-cart.blade.php:119
+#: views/woocommerce/checkout/review-order.blade.php:66
+msgid "Subtotal"
+msgstr "Sous-total"
+
+#: views/woocommerce/cart/cart-totals.blade.php:40
+msgid "Shipping"
+msgstr "Expédition"
+
+#: views/woocommerce/cart/cart-totals.blade.php:60
+#, python-format
+msgid "(estimated for %s)"
+msgstr "(estimé pour %s)"
+
+#: views/woocommerce/cart/cart-totals.blade.php:90
+#: views/woocommerce/checkout/review-order.blade.php:103
+#: views/woocommerce/myaccount/my-orders.blade.php:18
+msgid "Total"
+msgstr "Total"
+
+#: views/woocommerce/cart/mini-cart.blade.php:23
+#: views/woocommerce/parts/header/header-checkout.blade.php:12
+#: views/woocommerce/parts/header/header-checkout.blade.php:14
+msgid "Cart"
+msgstr "Panier"
+
+#: views/woocommerce/cart/mini-cart.blade.php:81
+#: views/woocommerce/checkout/form-pay.blade.php:27
+msgid "Qty"
+msgstr "Qté"
+
+#: views/woocommerce/cart/mini-cart.blade.php:90
+#: views/woocommerce/cart/cart.blade.php:122
+msgid "Remove this item"
+msgstr "Enlever cet article"
+
+#: views/woocommerce/cart/mini-cart.blade.php:94
+msgid "Remove"
+msgstr "Retirer"
+
+#: views/woocommerce/cart/mini-cart.blade.php:133
+msgid "Checkout"
+msgstr "Commander"
+
+#: views/woocommerce/cart/mini-cart.blade.php:137
+msgid "or"
+msgstr "ou"
+
+#: views/woocommerce/cart/mini-cart.blade.php:137
+msgid "Continue shopping"
+msgstr "Continuer vos achats"
+
+#: views/woocommerce/cart/shipping-calculator.blade.php:26
+msgid "Calculate shipping"
+msgstr "Calculer les frais de port"
+
+#: views/woocommerce/cart/shipping-calculator.blade.php:33
+msgid "Select a country / region&hellip;"
+msgstr "Sélectionnez un pays / région&hellip;"
+
+#: views/woocommerce/cart/shipping-calculator.blade.php:59
+msgid "Select an option&hellip;"
+msgstr "Sélectionnez une option&hellip;"
+
+#: views/woocommerce/cart/shipping-calculator.blade.php:93
+msgid "Update"
+msgstr "Mettre à jour"
+
+#: views/woocommerce/cart/cart.blade.php:71
+msgid "Available on backorder"
+msgstr "Disponible sur commande"
+
+#: views/woocommerce/cart/cart.blade.php:138
+msgid "Coupon:"
+msgstr "Code promo:"
+
+#: views/woocommerce/cart/cart.blade.php:141
+#: views/woocommerce/checkout/form-coupon.blade.php:24
+msgid "Apply"
+msgstr "Appliquer"
+
+#: views/woocommerce/cart/cart.blade.php:151
+msgid "Update cart"
+msgstr "Mettre à jour le panier"
+
+#: views/woocommerce/single-product-reviews.blade.php:34
+msgid "%1$s review for %2$s"
+msgid_plural "%1$s reviews for %2$s"
+msgstr[0] "%1$s avis pour%2$s"
+msgstr[1] "%1$s avis pour %2$s"
+
+#: views/woocommerce/single-product-reviews.blade.php:36
+msgid "Reviews"
+msgstr "Avis"
+
+#: views/woocommerce/single-product-reviews.blade.php:64
+msgid "There are no reviews yet."
+msgstr "Il n'y a pas encore d'avis."
+
+#: views/woocommerce/single-product-reviews.blade.php:79
+msgid "Add a review"
+msgstr "Ajouter un avis"
+
+#: views/woocommerce/single-product-reviews.blade.php:79
+#, python-format
+msgid "Be the first to review &ldquo;%s&rdquo;"
+msgstr "Soyez le premier à laisser votre avis sur &ldquo;%s&rdquo;"
+
+#: views/woocommerce/single-product-reviews.blade.php:80
+#, python-format
+msgid "Leave a Reply to %s"
+msgstr "Répondre à %s"
+
+#: views/woocommerce/single-product-reviews.blade.php:84
+msgid "Submit"
+msgstr "Envoyer"
+
+#: views/woocommerce/single-product-reviews.blade.php:92
+msgid "Name"
+msgstr "Nom"
+
+#: views/woocommerce/single-product-reviews.blade.php:98
+msgid "Email"
+msgstr "E-mail"
+
+#: views/woocommerce/single-product-reviews.blade.php:123
+msgid "You must be %1$slogged in%2$s to post a review."
+msgstr "Vous devez être %1$sconnecté(e)%2$s pour publier un avis."
+
+#: views/woocommerce/single-product-reviews.blade.php:130
+msgid "Your review"
+msgstr "Votre avis"
+
+#: views/woocommerce/single-product-reviews.blade.php:135
+#, python-format
+msgid "Required fields are marked %s"
+msgstr "Les champs obligatoires sont marqués %s"
+
+#: views/woocommerce/single-product-reviews.blade.php:143
+msgid "Your email address will not be published."
+msgstr "Votre adresse email ne sera pas publiée."
+
+#: views/woocommerce/single-product-reviews.blade.php:152
+msgid ""
+"Only logged in customers who have purchased this product may leave a review."
+msgstr ""
+"Seulement les clients connectés ayant acheté ce produit peuvent laisser un "
+"avis."
+
+#: views/woocommerce/checkout/order-receipt.blade.php:27
+#: views/woocommerce/checkout/thankyou.blade.php:60
+msgid "Order number:"
+msgstr "Numéro de commande:"
+
+#: views/woocommerce/checkout/order-receipt.blade.php:31
+#: views/woocommerce/checkout/thankyou.blade.php:64
+msgid "Date:"
+msgstr "Date :"
+
+#: views/woocommerce/checkout/order-receipt.blade.php:35
+#: views/woocommerce/checkout/thankyou.blade.php:74
+msgid "Total:"
+msgstr "Total :"
+
+#: views/woocommerce/checkout/order-receipt.blade.php:42
+#: views/woocommerce/checkout/thankyou.blade.php:79
+msgid "Payment method:"
+msgstr "Mode de paiement :"
+
+#: views/woocommerce/checkout/thankyou.blade.php:28
+msgid ""
+"Unfortunately your order cannot be processed as the originating bank/"
+"merchant has declined your transaction. Please attempt your purchase again."
+msgstr ""
+"Malheureusement votre commande ne peut être traitée car la banque ou le "
+"commerçant a refusé votre transaction. Veuillez effectuer une nouvelle "
+"tentative ou nous contacter pour utiliser d'autres moyens de paiement."
+
+#: views/woocommerce/checkout/thankyou.blade.php:33
+msgid "Pay"
+msgstr "Payer"
+
+#: views/woocommerce/checkout/thankyou.blade.php:37
+msgid "My account"
+msgstr "Mon compte"
+
+#: views/woocommerce/checkout/thankyou.blade.php:55
+#: views/woocommerce/checkout/thankyou.blade.php:93
+msgid "Thank you. Your order has been received."
+msgstr "Merci. Votre commande a été reçue."
+
+#: views/woocommerce/checkout/thankyou.blade.php:69
+msgid "Email:"
+msgstr "E-mail :"
+
+#: views/woocommerce/checkout/form-pay.blade.php:26
+msgid "Product"
+msgstr "Produit"
+
+#: views/woocommerce/checkout/form-pay.blade.php:28
+msgid "Totals"
+msgstr "Totaux"
+
+#: views/woocommerce/checkout/form-pay.blade.php:103
+msgid ""
+"Sorry, it seems that there are no available payment methods for your "
+"location. Please contact us if you require assistance or wish to make "
+"alternate arrangements."
+msgstr ""
+"Désolé, il semble qu'il n'existe aucune méthode de paiement disponible pour "
+"votre localisation. Merci de bien vouloir nous contacter si vous souhaitez "
+"de l'aide ou trouver une alternative."
+
+#: views/woocommerce/checkout/cart-errors.blade.php:23
+msgid ""
+"There are some issues with the items in your cart. Please go back to the "
+"cart page and resolve these issues before checking out."
+msgstr ""
+"Il y a quelques problèmes avec les articles dans votre panier. Veuillez "
+"retourner sur la page du panier et résolvez ces problèmes avant de commander."
+
+#: views/woocommerce/checkout/cart-errors.blade.php:27
+msgid "Return to cart"
+msgstr "Retour au panier"
+
+#: views/woocommerce/checkout/form-login.blade.php:30
+msgid "Returning customer?"
+msgstr "Déjà client ?"
+
+#: views/woocommerce/checkout/form-login.blade.php:31
+msgid "Click here to login"
+msgstr "Cliquez ici pour vous connecter"
+
+#: views/woocommerce/checkout/form-login.blade.php:38
+msgid ""
+"If you have shopped with us before, please enter your details below. If you "
+"are a new customer, please proceed to the Billing section."
+msgstr ""
+"Si vous avez déjà acheté chez nous, veuillez saisir vos coordonnées ci-"
+"dessous. Si vous êtes un nouveau client, passez à la section Facturation."
+
+#: views/woocommerce/checkout/form-shipping.blade.php:28
+msgid "Ship to a different address?"
+msgstr "Expédier à une adresse différente ?"
+
+#: views/woocommerce/checkout/form-shipping.blade.php:53
+#: views/woocommerce/single-product/tabs/additional-information.blade.php:24
+msgid "Additional information"
+msgstr "Informations complémentaires"
+
+#: views/woocommerce/checkout/form-checkout.blade.php:28
+msgid "You must be logged in to checkout."
+msgstr "Vous devez être identifié pour commander."
+
+#: views/woocommerce/checkout/form-checkout.blade.php:64
+msgid "Your order"
+msgstr "Votre commande"
+
+#: views/woocommerce/checkout/payment.blade.php:23
+msgid "Payment"
+msgstr "Paiement"
+
+#: views/woocommerce/checkout/payment.blade.php:32
+msgid ""
+"Sorry, it seems that there are no available payment methods for your state. "
+"Please contact us if you require assistance or wish to make alternate "
+"arrangements."
+msgstr ""
+"Désolé, il semble qu'il n'y ai pas de méthode de règlement disponible pour "
+"votre état. Veuillez nous contacter si vous avez besoin d'aide ou si vous "
+"désirez effectuer un autre arrangement."
+
+#: views/woocommerce/checkout/payment.blade.php:32
+msgid "Please fill in your details above to see available payment methods."
+msgstr ""
+"Veuillez entrer une adresse de livraison ci-haut pour voir les modes de "
+"paiement disponibles."
+
+#: views/woocommerce/checkout/payment.blade.php:41
+msgid ""
+"Since your browser does not support JavaScript, or it is disabled, please "
+"ensure you click the %1$sUpdate Totals%2$s button before placing your order. "
+"You may be charged more than the amount stated above if you fail to do so."
+msgstr ""
+"Étant donné que votre navigateur ne prend pas en charge JavaScript, ou qu'il "
+"est désactivé, assurez-vous de cliquer sur le bouton%1$sMise à jour totaux"
+"%2$s avant de passer votre commande. Vous pouvez être facturé plus que le "
+"montant indiqué ci-dessus si vous ne le faites pas."
+
+#: views/woocommerce/checkout/payment.blade.php:42
+msgid "Update totals"
+msgstr "Mise à jour des totaux"
+
+#: views/woocommerce/checkout/form-billing.blade.php:21
+msgid "Billing &amp; Shipping"
+msgstr "Facturation &amp; Expédition"
+
+#: views/woocommerce/checkout/form-billing.blade.php:23
+msgid "Billing details"
+msgstr "Details de facturation"
+
+#: views/woocommerce/checkout/form-billing.blade.php:45
+msgid "Create an account?"
+msgstr "Créer un compte ?"
+
+#: views/woocommerce/checkout/form-coupon.blade.php:21
+msgid "Coupon code"
+msgstr "Code promo"
+
+#: views/woocommerce/global/form-login.blade.php:59
+#: views/woocommerce/myaccount/form-lost-password.blade.php:31
+msgid "Username or email"
+msgstr "Identifiant ou e-mail"
+
+#: views/woocommerce/global/form-login.blade.php:69
+#: views/woocommerce/myaccount/form-login.blade.php:41
+#: views/woocommerce/myaccount/form-login.blade.php:107
+msgid "Password"
+msgstr "Mot de passe"
+
+#: views/woocommerce/global/form-login.blade.php:87
+#: views/woocommerce/myaccount/form-login.blade.php:54
+msgid "Remember me"
+msgstr "Se souvenir de moi"
+
+#: views/woocommerce/global/form-login.blade.php:93
+#: views/woocommerce/myaccount/form-login.blade.php:58
+msgid "Lost your password?"
+msgstr "Mot de passe oublié ?"
+
+#: views/woocommerce/global/form-login.blade.php:104
+#: views/woocommerce/myaccount/form-login.blade.php:30
+msgid "Login"
+msgstr "Connexion"
+
+#: views/woocommerce/global/form-login.blade.php:109
+msgid "Cancel"
+msgstr "Annuler"
+
+#: views/woocommerce/global/quantity-input.blade.php:24
+#, python-format
+msgid "%s quantity"
+msgstr "%s quantité(s)"
+
+#: views/woocommerce/parts/header/header-checkout.blade.php:22
+#: views/woocommerce/parts/header/header-checkout.blade.php:24
+#: views/woocommerce/myaccount/my-orders.blade.php:15
+msgid "Order"
+msgstr "Commande"
+
+#: views/woocommerce/parts/header/header-checkout.blade.php:31
+msgid "Confirmation"
+msgstr "Confirmation"
+
+#: views/woocommerce/myaccount/form-add-payment-method.blade.php:57
+#: views/woocommerce/myaccount/payment-methods.blade.php:105
+msgid "Add payment method"
+msgstr "Ajouter un mode de paiement"
+
+#: views/woocommerce/myaccount/form-add-payment-method.blade.php:65
+msgid ""
+"New payment methods can only be added during checkout. Please contact us if "
+"you require assistance."
+msgstr ""
+"Les nouveaux modes de paiement ne peuvent être ajoutés que lors du paiement. "
+"Veuillez nous contacter si vous avez besoin d'aide."
+
+#: views/woocommerce/myaccount/dashboard.blade.php:33
+msgid "Hello %1$s (not %1$s? <a href=\"%2$s\">Log out</a>)"
+msgstr ""
+"Bonjour %1$s (vous n'êtes pas %1$s ? <a href=\"%2$s\">Se déconnecter</a>)"
+
+#: views/woocommerce/myaccount/dashboard.blade.php:44
+msgid ""
+"From your account dashboard you can view your <a href=\"%1$s\">recent "
+"orders</a>, manage your <a href=\"%2$s\">billing address</a>, and <a href="
+"\"%3$s\">edit your password and account details</a>."
+msgstr ""
+"À partir du tableau de bord de votre compte, vous pouvez afficher vos <a "
+"href=\"%1$s\">commandes récentes,</a>gérer votre <a href=\"%2$s\">adresse de "
+"facturation</a>et modifier les détails de votre mot de passe et de votre <a "
+"href=\"%3$s\">compte</a>."
+
+#: views/woocommerce/myaccount/dashboard.blade.php:47
+msgid ""
+"From your account dashboard you can view your <a href=\"%1$s\">recent "
+"orders</a>, manage your <a href=\"%2$s\">shipping and billing addresses</a>, "
+"and <a href=\"%3$s\">edit your password and account details</a>."
+msgstr ""
+"À partir de votre tableau de bord, vous pouvez visualiser vos <a href=\"%1$s"
+"\">commandes récentes</a>, gérer vos <a href=\"%2$s\">adresses de livraison "
+"et de facturation</a> ainsi que <a href=\"%3$s\">changer votre mot de passe "
+"et les détails de votre compte</a>."
+
+#: views/woocommerce/myaccount/my-orders.blade.php:16
+msgid "Date"
+msgstr "Date"
+
+#: views/woocommerce/myaccount/my-orders.blade.php:17
+msgid "Status"
+msgstr "État"
+
+#: views/woocommerce/myaccount/my-orders.blade.php:40
+msgid "Recent orders"
+msgstr "Commandes récentes"
+
+#: views/woocommerce/myaccount/my-orders.blade.php:78
+#: views/woocommerce/myaccount/orders.blade.php:45
+msgctxt "hash before order number"
+msgid "#"
+msgstr "#"
+
+#: views/woocommerce/myaccount/my-orders.blade.php:98
+#: views/woocommerce/myaccount/orders.blade.php:53
+msgid "%1$s for %2$s item"
+msgid_plural "%1$s for %2$s items"
+msgstr[0] "%1$s pour %2$s article"
+msgstr[1] "%1$s pour %2$s articles"
+
+#: views/woocommerce/myaccount/my-address.blade.php:44
+msgid "The following addresses will be used on the checkout page by default."
+msgstr ""
+"Les adresses suivantes seront utilisées par défaut sur la page de commande."
+
+#: views/woocommerce/myaccount/my-address.blade.php:63
+msgid "Edit"
+msgstr "Modifier"
+
+#: views/woocommerce/myaccount/my-address.blade.php:63
+msgid "Add"
+msgstr "Ajouter"
+
+#: views/woocommerce/myaccount/my-address.blade.php:67
+msgid "You have not set up this type of address yet."
+msgstr "Vous n'avez pas encore configuré ce type d'adresse."
+
+#: views/woocommerce/myaccount/form-edit-address.blade.php:38
+msgid "Save address"
+msgstr "Enregistrer l'adresse"
+
+#: views/woocommerce/myaccount/orders.blade.php:82
+msgid "Previous"
+msgstr "Précédent"
+
+#: views/woocommerce/myaccount/orders.blade.php:87
+msgid "Next"
+msgstr "Suivant"
+
+#: views/woocommerce/myaccount/orders.blade.php:97
+msgid "No order has been made yet."
+msgstr "Aucune commande n'a encore été faite."
+
+#: views/woocommerce/myaccount/orders.blade.php:101
+#: views/woocommerce/myaccount/downloads.blade.php:43
+msgid "Browse products"
+msgstr "Parcourir les produits"
+
+#: views/woocommerce/myaccount/lost-password-confirmation.blade.php:22
+msgid "Password reset email has been sent."
+msgstr "Le courriel de réinitialisation du mot de passe a été envoyé."
+
+#: views/woocommerce/myaccount/lost-password-confirmation.blade.php:27
+msgid ""
+"A password reset email has been sent to the email address on file for your "
+"account, but may take several minutes to show up in your inbox. Please wait "
+"at least 10 minutes before attempting another reset."
+msgstr ""
+"Un e-mail de réinitialisation du mot de passe a été envoyé à l'adresse e-"
+"mail figurant dans le fichier de votre compte, mais il peut s'écouler "
+"plusieurs minutes avant que celui-ci apparaisse dans votre boîte de "
+"réception. Veuillez attendre au moins 10 minutes avant de tenter une "
+"nouvelle réinitialisation."
+
+#: views/woocommerce/myaccount/form-edit-account.blade.php:28
+msgid "First name"
+msgstr "Prénom"
+
+#: views/woocommerce/myaccount/form-edit-account.blade.php:34
+msgid "Last name"
+msgstr "Nom"
+
+#: views/woocommerce/myaccount/form-edit-account.blade.php:41
+msgid "Display name"
+msgstr "Afficher le nom"
+
+#: views/woocommerce/myaccount/form-edit-account.blade.php:46
+msgid ""
+"This will be how your name will be displayed in the account section and in "
+"reviews"
+msgstr "Votre nom s'affichera de la manière suivante"
+
+#: views/woocommerce/myaccount/form-edit-account.blade.php:51
+#: views/woocommerce/myaccount/form-login.blade.php:96
+msgid "Email address"
+msgstr "Adresse email"
+
+#: views/woocommerce/myaccount/form-edit-account.blade.php:60
+msgid "Password change"
+msgstr "Changement de mot de passe"
+
+#: views/woocommerce/myaccount/form-edit-account.blade.php:64
+msgid "Current password (leave blank to leave unchanged)"
+msgstr "Mot de passe actuel (laisser vide pour le conserver)"
+
+#: views/woocommerce/myaccount/form-edit-account.blade.php:72
+msgid "New password (leave blank to leave unchanged)"
+msgstr "Nouveau mot de passe (laisser vide pour conserver l&rsquo;actuel)"
+
+#: views/woocommerce/myaccount/form-edit-account.blade.php:78
+msgid "Confirm new password"
+msgstr "Confirmer le nouveau mot de passe"
+
+#: views/woocommerce/myaccount/form-edit-account.blade.php:90
+msgid "Save changes"
+msgstr "Enregistrer les changements"
+
+#: views/woocommerce/myaccount/form-login.blade.php:35
+msgid "Username or email address"
+msgstr "Identifiant ou adresse email"
+
+#: views/woocommerce/myaccount/form-login.blade.php:65
+msgid "Log in"
+msgstr "Se connecter"
+
+#: views/woocommerce/myaccount/form-login.blade.php:78
+msgid "Or"
+msgstr "Ou"
+
+#: views/woocommerce/myaccount/form-login.blade.php:83
+#: views/woocommerce/myaccount/form-login.blade.php:118
+msgid "Register"
+msgstr "S'inscrire"
+
+#: views/woocommerce/myaccount/form-login.blade.php:88
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: views/woocommerce/myaccount/form-login.blade.php:101
+msgid "A password will be sent to your email address."
+msgstr "Un mot de passe sera envoyé à votre adresse courriel."
+
+#: views/woocommerce/myaccount/downloads.blade.php:39
+msgid "No downloads available yet."
+msgstr "Aucun téléchargement actuellement disponible."
+
+#: views/woocommerce/myaccount/my-downloads.blade.php:33
+msgid "Available downloads"
+msgstr "Téléchargements disponibles"
+
+#: views/woocommerce/myaccount/my-downloads.blade.php:48
+#, python-format
+msgid "%s download remaining"
+msgid_plural "%s downloads remaining"
+msgstr[0] "%s de téléchargement restant"
+msgstr[1] "%s de téléchargements restants"
+
+#: views/woocommerce/myaccount/form-reset-password.blade.php:27
+msgid "Enter a new password below."
+msgstr "Entrez un nouveau mot de passe ci-dessous."
+
+#: views/woocommerce/myaccount/form-reset-password.blade.php:31
+msgid "New password"
+msgstr "Nouveau mot de passe"
+
+#: views/woocommerce/myaccount/form-reset-password.blade.php:35
+msgid "Re-enter new password"
+msgstr "Réentrez le nouveau mot de passe"
+
+#: views/woocommerce/myaccount/form-reset-password.blade.php:48
+msgid "Save"
+msgstr "Sauvegarder"
+
+#: views/woocommerce/myaccount/form-lost-password.blade.php:27
+msgid ""
+"Lost your password? Please enter your username or email address. You will "
+"receive a link to create a new password via email."
+msgstr ""
+"Mot de passe perdu ? Veuillez saisir votre identifiant ou votre adresse e-"
+"mail. Vous recevrez un lien par e-mail pour créer un nouveau mot de passe."
+
+#: views/woocommerce/myaccount/form-lost-password.blade.php:41
+msgid "Reset password"
+msgstr "Réinitialiser le mot de passe"
+
+#: views/woocommerce/myaccount/payment-methods.blade.php:66
+msgid "%1$s ending in %2$s"
+msgstr "%1$s se terminant par %2$s"
+
+#: views/woocommerce/myaccount/payment-methods.blade.php:94
+msgid "No saved methods found."
+msgstr "Aucun moyen sauvegardé trouvé."
+
+#: views/woocommerce/single-product/review-meta.blade.php:26
+msgid "Your review is awaiting approval"
+msgstr "Votre avis est en attente de validation"
+
+#: views/woocommerce/single-product/review-meta.blade.php:33
+msgid "verified owner"
+msgstr "client confirmé"
+
+#: views/woocommerce/single-product/tabs/description.blade.php:19
+#: views/woocommerce/single-product/description.blade.php:2
+msgid "Description"
+msgstr "Description"
+
+#: views/woocommerce/single-product/meta.blade.php:26
+msgid "SKU:"
+msgstr "UGS:"
+
+#: views/woocommerce/single-product/meta.blade.php:31
+msgid "Category:"
+msgid_plural "Categories:"
+msgstr[0] "Catégorie :"
+msgstr[1] "Catégories :"
+
+#: views/woocommerce/single-product/meta.blade.php:33
+msgid "Tag:"
+msgid_plural "Tags:"
+msgstr[0] "Tag:"
+msgstr[1] "Mots-clés :"
+
+#: views/woocommerce/single-product/add-to-cart/variable.blade.php:36
+msgid "This product is currently out of stock and unavailable."
+msgstr "Ce produit est actuellement en rupture et indisponible."
+
+#: views/woocommerce/single-product/add-to-cart/variable.blade.php:57
+msgid "Clear"
+msgstr "Effacer"
+
+#: views/woocommerce/single-product/rating.blade.php:39
+#, python-format
+msgid "%s customer review"
+msgid_plural "%s customer reviews"
+msgstr[0] "%s avis de nos client"
+msgstr[1] "%s avis de nos clients"
+
+#: views/woocommerce/single-product/rating-form.blade.php:2
+msgid "Your rating"
+msgstr "Votre note"
+
+#: views/woocommerce/single-product/rating-form.blade.php:52
+msgid "Rate&hellip;"
+msgstr "Note&hellip;"
+
+#: views/woocommerce/single-product/related.blade.php:28
+msgid "Related products"
+msgstr "Produits similaires"
+
+#: views/woocommerce/single-product/product-image.blade.php:22
+msgid "Images"
+msgstr "Images"
+
+#: views/woocommerce/single-product/product-image.blade.php:32
+msgid "Awaiting product image"
+msgstr "En attente de l’image du produit"
