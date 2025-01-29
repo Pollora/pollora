@@ -40,4 +40,3 @@ return [
         'is_wc_endpoint_url' => 'wc_endpoint',
     ],
 
-];
