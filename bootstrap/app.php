@@ -1,11 +1,8 @@
 <?php
 
-declare(strict_types=1);
-
-use App\Providers\AppServiceProvider;
+use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
-use Pollora\Foundation\Application;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withProviders()
@@ -17,14 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->redirectGuestsTo(fn () => route('login'));
-        $middleware->redirectUsersTo(AppServiceProvider::HOME);
-
-        $middleware->append(\Pollora\Http\Middleware\RequestStore::class);
-
-        $middleware->throttleApi();
-
-        $middleware->alias([]);
+        //
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
