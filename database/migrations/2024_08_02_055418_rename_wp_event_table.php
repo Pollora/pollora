@@ -11,7 +11,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         Schema::rename('wordpress_recurring_events', 'wp_events');
 
@@ -22,7 +22,7 @@ return new class extends Migration
         });
     }
 
-    public function down()
+    public function down(): void
     {
         Schema::table('wp_events', function (Blueprint $table) {
             $table->dropColumn(['is_recurring', 'timestamp', 'job_id']);
