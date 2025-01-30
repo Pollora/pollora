@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "44eac84844cda568975f0bece8cef140",
+    "content-hash": "812cacee4c6c8d267996989f468f4f66",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -2255,16 +2255,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v11.41.0",
+            "version": "v11.41.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "42d6ae000c868c2abfa946da46702f2358493482"
+                "reference": "b8251a076526c011d42fc3c9654fd95116b19aeb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/42d6ae000c868c2abfa946da46702f2358493482",
-                "reference": "42d6ae000c868c2abfa946da46702f2358493482",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/b8251a076526c011d42fc3c9654fd95116b19aeb",
+                "reference": "b8251a076526c011d42fc3c9654fd95116b19aeb",
                 "shasum": ""
             },
             "require": {
@@ -2466,7 +2466,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-01-28T15:22:55+00:00"
+            "time": "2025-01-30T10:22:51+00:00"
         },
         {
             "name": "laravel/pint",
@@ -4030,12 +4030,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
-                "reference": "d84cf12419d67b71d3d03e03b81e2bc1fe7fdb9d"
+                "reference": "1b6cba9fd7fc1b82e1636724d05155409844e392"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/d84cf12419d67b71d3d03e03b81e2bc1fe7fdb9d",
-                "reference": "d84cf12419d67b71d3d03e03b81e2bc1fe7fdb9d",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/1b6cba9fd7fc1b82e1636724d05155409844e392",
+                "reference": "1b6cba9fd7fc1b82e1636724d05155409844e392",
                 "shasum": ""
             },
             "require": {
@@ -4123,7 +4123,7 @@
                 "issues": "https://github.com/Pollora/framework/issues",
                 "source": "https://github.com/Pollora/framework/tree/main"
             },
-            "time": "2025-01-29T17:37:39+00:00"
+            "time": "2025-01-30T06:56:49+00:00"
         },
         {
             "name": "pollora/helper-overrider",
@@ -9830,6 +9830,6 @@
     "platform": {
         "php": "^8.2"
     },
-    "platform-dev": {},
+    "platform-dev": [],
     "plugin-api-version": "2.6.0"
 }
