@@ -18,7 +18,7 @@
     "require": {
         "php": "^8.2",
         "barryvdh/laravel-ide-helper": "^3.0",
-        "johnpbloch/wordpress": "^6.6",
+        "johnpbloch/wordpress": "^6.7",
         "laravel/framework": "^11.41",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
