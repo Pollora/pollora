@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 return [
-
     'conditions' => [
         'is_404' => '404',
         'is_archive' => 'archive',
@@ -40,3 +39,4 @@ return [
         'is_wc_endpoint_url' => 'wc_endpoint',
     ],
 
+];
