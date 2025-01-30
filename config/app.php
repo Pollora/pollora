@@ -3,9 +3,6 @@
 declare(strict_types=1);
 
 return [
-    'hooks' => [
-        // Make something hookable, you can also declare hooks inside the bootstrap/hooks.php (recommanded)
-    ],
     'conditions' => [
         'is_404' => '404',
         'is_archive' => 'archive',

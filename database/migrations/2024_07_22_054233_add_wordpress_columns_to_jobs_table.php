@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    public function up()
+    public function up(): void
     {
         Schema::table('jobs', function (Blueprint $table) {
             $table->string('wp_hook')->nullable()->index();
@@ -18,7 +18,7 @@ return new class extends Migration
         });
     }
 
-    public function down()
+    public function down(): void
     {
         Schema::table('jobs', function (Blueprint $table) {
             $table->dropColumn(['wp_hook', 'wp_args', 'wp_schedule', 'wp_interval']);
