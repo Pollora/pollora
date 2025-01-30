@@ -21,15 +21,6 @@ class AppServiceProvider extends ServiceProvider
     public const HOME = '/home';
 
     /**
-     * The path to your application's "home" route.
-     *
-     * Typically, users are redirected here after authentication.
-     *
-     * @var string
-     */
-    public const HOME = '/home';
-
-    /**
      * Register any application services.
      */
     public function register(): void
@@ -45,15 +36,6 @@ class AppServiceProvider extends ServiceProvider
         //
 
         $this->bootRoute();
-
-        $this->bootRoute();
-    }
-
-    public function bootRoute(): void
-    {
-        RateLimiter::for('api', function (Request $request) {
-            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
-        });
     }
 
     public function bootRoute(): void

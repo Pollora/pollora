@@ -95,6 +95,6 @@
             "pollora/helper-overrider": true
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true
 }
