@@ -1,5 +1,6 @@
 /.phpunit.cache
 /node_modules
+./.ddev
 /public/build
 /public/cms
 /public/hot
