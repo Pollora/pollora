@@ -18,9 +18,8 @@
     "require": {
         "php": "^8.2",
         "barryvdh/laravel-ide-helper": "^3.0",
-        "guzzlehttp/guzzle": "^7.9",
         "johnpbloch/wordpress": "^6.6",
-        "laravel/framework": "^11.28",
+        "laravel/framework": "^11.41",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "pollora/framework": "dev-main",
