@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "482288ae84a92c70adda185f70274578",
+    "content-hash": "d7124016eed83ab865b48e01c9b86e40",
     "packages": [
         {
             "name": "amphp/amp",
@@ -3165,16 +3165,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v11.42.1",
+            "version": "v11.43.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "ff392f42f6c55cc774ce75553a11c6b031da67f8"
+                "reference": "99d1573698abc42222f04d25fcd5b213d0eedf21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/ff392f42f6c55cc774ce75553a11c6b031da67f8",
-                "reference": "ff392f42f6c55cc774ce75553a11c6b031da67f8",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/99d1573698abc42222f04d25fcd5b213d0eedf21",
+                "reference": "99d1573698abc42222f04d25fcd5b213d0eedf21",
                 "shasum": ""
             },
             "require": {
@@ -3376,20 +3376,20 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-02-12T20:58:18+00:00"
+            "time": "2025-02-19T21:53:48+00:00"
         },
         {
             "name": "laravel/pint",
-            "version": "v1.20.0",
+            "version": "v1.21.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/pint.git",
-                "reference": "53072e8ea22213a7ed168a8a15b96fbb8b82d44b"
+                "reference": "531fa0871fbde719c51b12afa3a443b8f4e4b425"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/pint/zipball/53072e8ea22213a7ed168a8a15b96fbb8b82d44b",
-                "reference": "53072e8ea22213a7ed168a8a15b96fbb8b82d44b",
+                "url": "https://api.github.com/repos/laravel/pint/zipball/531fa0871fbde719c51b12afa3a443b8f4e4b425",
+                "reference": "531fa0871fbde719c51b12afa3a443b8f4e4b425",
                 "shasum": ""
             },
             "require": {
@@ -3397,15 +3397,15 @@
                 "ext-mbstring": "*",
                 "ext-tokenizer": "*",
                 "ext-xml": "*",
-                "php": "^8.1.0"
+                "php": "^8.2.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.66.0",
-                "illuminate/view": "^10.48.25",
-                "larastan/larastan": "^2.9.12",
-                "laravel-zero/framework": "^10.48.25",
+                "friendsofphp/php-cs-fixer": "^3.68.5",
+                "illuminate/view": "^11.42.0",
+                "larastan/larastan": "^3.0.4",
+                "laravel-zero/framework": "^11.36.1",
                 "mockery/mockery": "^1.6.12",
-                "nunomaduro/termwind": "^1.17.0",
+                "nunomaduro/termwind": "^2.3",
                 "pestphp/pest": "^2.36.0"
             },
             "bin": [
@@ -3442,7 +3442,7 @@
                 "issues": "https://github.com/laravel/pint/issues",
                 "source": "https://github.com/laravel/pint"
             },
-            "time": "2025-01-14T16:20:53+00:00"
+            "time": "2025-02-18T03:18:57+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -5891,16 +5891,16 @@
         },
         {
             "name": "revolt/event-loop",
-            "version": "v1.0.6",
+            "version": "v1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/revoltphp/event-loop.git",
-                "reference": "25de49af7223ba039f64da4ae9a28ec2d10d0254"
+                "reference": "09bf1bf7f7f574453efe43044b06fafe12216eb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/revoltphp/event-loop/zipball/25de49af7223ba039f64da4ae9a28ec2d10d0254",
-                "reference": "25de49af7223ba039f64da4ae9a28ec2d10d0254",
+                "url": "https://api.github.com/repos/revoltphp/event-loop/zipball/09bf1bf7f7f574453efe43044b06fafe12216eb3",
+                "reference": "09bf1bf7f7f574453efe43044b06fafe12216eb3",
                 "shasum": ""
             },
             "require": {
@@ -5957,9 +5957,9 @@
             ],
             "support": {
                 "issues": "https://github.com/revoltphp/event-loop/issues",
-                "source": "https://github.com/revoltphp/event-loop/tree/v1.0.6"
+                "source": "https://github.com/revoltphp/event-loop/tree/v1.0.7"
             },
-            "time": "2023-11-30T05:34:44+00:00"
+            "time": "2025-01-25T19:27:39+00:00"
         },
         {
             "name": "roots/bedrock-autoloader",
@@ -6176,34 +6176,33 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/php-structure-discoverer.git",
-                "reference": "bad24ba1a253fdd74cd3e821219818ba30db909d"
+                "reference": "98290369fc9ca20d42d69251129c21c2299bb4b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/php-structure-discoverer/zipball/bad24ba1a253fdd74cd3e821219818ba30db909d",
-                "reference": "bad24ba1a253fdd74cd3e821219818ba30db909d",
+                "url": "https://api.github.com/repos/spatie/php-structure-discoverer/zipball/98290369fc9ca20d42d69251129c21c2299bb4b1",
+                "reference": "98290369fc9ca20d42d69251129c21c2299bb4b1",
                 "shasum": ""
             },
             "require": {
                 "amphp/amp": "^v3.0",
                 "amphp/parallel": "^2.2",
-                "illuminate/collections": "^10.0|^11.0",
+                "illuminate/collections": "^10.0|^11.0|^12.0",
                 "php": "^8.1",
                 "spatie/laravel-package-tools": "^1.4.3",
                 "symfony/finder": "^6.0|^7.0"
             },
             "require-dev": {
-                "illuminate/console": "^10.0|^11.0",
+                "illuminate/console": "^10.0|^11.0|^12.0",
                 "laravel/pint": "^1.0",
                 "nunomaduro/collision": "^7.0|^8.0",
-                "nunomaduro/larastan": "^2.0.1",
-                "orchestra/testbench": "^7.0|^8.0|^9.0",
-                "pestphp/pest": "^2.0",
-                "pestphp/pest-plugin-laravel": "^2.0",
+                "orchestra/testbench": "^7.0|^8.0|^9.0|^10.0",
+                "pestphp/pest": "^2.0|^3.0",
+                "pestphp/pest-plugin-laravel": "^2.0|^3.0",
                 "phpstan/extension-installer": "^1.1",
                 "phpstan/phpstan-deprecation-rules": "^1.0",
                 "phpstan/phpstan-phpunit": "^1.0",
-                "phpunit/phpunit": "^9.5|^10.0",
+                "phpunit/phpunit": "^9.5|^10.0|^11.5.3",
                 "spatie/laravel-ray": "^1.26"
             },
             "default-branch": true,
@@ -6249,7 +6248,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-01-13T13:16:05+00:00"
+            "time": "2025-02-14T10:19:26+00:00"
         },
         {
             "name": "symfony/clock",
@@ -9743,16 +9742,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "11.5.7",
+            "version": "11.5.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "e1cb706f019e2547039ca2c839898cd5f557ee5d"
+                "reference": "c9bd61aab12f0fc5e82ecfe621ff518a1d1f1049"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e1cb706f019e2547039ca2c839898cd5f557ee5d",
-                "reference": "e1cb706f019e2547039ca2c839898cd5f557ee5d",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c9bd61aab12f0fc5e82ecfe621ff518a1d1f1049",
+                "reference": "c9bd61aab12f0fc5e82ecfe621ff518a1d1f1049",
                 "shasum": ""
             },
             "require": {
@@ -9824,7 +9823,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.5.7"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.5.8"
             },
             "funding": [
                 {
@@ -9840,7 +9839,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-02-06T16:10:05+00:00"
+            "time": "2025-02-18T06:26:59+00:00"
         },
         {
             "name": "sebastian/cli-parser",
