@@ -4942,12 +4942,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
-                "reference": "0a4f3fbd7d005a79b6a63545d5397037aba3fcf5"
+                "reference": "5b342684b6b29326d8f33804954f977e4de78201"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/0a4f3fbd7d005a79b6a63545d5397037aba3fcf5",
-                "reference": "0a4f3fbd7d005a79b6a63545d5397037aba3fcf5",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/5b342684b6b29326d8f33804954f977e4de78201",
+                "reference": "5b342684b6b29326d8f33804954f977e4de78201",
                 "shasum": ""
             },
             "require": {
@@ -5035,7 +5035,7 @@
                 "issues": "https://github.com/Pollora/framework/issues",
                 "source": "https://github.com/Pollora/framework/tree/main"
             },
-            "time": "2025-02-27T14:26:57+00:00"
+            "time": "2025-02-27T16:16:25+00:00"
         },
         {
             "name": "pollora/helper-overrider",
