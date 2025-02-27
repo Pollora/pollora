@@ -1,14 +1,9 @@
 <?php
-
 declare(strict_types=1);
-define('APP_TD', env('APP_TD'));
-if ((! empty($_SERVER['HTTP_X_FORWARDED_HOST'])) ||
-    (! empty($_SERVER['HTTP_X_FORWARDED_FOR'])) ||
-    (! empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtoupper($_SERVER['HTTP_X_FORWARDED_PROTO']) == 'HTTPS')) {
-    $_SERVER['HTTPS'] = 'on';
-}
 
 return [
+    'app_td' => env('APP_TD'),
+    'disallow_file_mods' => true,
     'auth_key' => env('AUTH_KEY'),
     'secure_auth_key' => env('SECURE_AUTH_KEY'),
     'logged_in_key' => env('LOGGED_IN_KEY'),
@@ -17,9 +12,9 @@ return [
     'secure_auth_salt' => env('SECURE_AUTH_SALT'),
     'logged_in_salt' => env('LOGGED_IN_SALT'),
     'nonce_salt' => env('NONCE_SALT'),
-    'wp_allow_multisite' => env('WP_ALLOW_MULTISITE'),
-    'multisite' => env('MULTISITE'),
-    'subdomain_install' => env('SUBDOMAIN_INSTALL'),
+    'wp_allow_multisite' => env('WP_ALLOW_MULTISITE', false),
+    'multisite' => env('MULTISITE', false),
+    'subdomain_install' => env('SUBDOMAIN_INSTALL', false),
     'domain_current_site' => env('DOMAIN_CURRENT_SITE'),
     'path_current_site' => env('PATH_CURRENT_SITE'),
     'site_id_current_site' => env('SITE_ID_CURRENT_SITE'),
