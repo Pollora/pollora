@@ -74,7 +74,7 @@ Filter::add('comment_form_field_cookies', function ($output) {
 });
 
 // Register the comment template loader
-Filter::add('comments_template', ['WC_Template_Loader', 'comments_template_loader']);
+Filter::add('comments_template', 'WC_Template_Loader::comments_template_loader');
 
 // Remove the default avatar hook
 Action::remove('woocommerce_review_before', 'woocommerce_review_display_gravatar', 10);
