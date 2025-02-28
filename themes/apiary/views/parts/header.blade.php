@@ -61,7 +61,7 @@ use \App\Themes\Apiary\Walkers\MenuPrimary;
                                         </div>
 
                                         <div class="flex">
-                                            <a href="#" class="-m-2 p-2 text-gray-400 hover:text-gray-500">
+                                            <a href="{{ get_permalink( get_option('woocommerce_myaccount_page_id') ) }}" class="-m-2 p-2 text-gray-400 hover:text-gray-500">
                                                 <span class="sr-only">
                                                     @if (is_user_logged_in())
                                                         {{ __('My Account','woocommerce') }}

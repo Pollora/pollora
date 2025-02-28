@@ -19,6 +19,11 @@ class MenuPrimary extends \Walker_Nav_Menu
         if ($depth === 0) {
             $this->currentItem = $item;
         }
+
+        if (! is_array($item->classes)) {
+            $item->classes = [$item->classes];
+        }
+
         $hasChildren = in_array('menu-item-has-children', $item->classes);
 
         if ($hasChildren && $depth === 0) {

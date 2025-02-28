@@ -16,23 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/**
- * Application routes.
- */
-Route::get('/', function () {
-    return view('welcome');
-});
-
-/**
- * WordPress routes
- */
-Route::any('index', function () {
-    return view('pages.default');
-});
-
-Route::any('page', function () {
-    return view('pages.default');
-});
+Route::get('/', [HomeController::class, 'index'])
+    ->name('home');
 
 /**
  * WooCommerce routes.
@@ -53,8 +38,13 @@ Route::any('product', function () {
     return view('woocommerce.single');
 });
 
-
+/**
+ * WordPress routes
+ */
+Route::any('single', function () {
+    return view('post');
+});
 
 Route::any('page', function () {
-    return view('pages.default');
+    return view('page');
 });
