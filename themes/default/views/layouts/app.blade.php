@@ -20,7 +20,7 @@
     <link href="//fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 </head>
 
-<body class="{{ $post->classes ?? '' }} flex h-full bg-zinc-50">
+<body {{ body_class('flex h-full bg-zinc-50' . ($post->classes ?? '')) }}>
 <div class="flex w-full">
     <div class="fixed inset-0 flex justify-center sm:px-8">
         <div class="flex w-full max-w-7xl lg:px-8">
