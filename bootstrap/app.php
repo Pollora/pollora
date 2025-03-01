@@ -5,9 +5,10 @@ declare(strict_types=1);
 use App\Providers\AppServiceProvider;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
-use Pollora\Foundation\Application;
+use Illuminate\Foundation\Application;
+use Pollora\Route\WordPressRouteServiceProvider;
 
-return Application::configure(basePath: dirname(__DIR__))
+$app = Application::configure(basePath: dirname(__DIR__))
     ->withProviders()
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
@@ -25,3 +26,9 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();
+
+// Enregistrer le WordPressRouteServiceProvider immédiatement après la création de l'application
+// Cela garantit qu'il est chargé avant que le routeur ne soit complètement initialisé
+$app->register(new WordPressRouteServiceProvider($app));
+
+return $app;
