@@ -23,10 +23,10 @@ Route::get('/', function () {
 /**
  * WordPress routes
  */
-Route::wordpress('single', function () {
+Route::wp('single', function () {
     return view('post');
 });
 
-Route::wordpress('page', function () {
+Route::wp('page', function () {
     return view('page');
 });
