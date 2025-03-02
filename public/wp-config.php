@@ -60,7 +60,7 @@ Facade::clearResolvedInstance('request');
 
 // force the root url to whatever is set in the env file, stops WordPress taking over the root url
 // when loading from wp-config.php
-url()->forceRootUrl(config('app.url'));
+url()->useOrigin(config('app.url'));
 
 /*----------------------------------------------------*/
 // Database prefix (WordPress)
