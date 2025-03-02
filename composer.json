@@ -41,7 +41,6 @@
         ],
         "psr-4": {
             "App\\": "app/",
-            "Pollora\\Wiper\\": "public/content/mu-plugins/wiper/src/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }
