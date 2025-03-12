@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9a6e7efcd21ea175d6f35fd039fb73cb",
+    "content-hash": "a849a6d296f1f5065aad4e5279bd6bc9",
     "packages": [
         {
             "name": "amphp/amp",
@@ -1144,6 +1144,74 @@
                 }
             ],
             "time": "2024-02-09T16:56:22+00:00"
+        },
+        {
+            "name": "coduo/php-humanizer",
+            "version": "5.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/coduo/php-humanizer.git",
+                "reference": "b7d798315b5e07d0bc33d847b16e267178e3ad62"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/coduo/php-humanizer/zipball/b7d798315b5e07d0bc33d847b16e267178e3ad62",
+                "reference": "b7d798315b5e07d0bc33d847b16e267178e3ad62",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~8.2 || ~8.3 || ~8.4",
+                "symfony/translation": "~5.4||~6.4||~7"
+            },
+            "require-dev": {
+                "aeon-php/calendar": "^1.0",
+                "thunderer/shortcode": "^0.7"
+            },
+            "suggest": {
+                "ext-intl": "Required if you are going to use humanizer with locales different than en_EN"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michał Dąbrowski",
+                    "email": "dabrowski@brillante.pl"
+                },
+                {
+                    "name": "Norbert Orzechowicz",
+                    "email": "norbert@orzechowicz.pl"
+                }
+            ],
+            "description": "Humanize values that are readable only for developers",
+            "keywords": [
+                "humanize",
+                "humanizer",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/coduo/php-humanizer/issues",
+                "source": "https://github.com/coduo/php-humanizer/tree/5.x"
+            },
+            "funding": [
+                {
+                    "url": "https://flow-php.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/norberttech",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-03-05T08:28:15+00:00"
         },
         {
             "name": "composer/class-map-generator",
@@ -3099,16 +3167,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v12.1.1",
+            "version": "12.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "9be5738f1ca1530055bb9d6db81f909a7ed34842"
+                "reference": "be9dea9a6ad4323514dc25736b0126e5455e17d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/9be5738f1ca1530055bb9d6db81f909a7ed34842",
-                "reference": "9be5738f1ca1530055bb9d6db81f909a7ed34842",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/be9dea9a6ad4323514dc25736b0126e5455e17d7",
+                "reference": "be9dea9a6ad4323514dc25736b0126e5455e17d7",
                 "shasum": ""
             },
             "require": {
@@ -3264,6 +3332,7 @@
                 "symfony/postmark-mailer": "Required to enable support for the Postmark mail transport (^7.2).",
                 "symfony/psr-http-message-bridge": "Required to use PSR-7 bridging features (^7.2)."
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -3310,20 +3379,20 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-03-05T15:31:19+00:00"
+            "time": "2025-03-12T14:40:16+00:00"
         },
         {
             "name": "laravel/pint",
-            "version": "v1.21.0",
+            "version": "v1.21.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/pint.git",
-                "reference": "531fa0871fbde719c51b12afa3a443b8f4e4b425"
+                "reference": "c44bffbb2334e90fba560933c45948fa4a3f3e86"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/pint/zipball/531fa0871fbde719c51b12afa3a443b8f4e4b425",
-                "reference": "531fa0871fbde719c51b12afa3a443b8f4e4b425",
+                "url": "https://api.github.com/repos/laravel/pint/zipball/c44bffbb2334e90fba560933c45948fa4a3f3e86",
+                "reference": "c44bffbb2334e90fba560933c45948fa4a3f3e86",
                 "shasum": ""
             },
             "require": {
@@ -3334,9 +3403,9 @@
                 "php": "^8.2.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.68.5",
-                "illuminate/view": "^11.42.0",
-                "larastan/larastan": "^3.0.4",
+                "friendsofphp/php-cs-fixer": "^3.70.2",
+                "illuminate/view": "^11.44.1",
+                "larastan/larastan": "^3.1.0",
                 "laravel-zero/framework": "^11.36.1",
                 "mockery/mockery": "^1.6.12",
                 "nunomaduro/termwind": "^2.3",
@@ -3376,7 +3445,7 @@
                 "issues": "https://github.com/laravel/pint/issues",
                 "source": "https://github.com/laravel/pint"
             },
-            "time": "2025-02-18T03:18:57+00:00"
+            "time": "2025-03-11T03:22:21+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -4898,12 +4967,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/WordPressEntity.git",
-                "reference": "d260158e2a9c26657940ff2dd7f332d79bcfd2bb"
+                "reference": "fe36cce4c076c1c8f8efbccfaf919a5246046434"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/WordPressEntity/zipball/d260158e2a9c26657940ff2dd7f332d79bcfd2bb",
-                "reference": "d260158e2a9c26657940ff2dd7f332d79bcfd2bb",
+                "url": "https://api.github.com/repos/Pollora/WordPressEntity/zipball/fe36cce4c076c1c8f8efbccfaf919a5246046434",
+                "reference": "fe36cce4c076c1c8f8efbccfaf919a5246046434",
                 "shasum": ""
             },
             "require": {
@@ -4932,9 +5001,9 @@
             "description": "Create WordPress post type and taxonomy in a fluent way !",
             "support": {
                 "issues": "https://github.com/Pollora/WordPressEntity/issues",
-                "source": "https://github.com/Pollora/WordPressEntity/tree/1.0"
+                "source": "https://github.com/Pollora/WordPressEntity/tree/main"
             },
-            "time": "2024-10-21T12:54:50+00:00"
+            "time": "2025-03-12T06:46:12+00:00"
         },
         {
             "name": "pollora/framework",
@@ -4942,16 +5011,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
-                "reference": "75ac0ab7eb3591308482282d4d55c04d8c814f02"
+                "reference": "7b00b34d313e0c2941c937584b0ab7e96391e8a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/75ac0ab7eb3591308482282d4d55c04d8c814f02",
-                "reference": "75ac0ab7eb3591308482282d4d55c04d8c814f02",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/7b00b34d313e0c2941c937584b0ab7e96391e8a6",
+                "reference": "7b00b34d313e0c2941c937584b0ab7e96391e8a6",
                 "shasum": ""
             },
             "require": {
+                "coduo/php-humanizer": "5.x-dev",
                 "cweagans/composer-patches": "^1.7",
+                "illuminate/console": "12.x-dev",
                 "illuminate/database": "^12.0",
                 "illuminate/routing": "^12.0",
                 "illuminate/support": "^12.0",
@@ -4969,7 +5040,7 @@
                 "driftingly/rector-laravel": "dev-main",
                 "laravel/pint": "^1.17.3",
                 "mockery/mockery": "2.0.x-dev",
-                "pestphp/pest": "^3.0.7",
+                "pestphp/pest": "^3.7.4",
                 "pestphp/pest-plugin-type-coverage": "^3.0",
                 "php-stubs/wordpress-stubs": "6.*",
                 "symfony/var-dumper": "^7.1.4",
@@ -5033,9 +5104,9 @@
             "description": "Laravel & WordPress blend for coding as sweet as honey. Join the hive!",
             "support": {
                 "issues": "https://github.com/Pollora/framework/issues",
-                "source": "https://github.com/Pollora/framework/tree/main"
+                "source": "https://github.com/Pollora/framework/tree/develop"
             },
-            "time": "2025-03-07T07:58:21+00:00"
+            "time": "2025-03-12T14:26:28+00:00"
         },
         {
             "name": "pollora/helper-overrider",
@@ -11019,6 +11090,6 @@
     "platform": {
         "php": "^8.2"
     },
-    "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }
