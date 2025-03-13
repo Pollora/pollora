@@ -16,8 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])
-    ->name('home');
+Route::get('/', function () {
+    return view('welcome');
+});
 
 /**
  * WooCommerce routes.
@@ -41,10 +42,10 @@ Route::any('product', function () {
 /**
  * WordPress routes
  */
-Route::any('single', function () {
+Route::wp('single', function () {
     return view('post');
 });
 
-Route::any('page', function () {
+Route::wp('page', function () {
     return view('page');
 });

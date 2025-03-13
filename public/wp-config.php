@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-// wp-config file to make the wordpress backend aware of our presence
+// wp-config file to make the WordPress backend aware of our presence
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +46,7 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 | and wonderful application we have prepared for them.
 |
 */
+
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
 $app->bootstrapWith([
@@ -53,18 +54,20 @@ $app->bootstrapWith([
     \Illuminate\Foundation\Bootstrap\LoadConfiguration::class,
     \Illuminate\Foundation\Bootstrap\HandleExceptions::class,
     \Illuminate\Foundation\Bootstrap\RegisterFacades::class,
+    \Illuminate\Foundation\Bootstrap\SetRequestForConsole::class,
 ]);
 
 $app->instance('request', Request::capture());
+
 Facade::clearResolvedInstance('request');
 
 // force the root url to whatever is set in the env file, stops WordPress taking over the root url
 // when loading from wp-config.php
-url()->forceRootUrl(config('app.url'));
+url()->useOrigin(config('app.url'));
 
-/*----------------------------------------------------*/
+/* ---------------------------------------------------- */
 // Database prefix (WordPress)
-/*----------------------------------------------------*/
+/* ---------------------------------------------------- */
 $table_prefix = config('database.connections.mysql.prefix', 'wp_');
 
 $app->bootstrapWith([

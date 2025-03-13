@@ -5,9 +5,10 @@ declare(strict_types=1);
 use App\Providers\AppServiceProvider;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
-use Pollora\Foundation\Application;
+use Illuminate\Foundation\Application;
+use Pollora\Route\WordPressRouteServiceProvider;
 
-return Application::configure(basePath: dirname(__DIR__))
+$app = Application::configure(basePath: dirname(__DIR__))
     ->withProviders()
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
@@ -20,12 +21,12 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->redirectGuestsTo(fn () => route('login'));
         $middleware->redirectUsersTo(AppServiceProvider::HOME);
 
-        $middleware->append(\Pollora\Http\Middleware\RequestStore::class);
-
         $middleware->throttleApi();
-
-        $middleware->alias([]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();
+
+$app->register(new WordPressRouteServiceProvider($app));
+
+return $app;

@@ -17,12 +17,11 @@
     ],
     "require": {
         "php": "^8.2",
-        "barryvdh/laravel-ide-helper": "^3.0",
-        "guzzlehttp/guzzle": "^7.9",
-        "johnpbloch/wordpress": "^6.6",
-        "laravel/framework": "^11.28",
+        "barryvdh/laravel-ide-helper": "^3.5",
+        "johnpbloch/wordpress": "^6.7",
+        "laravel/framework": "^12.2",
         "laravel/sanctum": "^4.0",
-        "laravel/tinker": "^2.9",
+        "laravel/tinker": "^2.10.1",
         "pollora/framework": "dev-main",
         "roots/wp-password-bcrypt": "^1.0",
         "wpackagist-plugin/safe-svg": "^2.2"
@@ -30,10 +29,11 @@
     "require-dev": {
         "fakerphp/faker": "^1.23",
         "laravel/pint": "^1.13",
-        "laravel/sail": "^1.26",
+        "laravel/sail": "^1.41",
         "mockery/mockery": "^1.6",
-        "nunomaduro/collision": "^8.0",
-        "phpunit/phpunit": "^11.0.1"
+        "nunomaduro/collision": "^8.6",
+        "phpunit/phpunit": "^11.5.3",
+        "laravel/pail": "^1.2.2"
     },
     "autoload": {
         "files": [
@@ -41,7 +41,6 @@
         ],
         "psr-4": {
             "App\\": "app/",
-            "Pollora\\Wiper\\": "public/content/mu-plugins/wiper/src/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }
@@ -64,6 +63,10 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "dev": [
+            "Composer\\Config::disableProcessTimeout",
+            "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite"
         ]
     },
     "extra": {
