@@ -3171,12 +3171,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "be9dea9a6ad4323514dc25736b0126e5455e17d7"
+                "reference": "9a5efbcfad3c4680abac22b63413f05a6358cde4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/be9dea9a6ad4323514dc25736b0126e5455e17d7",
-                "reference": "be9dea9a6ad4323514dc25736b0126e5455e17d7",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/9a5efbcfad3c4680abac22b63413f05a6358cde4",
+                "reference": "9a5efbcfad3c4680abac22b63413f05a6358cde4",
                 "shasum": ""
             },
             "require": {
@@ -3379,7 +3379,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-03-12T14:40:16+00:00"
+            "time": "2025-03-13T15:51:26+00:00"
         },
         {
             "name": "laravel/pint",
@@ -5011,12 +5011,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
-                "reference": "7b00b34d313e0c2941c937584b0ab7e96391e8a6"
+                "reference": "72685fd9df49ae939f18e0e261c320d31f3a16ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/7b00b34d313e0c2941c937584b0ab7e96391e8a6",
-                "reference": "7b00b34d313e0c2941c937584b0ab7e96391e8a6",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/72685fd9df49ae939f18e0e261c320d31f3a16ec",
+                "reference": "72685fd9df49ae939f18e0e261c320d31f3a16ec",
                 "shasum": ""
             },
             "require": {
@@ -5104,9 +5104,9 @@
             "description": "Laravel & WordPress blend for coding as sweet as honey. Join the hive!",
             "support": {
                 "issues": "https://github.com/Pollora/framework/issues",
-                "source": "https://github.com/Pollora/framework/tree/develop"
+                "source": "https://github.com/Pollora/framework/tree/main"
             },
-            "time": "2025-03-12T14:26:28+00:00"
+            "time": "2025-03-13T17:11:43+00:00"
         },
         {
             "name": "pollora/helper-overrider",
@@ -11090,6 +11090,6 @@
     "platform": {
         "php": "^8.2"
     },
-    "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
 }

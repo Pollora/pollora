@@ -8,7 +8,7 @@ return [
     // Post Thumbnails
     // @see https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
     /* ----------------------------------------------------------------------------------------------- */
-    'post-thumbnails' => ['post', 'page'],
+    'post-thumbnails' => ['post', 'page', 'event'],
 
     /* ----------------------------------------------------------------------------------------------- */
     // Post Formats
