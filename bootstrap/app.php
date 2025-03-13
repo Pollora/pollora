@@ -27,8 +27,6 @@ $app = Application::configure(basePath: dirname(__DIR__))
         //
     })->create();
 
-// Enregistrer le WordPressRouteServiceProvider immédiatement après la création de l'application
-// Cela garantit qu'il est chargé avant que le routeur ne soit complètement initialisé
 $app->register(new WordPressRouteServiceProvider($app));
 
 return $app;

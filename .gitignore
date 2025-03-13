@@ -1,32 +1,54 @@
+# Git Ignore File
+
+## Logs and debug files
+npm-debug.log
+yarn-error.log
+
+## Environment and local configuration files
+.env
+.env.backup
+.env.production
+auth.json
+
+## Development tools specific files
+.phpstorm.meta.php
+_ide_helper.php
+.phpunit.result.cache
 /.phpunit.cache
-/node_modules
-./.ddev
+Taskfile.yml
+Homestead.json
+Homestead.yaml
+
+## IDE specific files
+/.idea
+/.vscode
+/.nova
+/.fleet
+
+## Containers and Docker development specific files
+.ddev
+.docker
+.data
+
+## Project dependencies
+node_modules
+/vendor
+
+## Compiled assets and public caches
 /public/build
 /public/cms
 /public/hot
 /public/storage
+/public/content/cache
+/public/content/wp-rocket-config
+
+## WordPress specific caches
+/public/content/object-cache.php
+/public/content/advanced-cache.php
+
+## Keys and sensitive files
 /storage/*.key
 /storage/pail
-node_modules
-/vendor
-.phpstorm.meta.php
-_ide_helper.php
-.ddev
-.env
-.env.backup
-.env.production
-.phpunit.result.cache
-Homestead.json
-Homestead.yaml
-auth.json
-npm-debug.log
-yarn-error.log
-Taskfile.yml
-/.fleet
-/.idea
-/.nova
-/.vscode
-.docker
-.data
+
+## Other unversioned files
 *.sql
-public/content/object-cache.php
