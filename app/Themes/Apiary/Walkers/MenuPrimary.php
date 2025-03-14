@@ -57,7 +57,7 @@ class MenuPrimary extends \Walker_Nav_Menu
                             x-transition:leave-start="transform opacity-100 scale-100"
                             x-transition:leave-end="transform opacity-0 scale-95"
                             class="md:absolute right-0 w-full mt-2 origin-top-right rounded-md md:shadow-lg md:w-48 z-30">
-                        <div class="md:px-2 md:py-2 bg-white rounded-md md:shadow divide-y divide-gray-100"><div>';
+                        <div class="md:px-2 md:py-2 bg-white rounded-md md:shadow-sm divide-y divide-gray-100"><div>';
         }
     }
 
@@ -91,7 +91,7 @@ class MenuPrimary extends \Walker_Nav_Menu
 
         return sprintf(
             '<div @click.away="open = false" class="%s" x-data="{ open: false }">
-                <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-hidden focus:shadow-outline">
                     <span>%s</span>
                     <svg fill="currentColor" viewBox="0 0 20 20" :class="{\'rotate-180\': open, \'rotate-0\': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1">
                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -111,7 +111,7 @@ class MenuPrimary extends \Walker_Nav_Menu
 
         // Classes de base pour les liens
         if ($depth === 0) {
-            $classes[] = 'px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg  md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline';
+            $classes[] = 'px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg  md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-hidden focus:shadow-outline';
         } else {
             $classes[] = 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white';
         }

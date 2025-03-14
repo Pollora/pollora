@@ -31,7 +31,7 @@ defined( 'ABSPATH' ) || exit;
 
 			@if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_checkout_cart_item_visible', true, $cart_item, $cart_item_key ) )
 				<li class="flex py-6 px-4 sm:px-6 {!! esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ) !!}">
-					<div class="flex-shrink-0">
+					<div class="shrink-0">
 						{!! apply_filters( 'woocommerce_checkout_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key ) !!}
 					</div>
 					<div class="ml-6 flex-1 flex flex-col">

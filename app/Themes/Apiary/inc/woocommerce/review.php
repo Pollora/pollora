@@ -12,10 +12,10 @@ if (! function_exists('wc_review_comment_form_args')) {
         $form_class = config('woocommerce.review.form.wrapper.class', 'mt-4 mb-6');
         $label_class = config('woocommerce.review.form.label.class', 'block text-sm font-medium text-gray-700 mb-1');
         $field_class = config('woocommerce.review.form.field.class', 'py-3');
-        $textarea_class = config('woocommerce.review.form.textarea.class', 'shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md');
-        $input_class = config('woocommerce.review.form.textarea.class', 'mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md');
+        $textarea_class = config('woocommerce.review.form.textarea.class', 'shadow-xs focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md');
+        $input_class = config('woocommerce.review.form.textarea.class', 'mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-xs sm:text-sm border-gray-300 rounded-md');
         $submit_wrapper_class = config('woocommerce.review.form.submit.wrapper.class', 'py-3 text-right');
-        $submit_class = config('woocommerce.review.form.submit.class', 'inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500');
+        $submit_class = config('woocommerce.review.form.submit.class', 'inline-flex justify-center py-2 px-4 border border-transparent shadow-xs text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500');
 
         $args['class_form'] = 'comment-form '.$form_class;
 
@@ -55,7 +55,7 @@ Filter::add('woocommerce_product_review_comment_form_args', 'wc_review_comment_f
 Filter::add('comment_form_field_cookies', function ($output) {
     $label_class = config('woocommerce.review.form.cookie.label.class', 'text-sm font-medium text-gray-700 mb-1 ml-3');
     $wrapper_class = config('woocommerce.review.form.cookie.wrapper.class', 'py-3 flex items-start');
-    $checkbox_class = config('woocommerce.review.form.cookie.checkbox.class', 'focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded');
+    $checkbox_class = config('woocommerce.review.form.cookie.checkbox.class', 'focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-sm');
 
     $search = [
         '<label for="',

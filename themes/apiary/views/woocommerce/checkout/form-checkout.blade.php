@@ -65,7 +65,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 			@php do_action( 'woocommerce_checkout_before_order_review' ); @endphp
 
-			<div id="order_review" class="woocommerce-checkout-review-order mt-4 bg-white border border-gray-200 rounded-lg shadow-sm">
+			<div id="order_review" class="woocommerce-checkout-review-order mt-4 bg-white border border-gray-200 rounded-lg shadow-xs">
 				@php do_action( 'woocommerce_checkout_order_review' ); @endphp
 			</div>
 			@php do_action( 'woocommerce_checkout_after_order_review' ); @endphp

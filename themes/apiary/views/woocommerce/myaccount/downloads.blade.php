@@ -39,7 +39,7 @@ do_action( 'woocommerce_before_account_downloads', $has_downloads ); @endphp
 			@php esc_html_e( 'No downloads available yet.', 'woocommerce' ); @endphp
 		</div>
 		<div class="ml-auto lg:pl-4">
-			<a class="woocommerce-Button button w-full flex items-center justify-center bg-indigo-600 py-2 px-2.5 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-full sm:flex-grow-0" href="{!! esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ) !!}">
+			<a class="woocommerce-Button button w-full flex items-center justify-center bg-indigo-600 py-2 px-2.5 border border-transparent rounded-md shadow-xs text-sm font-medium text-white hover:bg-indigo-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-full sm:grow-0" href="{!! esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ) !!}">
 				@php esc_html_e( 'Browse products', 'woocommerce' ); @endphp
 			</a>
 		</div>

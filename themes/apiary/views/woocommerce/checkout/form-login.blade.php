@@ -28,7 +28,7 @@ if ( is_user_logged_in() || 'no' === get_option( 'woocommerce_enable_checkout_lo
 <div class="woocommerce-form-login-toggle">
 	<div class="mb-10 border-b border-gray-200 pb-6 sm:flex sm:items-center sm:justify-between">
 		<p class="mt-4 text-center text-sm text-gray-500 sm:mt-0 sm:text-left">{{ __( 'Returning customer?', 'woocommerce' ) }}</p>
-		<button type="submit" class="w-full rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:order-last sm:ml-6 sm:w-auto" @click="loginModalOpen = true">{{ __( 'Click here to login', 'woocommerce' ) }}</button>
+		<button type="submit" class="w-full rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-xs hover:bg-indigo-700 focus:outline-hidden focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:order-last sm:ml-6 sm:w-auto" @click="loginModalOpen = true">{{ __( 'Click here to login', 'woocommerce' ) }}</button>
 	</div>
 </div>
 @php

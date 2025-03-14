@@ -60,7 +60,7 @@
 				<h3 class="woocommerce-column__title text-lg font-bold text-gray-900">{!! esc_html( $address_title ) !!}</h3>
 			</div>
 			<div class="mt-4 flex space-x-3 md:mt-0">
-				<a href="{!! esc_url( wc_get_endpoint_url( 'edit-address', $name ) ) !!}" class="edit inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">{!! $address ? esc_html__( 'Edit', 'woocommerce' ) : esc_html__( 'Add', 'woocommerce' ) !!}</a>
+				<a href="{!! esc_url( wc_get_endpoint_url( 'edit-address', $name ) ) !!}" class="edit inline-flex justify-center px-4 py-2 border border-gray-300 shadow-xs text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">{!! $address ? esc_html__( 'Edit', 'woocommerce' ) : esc_html__( 'Add', 'woocommerce' ) !!}</a>
 			</div>
 		</header>
 		<address class="mt-2 text-gray-700 not-italic py-4">

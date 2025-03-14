@@ -35,7 +35,7 @@
 			</div>
 			@php do_action( "woocommerce_after_edit_address_form_{$load_address}" ); @endphp
 			<div class="py-6 sm:flex sm:items-center sm:justify-end">
-				<button type="submit" class="button w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 sm:ml-6 sm:order-last sm:w-auto" name="save_address" value="@php esc_attr_e( 'Save address', 'woocommerce' ); @endphp">@php esc_html_e( 'Save address', 'woocommerce' ); @endphp</button>
+				<button type="submit" class="button w-full bg-indigo-600 border border-transparent rounded-md shadow-xs py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 sm:ml-6 sm:order-last sm:w-auto" name="save_address" value="@php esc_attr_e( 'Save address', 'woocommerce' ); @endphp">@php esc_html_e( 'Save address', 'woocommerce' ); @endphp</button>
 				@php wp_nonce_field( 'woocommerce-edit_address', 'woocommerce-edit-address-nonce' ); @endphp
 				<input type="hidden" name="action" value="edit_address" />
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">

@@ -39,11 +39,11 @@
 }
 
 .woo-variation-swatches .variable-item {
-    @apply focus:outline-none;
+    @apply focus:outline-hidden;
 }
 
 .woo-variation-swatches .button-variable-wrapper .variable-item {
-    @apply min-w-[75px] border rounded-md py-3 px-3 flex items-center justify-center text-sm font-medium uppercase sm:flex-1 cursor-pointer focus:outline-none bg-white border-gray-200 text-gray-900 hover:bg-gray-50;
+    @apply min-w-[75px] border rounded-md py-3 px-3 flex items-center justify-center text-sm font-medium uppercase sm:flex-1 cursor-pointer focus:outline-hidden bg-white border-gray-200 text-gray-900 hover:bg-gray-50;
 }
 
 .woo-variation-swatches .variable-items-wrapper .color-variable-item {
@@ -55,7 +55,7 @@
 /*}*/
 
 .woo-variation-swatches .variable-items-wrapper .variable-item.selected {
-    @apply relative flex items-center justify-center cursor-pointer focus:outline-none ring-gray-900 ring-2;
+    @apply relative flex items-center justify-center cursor-pointer focus:outline-hidden ring-gray-900 ring-2;
 }
 
 .woo-variation-swatches .button-variable-wrapper .variable-item.selected {

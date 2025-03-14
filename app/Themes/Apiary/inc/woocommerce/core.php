@@ -14,17 +14,3 @@ if (! function_exists('is_woocommerce_activated')) {
         return class_exists('woocommerce');
     }
 }
-
-/**
- * Checkout main template
- */
-Filter::add('template_include', function ($template) {
-    if (! is_woocommerce_activated()) {
-        return $template;
-    }
-    if ((is_cart() || is_checkout()) && file_exists(get_stylesheet_directory().'/views/woocommerce/checkout.blade.php')) {
-        $template = view('woocommerce.checkout')->makeLoader();
-    }
-
-    return $template;
-});

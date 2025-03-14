@@ -19,14 +19,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-/**
- * WordPress routes
- */
-Route::wp('single', function () {
-    return view('post');
-});
-
-Route::wp('page', function () {
-    return view('page');
-});

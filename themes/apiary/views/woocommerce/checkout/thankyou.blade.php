@@ -29,11 +29,11 @@
 						</p>
 					</div>
 					<div class="woocommerce-notice woocommerce-notice--error woocommerce-thankyou-order-failed-actions mt-6 space-y-4 sm:mt-0 sm:ml-6 sm:flex-none sm:w-40">
-						<a href="{!! esc_url( $order->get_checkout_payment_url() ) !!}" class="button pay w-full flex items-center justify-center bg-indigo-600 py-2 px-2.5 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-full sm:flex-grow-0">
+						<a href="{!! esc_url( $order->get_checkout_payment_url() ) !!}" class="button pay w-full flex items-center justify-center bg-indigo-600 py-2 px-2.5 border border-transparent rounded-md shadow-xs text-sm font-medium text-white hover:bg-indigo-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-full sm:grow-0">
 							{{ __( 'Pay', 'woocommerce' ) }}
 						</a>
 						@if ( is_user_logged_in() )
-							<a href="{!! esc_url( wc_get_page_permalink( 'myaccount' ) ) !!}" class="button pay w-full flex items-center justify-center bg-white py-2 px-2.5 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-full sm:flex-grow-0">
+							<a href="{!! esc_url( wc_get_page_permalink( 'myaccount' ) ) !!}" class="button pay w-full flex items-center justify-center bg-white py-2 px-2.5 border border-gray-300 rounded-md shadow-xs text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-full sm:grow-0">
 								{{ __( 'My account', 'woocommerce' ) }}
 							</a>
 						@endif

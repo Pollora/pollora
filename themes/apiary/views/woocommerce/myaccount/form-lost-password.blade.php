@@ -33,7 +33,7 @@ do_action( 'woocommerce_before_lost_password_form' );
             <div class="woocommerce-form-row woocommerce-form-row--first form-row form-row-first">
                 <label for="user_login" class="block text-sm font-medium text-gray-700">@php esc_html_e( 'Username or email', 'woocommerce' ); @endphp</label>
                 <div class="mt-1">
-                    <input class="woocommerce-Input woocommerce-Input--text input-text border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" type="text" name="user_login" id="user_login" autocomplete="username" />
+                    <input class="woocommerce-Input woocommerce-Input--text input-text border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-xs focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" type="text" name="user_login" id="user_login" autocomplete="username" />
                 </div>
             </div>
 
@@ -43,7 +43,7 @@ do_action( 'woocommerce_before_lost_password_form' );
 
             <div class="woocommerce-form-row form-row">
                 <input type="hidden" name="wc_reset_password" value="true" />
-                <button type="submit" class="woocommerce-Button button w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" value="@php esc_attr_e( 'Reset password', 'woocommerce' ); @endphp">@php esc_html_e( 'Reset password', 'woocommerce' ); @endphp</button>
+                <button type="submit" class="woocommerce-Button button w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-xs text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" value="@php esc_attr_e( 'Reset password', 'woocommerce' ); @endphp">@php esc_html_e( 'Reset password', 'woocommerce' ); @endphp</button>
             </div>
 
             @php wp_nonce_field( 'lost_password', 'woocommerce-lost-password-nonce' ); @endphp

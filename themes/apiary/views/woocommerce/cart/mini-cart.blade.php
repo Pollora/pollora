@@ -52,7 +52,7 @@
                                 $product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
                             @endphp
                             <li class="woocommerce-mini-cart-item py-6 flex {!! esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key ) ) !!}">
-                                <div class="flex-shrink-0 w-24 h-24 border border-gray-200 rounded-md overflow-hidden">
+                                <div class="shrink-0 w-24 h-24 border border-gray-200 rounded-md overflow-hidden">
                                     @if ( empty( $product_permalink ) )
                                         {!! $thumbnail !!}
                                     @else
@@ -130,7 +130,7 @@
         <p class="mt-0.5 text-sm text-gray-500">{{ __( 'Shipping costs are calculated during checkout.', 'woocommerce' ) }}</p>
         @php do_action( 'woocommerce_widget_shopping_cart_before_buttons' ); @endphp
         <div class="mt-6">
-            <a href="{{ esc_url( wc_get_checkout_url() ) }}" class="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">{{ esc_html__( 'Checkout', 'woocommerce' ) }}</a>
+            <a href="{{ esc_url( wc_get_checkout_url() ) }}" class="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-xs text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">{{ esc_html__( 'Checkout', 'woocommerce' ) }}</a>
         </div>
         <div class="mt-6 flex justify-center text-sm text-center text-gray-500">
             <p>

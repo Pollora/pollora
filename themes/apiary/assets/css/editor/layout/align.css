@@ -1,11 +1,11 @@
 /* Blocs */
 
 .wp-block{
-    @apply max-w-screen-xl;
+    @apply max-w-(--breakpoint-xl);
 }
 
 .wp-block[data-align=wide] {
-    @apply max-w-screen-xl;
+    @apply max-w-(--breakpoint-xl);
 }
 
 .wp-block[data-align=full] {

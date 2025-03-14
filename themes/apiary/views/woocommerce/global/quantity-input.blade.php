@@ -29,7 +29,7 @@
 		<input
 			type="number"
 			id="{!! esc_attr( $input_id ) !!}"
-			class="h-full box-border text-base shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md {!! esc_attr( join( ' ', (array) $classes ) ) !!}"
+			class="h-full box-border text-base shadow-xs focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md {!! esc_attr( join( ' ', (array) $classes ) ) !!}"
 			step="{!! esc_attr( $step ) !!}"
 			min="{!! esc_attr( $min_value ) !!}"
 			max="{!! esc_attr( 0 < $max_value ? $max_value : '' ) !!}"

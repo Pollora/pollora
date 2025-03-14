@@ -39,7 +39,7 @@
                             $product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
                         @endphp
                         <li class="woocommerce-cart-form__cart-item flex py-6 sm:py-10 {!! esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ) !!}">
-                            <div class="product-thumbnail flex-shrink-0">
+                            <div class="product-thumbnail shrink-0">
                                 @php
                                   $thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
                                 @endphp
@@ -137,8 +137,8 @@
                     <li class="coupon py-6">
                         <label for="coupon_code" class="block text-sm font-medium text-gray-700">@php esc_html_e( 'Coupon:', 'woocommerce' ); @endphp</label>
                         <div class="flex space-x-4 mt-1">
-                            <input type="text" name="coupon_code" class="input-text block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="coupon_code" value="" placeholder="@php esc_attr_e( 'Coupon code', 'woocommerce' ); @endphp" />
-                            <button type="submit" class="button bg-gray-200 text-sm font-medium text-gray-600 rounded-md px-4 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500" name="apply_coupon" value="@php esc_attr_e( 'Apply coupon', 'woocommerce' ); @endphp" >@php esc_attr_e( 'Apply', 'woocommerce' ); @endphp</button>
+                            <input type="text" name="coupon_code" class="input-text block w-full border-gray-300 rounded-md shadow-xs focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="coupon_code" value="" placeholder="@php esc_attr_e( 'Coupon code', 'woocommerce' ); @endphp" />
+                            <button type="submit" class="button bg-gray-200 text-sm font-medium text-gray-600 rounded-md px-4 hover:bg-gray-300 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500" name="apply_coupon" value="@php esc_attr_e( 'Apply coupon', 'woocommerce' ); @endphp" >@php esc_attr_e( 'Apply', 'woocommerce' ); @endphp</button>
                         </div>
                         @php do_action( 'woocommerce_cart_coupon' ); @endphp
                     </li>
@@ -148,7 +148,7 @@
 
                 <li class="border-b-0">
                     <div class="py-6 sm:flex sm:items-center sm:justify-end">
-                        <button type="submit" class="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 sm:ml-6 sm:order-last sm:w-auto" name="update_cart" value="@php esc_attr_e( 'Update cart', 'woocommerce' ); @endphp">@php esc_html_e( 'Update cart', 'woocommerce' ); @endphp</button>
+                        <button type="submit" class="w-full bg-indigo-600 border border-transparent rounded-md shadow-xs py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 sm:ml-6 sm:order-last sm:w-auto" name="update_cart" value="@php esc_attr_e( 'Update cart', 'woocommerce' ); @endphp">@php esc_html_e( 'Update cart', 'woocommerce' ); @endphp</button>
                     </div>
                     <div class="actions">
                         @php do_action( 'woocommerce_cart_actions' ); @endphp

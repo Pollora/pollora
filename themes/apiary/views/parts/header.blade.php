@@ -22,9 +22,9 @@ use \App\Themes\Apiary\Walkers\MenuPrimary;
                     <div class="border-b border-gray-200 pl-16 md:pl-0">
                         <div class="h-16 flex items-center justify-between">
                             <div class="w-full text-gray-700 bg-white">
-                                <div class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row bg-white">
+                                <div class="flex flex-col max-w-(--breakpoint-xl) px-4 mx-auto md:items-center md:justify-between md:flex-row bg-white">
                                     <div class="flex flex-row items-center justify-between">
-                                        <a href="{{ home_url() }}" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg focus:outline-none focus:shadow-outline">
+                                        <a href="{{ home_url() }}" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg focus:outline-hidden focus:shadow-outline">
                                             <span class="sr-oly">{{ bloginfo('site_title') }}</span>
                                             {!! \App\Themes\Apiary\custom_logo('h-8 w-auto', 'custom-logo-link', false) !!}
                                         </a>
@@ -102,8 +102,8 @@ use \App\Themes\Apiary\Walkers\MenuPrimary;
          x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700"
          x-transition:leave-start="translate-x-0"
          x-transition:leave-end="-translate-x-full"
-         class="max-w-7xl md:mx-auto md:px-6 lg:px-8 md:!flex flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-end md:flex-row absolute w-[calc(100vw-65px)] top-0 h-full pt-[65px] md:relative md:w-auto md:h-auto md:pt-0 z-50 bg-white">
-        <div class="flex flex-col flex-grow md:flex-row w-full md:border-b md:border-gray-200 py-2 -mx-4">
+         class="max-w-7xl md:mx-auto md:px-6 lg:px-8 md:flex! flex-col grow pb-4 md:pb-0 md:flex md:justify-end md:flex-row absolute w-[calc(100vw-65px)] top-0 h-full pt-[65px] md:relative md:w-auto md:h-auto md:pt-0 z-50 bg-white">
+        <div class="flex flex-col grow md:flex-row w-full md:border-b md:border-gray-200 py-2 -mx-4">
             {!! wp_nav_menu([
                 'walker' => new MenuPrimary(),
                 'theme_location' => 'menu-primary',
@@ -112,7 +112,7 @@ use \App\Themes\Apiary\Walkers\MenuPrimary;
                 'link_config' => [
                     [
                         'depth' => 0,
-                        'class' => 'px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline'
+                        'class' => 'px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-hidden focus:shadow-outline'
                     ],
                     [
                         'depth' => 1,
@@ -128,7 +128,7 @@ use \App\Themes\Apiary\Walkers\MenuPrimary;
             ]) !!}
         </div>
     </nav>
-    <button class="fixed z-50 left-0 top-0 md:hidden focus:outline-none focus:shadow-outline h-16 w-16 bg-white" @click="open = open === 'menu' ? false : 'menu'">
+    <button class="fixed z-50 left-0 top-0 md:hidden focus:outline-hidden focus:shadow-outline h-16 w-16 bg-white" @click="open = open === 'menu' ? false : 'menu'">
         <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6 m-auto">
             <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
             <path x-show="open === 'menu'" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>

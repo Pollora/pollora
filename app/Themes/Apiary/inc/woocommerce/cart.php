@@ -58,5 +58,5 @@ function woocommerce_widget_shopping_cart_subtotal(): string
 }
 
 Filter::add('wc_add_to_cart_message_html', function ($message) {
-    return str_replace('button wc-forward wp-element-button', 'button wc-forward inline-block w-auto bg-indigo-600 border border-transparent rounded-md py-3 px-8  text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mr-4', $message);
+    return str_replace('button wc-forward wp-element-button', 'button wc-forward inline-block w-auto bg-indigo-600 border border-transparent rounded-md py-3 px-8  text-base font-medium text-white hover:bg-indigo-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mr-4', $message);
 });

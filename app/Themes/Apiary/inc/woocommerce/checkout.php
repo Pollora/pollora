@@ -56,7 +56,7 @@ Filter::add('woocommerce_update_order_review_fragments', function ($fragments) {
 Filter::add('woocommerce_form_field_args', function ($args, $key) {
     $fields = config('woocommerce.checkout.fields');
     $default_label_class = config('woocommerce.checkout.fields.label.default_class', 'block text-sm font-medium text-gray-700 mb-1');
-    $default_input_class = config('woocommerce.checkout.fields.label.default_class', 'block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm');
+    $default_input_class = config('woocommerce.checkout.fields.label.default_class', 'block w-full border-gray-300 rounded-md shadow-xs focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm');
 
     if (isset($fields[$key])) {
         $args = array_merge_recursive($args, $fields[$key]);

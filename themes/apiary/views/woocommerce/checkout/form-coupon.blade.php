@@ -20,8 +20,8 @@
 		<div class="flex-none bg-gray-50 border-t border-gray-200 p-6">
 			<label for="coupon_code" class="block text-sm font-medium text-gray-700">@php esc_html_e( 'Coupon code', 'woocommerce' ); @endphp</label>
 			<div class="flex space-x-4 mt-1">
-				<input type="text" name="coupon_code" id="coupon_code" class="input-text block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="@php esc_attr_e( 'Coupon code', 'woocommerce' ); @endphp" id="coupon_code" value="" />
-				<button type="submit" class="button bg-gray-200 text-sm font-medium text-gray-600 rounded-md px-4 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500" name="apply_coupon" value="@php esc_attr_e( 'Apply coupon', 'woocommerce' ); @endphp">@php esc_html_e( 'Apply', 'woocommerce' ); @endphp</button>
+				<input type="text" name="coupon_code" id="coupon_code" class="input-text block w-full border-gray-300 rounded-md shadow-xs focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="@php esc_attr_e( 'Coupon code', 'woocommerce' ); @endphp" id="coupon_code" value="" />
+				<button type="submit" class="button bg-gray-200 text-sm font-medium text-gray-600 rounded-md px-4 hover:bg-gray-300 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500" name="apply_coupon" value="@php esc_attr_e( 'Apply coupon', 'woocommerce' ); @endphp">@php esc_html_e( 'Apply', 'woocommerce' ); @endphp</button>
 			</div>
 		</div>
 	</form>

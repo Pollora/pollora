@@ -39,7 +39,7 @@
          */
         do_action( 'woocommerce_before_shop_loop_item_title' );
     @endphp
-    <div class="flex-1 flex-grow py-4 space-y-2 flex flex-col justify-between">
+    <div class="flex-1 grow py-4 space-y-2 flex flex-col justify-between">
         <div>
             @php
                 /**

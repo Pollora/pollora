@@ -60,7 +60,7 @@
                 </label>
                 <div class="mt-1">
                     <input type="text"
-                           class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                           class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-xs focus:border-indigo-500 focus:outline-hidden focus:ring-indigo-500 sm:text-sm"
                            name="username" id="username" autocomplete="username"/>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                     {{ __( 'Password', 'woocommerce' ) }}&nbsp;<span class="required">*</span>
                 </label>
                 <div class="mt-1">
-                    <input class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                    <input class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-xs focus:border-indigo-500 focus:outline-hidden focus:ring-indigo-500 sm:text-sm"
                            type="password" name="password" id="password" autocomplete="current-password"/>
                 </div>
             </div>
@@ -80,7 +80,7 @@
                 <div class="-mt-4 flex items-center justify-between">
                     <div class="flex items-center">
                         <input id="rememberme"
-                               class="woocommerce-form__input woocommerce-form__input-checkbox h-4 w-4 rounded border-gray-300 text-green-600 focus:ring-indigo-500"
+                               class="woocommerce-form__input woocommerce-form__input-checkbox h-4 w-4 rounded-sm border-gray-300 text-green-600 focus:ring-indigo-500"
                                name="rememberme" type="checkbox" id="rememberme" value="forever"/>
                         <label for="rememberme"
                                class="woocommerce-form__label woocommerce-form__label-for-checkbox woocommerce-form-login__rememberme ml-2 block text-sm">
@@ -100,11 +100,11 @@
                 <input type="hidden" name="redirect" value="{!! esc_url( $redirect ) !!}"/>
                 <div class="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-4">
                     <button type="submit" name="login"
-                            class="woocommerce-button button woocommerce-form-login__submit inline-flex w-full justify-center border border-transparent bg-indigo-500 rounded-md px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:col-start-2">
+                            class="woocommerce-button button woocommerce-form-login__submit inline-flex w-full justify-center border border-transparent bg-indigo-500 rounded-md px-4 py-2 text-sm font-medium text-white shadow-xs hover:bg-indigo-700 focus:outline-hidden focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:col-start-2">
                         {{ __( 'Login', 'woocommerce' ) }}
                     </button>
                     <button type="button" value="@php esc_attr_e( 'Login', 'woocommerce' ); @endphp"
-                            class="border-brown-500 bg-beige-500 text-brown-500 hover:bg-beige-300 mt-3 inline-flex w-full justify-center border px-4 py-2 rounded-md text-sm font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:col-start-1 sm:mt-0"
+                            class="border-brown-500 bg-beige-500 text-brown-500 hover:bg-beige-300 mt-3 inline-flex w-full justify-center border px-4 py-2 rounded-md text-sm font-medium shadow-xs focus:outline-hidden focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:col-start-1 sm:mt-0"
                             @click="loginModalOpen = false">
                         {{ __( 'Cancel', 'woocommerce' ) }}
                     </button>
