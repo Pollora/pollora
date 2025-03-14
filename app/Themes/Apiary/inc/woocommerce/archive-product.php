@@ -6,8 +6,11 @@ use Pollora\Support\Facades\Action;
 use Pollora\Support\Facades\Filter;
 
 // Move the default WooCommerce breadcrumb
-Action::remove('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);
-Action::add('after_header', 'woocommerce_breadcrumb', 1, 0);
+
+Action::add('after_setup_theme', function() {
+    Action::remove('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);
+    Action::add('after_header', 'woocommerce_breadcrumb', 1, 0);
+});
 
 /**
  * Override the woocommerce_taxonomy_archive_description function

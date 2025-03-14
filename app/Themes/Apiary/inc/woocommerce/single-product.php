@@ -17,13 +17,16 @@ Filter::add('woocommerce_sale_flash', function ($html): string {
     return str_replace('class="onsale"', 'class="onsale '.$sale_flash_class.'"', $html);
 });
 
-// move rating after title/price wrapper
-Action::remove('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
-Action::add('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 12);
+
+Action::add('after_setup_theme', function() {
+    // move rating after title/price wrapper
+    Action::remove('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
+    Action::add('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 12);
 
 // Move the sale flash position
-Action::remove('woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash');
-Action::add('woocommerce_before_single_product_gallery', 'woocommerce_show_product_sale_flash');
+    Action::remove('woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash');
+    Action::add('woocommerce_before_single_product_gallery', 'woocommerce_show_product_sale_flash');
+});
 
 // Maybe remove or not the description tab
 Filter::add('woocommerce_product_tabs', function ($tabs) {

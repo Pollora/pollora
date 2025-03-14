@@ -1,5 +1,3 @@
-@extends('woocommerce.layouts.checkout')
-
 @section('content')
     @loop
         <article id="post-{{ Loop::id() }}" {!! post_class() !!}>

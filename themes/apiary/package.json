@@ -1,39 +1,30 @@
 {
-    "name": "apiary-theme",
-    "version": "2.0.0",
-    "description": "Pollora framework boilerplate theme.",
-    "main": "main.js",
-    "scripts": {
-        "dev": "vite",
-        "build": "vite build"
-    },
-    "author": "Pollora",
-    "license": "GPL-2.0-or-later",
-    "bugs": {
-        "url": "https://github.com/themosis/theme/issues"
-    },
-    "homepage": "https://github.com/themosis/theme#readme",
-    "devDependencies": {
-        "@tailwindcss/forms": "^0.5.6",
-        "@tailwindcss/typography": "^0.5.9",
-        "autoprefixer": "^10.4.20",
-        "axios": "^1.1.2",
-        "laravel-vite-plugin": "^1.0.5",
-        "postcss": "^8.4.47",
-        "postcss-import": "^14.1.0",
-        "tailwindcss": "^3.4.13",
-        "vite": "^6.0.6"
-    },
-    "dependencies": {
-        "@tailwindcss/aspect-ratio": "^0.4.2",
-        "@wordpress/browserslist-config": "^6.14.0",
-        "alpinejs": "^3.14.8",
-        "postcss-url": "^10.1.3"
-    },
-    "browserslist": [
-        "extends @wordpress/browserslist-config"
-    ],
-    "volta": {
-        "node": "16.20.0"
-    }
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "@alpinejs/intersect": "^3.13.0",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.6",
+    "@tailwindcss/postcss": "^4.0.0",
+    "@tailwindcss/typography": "^0.5.9",
+    "@tailwindcss/upgrade": "^4.0.0",
+    "@tailwindcss/vite": "^4.0.0",
+    "alpinejs": "^3.9.1",
+    "axios": "^1.1.2",
+    "laravel-vite-plugin": "^1.0.5",
+    "motion": "^10.18.0",
+    "postcss": "^8.4.47",
+    "postcss-import": "^14.1.0",
+    "swiper": "^11.0.0",
+    "tailwindcss": "^4.0.0",
+    "vite": "^5.4.14"
+  },
+  "dependencies": {
+    "@alpinejs/collapse": "^3.14.5",
+    "@tailwindcss/aspect-ratio": "^0.4.2"
+  }
 }

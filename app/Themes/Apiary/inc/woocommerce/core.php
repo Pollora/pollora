@@ -3,7 +3,7 @@
 use Pollora\Support\Facades\Action;
 
 // Remove the default WooCommerce Template Loader
-Action::remove('init', 'WC_Template_Loader::init', 10);
+Action::remove('init', [WC_Template_Loader::class, 'init'], 10);
 
 /**
  * Check if WooCommerce is activated

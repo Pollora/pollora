@@ -16,5 +16,5 @@ use App\Themes\Default\Providers\AssetServiceProvider;
 */
 return [
     \App\Themes\Apiary\Providers\AssetServiceProvider::class,
-    \App\Themes\Apiary\Providers\WordPress\Formatting::class,
+//    \App\Themes\Apiary\Providers\WordPress\Formatting::class,
 ];

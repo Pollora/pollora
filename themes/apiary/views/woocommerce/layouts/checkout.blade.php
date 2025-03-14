@@ -4,7 +4,7 @@
     <meta charset="{{ get_bloginfo('charset') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
-    @head
+    @wphead
 </head>
 <body {{ body_class('antialiased font-sans bg-gray-200 overflow-x-hidden') }} x-data="{ loginModalOpen: false }" @keydown.window.escape="loginModalOpen = false">
     <div id="page" class="site bg-white">
@@ -18,6 +18,6 @@
         </div><!-- #content -->
         @include('woocommerce.parts.footer.footer-checkout')
     </div><!-- #page -->
-    @footer
+    @wpfooter
 </body>
 </html>

@@ -72,5 +72,7 @@ Filter::add('woocommerce_form_field_args', function ($args, $key) {
 }, 10, 2);
 
 // Move the checkout coupon form after the totals
-Action::remove('woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10);
-Action::add('woocommerce_review_order_before_totals', 'woocommerce_checkout_coupon_form', 10);
+Action::add('after_setup_theme', function() {
+    Action::remove('woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10);
+    Action::add('woocommerce_review_order_before_totals', 'woocommerce_checkout_coupon_form', 10);
+});

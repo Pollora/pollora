@@ -13,7 +13,7 @@ import.meta.glob([
 import "./js/frontend/app.js";
 
 // styles
-import "./css/frontend/app.css";
+import "./css/app.css";
 
 // Project scripts
 // ...

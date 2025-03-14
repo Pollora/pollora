@@ -1,0 +1,16 @@
+@import 'tailwindcss';
+
+@import './backend/components/limit-login-attempts.css';
+@import './backend/components/redis-object.css';
+@import './backend/components/variation-swatches.css';
+
+@import './editor/gutenberg.css';
+
+@import './frontend/components/wpgb.css';
+@import './frontend/components/variation-swatches.css';
+@import './frontend/components/select2.css';
+@import './frontend/components/privacy-text.css';
+@import './frontend/components/rte.css';
+@import './frontend/layout/single-product.css';
+
+@config "../../tailwind.config.js";

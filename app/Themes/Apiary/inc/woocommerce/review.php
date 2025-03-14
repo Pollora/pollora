@@ -74,7 +74,7 @@ Filter::add('comment_form_field_cookies', function ($output) {
 });
 
 // Register the comment template loader
-Filter::add('comments_template', 'WC_Template_Loader::comments_template_loader');
+Filter::add('comments_template', [WC_Template_Loader::class, 'comments_template_loader']);
 
 // Remove the default avatar hook
 Action::remove('woocommerce_review_before', 'woocommerce_review_display_gravatar', 10);
@@ -84,9 +84,11 @@ Action::add('woocommerce_review_before', function ($comment) {
     echo view('woocommerce.single-product.review-avatar', ['comment' => $comment]);
 }, 10);
 
-// Move the rating stars
-Action::remove('woocommerce_review_before_comment_meta', 'woocommerce_review_display_rating', 10);
-Action::add('woocommerce_review_before_comment_text', 'woocommerce_review_display_rating', 10);
+Action::add('after_setup_theme', function() {
+    // Move the rating stars
+    Action::remove('woocommerce_review_before_comment_meta', 'woocommerce_review_display_rating', 10);
+    Action::add('woocommerce_review_before_comment_text', 'woocommerce_review_display_rating', 10);
+});
 
 // Custom product rating html
 Filter::add('woocommerce_product_get_rating_html', function ($html, $rating, $count) {

@@ -21,25 +21,6 @@ Route::get('/', function () {
 });
 
 /**
- * WooCommerce routes.
- */
-Route::any('shop', function () {
-    return view('woocommerce.archive');
-});
-
-Route::any('product_category', function () {
-    return view('woocommerce.archive');
-});
-
-Route::any('product_tag', function () {
-    return view('woocommerce.archive');
-});
-
-Route::any('product', function () {
-    return view('woocommerce.single');
-});
-
-/**
  * WordPress routes
  */
 Route::wp('single', function () {

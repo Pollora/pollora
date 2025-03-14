@@ -3,8 +3,10 @@
 use Pollora\Support\Facades\Action;
 use Pollora\Support\Facades\Filter;
 
-Action::remove('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
-Action::add('woocommerce_after_single_product', 'woocommerce_output_related_products', 1);
+Action::add('after_setup_theme', function() {
+    Action::remove('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
+    Action::add('woocommerce_after_single_product', 'woocommerce_output_related_products', 1);
+});
 
 if (! function_exists('th_inject_related_product_classes')) {
     /**

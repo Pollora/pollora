@@ -50,9 +50,9 @@
     @apply rounded-full;
 }
 
-.woo-variation-swatches .color-variable-wrapper .variable-item-span {
-    @apply block h-8 w-8 border border-black border-opacity-10 rounded-full;
-}
+/*.woo-variation-swatches .color-variable-wrapper .variable-item-span {*/
+/*    @apply block h-8 w-8 border border-black border-opacity-10 rounded-full;*/
+/*}*/
 
 .woo-variation-swatches .variable-items-wrapper .variable-item.selected {
     @apply relative flex items-center justify-center cursor-pointer focus:outline-none ring-gray-900 ring-2;
