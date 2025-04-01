@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "949580910ea77a1981bf7b4778d7ac23",
+    "content-hash": "b27c843556ff955ffe1ef0925b112426",
     "packages": [
         {
             "name": "amphp/amp",
@@ -3171,12 +3171,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "f2f55a2d657057c3e833d0cbe419e77fed812906"
+                "reference": "1d658958cbc99fa58c0a253d30ba8f831974dacf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/f2f55a2d657057c3e833d0cbe419e77fed812906",
-                "reference": "f2f55a2d657057c3e833d0cbe419e77fed812906",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/1d658958cbc99fa58c0a253d30ba8f831974dacf",
+                "reference": "1d658958cbc99fa58c0a253d30ba8f831974dacf",
                 "shasum": ""
             },
             "require": {
@@ -3379,7 +3379,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-03-29T17:44:28+00:00"
+            "time": "2025-04-01T15:53:32+00:00"
         },
         {
             "name": "laravel/pint",
@@ -4589,16 +4589,16 @@
         },
         {
             "name": "nette/utils",
-            "version": "v4.0.5",
+            "version": "v4.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/utils.git",
-                "reference": "736c567e257dbe0fcf6ce81b4d6dbe05c6899f96"
+                "reference": "ce708655043c7050eb050df361c5e313cf708309"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/utils/zipball/736c567e257dbe0fcf6ce81b4d6dbe05c6899f96",
-                "reference": "736c567e257dbe0fcf6ce81b4d6dbe05c6899f96",
+                "url": "https://api.github.com/repos/nette/utils/zipball/ce708655043c7050eb050df361c5e313cf708309",
+                "reference": "ce708655043c7050eb050df361c5e313cf708309",
                 "shasum": ""
             },
             "require": {
@@ -4669,9 +4669,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/utils/issues",
-                "source": "https://github.com/nette/utils/tree/v4.0.5"
+                "source": "https://github.com/nette/utils/tree/v4.0.6"
             },
-            "time": "2024-08-07T15:39:19+00:00"
+            "time": "2025-03-30T21:06:30+00:00"
         },
         {
             "name": "nikic/php-parser",
