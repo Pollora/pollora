@@ -3170,12 +3170,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "3faeb0726cb55b4f672bf549cc93b716545b84c2"
+                "reference": "44e6a294e4441e9e3338008af0288979b3f677e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/3faeb0726cb55b4f672bf549cc93b716545b84c2",
-                "reference": "3faeb0726cb55b4f672bf549cc93b716545b84c2",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/44e6a294e4441e9e3338008af0288979b3f677e8",
+                "reference": "44e6a294e4441e9e3338008af0288979b3f677e8",
                 "shasum": ""
             },
             "require": {
@@ -3378,7 +3378,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-04-22T13:57:05+00:00"
+            "time": "2025-04-23T14:50:58+00:00"
         },
         {
             "name": "laravel/pint",
