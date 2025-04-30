@@ -19,7 +19,7 @@
         "php": "^8.2",
         "barryvdh/laravel-ide-helper": "^3.5",
         "johnpbloch/wordpress": "^6.8",
-        "laravel/framework": "^12.10",
+        "laravel/framework": "^12.11",
         "laravel/sanctum": "^4.1",
         "laravel/tinker": "^2.10.1",
         "pollora/framework": "dev-main",
@@ -91,12 +91,13 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "allow-plugins": {
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "johnpbloch/wordpress-core-installer": true,
             "pestphp/pest-plugin": true,
             "php-http/discovery": true,
-            "johnpbloch/wordpress-core-installer": true,
-            "cweagans/composer-patches": true,
-            "composer/installers": true,
-            "pollora/helper-overrider": true
+            "pollora/helper-overrider": true,
+            "wikimedia/composer-merge-plugin": true
         }
     },
     "minimum-stability": "dev",
