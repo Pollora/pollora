@@ -20,16 +20,12 @@ class AssetServiceProvider extends ServiceProvider
     public function boot()
     {
         Asset::add('default/script', 'assets/app.js')
-            ->container('theme')
             ->toFrontend()
             ->useVite();
-        //Asset::add('font-inter', 'https://rsms.me/inter/inter.css', [], $this->theme->getHeader('version'))->to('front');
 
-        Filter::add('woocommerce_enqueue_styles', function ($enqueueStyles) {
-            unset($enqueueStyles['woocommerce-general']);		// Remove the default WooCommerce styles
-            unset($enqueueStyles['woocommerce-layout']);		// Remove the layout
-            unset($enqueueStyles['woocommerce-smallscreen']);	// Remove the smallscreen optimisation
-
+        Filter::add('woocommerce_enqueue_styles', function (array $enqueueStyles) {
+            // Remove the default WooCommerce styles, layout ands the smallscreen optimisation
+            unset($enqueueStyles['woocommerce-general'], $enqueueStyles['woocommerce-layout'], $enqueueStyles['woocommerce-smallscreen']);
             return $enqueueStyles;
         });
     }
