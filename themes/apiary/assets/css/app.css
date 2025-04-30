@@ -1,0 +1,34 @@
+@import 'tailwindcss';
+
+@import './backend/components/limit-login-attempts.css';
+@import './backend/components/redis-object.css';
+@import './backend/components/variation-swatches.css';
+
+@import './editor/gutenberg.css';
+
+@import './frontend/components/wpgb.css';
+@import './frontend/components/variation-swatches.css';
+@import './frontend/components/select2.css';
+@import './frontend/components/privacy-text.css';
+@import './frontend/components/rte.css';
+@import './frontend/layout/single-product.css';
+
+@config "../../tailwind.config.js";
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}

@@ -1,0 +1,1 @@
+{{ the_title( '<h1 class="product_title entry-title text-xl font-medium text-gray-900">', '</h1>' ) }}
