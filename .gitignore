@@ -53,3 +53,4 @@ node_modules
 ## Other unversioned files
 *.sql
 global_rules.md
+*.timestamp-*.mjs
