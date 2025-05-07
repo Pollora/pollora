@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b977398c158c6c55ca4a1851ca7f6456",
+    "content-hash": "1803d5f7ad42362687a8b6eb042d82cc",
     "packages": [
         {
             "name": "amphp/amp",
@@ -3024,12 +3024,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "e333cc80b8f5414daec8ef7b15c1333685c4988b"
+                "reference": "d100d1cee3916c21cf341e11dbb2619b2940d454"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/e333cc80b8f5414daec8ef7b15c1333685c4988b",
-                "reference": "e333cc80b8f5414daec8ef7b15c1333685c4988b",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/d100d1cee3916c21cf341e11dbb2619b2940d454",
+                "reference": "d100d1cee3916c21cf341e11dbb2619b2940d454",
                 "shasum": ""
             },
             "require": {
@@ -3232,7 +3232,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-05-07T00:35:45+00:00"
+            "time": "2025-05-07T18:08:59+00:00"
         },
         {
             "name": "laravel/pint",
@@ -11010,6 +11010,6 @@
     "platform": {
         "php": "^8.2"
     },
-    "platform-dev": {},
+    "platform-dev": [],
     "plugin-api-version": "2.6.0"
 }
