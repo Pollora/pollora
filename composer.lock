@@ -4953,21 +4953,23 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
-                "reference": "36cb6c52381bae52d64631127d1710e41b8fe14f"
+                "reference": "5e24173767e4e46603698e41f239b4d6bcedea8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/36cb6c52381bae52d64631127d1710e41b8fe14f",
-                "reference": "36cb6c52381bae52d64631127d1710e41b8fe14f",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/5e24173767e4e46603698e41f239b4d6bcedea8c",
+                "reference": "5e24173767e4e46603698e41f239b4d6bcedea8c",
                 "shasum": ""
             },
             "require": {
                 "coduo/php-humanizer": "5.x-dev",
                 "cweagans/composer-patches": "^1.7",
+                "illuminate/config": "12.x-dev",
                 "illuminate/console": "12.x-dev",
                 "illuminate/database": "^12.0",
                 "illuminate/routing": "^12.0",
                 "illuminate/support": "^12.0",
+                "laravel/prompts": "^0.3.0@dev",
                 "log1x/sage-directives": "^2.0",
                 "nwidart/laravel-modules": "^12.0@dev",
                 "php": "^8.2.0",
@@ -4977,6 +4979,7 @@
                 "pollora/query": "dev-main",
                 "roots/bedrock-autoloader": "^1.0",
                 "spatie/php-structure-discoverer": "dev-main",
+                "symfony/process": "^7.2.0",
                 "watson/rememberable": "^7.0"
             },
             "require-dev": {
@@ -5049,7 +5052,7 @@
                 "issues": "https://github.com/Pollora/framework/issues",
                 "source": "https://github.com/Pollora/framework/tree/develop"
             },
-            "time": "2025-05-06T15:49:08+00:00"
+            "time": "2025-05-07T15:46:27+00:00"
         },
         {
             "name": "pollora/helper-overrider",
