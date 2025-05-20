@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "219ac78652774f47adbf0cadb2920987",
+    "content-hash": "db9cf92c45173407288dda1ead17763e",
     "packages": [
         {
             "name": "amphp/amp",
@@ -3024,12 +3024,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "a70c6f8c4466a0dcfcbbe2d6be0b1f0447a6548f"
+                "reference": "f8cb952caa7b7c55d93e7b90a093710a35f9e7bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/a70c6f8c4466a0dcfcbbe2d6be0b1f0447a6548f",
-                "reference": "a70c6f8c4466a0dcfcbbe2d6be0b1f0447a6548f",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/f8cb952caa7b7c55d93e7b90a093710a35f9e7bc",
+                "reference": "f8cb952caa7b7c55d93e7b90a093710a35f9e7bc",
                 "shasum": ""
             },
             "require": {
@@ -3232,7 +3232,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-05-13T17:52:31+00:00"
+            "time": "2025-05-20T15:12:32+00:00"
         },
         {
             "name": "laravel/pint",
@@ -4909,12 +4909,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/WordPressEntity.git",
-                "reference": "fe36cce4c076c1c8f8efbccfaf919a5246046434"
+                "reference": "85d1693732cbc66c5f36740ebc0b2f11e1f9db9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/WordPressEntity/zipball/fe36cce4c076c1c8f8efbccfaf919a5246046434",
-                "reference": "fe36cce4c076c1c8f8efbccfaf919a5246046434",
+                "url": "https://api.github.com/repos/Pollora/WordPressEntity/zipball/85d1693732cbc66c5f36740ebc0b2f11e1f9db9a",
+                "reference": "85d1693732cbc66c5f36740ebc0b2f11e1f9db9a",
                 "shasum": ""
             },
             "require": {
@@ -4945,7 +4945,7 @@
                 "issues": "https://github.com/Pollora/WordPressEntity/issues",
                 "source": "https://github.com/Pollora/WordPressEntity/tree/main"
             },
-            "time": "2025-03-12T06:46:12+00:00"
+            "time": "2025-05-15T14:55:08+00:00"
         },
         {
             "name": "pollora/framework",
@@ -4953,12 +4953,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
-                "reference": "5e24173767e4e46603698e41f239b4d6bcedea8c"
+                "reference": "8415787112f501ccba22540ca64566cab751628e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/5e24173767e4e46603698e41f239b4d6bcedea8c",
-                "reference": "5e24173767e4e46603698e41f239b4d6bcedea8c",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/8415787112f501ccba22540ca64566cab751628e",
+                "reference": "8415787112f501ccba22540ca64566cab751628e",
                 "shasum": ""
             },
             "require": {
@@ -4983,7 +4983,7 @@
                 "watson/rememberable": "^7.0"
             },
             "require-dev": {
-                "driftingly/rector-laravel": "dev-main",
+                "driftingly/rector-laravel": "^1.0",
                 "laravel/pint": "^1.17.3",
                 "mockery/mockery": "2.0.x-dev",
                 "pestphp/pest": "^3.7.4",
@@ -5050,9 +5050,9 @@
             "description": "Laravel & WordPress blend for coding as sweet as honey. Join the hive!",
             "support": {
                 "issues": "https://github.com/Pollora/framework/issues",
-                "source": "https://github.com/Pollora/framework/tree/feature/improved_wp_install"
+                "source": "https://github.com/Pollora/framework/tree/feature/template_hierarchy"
             },
-            "time": "2025-05-07T15:46:27+00:00"
+            "time": "2025-05-16T13:49:21+00:00"
         },
         {
             "name": "pollora/helper-overrider",
