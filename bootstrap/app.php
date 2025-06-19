@@ -6,7 +6,7 @@ use App\Providers\AppServiceProvider;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Foundation\Application;
-use Pollora\Route\WordPressRouteServiceProvider;
+use Pollora\Route\Infrastructure\Providers\RouteServiceProvider;
 
 $app = Application::configure(basePath: dirname(__DIR__))
     ->withProviders()
@@ -27,6 +27,6 @@ $app = Application::configure(basePath: dirname(__DIR__))
         //
     })->create();
 
-$app->register(new WordPressRouteServiceProvider($app));
+$app->register(new RouteServiceProvider($app));
 
 return $app;

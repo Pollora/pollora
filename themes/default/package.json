@@ -1,0 +1,20 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "@tailwindcss/vite": "^4.1.10",
+        "axios": "^1.8.2",
+        "laravel-vite-plugin": "^1.0.5",
+        "postcss": "^8.4.47",
+        "postcss-import": "^14.1.0",
+        "tailwindcss": "^4.1.10",
+        "vite": "^5.0.13"
+    },
+    "dependencies": {
+        "@tailwindcss/postcss": "^4.1.10"
+    }
+}
