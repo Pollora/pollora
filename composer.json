@@ -81,6 +81,11 @@
                 "type:wordpress-theme"
             ]
         },
+        "merge-plugin": {
+            "include": [
+                "Modules/*/composer.json"
+            ]
+        },
         "laravel": [],
         "enable-patching": true
     },
