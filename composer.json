@@ -19,7 +19,7 @@
         "php": "^8.2",
         "barryvdh/laravel-ide-helper": "^3.5",
         "johnpbloch/wordpress": "^6.9",
-        "laravel/framework": "^12.45",
+        "laravel/framework": "^12.46",
         "laravel/sanctum": "^4.2",
         "laravel/tinker": "^2.10.1",
         "pollora/framework": "dev-main"
