@@ -16,22 +16,22 @@
         }
     ],
     "require": {
-        "php": "^8.2",
-        "barryvdh/laravel-ide-helper": "^3.5",
+        "php": "^8.3",
+        "barryvdh/laravel-ide-helper": "^3.7",
         "johnpbloch/wordpress": "^6.8",
-        "laravel/framework": "^12.12",
-        "laravel/sanctum": "^4.1",
-        "laravel/tinker": "^2.10.1",
+        "laravel/framework": "^13.5",
+        "laravel/sanctum": "^4.3",
+        "laravel/tinker": "^3.0",
         "pollora/framework": "dev-main"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
-        "laravel/pint": "^1.13",
-        "laravel/sail": "^1.41",
+        "laravel/pint": "^1.27",
+        "laravel/sail": "^1.53",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
         "phpunit/phpunit": "^11.5.3",
-        "laravel/pail": "^1.2.2"
+        "laravel/pail": "^1.2.5"
     },
     "autoload": {
         "files": [
