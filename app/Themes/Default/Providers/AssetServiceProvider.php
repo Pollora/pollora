@@ -6,7 +6,6 @@ namespace App\Themes\Default\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Pollora\Support\Facades\Asset;
-use Pollora\Support\Facades\Theme;
 
 class AssetServiceProvider extends ServiceProvider
 {

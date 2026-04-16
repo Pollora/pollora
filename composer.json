@@ -16,22 +16,22 @@
         }
     ],
     "require": {
-        "php": "^8.2",
-        "barryvdh/laravel-ide-helper": "^3.5",
+        "php": "^8.3",
+        "barryvdh/laravel-ide-helper": "^3.7",
         "johnpbloch/wordpress": "^6.8",
-        "laravel/framework": "^12.12",
-        "laravel/sanctum": "^4.1",
-        "laravel/tinker": "^2.10.1",
+        "laravel/framework": "^13.5",
+        "laravel/sanctum": "^4.3",
+        "laravel/tinker": "^3.0",
         "pollora/framework": "dev-main"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
-        "laravel/pint": "^1.13",
-        "laravel/sail": "^1.41",
+        "laravel/pint": "^1.27",
+        "laravel/sail": "^1.53",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
         "phpunit/phpunit": "^11.5.3",
-        "laravel/pail": "^1.2.2"
+        "laravel/pail": "^1.2.5"
     },
     "autoload": {
         "files": [
@@ -66,6 +66,21 @@
         "dev": [
             "Composer\\Config::disableProcessTimeout",
             "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite"
+        ],
+        "setup": [
+            "composer install",
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "@php artisan key:generate",
+            "@php artisan migrate --force",
+            "npm install",
+            "npm run build"
+        ],
+        "test": [
+            "@php artisan config:clear --ansi",
+            "@php artisan test"
+        ],
+        "pre-package-uninstall": [
+            "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"
         ]
     },
     "extra": {
