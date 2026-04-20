@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,17 +15,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 /**
  * WordPress routes
  */
+Route::wp('home', function () {
+    return view('home');
+});
+
 Route::wp('single', function () {
     return view('post');
 });
 
 Route::wp('page', function () {
     return view('page');
+});
+
+Route::wp('404', function () {
+    return response()->view('errors.404', [], 404);
 });
