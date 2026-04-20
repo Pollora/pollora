@@ -9,6 +9,7 @@ yarn-error.log
 .env.backup
 .env.production
 auth.json
+composer.local.json
 
 ## Development tools specific files
 .phpstorm.meta.php
