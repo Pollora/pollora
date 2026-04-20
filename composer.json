@@ -19,10 +19,10 @@
         "php": "^8.2",
         "barryvdh/laravel-ide-helper": "^3.5",
         "johnpbloch/wordpress": "^6.9",
-        "laravel/framework": "^12.56",
-        "laravel/sanctum": "^4.3",
-        "laravel/tinker": "^2.10.1",
-        "pollora/framework": "dev-main"
+        "laravel/framework": "^13.0",
+        "laravel/sanctum": "^4.3 || ^5.0",
+        "laravel/tinker": "^3.0",
+        "pollora/framework": "dev-develop"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
