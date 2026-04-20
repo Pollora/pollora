@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a9071e4805146b6621081f5b8a102ac5",
+    "content-hash": "03f237c1808a5eb0bd4ebcbf83728e03",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -3971,16 +3971,10 @@
         {
             "name": "pollora/colt",
             "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Pollora/colt.git",
-                "reference": "658582aa56c4252ee6dbb272dce650426cd601c5"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/colt/zipball/658582aa56c4252ee6dbb272dce650426cd601c5",
-                "reference": "658582aa56c4252ee6dbb272dce650426cd601c5",
-                "shasum": ""
+                "type": "path",
+                "url": "/var/www/pollora-packages/colt",
+                "reference": "658582aa56c4252ee6dbb272dce650426cd601c5"
             },
             "require": {
                 "bordoni/phpass": "0.3.*",
@@ -3997,19 +3991,18 @@
                 "orchestra/testbench": "^10.0 || ^11.0",
                 "symfony/thanks": "^1.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
-                "laravel": {
-                    "providers": [
-                        "Pollora\\Colt\\Laravel\\ColtServiceProvider"
-                    ]
-                },
                 "branch-alias": {
                     "dev-main": "10.x-dev"
                 },
                 "original-author": "Junior Grossi",
-                "original-repository": "https://github.com/corcel/corcel"
+                "original-repository": "https://github.com/corcel/corcel",
+                "laravel": {
+                    "providers": [
+                        "Pollora\\Colt\\Laravel\\ColtServiceProvider"
+                    ]
+                }
             },
             "autoload": {
                 "psr-4": {
@@ -4017,7 +4010,6 @@
                     "Pollora\\Colt\\Tests\\": "tests/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -4035,24 +4027,18 @@
             ],
             "description": "Use WordPress backend with Laravel or any PHP framework",
             "homepage": "http://github.com/Pollora/colt",
-            "support": {
-                "source": "https://github.com/Pollora/colt/tree/main"
-            },
-            "time": "2026-04-20T07:36:14+00:00"
+            "transport-options": {
+                "symlink": true,
+                "relative": false
+            }
         },
         {
             "name": "pollora/entity",
             "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Pollora/WordPressEntity.git",
-                "reference": "1cd5d499faa310b360dbf02328bedef38a7df783"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/WordPressEntity/zipball/1cd5d499faa310b360dbf02328bedef38a7df783",
-                "reference": "1cd5d499faa310b360dbf02328bedef38a7df783",
-                "shasum": ""
+                "type": "path",
+                "url": "/var/www/pollora-packages/entity",
+                "reference": "1cd5d499faa310b360dbf02328bedef38a7df783"
             },
             "require": {
                 "johnbillion/extended-cpts": "^5.0",
@@ -4065,14 +4051,45 @@
                 "pestphp/pest": "^v3.8.2",
                 "phpstan/phpstan": "^2.1.16"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "Pollora\\Entity\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Pollora\\Entity\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "@test:unit",
+                    "@phpstan",
+                    "@lint:check"
+                ],
+                "test:coverage": [
+                    "pest --coverage"
+                ],
+                "test:unit": [
+                    "pest --testsuite=Unit"
+                ],
+                "test:feature": [
+                    "pest --testsuite=Feature"
+                ],
+                "phpstan": [
+                    "phpstan analyse src tests --level=5"
+                ],
+                "phpstan:ci": [
+                    "phpstan analyse src tests --level=5 --no-progress"
+                ],
+                "lint": [
+                    "pint"
+                ],
+                "lint:check": [
+                    "pint --test"
+                ]
+            },
             "license": [
                 "GPL-2.0-or-later"
             ],
@@ -4083,25 +4100,18 @@
                 }
             ],
             "description": "A modern PHP package for WordPress custom post types and taxonomies",
-            "support": {
-                "issues": "https://github.com/Pollora/WordPressEntity/issues",
-                "source": "https://github.com/Pollora/WordPressEntity/tree/main"
-            },
-            "time": "2026-04-20T07:35:40+00:00"
+            "transport-options": {
+                "symlink": true,
+                "relative": false
+            }
         },
         {
             "name": "pollora/framework",
-            "version": "v13.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Pollora/framework.git",
-                "reference": "5365d938d5f4f1297eec886b33b9c5b50da71248"
-            },
+            "version": "dev-develop",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/5365d938d5f4f1297eec886b33b9c5b50da71248",
-                "reference": "5365d938d5f4f1297eec886b33b9c5b50da71248",
-                "shasum": ""
+                "type": "path",
+                "url": "/var/www/pollora-packages/framework",
+                "reference": "5365d938d5f4f1297eec886b33b9c5b50da71248"
             },
             "require": {
                 "coduo/php-humanizer": "5.0.3",
@@ -4138,24 +4148,6 @@
             },
             "type": "project",
             "extra": {
-                "laravel": {
-                    "aliases": {
-                        "Ajax": "Pollora\\Support\\Facades\\Ajax",
-                        "Hash": "Pollora\\Support\\Facades\\WPHash",
-                        "Loop": "Pollora\\Support\\Facades\\Loop",
-                        "Asset": "Pollora\\Support\\Facades\\Asset",
-                        "Query": "Pollora\\Support\\Facades\\Query",
-                        "Theme": "Pollora\\Support\\Facades\\Theme",
-                        "Action": "Pollora\\Support\\Facades\\Action",
-                        "Filter": "Pollora\\Support\\Facades\\Filter",
-                        "PostType": "Pollora\\Support\\Facades\\PostType",
-                        "Taxonomy": "Pollora\\Support\\Facades\\Taxonomy",
-                        "Wordpress": "Pollora\\Support\\WordPress"
-                    },
-                    "providers": [
-                        "Pollora\\Providers\\PolloraServiceProvider"
-                    ]
-                },
                 "patches": {
                     "johnpbloch/wordpress-core": {
                         "Patch __ method in l10n to stop conflicting with Laravel": "https://raw.githubusercontent.com/Pollora/framework/refs/heads/main/patches/wordpress-core.patch"
@@ -4163,17 +4155,79 @@
                     "php-stubs/wordpress-stubs": {
                         "Rename __ and wp_mail functions": "https://raw.githubusercontent.com/Pollora/framework/refs/heads/main/patches/wordpress-stubs.patch"
                     }
+                },
+                "laravel": {
+                    "providers": [
+                        "Pollora\\Providers\\PolloraServiceProvider"
+                    ],
+                    "aliases": {
+                        "Wordpress": "Pollora\\Support\\WordPress",
+                        "Action": "Pollora\\Support\\Facades\\Action",
+                        "Filter": "Pollora\\Support\\Facades\\Filter",
+                        "Query": "Pollora\\Support\\Facades\\Query",
+                        "Hash": "Pollora\\Support\\Facades\\WPHash",
+                        "Loop": "Pollora\\Support\\Facades\\Loop",
+                        "Ajax": "Pollora\\Support\\Facades\\Ajax",
+                        "PostType": "Pollora\\Support\\Facades\\PostType",
+                        "Taxonomy": "Pollora\\Support\\Facades\\Taxonomy",
+                        "Theme": "Pollora\\Support\\Facades\\Theme",
+                        "Asset": "Pollora\\Support\\Facades\\Asset"
+                    }
                 }
             },
             "autoload": {
-                "files": [
-                    "src/helpers.php"
-                ],
                 "psr-4": {
                     "Pollora\\": "src/"
-                }
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\": "tests/",
+                    "Workbench\\App\\": "workbench/app/",
+                    "Workbench\\Database\\Factories\\": "workbench/database/factories/",
+                    "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
+                },
+                "files": [
+                    "tests/Unit/helpers.php"
+                ]
+            },
+            "scripts": {
+                "post-autoload-dump": [
+                    "@clear",
+                    "@prepare"
+                ],
+                "serve": [
+                    "Composer\\Config::disableProcessTimeout",
+                    "@build"
+                ],
+                "refacto": [
+                    "rector"
+                ],
+                "lint": [
+                    "pint"
+                ],
+                "test:refacto": [
+                    "rector --dry-run"
+                ],
+                "test:lint": [
+                    "pint --test"
+                ],
+                "test:types": [
+                    "phpstan analyse --ansi"
+                ],
+                "test:unit": [
+                    "pest --colors=always --min=100"
+                ],
+                "test": [
+                    "@test:refacto",
+                    "@test:lint",
+                    "@test:types",
+                    "@test:unit"
+                ]
+            },
             "license": [
                 "GPL-2.0-or-later"
             ],
@@ -4190,37 +4244,28 @@
                 }
             ],
             "description": "Laravel & WordPress blend for coding as sweet as honey. Join the hive!",
-            "support": {
-                "issues": "https://github.com/Pollora/framework/issues",
-                "source": "https://github.com/Pollora/framework/tree/v13.1.0"
-            },
-            "time": "2026-04-20T09:57:30+00:00"
+            "transport-options": {
+                "symlink": true,
+                "relative": false
+            }
         },
         {
             "name": "pollora/helper-overrider",
             "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Pollora/Helper-Overrider.git",
-                "reference": "3a01bbbe2f7ffee0bb8439b2f9878b4e285ece19"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/Helper-Overrider/zipball/3a01bbbe2f7ffee0bb8439b2f9878b4e285ece19",
-                "reference": "3a01bbbe2f7ffee0bb8439b2f9878b4e285ece19",
-                "shasum": ""
+                "type": "path",
+                "url": "/var/www/pollora-packages/helper-overrider",
+                "reference": "3a01bbbe2f7ffee0bb8439b2f9878b4e285ece19"
             },
             "require": {
                 "php": "^8.2.0"
             },
-            "default-branch": true,
             "type": "package",
             "autoload": {
                 "files": [
                     "src/helpers.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0-or-later"
             ],
@@ -4232,25 +4277,18 @@
                 }
             ],
             "description": "Override some Laravel helpers",
-            "support": {
-                "issues": "https://github.com/Pollora/Helper-Overrider/issues",
-                "source": "https://github.com/Pollora/Helper-Overrider/tree/main"
-            },
-            "time": "2025-01-20T12:52:04+00:00"
+            "transport-options": {
+                "symlink": true,
+                "relative": false
+            }
         },
         {
             "name": "pollora/query",
             "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Pollora/Query.git",
-                "reference": "4828aa60e63baa65122e7de8760e3afa235e3a40"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/Query/zipball/4828aa60e63baa65122e7de8760e3afa235e3a40",
-                "reference": "4828aa60e63baa65122e7de8760e3afa235e3a40",
-                "shasum": ""
+                "type": "path",
+                "url": "/var/www/pollora-packages/query",
+                "reference": "4828aa60e63baa65122e7de8760e3afa235e3a40"
             },
             "require": {
                 "laravel/pint": "^1.13",
@@ -4262,14 +4300,12 @@
                 "pestphp/pest": "^2.19",
                 "rector/rector": "^0.18.4"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "Pollora\\Query\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0-or-later"
             ],
@@ -4281,25 +4317,18 @@
                 }
             ],
             "description": "Create WP Query in a fluent way.",
-            "support": {
-                "issues": "https://github.com/Pollora/Query/issues",
-                "source": "https://github.com/Pollora/Query/tree/main"
-            },
-            "time": "2026-04-20T07:35:47+00:00"
+            "transport-options": {
+                "symlink": true,
+                "relative": false
+            }
         },
         {
             "name": "pollora/wordpress-args",
             "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Pollora/WordPressArguments.git",
-                "reference": "e99d7803284afdebd4bcc5b00cf713a8a486d57c"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/WordPressArguments/zipball/e99d7803284afdebd4bcc5b00cf713a8a486d57c",
-                "reference": "e99d7803284afdebd4bcc5b00cf713a8a486d57c",
-                "shasum": ""
+                "type": "path",
+                "url": "/var/www/pollora-packages/wordpress-args",
+                "reference": "e99d7803284afdebd4bcc5b00cf713a8a486d57c"
             },
             "require": {
                 "illuminate/support": "^12.0 || ^13.0",
@@ -4310,14 +4339,12 @@
                 "pestphp/pest": "^3.4",
                 "spatie/invade": "^2.1"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "Pollora\\WordPressArgs\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0-or-later"
             ],
@@ -4329,11 +4356,10 @@
                 }
             ],
             "description": "Manipulate WordPress arguments as an object.",
-            "support": {
-                "issues": "https://github.com/Pollora/WordPressArguments/issues",
-                "source": "https://github.com/Pollora/WordPressArguments/tree/main"
-            },
-            "time": "2026-04-20T07:35:54+00:00"
+            "transport-options": {
+                "symlink": true,
+                "relative": false
+            }
         },
         {
             "name": "psr/clock",
@@ -10234,7 +10260,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {},
+    "stability-flags": {
+        "pollora/framework": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

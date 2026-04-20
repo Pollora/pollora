@@ -11,6 +11,11 @@
     "license": "MIT",
     "repositories": [
         {
+            "type": "path",
+            "url": "/var/www/pollora-packages/*",
+            "options": { "symlink": true }
+        },
+        {
             "type": "composer",
             "url": "https://wpackagist.org"
         }
@@ -22,7 +27,7 @@
         "laravel/framework": "^13.5",
         "laravel/sanctum": "^4.3 || ^5.0",
         "laravel/tinker": "^3.0",
-        "pollora/framework": "^13.0"
+        "pollora/framework": "dev-develop"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
