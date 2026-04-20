@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ab9e652394eb7ae30e5332bfe40b3824",
+    "content-hash": "a9071e4805146b6621081f5b8a102ac5",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -4091,7 +4091,7 @@
         },
         {
             "name": "pollora/framework",
-            "version": "dev-develop",
+            "version": "v13.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
@@ -4192,7 +4192,7 @@
             "description": "Laravel & WordPress blend for coding as sweet as honey. Join the hive!",
             "support": {
                 "issues": "https://github.com/Pollora/framework/issues",
-                "source": "https://github.com/Pollora/framework/tree/develop"
+                "source": "https://github.com/Pollora/framework/tree/v13.1.0"
             },
             "time": "2026-04-20T09:57:30+00:00"
         },
@@ -10234,13 +10234,11 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "pollora/framework": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.2"
+        "php": "^8.3"
     },
     "platform-dev": {},
     "plugin-api-version": "2.9.0"
