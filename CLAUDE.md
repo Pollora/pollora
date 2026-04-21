@@ -130,3 +130,10 @@ themes/{name}/
 - **Vite 8** + **laravel-vite-plugin 3** — Asset bundling
 - **Tailwind CSS 4** — Styling (via `@tailwindcss/vite`)
 - **Sage Directives** — WordPress Blade directives
+
+## Related Documentation
+
+For deeper context on specific areas, Claude Code will auto-discover these files when working in the relevant directories:
+
+- Framework internals: @vendor/pollora/framework/CLAUDE.md
+- Active theme: look for `CLAUDE.md` in the active theme directory under `themes/`
