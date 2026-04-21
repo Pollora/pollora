@@ -136,4 +136,4 @@ themes/{name}/
 For deeper context on specific areas, Claude Code will auto-discover these files when working in the relevant directories:
 
 - Framework internals: @vendor/pollora/framework/CLAUDE.md
-- Active theme: look for `CLAUDE.md` in the active theme directory under `themes/`
+- Active theme: each theme under `themes/` has its own `CLAUDE.md`. To find the active theme, run `ddev wp theme status` or check `config/theme.php` (if `active` is set).
