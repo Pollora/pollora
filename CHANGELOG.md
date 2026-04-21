@@ -1,78 +1,60 @@
-# Release Notes
+# Changelog
 
-## [Unreleased](https://github.com/laravel/laravel/compare/v10.2.6...10.x)
+All notable changes to the Pollora skeleton will be documented in this file.
 
-## [v10.2.6](https://github.com/laravel/laravel/compare/v10.2.5...v10.2.6) - 2023-08-10
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-- Bump `laravel-vite-plugin` to latest version by [@adevade](https://github.com/adevade) in https://github.com/laravel/laravel/pull/6224
+## [Unreleased](https://github.com/Pollora/pollora/compare/v13.0.0...main)
 
-## [v10.2.5](https://github.com/laravel/laravel/compare/v10.2.4...v10.2.5) - 2023-06-30
+### Added
+- Default theme redesign with Pollora branding (gradient hero, feature cards, latest posts)
+- Menu fallback with published pages when no WordPress menu is configured
+- `entry-content` CSS styles for WordPress blocks (blockquotes, links, headings, lists)
+- Mobile hamburger menu with toggle
+- `@query` directive for latest posts on homepage
 
-- Allow accessing APP_NAME in Vite scope by [@domnantas](https://github.com/domnantas) in https://github.com/laravel/laravel/pull/6204
-- Omit default values for suffix in phpunit.xml by [@spawnia](https://github.com/spawnia) in https://github.com/laravel/laravel/pull/6210
+### Changed
+- Replaced `@loop`/`@endloop` with `@posts`/`@endposts` (Sage Directives)
+- Replaced `Loop::` facade calls with Sage Directives (`@title`, `@content`, `@permalink`, `@published`)
+- Links styled via `theme.json` (no underline by default, foreground color)
+- Updated `theme.json` color palette to Pollora brand colors
 
-## [v10.2.4](https://github.com/laravel/laravel/compare/v10.2.3...v10.2.4) - 2023-06-07
+### Fixed
+- Blockquote/citation styling for WordPress `wp-block-quote` blocks
+- Button hover states no longer overridden by WordPress global link styles (using `wp-element-button`)
 
-- Add `precognitive` key to $middlewareAliases by @emargareten in https://github.com/laravel/laravel/pull/6193
+## [v13.0.0](https://github.com/Pollora/pollora/compare/v12.0.0...v13.0.0) - 2026-04-20
 
-## [v10.2.3](https://github.com/laravel/laravel/compare/v10.2.2...v10.2.3) - 2023-06-01
+### Added
+- E2E installation tests (EnvironmentSetupTest, WordPressInstallTest, SiteHealthTest)
+- `WordPressAssertions` trait for reusable WP database assertions
+- WordPress hybrid routing (`Route::wp('home')`, `Route::wp('single')`, `Route::wp('page')`, `Route::wp('404')`)
+- 404 error page with Pollora branding
+- `composer.local.json` support in `.gitignore` for local development overrides
 
-- Update description by @taylorotwell in https://github.com/laravel/laravel/commit/85203d687ebba72b2805b89bba7d18dfae8f95c8
+### Changed
+- **BREAKING**: Upgraded to Laravel 13 (`laravel/framework ^13.5`)
+- **BREAKING**: Requires `pollora/framework ^13.0`
+- Upgraded to `laravel/tinker ^3.0`, `laravel/sanctum ^4.3 || ^5.0`
+- Upgraded to Vite 7 and `laravel-vite-plugin ^2.0`
+- Adopted PHP 8.3+ attributes for class properties (Laravel Shift)
+- Added `composer run setup` and `composer run test` scripts
+- Removed default Laravel welcome view in favor of WordPress routing
+- Removed legacy `MyTheme`/`Pollora` theme providers
 
-## [v10.2.2](https://github.com/laravel/laravel/compare/v10.2.1...v10.2.2) - 2023-05-23
+### Removed
+- `resources/views/welcome.blade.php` (replaced by `Route::wp('home')`)
+- `tests/Feature/ExampleTest.php` (replaced by Installation tests)
 
-- Add lock path by @taylorotwell in https://github.com/laravel/laravel/commit/a6bfbc7f90e33fd6cae3cb23f106c9689858c3b5
+## [v12.0.0](https://github.com/Pollora/pollora/releases/tag/v12.0.0) - 2026-04-20
 
-## [v10.2.1](https://github.com/laravel/laravel/compare/v10.2.0...v10.2.1) - 2023-05-12
+Initial tagged release of the Pollora skeleton targeting Laravel 12.
 
-- Add hashed cast to user password by @emargareten in https://github.com/laravel/laravel/pull/6171
-- Bring back pusher cluster config option by @jesseleite in https://github.com/laravel/laravel/pull/6174
-
-## [v10.2.0](https://github.com/laravel/laravel/compare/v10.1.1...v10.2.0) - 2023-05-05
-
-- Update welcome.blade.php by @aymanatmeh in https://github.com/laravel/laravel/pull/6163
-- Sets package.json type to module by @timacdonald in https://github.com/laravel/laravel/pull/6090
-- Add url support for mail config by @chu121su12 in https://github.com/laravel/laravel/pull/6170
-
-## [v10.1.1](https://github.com/laravel/laravel/compare/v10.0.7...v10.1.1) - 2023-04-18
-
-- Fix laravel/framework constraints for Default Service Providers by @Jubeki in https://github.com/laravel/laravel/pull/6160
-
-## [v10.0.7](https://github.com/laravel/laravel/compare/v10.1.0...v10.0.7) - 2023-04-14
-
-- Adds `phpunit/phpunit@10.1` support by @nunomaduro in https://github.com/laravel/laravel/pull/6155
-
-## [v10.1.0](https://github.com/laravel/laravel/compare/v10.0.6...v10.1.0) - 2023-04-15
-
-- Minor skeleton slimming by @taylorotwell in https://github.com/laravel/laravel/pull/6159
-
-## [v10.0.6](https://github.com/laravel/laravel/compare/v10.0.5...v10.0.6) - 2023-04-05
-
-- Add job batching options to Queue configuration file by @AnOlsen in https://github.com/laravel/laravel/pull/6149
-
-## [v10.0.5](https://github.com/laravel/laravel/compare/v10.0.4...v10.0.5) - 2023-03-08
-
-- Add replace_placeholders to log channels by @alanpoulain in https://github.com/laravel/laravel/pull/6139
-
-## [v10.0.4](https://github.com/laravel/laravel/compare/v10.0.3...v10.0.4) - 2023-02-27
-
-- Fix typo by @izzudin96 in https://github.com/laravel/laravel/pull/6128
-- Specify facility in the syslog driver config by @nicolus in https://github.com/laravel/laravel/pull/6130
-
-## [v10.0.3](https://github.com/laravel/laravel/compare/v10.0.2...v10.0.3) - 2023-02-21
-
-- Remove redundant `@return` docblock in UserFactory by @datlechin in https://github.com/laravel/laravel/pull/6119
-- Reverts change in asset helper by @timacdonald in https://github.com/laravel/laravel/pull/6122
-
-## [v10.0.2](https://github.com/laravel/laravel/compare/v10.0.1...v10.0.2) - 2023-02-16
-
-- Remove unneeded call by @taylorotwell in https://github.com/laravel/laravel/commit/3986d4c54041fd27af36f96cf11bd79ce7b1ee4e
-
-## [v10.0.1](https://github.com/laravel/laravel/compare/v10.0.0...v10.0.1) - 2023-02-15
-
-- Add PHPUnit result cache to gitignore by @itxshakil in https://github.com/laravel/laravel/pull/6105
-- Allow php-http/discovery as a composer plugin by @nicolas-grekas in https://github.com/laravel/laravel/pull/6106
-
-## [v10.0.0 (2022-02-14)](https://github.com/laravel/laravel/compare/v9.5.2...v10.0.0)
-
-Laravel 10 includes a variety of changes to the application skeleton. Please consult the diff to see what's new.
+### Features
+- Laravel 12 + WordPress 6.9 integration via Pollora Framework
+- Default theme with Blade templates and Sage Directives
+- DDEV development environment support
+- Custom post types and taxonomies via config files
+- Hybrid routing with `Route::wp()` macro
+- Meta Box integration for custom fields and Gutenberg blocks

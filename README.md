@@ -33,6 +33,10 @@ The documentation is in work in progress but you will find it [here](https://git
 
 We extend our heartfelt gratitude to our sponsors for supporting Pollora's development. If you're interested in sponsoring, contact me at [olivier@amphibee.fr](mailto:olivier@amphibee.fr).
 
+## Changelog
+
+All notable changes are documented in the [CHANGELOG](CHANGELOG.md).
+
 ## Contributing
 
 Considering a contribution to Pollora? Our [contribution guide is here!](CONTRIBUTE.md)
