@@ -22,6 +22,15 @@ $app = Application::configure(basePath: dirname(__DIR__))
         $middleware->redirectUsersTo(AppServiceProvider::HOME);
 
         $middleware->throttleApi();
+
+        $middleware->validateCsrfTokens(except: [
+            'cms/wp-login.php',
+            'cms/wp-admin/*',
+            'wp-login.php',
+            'wp-admin/*',
+            'wp-cron.php',
+            'wp-json/*',
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
