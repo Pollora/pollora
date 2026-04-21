@@ -99,7 +99,6 @@ Use [Sage Directives](https://log1x.github.io/sage-directives-docs/) for WordPre
 @endposts
 ```
 
-Do NOT use `Loop::` facade — it has been removed in favor of Sage Directives.
 
 ### Theme Structure
 
