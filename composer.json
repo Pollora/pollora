@@ -121,6 +121,5 @@
             "wikimedia/composer-merge-plugin": true
         }
     },
-    "minimum-stability": "dev",
     "prefer-stable": true
 }
