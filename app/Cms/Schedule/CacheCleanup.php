@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Cms\Schedule;
 
 use Pollora\Attributes\Schedule;
-use Pollora\Schedule\Domain\Enums\Every;
+use Pollora\Schedule\Every;
 
 /**
  * Example scheduled task — discovered automatically by Pollora.
