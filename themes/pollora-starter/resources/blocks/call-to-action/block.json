@@ -1,0 +1,54 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "pollora-starter/call-to-action",
+    "version": "1.0.0",
+    "title": "Call to Action",
+    "category": "design",
+    "icon": "megaphone",
+    "description": "A call-to-action block with heading, text, and button.",
+    "keywords": ["cta", "call-to-action", "button", "banner"],
+    "textdomain": "pollora-starter",
+    "attributes": {
+        "heading": {
+            "type": "string",
+            "default": ""
+        },
+        "description": {
+            "type": "string",
+            "default": ""
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "Learn More"
+        },
+        "buttonUrl": {
+            "type": "string",
+            "default": "#"
+        },
+        "alignment": {
+            "type": "string",
+            "default": "center"
+        }
+    },
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"],
+        "color": {
+            "background": true,
+            "text": true,
+            "gradients": true
+        },
+        "spacing": {
+            "padding": true,
+            "margin": true
+        },
+        "typography": {
+            "fontSize": true
+        }
+    },
+    "editorScript": "file:./index.jsx",
+    "editorStyle": "file:./editor.css",
+    "style": "file:./style.css",
+    "render": "file:./render.php"
+}

@@ -1,0 +1,46 @@
+.wp-block-blocks-demo-testimonial {
+    background: #f8fafc;
+    border-left: 4px solid #3b82f6;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    margin: 1.5rem 0;
+    font-style: normal;
+}
+
+.wp-block-blocks-demo-testimonial__quote {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    font-style: italic;
+    margin: 0 0 1.5rem;
+    color: #334155;
+}
+
+.wp-block-blocks-demo-testimonial__footer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.wp-block-blocks-demo-testimonial__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.wp-block-blocks-demo-testimonial__author {
+    display: flex;
+    flex-direction: column;
+}
+
+.wp-block-blocks-demo-testimonial__name {
+    font-weight: 600;
+    font-style: normal;
+    color: #0f172a;
+}
+
+.wp-block-blocks-demo-testimonial__role {
+    font-size: 0.875rem;
+    color: #64748b;
+}

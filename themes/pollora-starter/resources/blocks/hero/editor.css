@@ -1,0 +1,10 @@
+/**
+ * Editor styles for the pollora-starter/hero block.
+ *
+ * These styles are only loaded in the block editor.
+ */
+.wp-block-pollora-starter-hero {
+    border: 2px dashed #ccc;
+    padding: 2rem;
+    text-align: center;
+}

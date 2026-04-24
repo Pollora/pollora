@@ -1,0 +1,58 @@
+/**
+ * Front + editor styles for Call to Action block.
+ */
+.wp-block-pollora-starter-call-to-action {
+    padding: 3rem 2rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #f8fafc;
+}
+
+.wp-block-pollora-starter-call-to-action__heading {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 1rem;
+    line-height: 1.2;
+}
+
+.wp-block-pollora-starter-call-to-action__description {
+    font-size: 1.125rem;
+    margin: 0 0 2rem;
+    opacity: 0.85;
+    max-width: 40rem;
+}
+
+.has-text-align-center .wp-block-pollora-starter-call-to-action__description {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wp-block-pollora-starter-call-to-action__button-wrapper {
+    display: flex;
+}
+
+.has-text-align-center .wp-block-pollora-starter-call-to-action__button-wrapper {
+    justify-content: center;
+}
+
+.has-text-align-right .wp-block-pollora-starter-call-to-action__button-wrapper {
+    justify-content: flex-end;
+}
+
+.wp-block-pollora-starter-call-to-action__button {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background: #3b82f6;
+    color: #fff;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    cursor: pointer;
+}
+
+.wp-block-pollora-starter-call-to-action__button:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+    color: #fff;
+}

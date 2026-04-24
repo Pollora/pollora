@@ -1,0 +1,16 @@
+/**
+ * Editor-only styles for Call to Action block.
+ */
+.wp-block-pollora-starter-call-to-action {
+    border: 2px dashed rgba(0, 0, 0, 0.15);
+    transition: border-color 0.2s;
+}
+
+.wp-block-pollora-starter-call-to-action:hover,
+.wp-block-pollora-starter-call-to-action.is-selected {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+.wp-block-pollora-starter-call-to-action__heading [data-rich-text-placeholder] {
+    opacity: 0.5;
+}
