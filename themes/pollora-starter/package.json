@@ -16,12 +16,7 @@
         "axios": "^1.15.1",
         "glob": "^11.0.0",
         "laravel-vite-plugin": "^3.0.1",
-        "postcss": "^8.5.6",
-        "postcss-import": "^16.1.1",
         "tailwindcss": "^4.2.3",
         "vite": "^8.0.9"
-    },
-    "dependencies": {
-        "@tailwindcss/postcss": "^4.2.3"
     }
 }

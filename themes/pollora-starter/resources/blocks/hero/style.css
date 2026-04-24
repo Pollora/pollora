@@ -1,17 +1,18 @@
+@import "tailwindcss" source(".");
+
 /**
- * Styles for the pollora-starter/hero block.
- *
- * These styles are loaded in both the editor and the frontend.
+ * Hero block — front + editor styles.
+ * source(".") scans only this block's directory for utility classes.
  */
 .wp-block-pollora-starter-hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #fff;
-    padding: 4rem 2rem;
-    text-align: center;
-    border-radius: 0.5rem;
+    @apply relative py-24 px-8 overflow-hidden;
+    background: linear-gradient(135deg,
+        theme(--color-indigo-950) 0%,
+        theme(--color-violet-900) 50%,
+        theme(--color-purple-900) 100%
+    );
 }
 
-.wp-block-pollora-starter-hero p {
-    font-size: 1.5rem;
-    margin: 0;
+.wp-block-pollora-starter-hero.alignfull {
+    @apply py-32 px-12;
 }

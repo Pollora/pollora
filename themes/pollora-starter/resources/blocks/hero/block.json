@@ -6,9 +6,27 @@
     "title": "Hero",
     "category": "widgets",
     "icon": "cover-image",
-    "description": "A Hero block.",
-    "keywords": ["hero"],
+    "description": "A visually striking hero section with heading, description and call-to-action.",
+    "keywords": ["hero", "banner", "header"],
     "textdomain": "pollora-starter",
+    "attributes": {
+        "heading": {
+            "type": "string",
+            "default": ""
+        },
+        "description": {
+            "type": "string",
+            "default": ""
+        },
+        "buttonText": {
+            "type": "string",
+            "default": ""
+        },
+        "buttonUrl": {
+            "type": "string",
+            "default": "#"
+        }
+    },
     "supports": {
         "html": false,
         "align": ["wide", "full"]

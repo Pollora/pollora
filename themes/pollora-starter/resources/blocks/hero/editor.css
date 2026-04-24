@@ -1,10 +1,12 @@
+@reference "tailwindcss";
+
 /**
- * Editor styles for the pollora-starter/hero block.
- *
- * These styles are only loaded in the block editor.
+ * Hero block — editor-only styles.
  */
 .wp-block-pollora-starter-hero {
-    border: 2px dashed #ccc;
-    padding: 2rem;
-    text-align: center;
+    @apply min-h-[300px];
+}
+
+.wp-block-pollora-starter-hero [data-rich-text-placeholder] {
+    @apply opacity-40;
 }
