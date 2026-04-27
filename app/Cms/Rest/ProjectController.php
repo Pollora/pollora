@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Cms\Rest;
 
 use Pollora\Attributes\WpRestRoute;
+use Pollora\Attributes\WpRestRoute\Method;
 use WP_REST_Request;
 use WP_REST_Response;
 
@@ -20,6 +21,7 @@ class ProjectController
     /**
      * GET /wp-json/starter/v1/projects
      */
+    #[Method('GET')]
     public function index(WP_REST_Request $request): WP_REST_Response
     {
         $projects = get_posts([
