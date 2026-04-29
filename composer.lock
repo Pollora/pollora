@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "20c42ee0118da95ba5812b2b38e1d30d",
+    "content-hash": "996f48673632e8fd206ddfe66233c9da",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -2125,16 +2125,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v13.6.0",
+            "version": "v13.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "416a93ea9c53161e0d4b8a44045f447b65a7d2f1"
+                "reference": "f13b85b2cce7ef5e8f3bcdf2b6c6364bbdedae0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/416a93ea9c53161e0d4b8a44045f447b65a7d2f1",
-                "reference": "416a93ea9c53161e0d4b8a44045f447b65a7d2f1",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/f13b85b2cce7ef5e8f3bcdf2b6c6364bbdedae0b",
+                "reference": "f13b85b2cce7ef5e8f3bcdf2b6c6364bbdedae0b",
                 "shasum": ""
             },
             "require": {
@@ -2177,6 +2177,7 @@
                 "symfony/mime": "^7.4.0 || ^8.0.0",
                 "symfony/polyfill-php84": "^1.33",
                 "symfony/polyfill-php85": "^1.33",
+                "symfony/polyfill-php86": "^1.36",
                 "symfony/process": "^7.4.5 || ^8.0.5",
                 "symfony/routing": "^7.4.0 || ^8.0.0",
                 "symfony/uid": "^7.4.0 || ^8.0.0",
@@ -2344,7 +2345,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2026-04-21T13:32:11+00:00"
+            "time": "2026-04-28T17:18:25+00:00"
         },
         {
             "name": "laravel/pint",
@@ -2538,16 +2539,16 @@
         },
         {
             "name": "laravel/serializable-closure",
-            "version": "v2.0.12",
+            "version": "v2.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/serializable-closure.git",
-                "reference": "a6abb4e54f6fcd3138120b9ad497f0bd146f9919"
+                "reference": "b566ee0dd251f3c4078bed003a7ce015f5ea6dce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/serializable-closure/zipball/a6abb4e54f6fcd3138120b9ad497f0bd146f9919",
-                "reference": "a6abb4e54f6fcd3138120b9ad497f0bd146f9919",
+                "url": "https://api.github.com/repos/laravel/serializable-closure/zipball/b566ee0dd251f3c4078bed003a7ce015f5ea6dce",
+                "reference": "b566ee0dd251f3c4078bed003a7ce015f5ea6dce",
                 "shasum": ""
             },
             "require": {
@@ -2595,7 +2596,7 @@
                 "issues": "https://github.com/laravel/serializable-closure/issues",
                 "source": "https://github.com/laravel/serializable-closure"
             },
-            "time": "2026-04-14T13:33:34+00:00"
+            "time": "2026-04-16T14:03:50+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -3970,7 +3971,7 @@
         },
         {
             "name": "pollora/colt",
-            "version": "dev-main",
+            "version": "10.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/colt.git",
@@ -3997,7 +3998,6 @@
                 "orchestra/testbench": "^10.0 || ^11.0",
                 "symfony/thanks": "^1.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -4036,28 +4036,28 @@
             "description": "Use WordPress backend with Laravel or any PHP framework",
             "homepage": "http://github.com/Pollora/colt",
             "support": {
-                "source": "https://github.com/Pollora/colt/tree/main"
+                "source": "https://github.com/Pollora/colt/tree/10.0.0"
             },
             "time": "2026-04-20T07:36:14+00:00"
         },
         {
             "name": "pollora/entity",
-            "version": "dev-main",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/WordPressEntity.git",
-                "reference": "1cd5d499faa310b360dbf02328bedef38a7df783"
+                "reference": "db4e29ce37cfa1835cdd99e6002d76bb564a1bb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/WordPressEntity/zipball/1cd5d499faa310b360dbf02328bedef38a7df783",
-                "reference": "1cd5d499faa310b360dbf02328bedef38a7df783",
+                "url": "https://api.github.com/repos/Pollora/WordPressEntity/zipball/db4e29ce37cfa1835cdd99e6002d76bb564a1bb1",
+                "reference": "db4e29ce37cfa1835cdd99e6002d76bb564a1bb1",
                 "shasum": ""
             },
             "require": {
                 "johnbillion/extended-cpts": "^5.0",
                 "php": "^8.2",
-                "pollora/wordpress-args": "dev-main"
+                "pollora/wordpress-args": "^1.1"
             },
             "require-dev": {
                 "laravel/pint": "^v1.22.1",
@@ -4065,7 +4065,6 @@
                 "pestphp/pest": "^v3.8.2",
                 "phpstan/phpstan": "^2.1.16"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -4085,56 +4084,59 @@
             "description": "A modern PHP package for WordPress custom post types and taxonomies",
             "support": {
                 "issues": "https://github.com/Pollora/WordPressEntity/issues",
-                "source": "https://github.com/Pollora/WordPressEntity/tree/main"
+                "source": "https://github.com/Pollora/WordPressEntity/tree/1.2.0"
             },
-            "time": "2026-04-20T07:35:40+00:00"
+            "time": "2026-04-22T10:18:19+00:00"
         },
         {
             "name": "pollora/framework",
-            "version": "v13.1.0",
+            "version": "v13.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
-                "reference": "5365d938d5f4f1297eec886b33b9c5b50da71248"
+                "reference": "5b6b805c296336cb05383b8341cc688a7ffad737"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/5365d938d5f4f1297eec886b33b9c5b50da71248",
-                "reference": "5365d938d5f4f1297eec886b33b9c5b50da71248",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/5b6b805c296336cb05383b8341cc688a7ffad737",
+                "reference": "5b6b805c296336cb05383b8341cc688a7ffad737",
                 "shasum": ""
             },
             "require": {
                 "coduo/php-humanizer": "5.0.3",
                 "cweagans/composer-patches": "^1.7",
-                "illuminate/config": "^13.0",
-                "illuminate/console": "^13.0",
-                "illuminate/database": "^13.0",
-                "illuminate/routing": "^13.0",
-                "illuminate/support": "^13.0",
-                "laravel/prompts": "^0.3.16@dev",
+                "illuminate/auth": "^13.5",
+                "illuminate/config": "^13.5",
+                "illuminate/console": "^13.5",
+                "illuminate/database": "^13.5",
+                "illuminate/routing": "^13.5",
+                "illuminate/support": "^13.5",
+                "laravel/prompts": "^0.3.17",
                 "log1x/sage-directives": "^2.0",
                 "nwidart/laravel-modules": "^13.0",
                 "php": "^8.3",
                 "pollora/colt": "^10.0",
-                "pollora/entity": "dev-main",
-                "pollora/helper-overrider": "dev-main",
-                "pollora/query": "dev-main",
+                "pollora/entity": "^1.2",
+                "pollora/helper-overrider": "^1.0",
+                "pollora/query": "^1.0",
                 "roots/bedrock-autoloader": "^1.1",
-                "spatie/php-structure-discoverer": "dev-main",
-                "symfony/process": "^8.0",
+                "spatie/php-structure-discoverer": "^2.4",
+                "symfony/process": "^7.4 || ^8.0",
                 "watson/rememberable": "^7.1"
             },
             "require-dev": {
                 "driftingly/rector-laravel": "^2.3",
-                "laravel/pint": "^v1.29.0",
-                "mockery/mockery": "2.0.x-dev",
+                "larastan/larastan": "^3.0",
+                "laravel/pint": "^v1.29.1",
+                "mockery/mockery": "^1.6",
+                "orchestra/testbench": "^10.0|^11.0",
                 "pestphp/pest": "^v3.8.2",
                 "pestphp/pest-plugin-type-coverage": "^3.6",
                 "php-stubs/wordpress-stubs": "6.*",
-                "symfony/var-dumper": "^8.0",
+                "symfony/var-dumper": "^7.4 || ^8.0",
                 "symplify/vendor-patches": "^12.0",
                 "szepeviktor/phpstan-wordpress": "*",
-                "wp-cli/wp-cli": "^2.13@dev"
+                "wp-cli/wp-cli": "^2.12"
             },
             "type": "project",
             "extra": {
@@ -4157,6 +4159,9 @@
                     ]
                 },
                 "patches": {
+                    "mockery/mockery": {
+                        "Fix PHP 8.4 implicit nullable deprecations": "patches/mockery-php84-nullable.patch"
+                    },
                     "johnpbloch/wordpress-core": {
                         "Patch __ method in l10n to stop conflicting with Laravel": "https://raw.githubusercontent.com/Pollora/framework/refs/heads/main/patches/wordpress-core.patch"
                     },
@@ -4192,13 +4197,13 @@
             "description": "Laravel & WordPress blend for coding as sweet as honey. Join the hive!",
             "support": {
                 "issues": "https://github.com/Pollora/framework/issues",
-                "source": "https://github.com/Pollora/framework/tree/v13.1.0"
+                "source": "https://github.com/Pollora/framework/tree/v13.3.0"
             },
-            "time": "2026-04-20T09:57:30+00:00"
+            "time": "2026-04-22T11:05:21+00:00"
         },
         {
             "name": "pollora/helper-overrider",
-            "version": "dev-main",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/Helper-Overrider.git",
@@ -4213,7 +4218,6 @@
             "require": {
                 "php": "^8.2.0"
             },
-            "default-branch": true,
             "type": "package",
             "autoload": {
                 "files": [
@@ -4234,35 +4238,34 @@
             "description": "Override some Laravel helpers",
             "support": {
                 "issues": "https://github.com/Pollora/Helper-Overrider/issues",
-                "source": "https://github.com/Pollora/Helper-Overrider/tree/main"
+                "source": "https://github.com/Pollora/Helper-Overrider/tree/1.0.0"
             },
             "time": "2025-01-20T12:52:04+00:00"
         },
         {
             "name": "pollora/query",
-            "version": "dev-main",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/Query.git",
-                "reference": "4828aa60e63baa65122e7de8760e3afa235e3a40"
+                "reference": "27fc5f6068081aa10bb31f7c8a418d0d6806ee59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/Query/zipball/4828aa60e63baa65122e7de8760e3afa235e3a40",
-                "reference": "4828aa60e63baa65122e7de8760e3afa235e3a40",
+                "url": "https://api.github.com/repos/Pollora/Query/zipball/27fc5f6068081aa10bb31f7c8a418d0d6806ee59",
+                "reference": "27fc5f6068081aa10bb31f7c8a418d0d6806ee59",
                 "shasum": ""
             },
             "require": {
                 "laravel/pint": "^1.13",
                 "php": "^8.2",
-                "pollora/wordpress-args": "dev-main"
+                "pollora/wordpress-args": "^1.1"
             },
             "require-dev": {
                 "nunomaduro/phpinsights": "^2.8",
                 "pestphp/pest": "^2.19",
                 "rector/rector": "^0.18.4"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -4283,13 +4286,13 @@
             "description": "Create WP Query in a fluent way.",
             "support": {
                 "issues": "https://github.com/Pollora/Query/issues",
-                "source": "https://github.com/Pollora/Query/tree/main"
+                "source": "https://github.com/Pollora/Query/tree/1.0.1"
             },
-            "time": "2026-04-20T07:35:47+00:00"
+            "time": "2026-04-22T10:18:22+00:00"
         },
         {
             "name": "pollora/wordpress-args",
-            "version": "dev-main",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/WordPressArguments.git",
@@ -4310,7 +4313,6 @@
                 "pestphp/pest": "^3.4",
                 "spatie/invade": "^2.1"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -4331,7 +4333,7 @@
             "description": "Manipulate WordPress arguments as an object.",
             "support": {
                 "issues": "https://github.com/Pollora/WordPressArguments/issues",
-                "source": "https://github.com/Pollora/WordPressArguments/tree/main"
+                "source": "https://github.com/Pollora/WordPressArguments/tree/1.1.0"
             },
             "time": "2026-04-20T07:35:54+00:00"
         },
@@ -5162,16 +5164,16 @@
         },
         {
             "name": "spatie/php-structure-discoverer",
-            "version": "dev-main",
+            "version": "2.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/php-structure-discoverer.git",
-                "reference": "badd973a9777fdbba60ad763afd012a4487a0103"
+                "reference": "10cd4e0018450d23e2bd8f8472569ad0c445c0fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/php-structure-discoverer/zipball/badd973a9777fdbba60ad763afd012a4487a0103",
-                "reference": "badd973a9777fdbba60ad763afd012a4487a0103",
+                "url": "https://api.github.com/repos/spatie/php-structure-discoverer/zipball/10cd4e0018450d23e2bd8f8472569ad0c445c0fc",
+                "reference": "10cd4e0018450d23e2bd8f8472569ad0c445c0fc",
                 "shasum": ""
             },
             "require": {
@@ -5195,7 +5197,6 @@
             "suggest": {
                 "amphp/parallel": "When you want to use the Parallel discover worker"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -5230,7 +5231,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/php-structure-discoverer/issues",
-                "source": "https://github.com/spatie/php-structure-discoverer/tree/main"
+                "source": "https://github.com/spatie/php-structure-discoverer/tree/2.4.2"
             },
             "funding": [
                 {
@@ -5238,7 +5239,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-04-17T07:00:59+00:00"
+            "time": "2026-04-28T06:26:02+00:00"
         },
         {
             "name": "symfony/clock",
@@ -6205,7 +6206,7 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.36.0",
+            "version": "v1.37.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
@@ -6264,7 +6265,7 @@
                 "portable"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.36.0"
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.37.0"
             },
             "funding": [
                 {
@@ -6288,16 +6289,16 @@
         },
         {
             "name": "symfony/polyfill-intl-grapheme",
-            "version": "v1.36.0",
+            "version": "v1.37.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-grapheme.git",
-                "reference": "ad1b7b9092976d6c948b8a187cec9faaea9ec1df"
+                "reference": "4864388bfbd3001ce88e234fab652acd91fdc57e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-grapheme/zipball/ad1b7b9092976d6c948b8a187cec9faaea9ec1df",
-                "reference": "ad1b7b9092976d6c948b8a187cec9faaea9ec1df",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-grapheme/zipball/4864388bfbd3001ce88e234fab652acd91fdc57e",
+                "reference": "4864388bfbd3001ce88e234fab652acd91fdc57e",
                 "shasum": ""
             },
             "require": {
@@ -6346,7 +6347,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/v1.36.0"
+                "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/v1.37.0"
             },
             "funding": [
                 {
@@ -6366,11 +6367,11 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-04-10T16:19:22+00:00"
+            "time": "2026-04-26T13:13:48+00:00"
         },
         {
             "name": "symfony/polyfill-intl-idn",
-            "version": "v1.36.0",
+            "version": "v1.37.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-idn.git",
@@ -6433,7 +6434,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-idn/tree/v1.36.0"
+                "source": "https://github.com/symfony/polyfill-intl-idn/tree/v1.37.0"
             },
             "funding": [
                 {
@@ -6457,7 +6458,7 @@
         },
         {
             "name": "symfony/polyfill-intl-normalizer",
-            "version": "v1.36.0",
+            "version": "v1.37.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-normalizer.git",
@@ -6518,7 +6519,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.36.0"
+                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.37.0"
             },
             "funding": [
                 {
@@ -6542,7 +6543,7 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.36.0",
+            "version": "v1.37.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
@@ -6603,7 +6604,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.36.0"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.37.0"
             },
             "funding": [
                 {
@@ -6627,7 +6628,7 @@
         },
         {
             "name": "symfony/polyfill-php80",
-            "version": "v1.36.0",
+            "version": "v1.37.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php80.git",
@@ -6687,7 +6688,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/v1.36.0"
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.37.0"
             },
             "funding": [
                 {
@@ -6711,7 +6712,7 @@
         },
         {
             "name": "symfony/polyfill-php84",
-            "version": "v1.36.0",
+            "version": "v1.37.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php84.git",
@@ -6767,7 +6768,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php84/tree/v1.36.0"
+                "source": "https://github.com/symfony/polyfill-php84/tree/v1.37.0"
             },
             "funding": [
                 {
@@ -6791,16 +6792,16 @@
         },
         {
             "name": "symfony/polyfill-php85",
-            "version": "v1.36.0",
+            "version": "v1.37.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php85.git",
-                "reference": "2c408a6bb0313e6001a83628dc5506100474254e"
+                "reference": "fcfa4973a9917cef23f2e38774da74a2b7d115ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php85/zipball/2c408a6bb0313e6001a83628dc5506100474254e",
-                "reference": "2c408a6bb0313e6001a83628dc5506100474254e",
+                "url": "https://api.github.com/repos/symfony/polyfill-php85/zipball/fcfa4973a9917cef23f2e38774da74a2b7d115ee",
+                "reference": "fcfa4973a9917cef23f2e38774da74a2b7d115ee",
                 "shasum": ""
             },
             "require": {
@@ -6847,7 +6848,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php85/tree/v1.36.0"
+                "source": "https://github.com/symfony/polyfill-php85/tree/v1.37.0"
             },
             "funding": [
                 {
@@ -6867,11 +6868,91 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-04-10T16:50:15+00:00"
+            "time": "2026-04-26T13:10:57+00:00"
+        },
+        {
+            "name": "symfony/polyfill-php86",
+            "version": "v1.37.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php86.git",
+                "reference": "33d8fc5a705481e21fe3a81212b26f9b1f61749c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php86/zipball/33d8fc5a705481e21fe3a81212b26f9b1f61749c",
+                "reference": "33d8fc5a705481e21fe3a81212b26f9b1f61749c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "type": "library",
+            "extra": {
+                "thanks": {
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php86\\": ""
+                },
+                "classmap": [
+                    "Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 8.6+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php86/tree/v1.37.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/nicolas-grekas",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2026-04-26T13:13:48+00:00"
         },
         {
             "name": "symfony/polyfill-uuid",
-            "version": "v1.36.0",
+            "version": "v1.37.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-uuid.git",
@@ -6930,7 +7011,7 @@
                 "uuid"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-uuid/tree/v1.36.0"
+                "source": "https://github.com/symfony/polyfill-uuid/tree/v1.37.0"
             },
             "funding": [
                 {
@@ -7811,16 +7892,16 @@
         },
         {
             "name": "voku/portable-ascii",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/voku/portable-ascii.git",
-                "reference": "d870a33f0f79d2b4579740b0620200221ee44aeb"
+                "reference": "8e1051fe39379367aecf014f41744ce7539a856f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/voku/portable-ascii/zipball/d870a33f0f79d2b4579740b0620200221ee44aeb",
-                "reference": "d870a33f0f79d2b4579740b0620200221ee44aeb",
+                "url": "https://api.github.com/repos/voku/portable-ascii/zipball/8e1051fe39379367aecf014f41744ce7539a856f",
+                "reference": "8e1051fe39379367aecf014f41744ce7539a856f",
                 "shasum": ""
             },
             "require": {
@@ -7857,7 +7938,7 @@
             ],
             "support": {
                 "issues": "https://github.com/voku/portable-ascii/issues",
-                "source": "https://github.com/voku/portable-ascii/tree/2.1.0"
+                "source": "https://github.com/voku/portable-ascii/tree/2.1.1"
             },
             "funding": [
                 {
@@ -7881,7 +7962,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-04-16T23:10:39+00:00"
+            "time": "2026-04-26T05:33:54+00:00"
         },
         {
             "name": "watson/rememberable",
@@ -8193,16 +8274,16 @@
         },
         {
             "name": "laravel/sail",
-            "version": "v1.57.0",
+            "version": "v1.58.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sail.git",
-                "reference": "fa8d057b6e9310380ccbc3a209ed7f927d54f648"
+                "reference": "2e5e968138ca52ed87d712449697a8364d73b466"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/fa8d057b6e9310380ccbc3a209ed7f927d54f648",
-                "reference": "fa8d057b6e9310380ccbc3a209ed7f927d54f648",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/2e5e968138ca52ed87d712449697a8364d73b466",
+                "reference": "2e5e968138ca52ed87d712449697a8364d73b466",
                 "shasum": ""
             },
             "require": {
@@ -8252,7 +8333,7 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-            "time": "2026-04-14T13:32:04+00:00"
+            "time": "2026-04-27T13:38:34+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -10122,7 +10203,7 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
@@ -10130,5 +10211,5 @@
         "php": "^8.3"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.9.0"
+    "plugin-api-version": "2.6.0"
 }
