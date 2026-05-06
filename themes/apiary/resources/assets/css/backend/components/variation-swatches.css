@@ -1,0 +1,12 @@
+#woocommerce-product-data ul.wc-tabs li.woo-variation-swatches-pro_tab.pro-inactive {
+    display: none !important;
+}
+
+.wvs-new-feature-tick,
+.toplevel_page_woo-variation-swatches-settings .gwp-live-feed-contents,
+[data-target="style"],
+[data-target="archive"],
+[data-target="special"],
+[data-target="tutorial"] {
+    @apply hidden;
+}

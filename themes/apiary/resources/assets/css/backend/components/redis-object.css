@@ -1,0 +1,4 @@
+.woocommerce-admin-promo-messages,
+#rediscache .sidebar-column {
+    display: none !important;
+}

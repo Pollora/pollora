@@ -1,0 +1,122 @@
+.variations td, .variations tr {
+    @apply inline-block;
+}
+
+.variations table, .variations tbody {
+    @apply block w-full;
+}
+
+.woo-variation-swatches .variable-items-wrapper .variable-item {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transition: all 200ms ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    outline: none;
+}
+
+.woo-variation-swatches .variable-items-wrapper .variable-item .variable-item-contents {
+    display: contents;
+}
+
+.variations_form .variations,
+.variations_form .variations tr {
+    @apply block;
+}
+.variations_form .variations .label {
+    @apply text-sm font-medium text-gray-900 mt-8 block;
+}
+
+.variations_form .variations .value {
+    @apply mt-2;
+}
+
+.woo-variation-swatches .variable-items-wrapper {
+    @apply inline-flex gap-3;
+}
+
+.woo-variation-swatches .variable-item {
+    @apply focus:outline-hidden;
+}
+
+.woo-variation-swatches .button-variable-wrapper .variable-item {
+    @apply min-w-[75px] border rounded-md py-3 px-3 flex items-center justify-center text-sm font-medium uppercase sm:flex-1 cursor-pointer focus:outline-hidden bg-white border-gray-200 text-gray-900 hover:bg-gray-50;
+}
+
+.woo-variation-swatches .variable-items-wrapper .color-variable-item {
+    @apply rounded-full;
+}
+
+/*.woo-variation-swatches .color-variable-wrapper .variable-item-span {*/
+/*    @apply block h-8 w-8 border border-black border-opacity-10 rounded-full;*/
+/*}*/
+
+.woo-variation-swatches .variable-items-wrapper .variable-item.selected {
+    @apply relative flex items-center justify-center cursor-pointer focus:outline-hidden ring-gray-900 ring-2;
+}
+
+.woo-variation-swatches .button-variable-wrapper .variable-item.selected {
+    @apply bg-indigo-600 border-transparent text-white hover:bg-indigo-700 ring-offset-2;
+}
+
+.variable-item:not(.radio-variable-item).disabled img, .variable-item:not(.radio-variable-item).disabled span, .variable-item:not(.radio-variable-item).disabled .variable-item-contents, .variable-item:not(.radio-variable-item).disabled:hover img, .variable-item:not(.radio-variable-item).disabled:hover span, .variable-item:not(.radio-variable-item).disabled:hover .variable-item-contents, .variable-item:not(.radio-variable-item).out-of-stock img, .variable-item:not(.radio-variable-item).out-of-stock span, .variable-item:not(.radio-variable-item).out-of-stock .variable-item-contents, .variable-item:not(.radio-variable-item).out-of-stock:hover img, .variable-item:not(.radio-variable-item).out-of-stock:hover span, .variable-item:not(.radio-variable-item).out-of-stock:hover .variable-item-contents {
+    opacity: .3;
+}
+
+.variable-item:not(.radio-variable-item).disabled .variable-item-contents::before,
+.variable-item:not(.radio-variable-item).disabled .variable-item-contents::after,
+.variable-item:not(.radio-variable-item).disabled:hover .variable-item-contents::before,
+.variable-item:not(.radio-variable-item).disabled:hover .variable-item-contents::after,
+.variable-item:not(.radio-variable-item).out-of-stock .variable-item-contents::before,
+.variable-item:not(.radio-variable-item).out-of-stock .variable-item-contents::after,
+.variable-item:not(.radio-variable-item).out-of-stock:hover .variable-item-contents::before,
+.variable-item:not(.radio-variable-item).out-of-stock:hover .variable-item-contents::after {
+    position: absolute;
+    content: " " !important;
+    width: 1px;
+    background: #FF0000 !important;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 50%;
+    visibility: visible;
+    opacity: 1;
+    border: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-width: auto;
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    z-index: 0;
+}
+
+.button-variable-item:not(.radio-variable-item).disabled .variable-item-contents::before,
+.button-variable-item:not(.radio-variable-item).disabled .variable-item-contents::after,
+.button-variable-item:not(.radio-variable-item).disabled:hover .variable-item-contents::before,
+.button-variable-item:not(.radio-variable-item).disabled:hover .variable-item-contents::after,
+.button-variable-item:not(.radio-variable-item).out-of-stock .variable-item-contents::before,
+.button-variable-item:not(.radio-variable-item).out-of-stock .variable-item-contents::after,
+.button-variable-item:not(.radio-variable-item).out-of-stock:hover .variable-item-contents::before,
+.button-variable-item:not(.radio-variable-item).out-of-stock:hover .variable-item-contents::after {
+    height: calc(100% + 1.2rem);
+    top: -0.6rem;
+    bottom: -0.6rem;
+}
+
+.variable-item:not(.radio-variable-item).disabled .variable-item-contents::after,
+.variable-item:not(.radio-variable-item).disabled:hover .variable-item-contents::after,
+.variable-item:not(.radio-variable-item).out-of-stock .variable-item-contents::after,
+.variable-item:not(.radio-variable-item).out-of-stock:hover .variable-item-contents::after {
+    transform: rotate(-45deg);
+}
+
+.variable-item:not(.radio-variable-item).disabled .variable-item-contents::before,
+.variable-item:not(.radio-variable-item).disabled:hover .variable-item-contents::before,
+.variable-item:not(.radio-variable-item).out-of-stock .variable-item-contents::before,
+.variable-item:not(.radio-variable-item).out-of-stock:hover .variable-item-contents::before {
+    transform: rotate(45deg);
+}

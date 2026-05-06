@@ -1,0 +1,40 @@
+.product-grid-controls .wpgb-facet .wpgb-result-count,
+.product-grid-controls .wpgb-facet .wpgb-facet-title,
+.product-facets .wpgb-facet .wpgb-facet-title {
+    @apply block text-sm font-medium text-gray-900;
+}
+
+.product-facets .wpgb-facet {
+    @apply pt-10;
+}
+
+.product-facets .wpgb-facet .wpgb-radio-label,
+.product-facets .wpgb-facet .wpgb-rating-label,
+.product-facets .wpgb-facet .wpgb-checkbox-label,
+.product-facets .wpgb-facet .wpgb-range-facet .wpgb-range-values {
+    @apply ml-3 text-sm text-gray-600;
+}
+
+.product-grid-controls .wpgb-facet.sort-product {
+    @apply ml-auto;
+}
+
+.product-grid-controls .wpgb-facet.sort-product .wpgb-facet-title {
+    @apply mr-4;
+}
+
+.product-grid-controls .wpgb-facet .wpgb-facet-title {
+    @apply mb-0;
+}
+
+.product-grid-controls .wpgb-facet>fieldset:last-child,
+.product-facets .wpgb-facet>fieldset:last-child {
+    @apply mb-0;
+}
+
+
+.product-grid-controls .wpgb-facet select.wpgb-select:not([multiple]) {
+    @apply pt-0.5 pb-0.5 h-auto text-sm font-medium text-gray-900;
+    min-height: 35px;
+    line-height: 1;
+}

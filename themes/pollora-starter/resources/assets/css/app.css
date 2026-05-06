@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+@source "../../views";
+
+@theme {
+    --color-primary: var(--wp--preset--color--primary, #ff5334);
+    --color-primary-vivid: var(--wp--preset--color--primary-vivid, #fb196d);
+    --color-secondary: var(--wp--preset--color--secondary, #ff8c12);
+    --color-accent: var(--wp--preset--color--accent, #feb017);
+    --color-foreground: var(--wp--preset--color--foreground, #1d142a);
+    --color-muted: var(--wp--preset--color--muted, #6b7280);
+    --color-surface: var(--wp--preset--color--surface, #fafafa);
+    --color-surface-alt: var(--wp--preset--color--surface-alt, #f5f3ff);
+    --color-border: var(--wp--preset--color--border, #e5e7eb);
+}
+
+/* WordPress content blocks */
+.entry-content p {
+    margin-block: 1.25em;
+    line-height: 1.75;
+}
+
+.entry-content > *:first-child {
+    margin-top: 0;
+}
+
+.entry-content > *:last-child {
+    margin-bottom: 0;
+}
+
+.entry-content blockquote,
+.entry-content .wp-block-quote {
+    position: relative;
+    margin-block: 2.5em;
+    padding: 2rem 2rem 2rem 5rem;
+    border: none;
+    border-radius: 1.25rem;
+    background:
+        linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
+        linear-gradient(135deg, var(--color-primary-vivid), var(--color-primary), var(--color-secondary)) border-box;
+    border: 2px solid transparent;
+    font-style: italic;
+    color: var(--color-foreground);
+    overflow: visible;
+    box-shadow: 0 4px 24px -4px color-mix(in srgb, var(--color-primary-vivid) 12%, transparent);
+}
+
+.entry-content blockquote::before,
+.entry-content .wp-block-quote::before {
+    content: "\201C";
+    position: absolute;
+    top: 0.25rem;
+    left: 1.25rem;
+    font-family: Georgia, serif;
+    font-size: 7rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--color-primary-vivid), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.2;
+}
+
+.entry-content blockquote::after,
+.entry-content .wp-block-quote::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 2rem;
+    width: 40%;
+    height: 6px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--color-primary-vivid), var(--color-secondary), transparent);
+    opacity: 0.5;
+}
+
+.entry-content blockquote p,
+.entry-content .wp-block-quote p {
+    margin-block: 0.5em;
+}
+
+.entry-content blockquote p:first-child,
+.entry-content .wp-block-quote p:first-child {
+    margin-top: 0;
+}
+
+.entry-content blockquote p:last-child,
+.entry-content .wp-block-quote p:last-child {
+    margin-bottom: 0;
+}
+
+.entry-content blockquote cite,
+.entry-content .wp-block-quote cite {
+    display: block;
+    margin-top: 1em;
+    font-size: 0.875em;
+    font-style: normal;
+    font-weight: 600;
+    background: linear-gradient(90deg, var(--color-primary-vivid), var(--color-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.entry-content blockquote cite::before,
+.entry-content .wp-block-quote cite::before {
+    content: "— ";
+}
+
+.entry-content a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary) / 0.3;
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.15s;
+}
+
+.entry-content a:hover {
+    text-decoration-color: var(--color-primary);
+}
+
+.entry-content h2 {
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--color-foreground);
+}
+
+.entry-content h3 {
+    margin-top: 1.75em;
+    margin-bottom: 0.5em;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--color-foreground);
+}
+
+.entry-content ul,
+.entry-content ol {
+    margin-block: 1.25em;
+    padding-left: 1.5em;
+}
+
+.entry-content li {
+    margin-block: 0.375em;
+}
+
+.entry-content img {
+    border-radius: 0.75rem;
+    margin-block: 1.5em;
+}

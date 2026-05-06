@@ -1,0 +1,5 @@
+/* Fonts */
+
+body {
+    @apply font-sans;
+}

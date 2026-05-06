@@ -1,3 +1,4 @@
 {
-    "BlocksDemo": true
+    "BlocksDemo": false,
+    "Test": false
 }
