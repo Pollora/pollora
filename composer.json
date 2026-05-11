@@ -82,7 +82,10 @@
         ],
         "test": [
             "@php artisan config:clear --ansi",
-            "@php artisan test"
+            "@php artisan test --exclude-testsuite=Integration"
+        ],
+        "test:integration": [
+            "@php tests/integration.php"
         ],
         "pre-package-uninstall": [
             "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"

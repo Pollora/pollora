@@ -37,12 +37,11 @@ class ExplicitWpRouteTest extends TestCase
     }
 
     /**
-     * Route::wp('home') must include the Pollora branding from the home view.
+     * Route::wp('home') must render the home view with its template marker.
      */
     public function test_homepage_contains_expected_content(): void
     {
-        $this->assertResponseContains('/', 'Build');
-        $this->assertResponseContains('/', 'Pollora');
+        $this->assertTemplateIs('/', 'home', 200);
     }
 
     /**
