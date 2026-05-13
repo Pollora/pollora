@@ -52,6 +52,13 @@ node_modules
 /storage/*.key
 /storage/pail
 
+## Themes (created via pollora:make-theme, not versioned in skeleton)
+/themes/*
+!/themes/.gitkeep
+
+## Pollora binary (published via vendor:publish)
+/pollora
+
 ## Other unversioned files
 *.sql
 global_rules.md
