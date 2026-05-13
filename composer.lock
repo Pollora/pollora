@@ -4022,16 +4022,16 @@
         },
         {
             "name": "pollora/framework",
-            "version": "v13.4.0",
+            "version": "v13.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
-                "reference": "e571df1b746ee7d1380286a19881db3f75249b59"
+                "reference": "a640cf3982b2050d0b5e04f0fce3acc60d8edd69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/e571df1b746ee7d1380286a19881db3f75249b59",
-                "reference": "e571df1b746ee7d1380286a19881db3f75249b59",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/a640cf3982b2050d0b5e04f0fce3acc60d8edd69",
+                "reference": "a640cf3982b2050d0b5e04f0fce3acc60d8edd69",
                 "shasum": ""
             },
             "require": {
@@ -4130,9 +4130,9 @@
             "description": "Laravel & WordPress blend for coding as sweet as honey. Join the hive!",
             "support": {
                 "issues": "https://github.com/Pollora/framework/issues",
-                "source": "https://github.com/Pollora/framework/tree/v13.4.0"
+                "source": "https://github.com/Pollora/framework/tree/v13.4.1"
             },
-            "time": "2026-05-13T08:15:07+00:00"
+            "time": "2026-05-13T09:37:53+00:00"
         },
         {
             "name": "pollora/helper-overrider",
