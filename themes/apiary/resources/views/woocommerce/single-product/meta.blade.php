@@ -11,26 +11,26 @@
  *
  * @see         https://docs.woocommerce.com/document/template-structure/
  * @package     WooCommerce\Templates
- * @version     3.0.0
+ * @version     9.7.0
   --}}
 {{-- docs.woocommerce.com/document/template-structure/ --}}
 @php
     global $product;
 @endphp
-<div class="product_meta mt-8 border-t border-gray-200 pt-8 prose-sm text-gray-500">
+<div class="product_meta mt-8 pt-6 border-t border-outline space-y-1.5 text-xs text-subtle">
 
     @php do_action( 'woocommerce_product_meta_start' ); @endphp
 
-
-    @if ( wc_product_sku_enabled() && ( $product->get_sku() || $product->is_type( 'variable' ) ) )
-        <div class="sku_wrapper">@php esc_html_e( 'SKU:', 'woocommerce' ); @endphp
+    @if ( wc_product_sku_enabled() && ( $product->get_sku() || $product->is_type( \Automattic\WooCommerce\Enums\ProductType::VARIABLE ) ) )
+        <div class="sku_wrapper">
+            <span class="font-medium text-muted">{{ __('SKU:', 'woocommerce') }}</span>
             <span class="sku">{!! ( $sku = $product->get_sku() ) ? $sku : esc_html__( 'N/A', 'woocommerce' ) !!}</span>
         </div>
     @endif
 
-    {!! wc_get_product_category_list( $product->get_id(), ', ', '<span class="posted_in">' . _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'woocommerce' ) . ' ', '</span>' ) !!}
+    {!! wc_get_product_category_list( $product->get_id(), ', ', '<div class="posted_in"><span class="font-medium text-muted">' . _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'woocommerce' ) . '</span> ', '</div>' ) !!}
 
-    {!! wc_get_product_tag_list( $product->get_id(), ', ', '<span class="tagged_as">' . _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'woocommerce' ) . ' ', '</span>' ) !!}
+    {!! wc_get_product_tag_list( $product->get_id(), ', ', '<div class="tagged_as"><span class="font-medium text-muted">' . _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'woocommerce' ) . '</span> ', '</div>' ) !!}
 
     @php do_action( 'woocommerce_product_meta_end' ); @endphp
 

@@ -3,140 +3,135 @@
  *
  * Contains the markup for the mini-cart, used by the cart widget.
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/cart/mini-cart.php.
- *
- * HOWEVER, on occasion WooCommerce will need to update template files and you
- * (the theme developer) will need to copy the new files to your theme to
- * maintain compatibility. We try to do this as little as possible, but it does
- * happen. When this occurs the version of the template file will be bumped and
- * the readme will list any important changes.
- *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 5.2.0
+ * @version 10.0.0
 --}}
-{{-- docs.woocommerce.com/document/template-structure/ --}}
+
 @php do_action( 'woocommerce_before_mini_cart' ); @endphp
-<div class="flex-1 py-6 overflow-y-auto px-4 sm:px-6">
-    <div class="flex items-start justify-between">
-        <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">
-            <a href="{{ esc_url( wc_get_cart_url() ) }}">{{ __('Cart', 'woocommerce') }}</a>
-        </h2>
-        <div class="ml-3 h-7 flex items-center">
-            <button type="button" class="-m-2 p-2 text-gray-400 hover:text-gray-500" @click="open = false">
-                <span class="sr-only">Close panel</span>
-                <svg class="h-6 w-6" x-description="Heroicon name: outline/x" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
+
+{{-- Header — fixed at top --}}
+<div class="shrink-0 flex items-center justify-between px-4 sm:px-6 py-4 border-b border-outline">
+    <h2 class="text-lg font-semibold text-foreground" id="slide-over-title">
+        <a href="{{ esc_url( wc_get_cart_url() ) }}" class="no-underline">{{ __('Cart', 'woocommerce') }}</a>
+        @if ( WC()->cart && ! WC()->cart->is_empty() )
+            <span class="ml-1.5 text-sm font-normal text-muted">({{ WC()->cart->get_cart_contents_count() }})</span>
+        @endif
+    </h2>
+    <button type="button" class="-m-2 p-2 text-subtle hover:text-foreground transition-colors" @click="window.dispatchEvent(new CustomEvent('panel-close'))">
+        <span class="sr-only">{{ __('Close panel', 'apiary') }}</span>
+        <svg class="size-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+    </button>
+</div>
+
+{{-- Product list — scrollable middle zone --}}
+<div class="flex-1 overflow-y-auto px-4 sm:px-6">
+    @if ( WC()->cart && ! WC()->cart->is_empty() )
+        <ul role="list" class="woocommerce-mini-cart divide-y divide-outline {!! esc_attr( $args['list_class'] ) !!}">
+            @php do_action( 'woocommerce_before_mini_cart_contents' ); @endphp
+
+            @foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item )
+                @php
+                    $_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
+                    $product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
+                @endphp
+                @if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_widget_cart_item_visible', true, $cart_item, $cart_item_key ) )
+                    @php
+                        $product_name      = apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key );
+                        $thumbnail         = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
+                        $product_price     = apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
+                        $product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
+                    @endphp
+                    <li class="woocommerce-mini-cart-item py-4 flex gap-4 {!! esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key ) ) !!}">
+                        <div class="shrink-0 size-20 rounded-lg overflow-hidden bg-surface-alt [&_img]:size-full [&_img]:object-cover [&_img]:m-0">
+                            @if ( empty( $product_permalink ) )
+                                {!! $thumbnail !!}
+                            @else
+                                <a href="{{ esc_url( $product_permalink ) }}" class="block size-full">
+                                    {!! $thumbnail !!}
+                                    <span class="sr-only">{!! wp_kses_post( $product_name ) !!}</span>
+                                </a>
+                            @endif
+                        </div>
+                        <div class="flex-1 min-w-0 flex flex-col">
+                            <div class="flex justify-between gap-2">
+                                <h3 class="text-sm font-medium text-foreground leading-snug">
+                                    <a href="{{ esc_url( $product_permalink ) }}" class="hover:text-primary transition-colors">
+                                        {!! wp_kses_post( $product_name ) !!}
+                                    </a>
+                                </h3>
+                                <p class="text-sm font-semibold text-foreground shrink-0">
+                                    {!! $product_price !!}
+                                </p>
+                            </div>
+                            @if ( wc_get_formatted_cart_item_data( $cart_item ) )
+                                <div class="mt-0.5 text-xs text-muted">
+                                    {!! wc_get_formatted_cart_item_data( $cart_item ) !!}
+                                </div>
+                            @endif
+                            <div class="mt-auto pt-2 flex items-center justify-between">
+                                <span class="text-xs text-muted">
+                                    {!! apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ) !!}
+                                </span>
+                                @php
+                                    $remove_success_message = sprintf( __( '&ldquo;%s&rdquo; has been removed from your cart.', 'woocommerce' ), wp_strip_all_tags( $product_name ) );
+                                @endphp
+                                {!!
+                                    apply_filters('woocommerce_cart_item_remove_link',
+                                        sprintf(
+                                            '<a href="%s" class="text-xs font-medium text-subtle hover:text-error transition-colors remove_from_cart_button" role="button" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s" data-success_message="%s">%s</a>',
+                                            esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
+                                            /* translators: %s: product name */
+                                            esc_attr( sprintf( __( 'Remove %s from cart', 'woocommerce' ), wp_strip_all_tags( $product_name ) ) ),
+                                            esc_attr( $product_id ),
+                                            esc_attr( $cart_item_key ),
+                                            esc_attr( $_product->get_sku() ),
+                                            esc_attr( $remove_success_message ),
+                                            esc_html__( 'Remove', 'woocommerce' ),
+                                        ),
+                                        $cart_item_key
+                                   )
+                                !!}
+                            </div>
+                        </div>
+                    </li>
+                @endif
+            @endforeach
+
+            @php do_action( 'woocommerce_mini_cart_contents' ); @endphp
+        </ul>
+    @else
+        <div class="woocommerce-mini-cart__empty-message flex flex-col items-center justify-center py-16">
+            <svg class="size-12 text-subtle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+            </svg>
+            <p class="mt-4 text-sm font-medium text-foreground">{{ esc_html__( 'Your cart is empty', 'woocommerce' ) }}</p>
+            <button type="button" class="mt-3 text-sm font-medium text-primary hover:text-primary-hover transition-colors" @click="window.dispatchEvent(new CustomEvent('panel-close'))">
+                {{ __('Continue shopping', 'woocommerce') }} <span aria-hidden="true">&rarr;</span>
             </button>
         </div>
-    </div>
-    <div class="mt-8">
-        @if ( ! WC()->cart->is_empty() )
-            <div class="flow-root">
-                <ul role="list" class="woocommerce-mini-cart -my-6 divide-y divide-gray-200 {!! esc_attr( $args['list_class'] ) !!}">
-                    @php
-                      do_action( 'woocommerce_before_mini_cart_contents' );
-                    @endphp
-
-                    @foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item )
-                        @php
-                            $_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
-                            $product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
-                        @endphp
-                        @if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_widget_cart_item_visible', true, $cart_item, $cart_item_key ) )
-                            @php
-                                $product_name      = apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key );
-                                $thumbnail         = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
-                                $product_price     = apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
-                                $product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
-                            @endphp
-                            <li class="woocommerce-mini-cart-item py-6 flex {!! esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key ) ) !!}">
-                                <div class="shrink-0 w-24 h-24 border border-gray-200 rounded-md overflow-hidden">
-                                    @if ( empty( $product_permalink ) )
-                                        {!! $thumbnail !!}
-                                    @else
-                                        <a href="{!! esc_url( $product_permalink ) !!}">
-                                            {!! $thumbnail . wp_kses_post( $product_name ) !!}
-                                        </a>
-                                    @endif
-                                </div>
-                                <div class="ml-4 flex-1 flex flex-col">
-                                    <div>
-                                        <div class="flex justify-between text-base font-medium text-gray-900">
-                                            <h3>
-                                                <a href="{!! esc_url( $product_permalink ) !!}">
-                                                    {{ wp_kses_post( $product_name ) }}
-                                                </a>
-                                            </h3>
-                                            <p class="ml-4">
-                                                {!! $product_price !!}
-                                            </p>
-                                        </div>
-                                        <div class="mt-1 text-sm text-gray-500">
-                                            {!! wc_get_formatted_cart_item_data( $cart_item ) !!}
-                                        </div>
-                                        <div class="flex-1 flex items-end justify-between text-sm">
-                                            <p class="text-gray-500">
-                                                {{ esc_html_e( 'Qty', 'woocommerce' ) }} {!! apply_filters( 'woocommerce_widget_cart_item_quantity', $cart_item['quantity'], $cart_item, $cart_item_key ) !!}
-                                            </p>
-
-                                            <div class="flex">
-                                                {!!
-                                                    apply_filters('woocommerce_cart_item_remove_link',
-                                                        sprintf(
-                                                            '<a href="%s" class="font-medium text-indigo-600 hover:text-indigo-500 remove_from_cart_button" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s">%s</a>',
-                                                            esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
-                                                            esc_attr__( 'Remove this item', 'woocommerce' ),
-                                                            esc_attr( $product_id ),
-                                                            esc_attr( $cart_item_key ),
-                                                            esc_attr( $_product->get_sku() ),
-                                                            esc_attr__( 'Remove', 'woocommerce' ),
-                                                        ),
-                                                        $cart_item_key
-                                                   )
-                                                !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        @endif
-                    @endforeach
-                    @php
-                      do_action( 'woocommerce_mini_cart_contents' );
-                    @endphp
-                </ul>
-            </div>
-        @else
-            <p class="woocommerce-mini-cart__empty-message">{{ esc_html( 'No products in the cart.', 'woocommerce' ) }}</p>
-        @endif
-    </div>
+    @endif
 </div>
-@if ( ! WC()->cart->is_empty() )
-    <div class="border-t border-gray-200 py-6 px-4 sm:px-6">
-        <div class="flex justify-between text-base font-medium text-gray-900">
-            <p>{!! esc_html__( 'Subtotal', 'woocommerce' ) !!}</p>
-            <p>{!! WC()->cart->get_cart_subtotal() !!}</p>
-            {{-- *
-             * Hook: woocommerce_widget_shopping_cart_total.
-             *
-             * @hooked woocommerce_widget_shopping_cart_subtotal - 10
-              --}}
-            @php
-                do_action( 'woocommerce_widget_shopping_cart_total' );
-            @endphp
+
+{{-- Footer — fixed at bottom --}}
+@if ( WC()->cart && ! WC()->cart->is_empty() )
+    <div class="shrink-0 border-t border-outline bg-white px-4 sm:px-6 py-5">
+        <div class="flex items-center justify-between">
+            <span class="text-sm font-medium text-foreground">{{ esc_html__( 'Subtotal', 'woocommerce' ) }}</span>
+            <span class="text-base font-semibold text-foreground">{!! WC()->cart->get_cart_subtotal() !!}</span>
         </div>
-        <p class="mt-0.5 text-sm text-gray-500">{{ __( 'Shipping costs are calculated during checkout.', 'woocommerce' ) }}</p>
+        @php do_action( 'woocommerce_widget_shopping_cart_total' ); @endphp
+
+        <p class="mt-1 text-xs text-muted">{{ __( 'Shipping & taxes calculated at checkout.', 'woocommerce' ) }}</p>
+
         @php do_action( 'woocommerce_widget_shopping_cart_before_buttons' ); @endphp
-        <div class="mt-6">
-            <a href="{{ esc_url( wc_get_checkout_url() ) }}" class="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-xs text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">{{ esc_html__( 'Checkout', 'woocommerce' ) }}</a>
+
+        <div class="woocommerce-mini-cart__buttons buttons mt-4 space-y-3">
+            @php do_action( 'woocommerce_widget_shopping_cart_buttons' ); @endphp
         </div>
-        <div class="mt-6 flex justify-center text-sm text-center text-gray-500">
-            <p>
-                {{ __('or', 'apiary') }} <button type="button" class="text-indigo-600 font-medium hover:text-indigo-500" @click="open = false">{{  esc_html__( 'Continue shopping', 'woocommerce' ) }}<span aria-hidden="true"> →</span></button>
-            </p>
-        </div>
+
         @php do_action( 'woocommerce_widget_shopping_cart_after_buttons' ); @endphp
     </div>
 @endif

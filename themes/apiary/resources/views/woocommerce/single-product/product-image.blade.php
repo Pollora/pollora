@@ -1,3 +1,10 @@
+{{--
+ * Product image gallery
+ *
+ * @see     https://woocommerce.com/document/template-structure/
+ * @package Theme\Apiary\WooCommerce
+ * @version 10.5.0
+ --}}
 @php
     if ( ! function_exists( 'wc_get_gallery_image_html' ) ) {
         return;
@@ -18,7 +25,7 @@
         )
     );
 @endphp
-<div class="lg:row-end-1 lg:col-span-4 {!! esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ) !!}"
+<div class="xl:col-span-6 {!! esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ) !!}"
      data-columns="{!! esc_attr( $columns ) !!}" style="opacity: 0; transition: opacity .25s ease-in-out;">
     <h2 class="sr-only">{{ __('Images', 'apiary') }}</h2>
     <figure class="woocommerce-product-gallery__wrapper relative">
@@ -38,9 +45,7 @@
             do_action('woocommerce_after_single_product_gallery');
         @endphp
 
-        <div class="lg:col-span-2 lg:row-span-2 rounded-lg overflow-hidden">
-            {!! apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $post_thumbnail_id ) !!}
-        </div>
+        {!! apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $post_thumbnail_id ) !!}
         @php
             do_action( 'woocommerce_product_thumbnails' );
         @endphp

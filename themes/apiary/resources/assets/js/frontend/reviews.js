@@ -1,10 +1,11 @@
-(function ($) {
-    $('#tab-title-reviews').trigger('click');
-    $(document.body).on('click', '.woocommerce-review-link', function () {
-        var $anchor = $(this.hash);
-        if ( $anchor.length ) {
-            $('html, body').animate( { scrollTop: $anchor.offset().top }, 500);
-            $anchor.trigger('click');
-        }
-    });
-})(jQuery);
+document.addEventListener('click', (e) => {
+    const link = e.target.closest('.woocommerce-review-link');
+    if (!link) return;
+
+    const anchor = document.querySelector(link.hash);
+    if (anchor) {
+        e.preventDefault();
+        anchor.scrollIntoView({ behavior: 'smooth' });
+        anchor.click();
+    }
+});

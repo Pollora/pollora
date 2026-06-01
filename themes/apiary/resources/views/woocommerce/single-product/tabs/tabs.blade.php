@@ -17,15 +17,12 @@
  * the readme will list any important changes.
  *
  * @see     https: * @package WooCommerce\Templates
- * @version 3.8.0
+ * @version 9.8.0
   --}}
 {{-- docs.woocommerce.com/document/template-structure/ --}}
 @php
 
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
 
 
 $product_tabs = apply_filters( 'woocommerce_product_tabs', array() );
@@ -33,12 +30,12 @@ $product_tabs = apply_filters( 'woocommerce_product_tabs', array() );
 @if ( ! empty( $product_tabs ) )
 
 
-	<div class="w-full max-w-2xl mx-auto mt-16 lg:max-w-none lg:mt-0 lg:col-span-4">
+	<div class="w-full">
 		<div x-data="Components.tabs()" @tab-click.window="onTabClick" @tab-keydown.window="onTabKeydown">
-			<div class="border-b border-gray-200">
+			<div class="border-b border-outline">
 				<div class="-mb-px flex space-x-8" aria-orientation="horizontal" role="tablist">
 					@foreach ( $product_tabs as $key => $product_tab )
-						<button id="tab-title-{!! esc_attr( $key ) !!}" class="{!! esc_attr( $key ) !!}_tab whitespace-nowrap py-6 border-b-2 font-medium text-sm border-transparent text-gray-700 hover:text-gray-800 hover:border-gray-300" :class="{ 'border-indigo-600 text-indigo-600': selected, 'border-transparent text-gray-700 hover:text-gray-800 hover:border-gray-300': !(selected) }" x-data="Components.tab(0)" aria-controls="tab-title-{!! esc_attr( $key ) !!}" role="tab" x-init="init()" @click="onClick" @keydown="onKeydown" @tab-select.window="onTabSelect" :tabindex="selected ? 0 : -1" :aria-selected="selected ? 'true' : 'false'" type="button" tabindex="-1" aria-selected="false">
+						<button id="tab-title-{!! esc_attr( $key ) !!}" class="{!! esc_attr( $key ) !!}_tab whitespace-nowrap py-6 border-b-2 font-medium text-sm border-transparent text-muted hover:text-foreground hover:border-outline" :class="{ 'border-primary text-primary': selected, 'border-transparent text-muted hover:text-foreground hover:border-outline': !(selected) }" x-data="Components.tab(0)" aria-controls="tab-title-{!! esc_attr( $key ) !!}" role="tab" x-init="init()" @click="onClick" @keydown="onKeydown" @tab-select.window="onTabSelect" :tabindex="selected ? 0 : -1" :aria-selected="selected ? 'true' : 'false'" type="button" tabindex="-1" aria-selected="false">
 							{!! wp_kses_post( apply_filters( 'woocommerce_product_' . $key . '_tab_title', $product_tab['title'], $key ) ) !!}
 						</button>
 					@endforeach

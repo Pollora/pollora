@@ -1,71 +1,82 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Theme\Apiary;
 
 /**
- * Wrap images with figure tag.
- * Courtesy of Interconnectit http://interconnectit.com/2175/how-to-remove-p-tags-from-images-in-wordpress/
+ * Image display customizations (figure wrapping, captions, custom logo).
+ *
+ * - Wraps standalone `<img>` tags in `<figure class="media">` elements.
+ * - Overrides the `[caption]` shortcode to use semantic `<figure>/<figcaption>`.
+ * - Provides a `custom_logo()` helper for rendering the site logo with configurable classes.
+ *
+ * @package Theme\Apiary
  */
-add_filter('the_content', function ($pee) {
+
+/**
+ * Wrap standalone images (and linked images) in `<figure>` tags.
+ *
+ * Replaces `<p><img></p>` with `<figure class="media"><img></figure>`.
+ *
+ * @see https://interconnectit.com/2175/how-to-remove-p-tags-from-images-in-wordpress/
+ */
+add_filter('the_content', function (string $pee): string {
     return preg_replace('/<p>\\s*?(<a .*?><img.*?><\\/a>|<img.*?>)?\\s*<\\/p>/s', '<figure class="media">$1</figure>', $pee);
 }, 50);
 
 /**
- * Customized the output of caption, you can remove the filter to restore back to the WP default output.
- * Courtesy of DevPress. http://devpress.com/blog/captions-in-wordpress/
+ * Override the default caption shortcode with semantic `<figure>/<figcaption>` markup.
+ *
+ * @see https://devpress.com/blog/captions-in-wordpress/
  */
-add_filter('img_caption_shortcode', function ($output, $attr, $content) {
-    /* We're not worried abut captions in feeds, so just return the output here. */
+add_filter('img_caption_shortcode', function (string $output, array $attr, string $content): string {
     if (is_feed()) {
         return $output;
     }
 
-    /* Set up the default arguments. */
-    $defaults = [
-        'id' => '',
-        'align' => 'alignnone',
-        'width' => '',
+    $attr = shortcode_atts([
+        'id'      => '',
+        'align'   => 'alignnone',
+        'width'   => '',
         'caption' => '',
-    ];
-    /* Merge the defaults with user input. */
-    $attr = shortcode_atts($defaults, $attr);
+    ], $attr);
 
-    /* If the width is less than 1 or there is no caption, return the content wrapped between the [caption]< tags. */
     if (1 > $attr['width'] || empty($attr['caption'])) {
         return $content;
     }
 
-    /* Set up the attributes for the caption <div>. */
-    $attributes = ' class="media '.esc_attr($attr['align']).'"';
-    /* Open the caption <div>. */
-    $output = '<figure'.$attributes.'>';
-    /* Allow shortcodes for the content the caption was created for. */
-    $output .= do_shortcode($content);
-    /* Append the caption text. */
-    $output .= '<figcaption class="media__caption">'.$attr['caption'].'</figcaption>';
-    /* Close the caption </div>. */
-    $output .= '</figure>';
-
-    /* Return the formatted, clean caption. */
-    return $output;
+    return sprintf(
+        '<figure class="media %s">%s<figcaption class="media__caption">%s</figcaption></figure>',
+        esc_attr($attr['align']),
+        do_shortcode($content),
+        $attr['caption']
+    );
 }, 10, 3);
 
 /**
- * @param  string  $img_classes Image classes (default : w-8 h-8)
- * @param  string  $link_classes Link image (default: custom-logo-link)
- * @param  bool  $enableLink Enable or disable the logo link (default : true)
- * @return string Logo HTML code
+ * Render the custom logo with configurable image and link classes.
+ *
+ * @param  string  $imgClasses   CSS classes applied to the `<img>` element.
+ * @param  string  $linkClasses  CSS classes applied to the wrapping `<a>` element.
+ * @param  bool    $enableLink   Whether to wrap the logo in a link to the homepage.
+ * @return string HTML markup for the logo.
  */
-function custom_logo($img_classes = 'w-8 h-8', $link_classes = 'custom-logo-link', $enableLink = true)
+function custom_logo(string $imgClasses = 'w-8 h-8', string $linkClasses = 'custom-logo-link', bool $enableLink = true): string
 {
-    $custom_logo_id = get_theme_mod('custom_logo');
-
-    return $enableLink ? sprintf('<a href="%1$s" class="'.$link_classes.'" rel="home" itemprop="url">%2$s</a>',
-        home_url(),
-        wp_get_attachment_image($custom_logo_id, 'full', false, [
-            'class' => $img_classes,
-        ])
-    ) : wp_get_attachment_image($custom_logo_id, 'full', false, [
-        'class' => $img_classes,
+    $customLogoId = get_theme_mod('custom_logo');
+    $image = wp_get_attachment_image($customLogoId, 'full', false, [
+        'class' => $imgClasses,
     ]);
+
+    if (! $enableLink) {
+        return $image;
+    }
+
+    return sprintf(
+        '<a href="%s" class="%s" rel="home" itemprop="url">%s</a>',
+        esc_url(home_url()),
+        esc_attr($linkClasses),
+        $image
+    );
 }

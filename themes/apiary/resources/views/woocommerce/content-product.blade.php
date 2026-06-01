@@ -11,16 +11,15 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 3.6.0
+ * @version 9.4.0
   --}}
 {{--  Ensure visibility. --}}
 {{-- docs.woocommerce.com/document/template-structure/ --}}
 @php
-    defined( 'ABSPATH' ) || exit;
 
     global $product;
 
-    if ( empty( $product ) || ! $product->is_visible() ) {
+    if ( ! is_a( $product, WC_Product::class ) || ! $product->is_visible() ) {
         return;
     }
 @endphp

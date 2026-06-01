@@ -1,5 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
+/**
+ * WooCommerce order status utilities.
+ *
+ * Global scope is intentional — functions are called directly in Blade
+ * templates and guarded with function_exists().
+ *
+ * @package Theme\Apiary
+ */
+
 if (! function_exists('wc_get_current_order_statuses')) {
     /**
      * Get the active order statuses
@@ -39,6 +50,6 @@ if (! function_exists('wc_get_order_status_progress')) {
         $status_count = count($statuses);
         $status_quotient = $status_index / ($status_count - 1);
 
-        return min(100, ($status_quotient * 100 + 5));
+        return (int) min(100, ($status_quotient * 100 + 5));
     }
 }

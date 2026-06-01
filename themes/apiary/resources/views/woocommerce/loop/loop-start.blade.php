@@ -1,3 +1,8 @@
+{{--
+ * Product loop opening markup
+ *
+ * @package Theme\Apiary\WooCommerce
+ --}}
 <?php
 /**
  * Product Loop Start
@@ -15,9 +20,6 @@
  * @version     3.3.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-    exit;
-}
 
 ?>
-<ul class="products list-none grid grid-cols-2 gap-y-4 gap-x-6 sm:gap-y-10 lg:gap-x-8 lg:grid-cols-3 columns-<?php echo esc_attr( wc_get_loop_prop( 'columns' ) ); ?>">
+<ul class="products list-none grid grid-cols-2 gap-y-4 gap-x-6 sm:gap-y-10 sm:grid-cols-3 lg:gap-x-8 lg:grid-cols-4 columns-<?php echo esc_attr( wc_get_loop_prop( 'columns' ) ); ?>">

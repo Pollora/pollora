@@ -1,97 +1,114 @@
-{{-- *
+{{--
  * Thankyou page
- *
- * This template can be overridden by copying it to yourtheme/woocommerce/checkout/thankyou.php.
- *
- * HOWEVER, on occasion WooCommerce will need to update template files and you
- * (the theme developer) will need to copy the new files to your theme to
- * maintain compatibility. We try to do this as little as possible, but it does
- * happen. When this occurs the version of the template file will be bumped and
- * the readme will list any important changes.
  *
  * @see https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 3.7.0
-  --}}
-{{-- docs.woocommerce.com/document/template-structure/ --}}
-<div class="woocommerce-order max-w-3xl mx-auto">
-	<div class="px-4 pt-14 sm:px-6 sm:pt-22 lg:px-8 lg:pt-30">
-		@if ( $order )
-			@php
-				do_action( 'woocommerce_before_thankyou', $order->get_id() );
-			@endphp
+ * @version 8.1.0
+ --}}
 
-			@if ( $order->has_status( 'failed' ) )
-				<div class="my-10 bg-gray-50 rounded-lg py-6 px-6 text-sm sm:flex items-center">
-					<div class="pt-1.5 min-w-0 flex-1 sm:pt-0">
-						<p class="woocommerce-notice woocommerce-notice--error woocommerce-thankyou-order-failed">
-							{{ __( 'Unfortunately your order cannot be processed as the originating bank/merchant has declined your transaction. Please attempt your purchase again.', 'woocommerce' ) }}
-						</p>
-					</div>
-					<div class="woocommerce-notice woocommerce-notice--error woocommerce-thankyou-order-failed-actions mt-6 space-y-4 sm:mt-0 sm:ml-6 sm:flex-none sm:w-40">
-						<a href="{!! esc_url( $order->get_checkout_payment_url() ) !!}" class="button pay w-full flex items-center justify-center bg-indigo-600 py-2 px-2.5 border border-transparent rounded-md shadow-xs text-sm font-medium text-white hover:bg-indigo-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-full sm:grow-0">
-							{{ __( 'Pay', 'woocommerce' ) }}
-						</a>
-						@if ( is_user_logged_in() )
-							<a href="{!! esc_url( wc_get_page_permalink( 'myaccount' ) ) !!}" class="button pay w-full flex items-center justify-center bg-white py-2 px-2.5 border border-gray-300 rounded-md shadow-xs text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-full sm:grow-0">
-								{{ __( 'My account', 'woocommerce' ) }}
-							</a>
-						@endif
-					</div>
-				</div>
+<div class="woocommerce-order max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    @if ( $order )
+        @php do_action( 'woocommerce_before_thankyou', $order->get_id() ); @endphp
 
-			@else
-				<header class="entry-header">
-					<h1 class="entry-title text-sm font-semibold uppercase tracking-wide text-indigo-600">{!! the_title() !!}</h1>
-				</header><!-- .entry-header -->
-				<div class="entry-content">
-					{!! wp_link_pages([
-						'before' => '<div class="page-links">'.esc_html__('Pages:', 'apiary'),
-						'after' => '</div>',
-						'echo' => false
-					]) !!}
-				</div><!-- .entry-co ntent -->
-				<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">
-					{!! apply_filters( 'woocommerce_thankyou_order_received_text', esc_html__( 'Thank you. Your order has been received.', 'woocommerce' ), $order ) !!}
-				</p>
+        @if ( $order->has_status( 'failed' ) )
+            {{-- Failed order --}}
+            <div class="py-12 text-center">
+                <div class="mx-auto flex size-16 items-center justify-center rounded-full bg-error-light">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 text-error">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+                    </svg>
+                </div>
+                <h1 class="mt-4 text-2xl font-bold text-foreground">
+                    @php esc_html_e( 'Payment failed', 'woocommerce' ); @endphp
+                </h1>
+                <p class="woocommerce-notice woocommerce-notice--error woocommerce-thankyou-order-failed mt-2 text-sm text-muted max-w-md mx-auto">
+                    {{ __( 'Unfortunately your order cannot be processed as the originating bank/merchant has declined your transaction. Please attempt your purchase again.', 'woocommerce' ) }}
+                </p>
+                <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <a href="{{ esc_url( $order->get_checkout_payment_url() ) }}"
+                       class="button pay inline-flex items-center justify-center rounded-lg bg-primary px-6 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-primary-hover transition-colors">
+                        {{ __( 'Try again', 'woocommerce' ) }}
+                    </a>
+                    @if ( is_user_logged_in() )
+                        <a href="{{ esc_url( wc_get_page_permalink( 'myaccount' ) ) }}"
+                           class="inline-flex items-center justify-center rounded-lg border border-outline bg-white px-6 py-2.5 text-sm font-medium text-muted shadow-xs hover:bg-surface-alt hover:text-foreground transition-colors">
+                            {{ __( 'My account', 'woocommerce' ) }}
+                        </a>
+                    @endif
+                </div>
+            </div>
 
-				<ul class="woocommerce-order-overview woocommerce-thankyou-order-details order_details my-5">
-					<li class="woocommerce-order-overview__order order">
-						@php esc_html_e( 'Order number:', 'woocommerce' ); @endphp
-						<strong>{!! $order->get_order_number() !!}</strong>
-					</li>
-					<li class="woocommerce-order-overview__date date">
-						@php esc_html_e( 'Date:', 'woocommerce' ); @endphp
-						<strong>{!! wc_format_datetime( $order->get_date_created() ) !!}</strong>
-					</li>
-					@if ( is_user_logged_in() && $order->get_user_id() === get_current_user_id() && $order->get_billing_email() )
-						<li class="woocommerce-order-overview__email email">
-							@php esc_html_e( 'Email:', 'woocommerce' ); @endphp
-							<strong>{!! $order->get_billing_email() !!}</strong>
-						</li>
-					@endif
-					<li class="woocommerce-order-overview__total total">
-						@php esc_html_e( 'Total:', 'woocommerce' ); @endphp
-						<strong>{!! $order->get_formatted_order_total() !!}</strong>
-					</li>
-					@if ( $order->get_payment_method_title() )
-						<li class="woocommerce-order-overview__payment-method method">
-							@php esc_html_e( 'Payment method:', 'woocommerce' ); @endphp
-							<strong>{!! wp_kses_post( $order->get_payment_method_title() ) !!}</strong>
-						</li>
-					@endif
-				</ul>
-			@endif
+        @else
+            {{-- Successful order --}}
+            <div class="py-10 sm:py-14 text-center">
+                {{-- Success icon --}}
+                <div class="mx-auto flex size-16 items-center justify-center rounded-full bg-success-light ring-8 ring-success-light/50">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-8 text-success">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                </div>
 
-			<div class="mt-3 mb-5 text-sm text-gray-500">
-				@php do_action( 'woocommerce_thankyou_' . $order->get_payment_method(), $order->get_id() ); @endphp
-			</div>
-			@php do_action( 'woocommerce_thankyou', $order->get_id() ); @endphp
+                <div class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received mt-6 text-2xl sm:text-3xl font-bold text-foreground">
+                    @php wc_get_template( 'checkout/order-received.php', array( 'order' => $order ) ); @endphp
+                </div>
+                <p class="mt-2 text-sm text-muted">
+                    @php printf( esc_html__( 'Order #%s', 'woocommerce' ), '<strong class="text-foreground">' . $order->get_order_number() . '</strong>' ); @endphp
+                </p>
+            </div>
 
-		@else
-			<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received">
-				{!! apply_filters( 'woocommerce_thankyou_order_received_text', esc_html__( 'Thank you. Your order has been received.', 'woocommerce' ), null ) !!}
-			</p>
-		@endif
-	</div>
+            {{-- Order summary cards --}}
+            <div class="woocommerce-order-overview woocommerce-thankyou-order-details order_details grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8 list-none !pl-0">
+                <div class="woocommerce-order-overview__date date rounded-xl border border-outline bg-white p-4 text-center">
+                    <div class="text-xs font-medium text-muted uppercase tracking-wider">@php esc_html_e( 'Date', 'woocommerce' ); @endphp</div>
+                    <div class="mt-1.5 text-sm font-semibold text-foreground">{!! wc_format_datetime( $order->get_date_created() ) !!}</div>
+                </div>
+                <div class="woocommerce-order-overview__total total rounded-xl border border-outline bg-white p-4 text-center">
+                    <div class="text-xs font-medium text-muted uppercase tracking-wider">@php esc_html_e( 'Total', 'woocommerce' ); @endphp</div>
+                    <div class="mt-1.5 text-sm font-semibold text-foreground">{!! $order->get_formatted_order_total() !!}</div>
+                </div>
+                @if ( $order->get_payment_method_title() )
+                    <div class="woocommerce-order-overview__payment-method method rounded-xl border border-outline bg-white p-4 text-center">
+                        <div class="text-xs font-medium text-muted uppercase tracking-wider">@php esc_html_e( 'Payment', 'woocommerce' ); @endphp</div>
+                        <div class="mt-1.5 text-sm font-semibold text-foreground">{!! wp_kses_post( $order->get_payment_method_title() ) !!}</div>
+                    </div>
+                @endif
+                @if ( is_user_logged_in() && $order->get_user_id() === get_current_user_id() && $order->get_billing_email() )
+                    <div class="woocommerce-order-overview__email email rounded-xl border border-outline bg-white p-4 text-center">
+                        <div class="text-xs font-medium text-muted uppercase tracking-wider">@php esc_html_e( 'Email', 'woocommerce' ); @endphp</div>
+                        <div class="mt-1.5 text-sm font-semibold text-foreground truncate">{!! $order->get_billing_email() !!}</div>
+                    </div>
+                @endif
+            </div>
+
+            {{-- Payment method notice (bank details etc.) --}}
+            <div class="text-sm text-muted [&_h2]:text-base [&_h2]:font-semibold [&_h2]:text-foreground [&_h2]:!mt-0 [&_h2]:mb-3 [&_table]:w-full [&_table]:rounded-xl [&_table]:border [&_table]:border-outline [&_table]:overflow-hidden [&_th]:px-4 [&_th]:py-2.5 [&_th]:text-left [&_th]:text-xs [&_th]:font-semibold [&_th]:text-muted [&_th]:uppercase [&_th]:bg-surface [&_td]:px-4 [&_td]:py-2.5 [&_td]:text-sm [&_td]:border-t [&_td]:border-outline mb-8">
+                @php do_action( 'woocommerce_thankyou_' . $order->get_payment_method(), $order->get_id() ); @endphp
+            </div>
+        @endif
+
+        {{-- Order details (products, totals, addresses) --}}
+        @php do_action( 'woocommerce_thankyou', $order->get_id() ); @endphp
+
+        {{-- CTA --}}
+        @if ( is_user_logged_in() )
+            <div class="mt-8 mb-12 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a href="{{ esc_url( wc_get_endpoint_url( 'view-order', $order->get_id(), wc_get_page_permalink( 'myaccount' ) ) ) }}"
+                   class="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-primary-hover transition-colors">
+                    @php esc_html_e( 'View order details', 'woocommerce' ); @endphp
+                </a>
+                <a href="{{ esc_url( wc_get_page_permalink( 'shop' ) ) }}"
+                   class="inline-flex items-center justify-center rounded-lg border border-outline bg-white px-6 py-2.5 text-sm font-medium text-muted shadow-xs hover:bg-surface-alt hover:text-foreground transition-colors">
+                    @php esc_html_e( 'Continue shopping', 'woocommerce' ); @endphp
+                </a>
+            </div>
+        @endif
+
+    @else
+        {{-- No order --}}
+        <div class="py-12 text-center">
+            <div class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received text-lg text-muted">
+                @php wc_get_template( 'checkout/order-received.php', array( 'order' => false ) ); @endphp
+            </div>
+        </div>
+    @endif
 </div>

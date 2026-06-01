@@ -1,3 +1,8 @@
+{{--
+ * Taxonomy archive template
+ *
+ * @package Theme\Apiary
+ --}}
 @extends('layouts.app')
 
 @section('content')

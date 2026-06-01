@@ -11,13 +11,12 @@
  *
  * @see https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 2.2.0
+ * @version 10.6.0
   --}}
 {{-- docs.woocommerce.com/document/template-structure/ --}}
 @php
 
 
-defined( 'ABSPATH' ) || exit;
 
 $notes = $order->get_customer_order_notes();
 @endphp
@@ -29,12 +28,12 @@ $notes = $order->get_customer_order_notes();
 		apply_filters(
 			'woocommerce_order_tracking_status',
 			sprintf(
-				
 				__( 'Order #%1$s was placed on %2$s and is currently %3$s.', 'woocommerce' ),
 				'<mark class="order-number">' . $order->get_order_number() . '</mark>',
 				'<mark class="order-date">' . wc_format_datetime( $order->get_date_created() ) . '</mark>',
 				'<mark class="order-status">' . wc_get_order_status_name( $order->get_status() ) . '</mark>'
-			)
+			),
+			$order
 		)
 	);
 	@endphp
@@ -55,7 +54,7 @@ $notes = $order->get_customer_order_notes();
 {!! date_i18n( esc_html__( 'l jS \o\f F Y, h:ia', 'woocommerce' ), strtotime( $note->comment_date ) ) !!}</p>
 					<div class="description">
 						{{--  phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped  --}}
-{!! wpautop( wptexturize( $note->comment_content ) ) !!}
+{!! wp_kses_post( wpautop( wptexturize( $note->comment_content ) ) ) !!}
 					</div>
 					<div class="clear"></div>
 				</div>

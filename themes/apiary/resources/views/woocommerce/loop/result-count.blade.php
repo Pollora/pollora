@@ -1,12 +1,10 @@
 {{--
-    Result Count Blade Template
-    Shows text: Showing x - x of x results.
-
-    This template is a Blade adaptation of the original WooCommerce template.
-
-    @package     WooCommerce\Templates
-    @version     9.4.0
---}}
+ * Result count (Showing x - x of x results)
+ *
+ * @see     https://woocommerce.com/document/template-structure/
+ * @package Theme\Apiary\WooCommerce
+ * @version 9.9.0
+ --}}
 
 @php
     if (!isset($total) || !isset($per_page) || !isset($current)) {

@@ -1,55 +1,81 @@
+{{--
+ * Home page template (blog index)
+ *
+ * @package Theme\Apiary
+ --}}
 @extends('layouts.app')
 
 @section('content')
-<!-- data-pollora-template="home" -->
-    <div class="mt-24 md:mt-28">
-        <div class="relative">
-            <div class="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-                @hasposts
-                <div class="flex flex-col gap-16">
+    {{-- Featured products --}}
+    @if (class_exists('WooCommerce'))
+        <section class="mt-12">
+            <h2 class="text-2xl font-bold tracking-tight text-foreground">{{ __('New arrivals', 'woocommerce') }}</h2>
+            <p class="mt-2 text-sm text-muted">{{ __('Check out the latest additions to our collection.', 'apiary') }}</p>
+            <div class="mt-8">
+                {!! do_shortcode('[products limit="8" columns="4" orderby="date" order="DESC"]') !!}
+            </div>
+        </section>
+
+        {{-- Product categories --}}
+        @php
+            $categories = get_terms([
+                'taxonomy' => 'product_cat',
+                'hide_empty' => true,
+                'parent' => 0,
+                'exclude' => [get_option('default_product_cat')],
+                'number' => 6,
+            ]);
+        @endphp
+        @if (!is_wp_error($categories) && !empty($categories))
+            <section class="mt-20">
+                <h2 class="text-2xl font-bold tracking-tight text-foreground">{{ __('Shop by category', 'apiary') }}</h2>
+                <div class="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-3">
+                    @foreach ($categories as $category)
+                        @php $thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true); @endphp
+                        <a href="{{ get_term_link($category) }}" class="group relative block overflow-hidden rounded-lg bg-surface">
+                            @if ($thumbnail_id)
+                                {!! wp_get_attachment_image($thumbnail_id, 'medium_large', false, [
+                                    'class' => 'w-full h-48 object-cover object-center group-hover:scale-105 transition-transform duration-300',
+                                ]) !!}
+                            @else
+                                <div class="w-full h-48 bg-surface-alt flex items-center justify-center">
+                                    <svg class="w-12 h-12 text-subtle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                                </div>
+                            @endif
+                            <div class="p-4">
+                                <h3 class="text-sm font-medium text-foreground group-hover:text-primary transition-colors">{{ $category->name }}</h3>
+                                <p class="mt-1 text-xs text-muted">{{ sprintf(_n('%d product', '%d products', $category->count, 'woocommerce'), $category->count) }}</p>
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
+            </section>
+        @endif
+
+        {{-- On sale --}}
+        <section class="mt-20 mb-12">
+            <h2 class="text-2xl font-bold tracking-tight text-foreground">{{ __('On sale', 'woocommerce') }}</h2>
+            <p class="mt-2 text-sm text-muted">{{ __('Great deals on selected items.', 'apiary') }}</p>
+            <div class="mt-8">
+                {!! do_shortcode('[sale_products limit="4" columns="4" orderby="rand"]') !!}
+            </div>
+        </section>
+    @else
+        {{-- Blog fallback when WooCommerce is not active --}}
+        <div class="mt-16">
+            @hasposts
+                <div class="grid max-w-xl grid-cols-1 gap-y-16 lg:max-w-none lg:grid-cols-3 lg:gap-x-8">
                     @posts
-                    <article class="group relative flex flex-col items-start">
-                        <h2 class="text-base font-semibold tracking-tight text-zinc-800">
-                            <div class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl"></div>
-                            <a href="@permalink">
-                                <span class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
-                                <span class="relative z-10">@title</span>
-                            </a>
-                        </h2>
-                        <time class="relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 pl-3.5" datetime="@published('c')">
-                                            <span class="absolute inset-y-0 left-0 flex items-center" aria-hidden="true">
-                                                <span class="h-4 w-0.5 rounded-full bg-zinc-200"></span>
-                                            </span>
-                            @published
-                        </time>
-                        <p class="relative z-10 mt-2 text-sm text-zinc-600">
-                            @excerpt
-                        </p>
-                        <div aria-hidden="true" class="relative z-10 mt-4 flex items-center text-sm font-medium text-teal-500">Read article <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="ml-1 h-4 w-4 stroke-current">
-                                <path d="M6.75 5.75 9.25 8l-2.5 2.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                        </div>
-                    </article>
+                        <article class="group relative flex flex-col items-start">
+                            <time class="text-sm text-muted" datetime="@published('c')">@published</time>
+                            <h2 class="mt-2 text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                                <a href="@permalink">@title</a>
+                            </h2>
+                            <p class="mt-2 text-sm text-muted line-clamp-3">@excerpt</p>
+                        </article>
                     @endposts
                 </div>
-                @endhasposts
-                <div class="space-y-10 lg:pl-16 xl:pl-24">
-                    <form class="rounded-2xl border border-zinc-100 p-6" action="/">
-                        <h2 class="flex text-sm font-semibold text-zinc-900">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="h-6 w-6 flex-none">
-                                <path d="M2.75 7.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z" class="fill-zinc-100 stroke-zinc-400"></path>
-                                <path d="m4 6 6.024 5.479a2.915 2.915 0 0 0 3.952 0L20 6" class="stroke-zinc-400"></path>
-                            </svg>
-                            <span class="ml-3">Stay up to date</span>
-                        </h2>
-                        <p class="mt-2 text-sm text-zinc-600">Get notified when I publish something new, and unsubscribe at any time.</p>
-                        <div class="mt-6 flex">
-                            <input type="email" placeholder="Email address" aria-label="Email address" required="" class="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(--spacing(2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-hidden focus:ring-4 focus:ring-teal-500/10 sm:text-sm">
-                            <button class="inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none bg-zinc-800 font-semibold text-zinc-100 hover:bg-zinc-700 active:bg-zinc-800 active:text-zinc-100/70 ml-4 flex-none" type="submit">Join</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            @endhasposts
         </div>
-    </div>
+    @endif
 @endsection

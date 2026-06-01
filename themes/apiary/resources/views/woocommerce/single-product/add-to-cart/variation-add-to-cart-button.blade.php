@@ -3,7 +3,7 @@
  *
  * @see https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 3.4.0
+ * @version 10.5.2
   --}}
 {{-- docs.woocommerce.com/document/template-structure/ --}}
 @php
@@ -11,7 +11,7 @@ global $product;
 @endphp
 <div class="woocommerce-variation-add-to-cart variations_button">
 	@php do_action( 'woocommerce_before_add_to_cart_button' ); @endphp
-	<div class="mt-8 flex">
+	<div class="mt-8 flex [&_.quantity]:h-12 [&_.quantity]:rounded-r-none [&_.quantity]:border-r-0">
 		@php
 			do_action( 'woocommerce_before_add_to_cart_quantity' );
 
@@ -26,6 +26,8 @@ global $product;
 
 		<x-button-large type="submit" class="single_add_to_cart_button button alt rounded-l-none">
 			{!! esc_html( $product->single_add_to_cart_text() ) !!}
+			<span class="variation-price-separator mx-2 opacity-50 hidden">—</span>
+			<span class="variation-price-in-btn [&_del]:text-white/60 [&_del]:text-sm [&_ins]:no-underline"></span>
 		</x-button-large>
 	</div>
 

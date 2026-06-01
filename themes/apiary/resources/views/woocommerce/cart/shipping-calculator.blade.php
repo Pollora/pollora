@@ -11,24 +11,24 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 4.0.0
+ * @version 9.7.0
   --}}
 {{-- docs.woocommerce.com/document/template-structure/ --}}
 @php
 
 
-defined( 'ABSPATH' ) || exit;
 
 do_action( 'woocommerce_before_shipping_calculator' ); @endphp
 
 <form class="woocommerce-shipping-calculator pt-2" action="{!! esc_url( wc_get_cart_url() ) !!}" method="post">
 
-	@php printf( '<a href="#" class="shipping-calculator-button text-sm font-medium text-indigo-600 hover:text-indigo-500">%s</a>', esc_html( ! empty( $button_text ) ? $button_text : __( 'Calculate shipping', 'woocommerce' ) ) ); @endphp
+	@php printf( '<a href="#" class="shipping-calculator-button text-sm font-medium text-primary hover:text-primary-hover" aria-expanded="false" aria-controls="shipping-calculator-form">%s</a>', esc_html( ! empty( $button_text ) ? $button_text : __( 'Calculate shipping', 'woocommerce' ) ) ); @endphp
 
-	<section class="shipping-calculator-form grid grid-cols-12 gap-y-6 gap-x-4 pt-2" style="display:none;">
+	<section id="shipping-calculator-form" class="shipping-calculator-form grid grid-cols-12 gap-y-6 gap-x-4 pt-2" style="display:none;">
 
 		@if ( apply_filters( 'woocommerce_shipping_calculator_enable_country', true ) )
 			<p class="form-row form-row-wide col-span-full" id="calc_shipping_country_field">
+				<label for="calc_shipping_country" class="sr-only">@php esc_html_e( 'Country / region', 'woocommerce' ); @endphp</label>
 				<select name="calc_shipping_country" id="calc_shipping_country" class="country_to_state country_select" rel="calc_shipping_state">
 					<option value="default">@php esc_html_e( 'Select a country / region&hellip;', 'woocommerce' ); @endphp</option>
 					@php
@@ -77,19 +77,21 @@ do_action( 'woocommerce_before_shipping_calculator' ); @endphp
 
 		@if ( apply_filters( 'woocommerce_shipping_calculator_enable_city', true ) )
 			<p class="form-row form-row-wide col-span-full sm:col-span-6" id="calc_shipping_city_field">
-				<input type="text" class="input-text block w-full border-gray-300 rounded-md shadow-xs focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" value="{!! esc_attr( WC()->customer->get_shipping_city() ) !!}" placeholder="@php esc_attr_e( 'City', 'woocommerce' ); @endphp" name="calc_shipping_city" id="calc_shipping_city" />
+				<label for="calc_shipping_city" class="sr-only">@php esc_html_e( 'City', 'woocommerce' ); @endphp</label>
+				<input type="text" class="input-text block w-full border-outline rounded-md shadow-xs focus:ring-ring focus:border-ring sm:text-sm" value="{!! esc_attr( WC()->customer->get_shipping_city() ) !!}" placeholder="@php esc_attr_e( 'City', 'woocommerce' ); @endphp" name="calc_shipping_city" id="calc_shipping_city" />
 			</p>
 		@endif
 
 		@if ( apply_filters( 'woocommerce_shipping_calculator_enable_postcode', true ) )
 			<p class="form-row form-row-wide col-span-full sm:col-span-6" id="calc_shipping_postcode_field">
-				<input type="text" class="input-text block w-full border-gray-300 rounded-md shadow-xs focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" value="{!! esc_attr( WC()->customer->get_shipping_postcode() ) !!}" placeholder="@php esc_attr_e( 'Postcode / ZIP', 'woocommerce' ); @endphp" name="calc_shipping_postcode" id="calc_shipping_postcode" />
+				<label for="calc_shipping_postcode" class="sr-only">@php esc_html_e( 'Postcode / ZIP', 'woocommerce' ); @endphp</label>
+				<input type="text" class="input-text block w-full border-outline rounded-md shadow-xs focus:ring-ring focus:border-ring sm:text-sm" value="{!! esc_attr( WC()->customer->get_shipping_postcode() ) !!}" placeholder="@php esc_attr_e( 'Postcode / ZIP', 'woocommerce' ); @endphp" name="calc_shipping_postcode" id="calc_shipping_postcode" />
 			</p>
 		@endif
 
 
 		<p class="col-span-full">
-			<button type="submit" name="calc_shipping" value="1" class="button bg-gray-200 text-sm font-medium text-gray-600 rounded-md px-4 py-2 hover:bg-gray-300 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">
+			<button type="submit" name="calc_shipping" value="1" class="button bg-surface-alt text-sm font-medium text-muted rounded-md px-4 py-2 hover:bg-outline focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-offset-surface focus:ring-ring">
 				{{ __( 'Update', 'woocommerce' ) }}
 			</button></p>
 		@php wp_nonce_field( 'woocommerce-shipping-calculator', 'woocommerce-shipping-calculator-nonce' ); @endphp

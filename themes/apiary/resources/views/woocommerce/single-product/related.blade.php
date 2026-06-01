@@ -11,25 +11,30 @@
  *
  * @see         https://docs.woocommerce.com/document/template-structure/
  * @package     WooCommerce\Templates
- * @version     3.9.0
+ * @version     10.3.0
   --}}
 {{-- docs.woocommerce.com/document/template-structure/ --}}
 @php
-if ( ! defined( 'ABSPATH' ) ) {
-    exit;
-}
 @endphp
 @if ( $related_products )
     @php
+        // Ensure related product images get loading="lazy"
+        if ( function_exists( 'wp_increase_content_media_count' ) ) {
+            $content_media_count = wp_increase_content_media_count( 0 );
+            if ( $content_media_count < wp_omit_loading_attr_threshold() ) {
+                wp_increase_content_media_count( wp_omit_loading_attr_threshold() - $content_media_count );
+            }
+        }
+
         do_action('woocommerce_before_related_products', $related_products);
     @endphp
-    <section class="related products mt-10 border-t border-gray-200 py-16 px-4 sm:px-0">
+    <section class="related products mt-16 border-t border-outline pt-12 pb-16">
         @php
           $heading = apply_filters( 'woocommerce_product_related_products_heading', __( 'Related products', 'woocommerce' ) );
         @endphp
 
         @if ( $heading )
-            <h2 class="text-xl font-bold text-gray-900">{{ $heading }}</h2>
+            <h2 class="text-xl font-bold text-foreground mb-8">{{ $heading }}</h2>
         @endif
         @php woocommerce_product_loop_start(); @endphp
 

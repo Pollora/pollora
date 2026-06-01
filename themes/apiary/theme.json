@@ -1548,6 +1548,96 @@
           "name": "White",
           "slug": "white",
           "color": "#fff"
+        },
+        {
+          "name": "Primary",
+          "slug": "primary",
+          "color": "var(--wp--preset--color--primary,#1f2937)"
+        },
+        {
+          "name": "Primary (Hover)",
+          "slug": "primary-hover",
+          "color": "var(--wp--preset--color--primary-hover,#111827)"
+        },
+        {
+          "name": "Accent",
+          "slug": "accent",
+          "color": "var(--wp--preset--color--accent,#fbbf24)"
+        },
+        {
+          "name": "Foreground",
+          "slug": "foreground",
+          "color": "var(--wp--preset--color--foreground,#1f2937)"
+        },
+        {
+          "name": "Muted",
+          "slug": "muted",
+          "color": "var(--wp--preset--color--muted,#6b7280)"
+        },
+        {
+          "name": "Subtle",
+          "slug": "subtle",
+          "color": "var(--wp--preset--color--subtle,#9ca3af)"
+        },
+        {
+          "name": "Surface",
+          "slug": "surface",
+          "color": "var(--wp--preset--color--surface,#f9fafb)"
+        },
+        {
+          "name": "Surface (Alt)",
+          "slug": "surface-alt",
+          "color": "var(--wp--preset--color--surface-alt,#f3f4f6)"
+        },
+        {
+          "name": "Outline",
+          "slug": "outline",
+          "color": "var(--wp--preset--color--outline,#e5e7eb)"
+        },
+        {
+          "name": "Ring",
+          "slug": "ring",
+          "color": "var(--wp--preset--color--ring,#6b7280)"
+        },
+        {
+          "name": "Success",
+          "slug": "success",
+          "color": "#16a34a"
+        },
+        {
+          "name": "Success (Light)",
+          "slug": "success-light",
+          "color": "#f0fdf4"
+        },
+        {
+          "name": "Error",
+          "slug": "error",
+          "color": "#dc2626"
+        },
+        {
+          "name": "Error (Light)",
+          "slug": "error-light",
+          "color": "#fef2f2"
+        },
+        {
+          "name": "Warning",
+          "slug": "warning",
+          "color": "#d97706"
+        },
+        {
+          "name": "Warning (Light)",
+          "slug": "warning-light",
+          "color": "#fffbeb"
+        },
+        {
+          "name": "Info",
+          "slug": "info",
+          "color": "#2563eb"
+        },
+        {
+          "name": "Info (Light)",
+          "slug": "info-light",
+          "color": "#eff6ff"
         }
       ]
     },

@@ -13,17 +13,284 @@
 @import './frontend/components/select2.css';
 @import './frontend/components/privacy-text.css';
 @import './frontend/components/rte.css';
+@import './frontend/components/wc-blocks.css';
 @import './frontend/layout/single-product.css';
 
 @theme {
-    --color-primary: var(--wp--preset--color--primary, #f59e0b);
-    --color-primary-vivid: var(--wp--preset--color--primary-vivid, #d97706);
+    /* Primary action color — buttons, links, active states */
+    --color-primary: var(--wp--preset--color--primary, #1f2937);
+    --color-primary-hover: var(--wp--preset--color--primary-hover, #111827);
+    /* Secondary color — accents, badges, highlights */
     --color-secondary: var(--wp--preset--color--secondary, #92400e);
     --color-accent: var(--wp--preset--color--accent, #fbbf24);
+    /* Text hierarchy */
     --color-foreground: var(--wp--preset--color--foreground, #1f2937);
     --color-muted: var(--wp--preset--color--muted, #6b7280);
-    --color-surface: var(--wp--preset--color--surface, #fafafa);
-    --color-surface-alt: var(--wp--preset--color--surface-alt, #fffbeb);
-    --color-border: var(--wp--preset--color--border, #e5e7eb);
+    --color-subtle: var(--wp--preset--color--subtle, #9ca3af);
+    /* Surfaces */
+    --color-surface: var(--wp--preset--color--surface, #f9fafb);
+    --color-surface-alt: var(--wp--preset--color--surface-alt, #f3f4f6);
+    /* Borders */
+    --color-outline: var(--wp--preset--color--outline, #e5e7eb);
+    --color-ring: var(--wp--preset--color--ring, #6b7280);
+    /* Feedback states */
+    --color-success: #16a34a;
+    --color-success-light: #f0fdf4;
+    --color-error: #dc2626;
+    --color-error-light: #fef2f2;
+    --color-warning: #d97706;
+    --color-warning-light: #fffbeb;
+    --color-info: #2563eb;
+    --color-info-light: #eff6ff;
+    /* Animations */
+    --animate-fade-in-down: fade-in-down 0.3s ease-out;
+    --animate-fade-out-up: fade-out-up 0.2s ease-in forwards;
 }
+
+@keyframes fade-in-down {
+    from { opacity: 0; transform: translateX(-50%) translateY(-0.5rem); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+@keyframes fade-out-up {
+    from { opacity: 1; transform: translateX(-50%) translateY(0); }
+    to { opacity: 0; transform: translateX(-50%) translateY(-0.5rem); }
+}
+
+/*
+ * Override WordPress core rule `a:where(:not(.wp-element-button))` which forces
+ * underline on all links regardless of Tailwind utilities.
+ *
+ * Strategy: keep underline by default for accessibility, remove it only where
+ * the visual context already signals interactivity (buttons, nav, cards, logos).
+ */
+.no-underline:where(a),
+a.button,
+a.add_to_cart_button,
+a.added_to_cart,
+.woocommerce-loop-product__link,
+.site a[class*="bg-primary"],
+.site a[class*="bg-surface"],
+nav a,
+header a,
+footer a {
+    text-decoration: none;
+}
+
+/* Hide WC "View cart" link on archive add-to-cart — replaced by mini-cart slide-over + toast */
+a.added_to_cart,
+a.added_to_cart.wc-forward {
+    display: none !important;
+}
+
+/* Mini-cart slide-over: 3-zone layout (header / scrollable list / footer) */
+.widget_shopping_cart,
+.widget_shopping_cart_content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0%;
+    min-height: 0;
+}
+
+/* WooCommerce product images: neutralize prose margins on thumbnails */
+.woocommerce-cart-form img,
+.woocommerce-checkout img,
+.woocommerce-table--order-details img,
+.woocommerce-mini-cart img,
+.woocommerce-order-details img,
+.order_item img,
+.mini_cart_item img,
+.cart_item img {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* ─── Add-to-cart loading spinner ───
+ * Spinner via ::after positioned at the right edge of the button.
+ * Text stays perfectly in place — no overlay, no layout shift.
+ * .loading        → WooCommerce archive AJAX (added by WC core)
+ * .is-loading     → single product AJAX (added by cart.js)
+ */
+@keyframes atc-spin {
+    to { transform: rotate(360deg); }
+}
+
+.add_to_cart_button.loading,
+.single_add_to_cart_button.is-loading,
+.sticky-bar-add.is-loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.8;
+    padding-right: 2.5rem !important;
+}
+
+.add_to_cart_button.loading::after,
+.single_add_to_cart_button.is-loading::after,
+.sticky-bar-add.is-loading::after {
+    content: '';
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    width: 1rem;
+    height: 1rem;
+    margin-top: -0.5rem;
+    border: 2px solid rgb(255 255 255 / 0.35);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: atc-spin 0.55s linear infinite;
+}
+
+/* WooCommerce price: <ins> marks new price — remove default underline */
+.price ins {
+    text-decoration: none;
+}
+
+/* Grouped product: quantity inputs are standalone (not attached to a button) */
+.grouped_form .quantity {
+    border-radius: 0.5rem;
+    border-right-width: 1px;
+}
+
+/* Variable product selects — inline layout (label left, select right) */
+.variations {
+    border-spacing: 0;
+    width: 100%;
+}
+.variations tr {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.625rem 0;
+}
+.variations td.label {
+    flex: 0 0 auto;
+    min-width: 4rem;
+}
+.variations td.label label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-foreground);
+}
+.variations td.value {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.variations td.value select {
+    width: 100%;
+    padding: 0.5rem 2rem 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    border: 1px solid var(--color-outline);
+    border-radius: 0.5rem;
+    color: var(--color-foreground);
+    background-color: white;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.25rem;
+}
+.variations td.value select:focus {
+    outline: none;
+    border-color: var(--color-ring);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-ring) 25%, transparent);
+}
+.variations .reset_variations {
+    font-size: 0.75rem;
+    color: var(--color-muted);
+    white-space: nowrap;
+}
+
+/* Product gallery main image */
+.woocommerce-product-gallery .flex-viewport {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    width: 100%;
+}
+.woocommerce-product-gallery .flex-viewport img {
+    width: 100%;
+    height: auto;
+}
+
+/* Product gallery thumbnails */
+.woocommerce-product-gallery .flex-control-thumbs {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin-top: 0.75rem;
+}
+.woocommerce-product-gallery .flex-control-thumbs li {
+    flex: 0 0 auto;
+    width: 5rem;
+    height: 5rem;
+}
+.woocommerce-product-gallery .flex-control-thumbs li img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.15s;
+}
+.woocommerce-product-gallery .flex-control-thumbs li img:hover,
+.woocommerce-product-gallery .flex-control-thumbs li img.flex-active {
+    border-color: var(--color-primary);
+}
+
+/* Product card image hover */
+.products .product img.attachment-woocommerce_thumbnail {
+    transition: transform 0.3s ease;
+}
+.products .product:hover img.attachment-woocommerce_thumbnail {
+    transform: scale(1.03);
+}
+.products .product .woocommerce-loop-product__link {
+    overflow: hidden;
+    display: block;
+    border-radius: 0.5rem;
+}
+
+/* Pagination */
+.woocommerce-pagination ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 0.25rem;
+}
+.woocommerce-pagination ul li {
+    list-style: none;
+}
+.woocommerce-pagination ul li a,
+.woocommerce-pagination ul li span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem;
+    height: 2.5rem;
+    padding: 0 0.75rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.15s;
+}
+.woocommerce-pagination ul li a {
+    color: var(--color-muted);
+    border: 1px solid var(--color-outline);
+}
+.woocommerce-pagination ul li a:hover {
+    color: var(--color-foreground);
+    background-color: var(--color-surface);
+    border-color: var(--color-foreground);
+}
+.woocommerce-pagination ul li span.current {
+    color: white;
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+}
+
+
 

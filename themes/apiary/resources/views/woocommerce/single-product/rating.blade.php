@@ -16,9 +16,6 @@
 {{--  Exit if accessed directly. --}}
 {{-- docs.woocommerce.com/document/template-structure/ --}}
 @php
-    if ( ! defined( 'ABSPATH' ) ) {
-        exit;
-    }
 
     global $product;
 
@@ -32,11 +29,11 @@
 @endphp
 
 @if ( $rating_count > 0 )
-    <div class="woocommerce-product-rating">
+    <div class="woocommerce-product-rating flex items-center gap-2 mt-1">
         {!! wc_get_rating_html( $average, $rating_count ) !!}
         @if ( comments_open() )
-            <a href="#tab-title-reviews" class="woocommerce-review-link prose-sm" rel="nofollow">
-                ({!! sprintf(_n( '%s customer review', '%s customer reviews', $review_count, 'woocommerce' ), '<span class="count">' . esc_html( $review_count ) . '</span>' ) !!})
+            <a href="#reviews" class="text-sm font-medium text-muted hover:text-primary transition-colors woocommerce-review-link" rel="nofollow">
+                {{ $review_count }} {{ _n('review', 'reviews', $review_count, 'woocommerce') }}
             </a>
         @endif
     </div>

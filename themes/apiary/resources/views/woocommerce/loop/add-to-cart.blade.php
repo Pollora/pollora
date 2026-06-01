@@ -1,6 +1,13 @@
+{{--
+ * Add to cart button in product loop
+ *
+ * @see     https://woocommerce.com/document/template-structure/
+ * @package Theme\Apiary\WooCommerce
+ * @version 9.2.0
+ --}}
 @php
     global $product;
-    $args['class'] .= ' relative flex bg-gray-100 border border-transparent rounded-md py-2 px-8 items-center justify-center text-sm font-medium text-gray-900 hover:bg-gray-200';
+    $args['class'] .= ' relative flex bg-primary border border-transparent rounded-md py-2.5 px-3 sm:px-8 items-center justify-center text-xs sm:text-sm font-medium text-white no-underline hover:bg-primary-hover transition-colors duration-150';
 @endphp
 
 {!! apply_filters(

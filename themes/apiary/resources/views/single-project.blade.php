@@ -1,3 +1,8 @@
+{{--
+ * Single project post type template
+ *
+ * @package Theme\Apiary
+ --}}
 @extends('layouts.app')
 
 @section('content')

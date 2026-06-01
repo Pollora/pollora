@@ -1,3 +1,8 @@
+{{--
+ * Front page template
+ *
+ * @package Theme\Apiary
+ --}}
 @extends('layouts.app')
 
 @section('content')

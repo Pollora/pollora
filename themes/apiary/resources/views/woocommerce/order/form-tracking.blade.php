@@ -11,13 +11,12 @@
  *
  * @see https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 3.6.0
+ * @version 7.0.1
   --}}
 {{-- docs.woocommerce.com/document/template-structure/ --}}
 @php
 
 
-defined( 'ABSPATH' ) || exit;
 
 global $post;
 @endphp

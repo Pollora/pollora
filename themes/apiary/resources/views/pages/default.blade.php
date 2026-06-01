@@ -1,3 +1,8 @@
+{{--
+ * Default page content partial
+ *
+ * @package Theme\Apiary
+ --}}
 @extends('layouts.app')
 
 @section('content')

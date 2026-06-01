@@ -1,3 +1,8 @@
+{{--
+ * No content found partial
+ *
+ * @package Theme\Apiary
+ --}}
 <section class="no-results not-found">
     <header class="page-header">
         <h1 class="page-title">{{ esc_html__('Nothing Found', 'apiary') }}</h1>

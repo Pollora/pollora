@@ -21,9 +21,10 @@ return [
         // logo source for generate icons
         'source' => './resources/assets/media/icon.svg',
         'manifest' => [
-            'appName' => 'PressWind',
-            'appShortName' => 'PressWind',
-            'appDescription' => 'Starter theme WordPress, Tailwind, ViteJS',
+
+            'appName' => 'Apiary',
+            'appShortName' => 'Apiary',
+            'appDescription' => 'WooCommerce theme built with Pollora, Tailwind CSS and Alpine.js',
             'background' => '#fff',
             'theme_color' => 'rgb(190, 24, 93)',
             'lang' => 'fr-FR',

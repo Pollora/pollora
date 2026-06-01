@@ -1,10 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
+/**
+ * Template tags for post meta display.
+ *
+ * Global scope is intentional — these functions are called directly in Blade
+ * templates and guarded with function_exists() to allow child theme overrides.
+ *
+ * @package Theme\Apiary
+ */
+
 if (! function_exists('posted_on')) {
     /**
-     * Prints HTML with meta information for the current post-date/time.
+     * Return HTML with the published and (optionally) modified date for the current post.
+     *
+     * Outputs two `<time>` elements when the post has been modified,
+     * wrapped in a "Posted on {date}" translatable string.
+     *
+     * @return string Semantic HTML with `<time>` elements.
      */
-    function posted_on()
+    function posted_on(): string
     {
         $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 
@@ -32,9 +48,11 @@ if (! function_exists('posted_on')) {
 
 if (! function_exists('posted_by')) {
     /**
-     * Prints HTML with meta information for the current author.
+     * Return HTML with a "by {author}" byline linking to the author archive.
+     *
+     * @return string Author vcard markup.
      */
-    function posted_by()
+    function posted_by(): string
     {
         /* translators: %s: post author. */
         $byline = sprintf(
@@ -48,15 +66,18 @@ if (! function_exists('posted_by')) {
 
 if (! function_exists('post_thumbnail')) {
     /**
-     * Displays an optional post thumbnail.
+     * Return the post thumbnail wrapped in contextual markup.
      *
-     * Wraps the post thumbnail in an anchor element on index views, or a div
-     * element when on single views.
+     * - Singular views: `<div class="post-thumbnail">`.
+     * - Archive/index views: `<a>` linking to the post (hidden from assistive tech).
+     * - Returns null if the post is password-protected, an attachment, or has no thumbnail.
+     *
+     * @return string|null HTML markup, or null when no thumbnail should display.
      */
-    function post_thumbnail()
+    function post_thumbnail(): ?string
     {
         if (post_password_required() || is_attachment() || ! has_post_thumbnail()) {
-            return;
+            return null;
         }
 
         if (is_singular()) {
@@ -78,9 +99,12 @@ if (! function_exists('post_thumbnail')) {
 
 if (! function_exists('entry_footer')) {
     /**
-     * Prints HTML with meta information for the categories, tags and comments.
+     * Echo post footer metadata: categories, tags, comment link, and edit link.
+     *
+     * Categories and tags are only shown for the `post` post type.
+     * The comment link is hidden on single views and password-protected posts.
      */
-    function entry_footer()
+    function entry_footer(): void
     {
         // Hide category and tag text for pages.
         if ('post' === get_post_type()) {
@@ -152,7 +176,7 @@ if (! function_exists('comments_title')) {
      * @param  int  $count The number of comments.
      * @return string
      */
-    function comments_title($count)
+    function comments_title(int $count): string
     {
         if (1 === $count) {
             return sprintf(
@@ -175,7 +199,7 @@ if (! function_exists('archive_content_message')) {
      *
      * @return string
      */
-    function archive_content_message()
+    function archive_content_message(): string
     {
         return sprintf(
             '<p>'.esc_html__('Try looking in the monthly archives. %1$s', 'apiary').'</p>',

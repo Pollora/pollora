@@ -1,15 +1,24 @@
+{{--
+ * Main application layout
+ *
+ * @package Theme\Apiary
+ --}}
 <!doctype html>
 <html {!! get_language_attributes() !!}>
 <head>
-    <title>{{ wp_title() }}</title>
     <meta charset="{{ get_bloginfo('charset') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
     @wphead
 </head>
-<body @bodyclass('antialiased font-sans bg-gray-200 overflow-x-hidden')>
+<body @bodyclass('antialiased font-sans bg-white overflow-x-hidden') x-data="{ panelOpen: false }" x-on:panel-open.window="panelOpen = true" x-on:panel-close.window="panelOpen = false" x-bind:class="{ 'overflow-hidden': panelOpen }">
 
 @php do_action( 'wp_body_open' ); @endphp
+
+{{-- Skip link for keyboard navigation --}}
+<a href="#main" class="absolute top-0 left-2 z-[100] -translate-y-full focus:translate-y-2 bg-primary text-white no-underline px-4 py-2 rounded-md text-sm font-medium transition-transform">
+    {{ __('Skip to content', 'apiary') }}
+</a>
 
 <div id="page" class="site bg-white">
 

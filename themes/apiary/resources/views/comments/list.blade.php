@@ -1,3 +1,8 @@
+{{--
+ * Comments list template
+ *
+ * @package Theme\Apiary
+ --}}
 <div id="comments" class="comments-area">
     @if(have_comments())
         <h2 class="comments-title">{!! comments_title(get_comments_number()) !!}</h2>

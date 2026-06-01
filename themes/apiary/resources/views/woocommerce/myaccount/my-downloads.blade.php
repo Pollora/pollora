@@ -20,7 +20,6 @@
 @php
 
 
-defined( 'ABSPATH' ) || exit;
 
 $downloads = WC()->customer->get_downloadable_products();
 @endphp

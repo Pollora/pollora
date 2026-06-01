@@ -11,7 +11,7 @@
  *
  * @see         https://docs.woocommerce.com/document/template-structure/
  * @package     WooCommerce\Templates
- * @version     3.6.0
+ * @version     9.2.0
   --}}
 {{--  Exit if accessed directly. --}}
 {{-- docs.woocommerce.com/document/template-structure/ --}}
@@ -26,7 +26,7 @@
     <div class="flex min-h-screen items-end justify-center px-4 pt-4 pb-20 text-center sm:block sm:p-0">
 
         <div x-show="loginModalOpen"
-             class="fixed inset-0 bg-gray-500/75 transition-opacity"
+             class="fixed inset-0 bg-foreground/75 transition-opacity"
              @click="loginModalOpen = false"
              x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0"
              x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200"
@@ -50,27 +50,27 @@
 
             @php do_action( 'woocommerce_login_form_start' ); @endphp
 
-            <div class="text-sm text-gray-500">
+            <div class="text-sm text-muted">
                 {!! ( $message ) ? wpautop( wptexturize( $message ) ) : '' !!}
             </div>
 
             <div class="form-row form-row-first">
-                <label for="username" class="text-brown-500 block text-sm font-medium italic">
-                    {{ __( 'Username or email', 'woocommerce' ) }}&nbsp;<span class="required">*</span>
+                <label for="username" class="text-foreground block text-sm font-medium italic">
+                    {{ __( 'Username or email', 'woocommerce' ) }}&nbsp;<span class="required" aria-hidden="true">*</span><span class="screen-reader-text">{{ __( 'Required', 'woocommerce' ) }}</span>
                 </label>
                 <div class="mt-1">
                     <input type="text"
-                           class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-xs focus:border-indigo-500 focus:outline-hidden focus:ring-indigo-500 sm:text-sm"
-                           name="username" id="username" autocomplete="username"/>
+                           class="block w-full appearance-none rounded-md border border-outline px-3 py-2 placeholder:text-subtle shadow-xs focus:border-ring focus:outline-hidden focus:ring-ring sm:text-sm"
+                           name="username" id="username" autocomplete="username" required aria-required="true" />
                 </div>
             </div>
             <div class="form-row form-row-last">
-                <label for="password" class="text-brown-500 block text-sm font-medium italic">
-                    {{ __( 'Password', 'woocommerce' ) }}&nbsp;<span class="required">*</span>
+                <label for="password" class="text-foreground block text-sm font-medium italic">
+                    {{ __( 'Password', 'woocommerce' ) }}&nbsp;<span class="required" aria-hidden="true">*</span><span class="screen-reader-text">{{ __( 'Required', 'woocommerce' ) }}</span>
                 </label>
                 <div class="mt-1">
-                    <input class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-xs focus:border-indigo-500 focus:outline-hidden focus:ring-indigo-500 sm:text-sm"
-                           type="password" name="password" id="password" autocomplete="current-password"/>
+                    <input class="block w-full appearance-none rounded-md border border-outline px-3 py-2 placeholder:text-subtle shadow-xs focus:border-ring focus:outline-hidden focus:ring-ring sm:text-sm"
+                           type="password" name="password" id="password" autocomplete="current-password" required aria-required="true" />
                 </div>
             </div>
 
@@ -80,7 +80,7 @@
                 <div class="-mt-4 flex items-center justify-between">
                     <div class="flex items-center">
                         <input id="rememberme"
-                               class="woocommerce-form__input woocommerce-form__input-checkbox h-4 w-4 rounded-xs border-gray-300 text-green-600 focus:ring-indigo-500"
+                               class="woocommerce-form__input woocommerce-form__input-checkbox h-4 w-4 rounded-xs border-outline text-primary focus:ring-ring"
                                name="rememberme" type="checkbox" id="rememberme" value="forever"/>
                         <label for="rememberme"
                                class="woocommerce-form__label woocommerce-form__label-for-checkbox woocommerce-form-login__rememberme ml-2 block text-sm">
@@ -89,7 +89,7 @@
                     </div>
                     <div class="lost_password">
                         <a href="{!! esc_url( wp_lostpassword_url() ) !!}"
-                           class="font-medium text-sm text-indigo-500 hover:text-indigo-600">
+                           class="font-medium text-sm text-primary hover:text-primary-hover">
                             {{ __( 'Lost your password?', 'woocommerce' ) }}
                         </a>
                     </div>
@@ -100,11 +100,11 @@
                 <input type="hidden" name="redirect" value="{!! esc_url( $redirect ) !!}"/>
                 <div class="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-4">
                     <button type="submit" name="login"
-                            class="woocommerce-button button woocommerce-form-login__submit inline-flex w-full justify-center border border-transparent bg-indigo-500 rounded-md px-4 py-2 text-sm font-medium text-white shadow-xs hover:bg-indigo-700 focus:outline-hidden focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:col-start-2">
+                            class="woocommerce-button button woocommerce-form-login__submit inline-flex w-full justify-center border border-transparent bg-primary rounded-md px-4 py-2 text-sm font-medium text-white shadow-xs hover:bg-primary-hover focus:outline-hidden focus:ring-2 focus:ring-ring focus:ring-offset-2 sm:col-start-2">
                         {{ __( 'Login', 'woocommerce' ) }}
                     </button>
                     <button type="button" value="@php esc_attr_e( 'Login', 'woocommerce' ); @endphp"
-                            class="border-brown-500 bg-beige-500 text-brown-500 hover:bg-beige-300 mt-3 inline-flex w-full justify-center border px-4 py-2 rounded-md text-sm font-medium shadow-xs focus:outline-hidden focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:col-start-1 sm:mt-0"
+                            class="border-outline bg-surface-alt text-foreground hover:bg-surface mt-3 inline-flex w-full justify-center border px-4 py-2 rounded-md text-sm font-medium shadow-xs focus:outline-hidden focus:ring-2 focus:ring-ring focus:ring-offset-2 sm:col-start-1 sm:mt-0"
                             @click="loginModalOpen = false">
                         {{ __( 'Cancel', 'woocommerce' ) }}
                     </button>

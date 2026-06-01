@@ -13,6 +13,7 @@
         {
             "type": "path",
             "url": "/var/www/pollora-packages/*",
+            "canonical": false,
             "options": { "symlink": true }
         },
         {
@@ -27,7 +28,8 @@
         "laravel/framework": "^13.5",
         "laravel/sanctum": "^4.3 || ^5.0",
         "laravel/tinker": "^3.0",
-        "pollora/framework": "dev-develop"
+        "pollora/framework": "dev-release/v13.4.0",
+        "wpackagist-plugin/woocommerce": "^10.8"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

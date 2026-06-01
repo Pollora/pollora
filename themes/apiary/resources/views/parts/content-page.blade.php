@@ -1,6 +1,11 @@
+{{--
+ * Page content partial
+ *
+ * @package Theme\Apiary
+ --}}
 <article id="post-{{ get_the_ID() }}" {!! post_class() !!}>
     <header class="entry-header">
-        <h1 class="entry-title text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">@title</h1>
+        <h1 class="entry-title text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">@title</h1>
     </header><!-- .entry-header -->
 
     {!! post_thumbnail() !!}

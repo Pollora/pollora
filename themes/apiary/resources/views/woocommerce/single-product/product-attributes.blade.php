@@ -13,22 +13,21 @@
  *
  * @see https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 3.6.0
+ * @version 9.3.0
   --}}
 {{-- docs.woocommerce.com/document/template-structure/ --}}
 @php
-    defined( 'ABSPATH' ) || exit;
     if ( ! $product_attributes ) {
         return;
     }
 @endphp
-<div class="py-10">
-    <table class="woocommerce-product-attributes shop_attributes min-w-full divide-y divide-gray-200">
-        <tbody class="bg-white divide-y divide-gray-200">
+<div>
+    <table class="woocommerce-product-attributes shop_attributes min-w-full divide-y divide-outline" aria-label="@php esc_attr_e( 'Product Details', 'woocommerce' ); @endphp">
+        <tbody class="bg-white divide-y divide-outline">
             @foreach ( $product_attributes as $product_attribute_key => $product_attribute )
                 <tr class="woocommerce-product-attributes-item woocommerce-product-attributes-item--{!! esc_attr( $product_attribute_key ) !!}">
-                    <th class="woocommerce-product-attributes-item__label px-6 py-4 whitespace-nowrap text-sm text-left font-medium text-gray-900">{!! wp_kses_post( $product_attribute['label'] ) !!}</th>
-                    <td class="woocommerce-product-attributes-item__value px-6 py-4 whitespace-nowrap text-sm text-left text-gray-900">{!! wp_kses_post( $product_attribute['value'] ) !!}</td>
+                    <th scope="row" class="woocommerce-product-attributes-item__label px-6 py-4 whitespace-nowrap text-sm text-left font-medium text-foreground">{!! wp_kses_post( $product_attribute['label'] ) !!}</th>
+                    <td class="woocommerce-product-attributes-item__value px-6 py-4 whitespace-nowrap text-sm text-left text-foreground">{!! wp_kses_post( $product_attribute['value'] ) !!}</td>
                 </tr>
             @endforeach
         </tbody>

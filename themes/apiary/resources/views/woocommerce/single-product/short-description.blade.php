@@ -25,7 +25,7 @@
 @endphp
 
 <div class="woocommerce-product-details__short-description">
-    <div class="mt-4 prose prose-sm text-gray-500">
+    <div class="mt-5 prose prose-base text-muted leading-relaxed">
         {!! apply_filters('the_content', $short_description) !!}
     </div>
 </div>

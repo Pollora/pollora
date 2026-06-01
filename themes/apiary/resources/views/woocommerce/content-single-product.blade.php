@@ -1,8 +1,10 @@
 {{--
-    * Hook: woocommerce_before_single_product.
-    *
-    * @hooked woocommerce_output_all_notices - 10
---}}
+ * Content single product
+ *
+ * @see     https://woocommerce.com/document/template-structure/
+ * @package Theme\Apiary\WooCommerce
+ * @version 3.6.0
+ --}}
 @php
     global $product;
 
@@ -15,7 +17,7 @@
 
 
 <div id="product-@php the_ID(); @endphp" @php wc_product_class( '', $product ); @endphp>
-    <div class="lg:grid lg:grid-rows-1 lg:grid-cols-7 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
+    <div class="lg:grid lg:grid-cols-2 lg:gap-x-8 xl:grid-cols-12 xl:gap-x-12">
         {{--
              * Hook: woocommerce_before_single_product_summary.
              *
@@ -26,7 +28,7 @@
           do_action( 'woocommerce_before_single_product_summary' );
         @endphp
 
-        <div class="summary entry-summary max-w-2xl mx-auto mt-14 sm:mt-16 lg:max-w-none lg:mt-0 lg:row-end-2 lg:row-span-2 lg:col-span-3">
+        <div class="summary entry-summary mt-8 lg:mt-0 xl:col-span-5 xl:col-start-8 lg:sticky lg:top-6 lg:self-start">
             {{--
                  * Hook: woocommerce_single_product_summary.
                  *
@@ -43,19 +45,25 @@
               do_action( 'woocommerce_single_product_summary' );
             @endphp
         </div>
-        {{--
-             * Hook: woocommerce_after_single_product_summary.
-             *
-             * @hooked woocommerce_output_product_data_tabs - 10
-             * @hooked woocommerce_upsell_display - 15
-             * @hooked woocommerce_output_related_products - 20
-        --}}
-        @php
-            do_action( 'woocommerce_after_single_product_summary' );
-        @endphp
+
     </div>
 
+    {{-- Reviews section — full width, below the grid --}}
+    @php
+        if ( comments_open() ) {
+            echo '<section id="reviews" class="mt-16 border-t border-outline pt-12">';
+            comments_template();
+            echo '</section>';
+        }
+    @endphp
+
+    {{-- Upsells & related products — full width --}}
+    @php
+        do_action( 'woocommerce_after_single_product_summary' );
+    @endphp
 
 </div>
 
 @php do_action( 'woocommerce_after_single_product' ); @endphp
+
+@include('woocommerce.single-product.sticky-bar')

@@ -1,29 +1,21 @@
-{{-- *
+{{--
  * Show error messages
- *
- * This template can be overridden by copying it to yourtheme/woocommerce/notices/error.php.
- *
- * HOWEVER, on occasion WooCommerce will need to update template files and you
- * (the theme developer) will need to copy the new files to your theme to
- * maintain compatibility. We try to do this as little as possible, but it does
- * happen. When this occurs the version of the template file will be bumped and
- * the readme will list any important changes.
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 3.9.0
-  --}}
-{{-- docs.woocommerce.com/document/template-structure/ --}}
+ * @version 8.6.0
+ --}}
 @php
 if ( ! $notices ) {
 	return;
 }
 @endphp
 
-<ul class="woocommerce-error bg-red-100 border-l-4 border-red-500 text-red-700 p-4 my-5 text-sm" role="alert">
-    @foreach ( $notices as $notice )
-        <li{!! wc_get_notice_data_attr( $notice ) !!}>
-            {!! wc_kses_notice( $notice['notice'] ) !!}
-        </li>
-    @endforeach
-</ul>
+<div class="woocommerce-error flex items-start gap-3 rounded-lg bg-error-light border border-error/20 p-4 my-5 text-sm text-error" role="alert">
+	<svg class="w-5 h-5 shrink-0 text-error mt-0.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+	<ul class="list-none pl-0 space-y-1">
+		@foreach ( $notices as $notice )
+			<li{!! wc_get_notice_data_attr( $notice ) !!}>{!! wc_kses_notice( $notice['notice'] ) !!}</li>
+		@endforeach
+	</ul>
+</div>

@@ -17,9 +17,6 @@
 @php
 
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
 @endphp
 
 <ul class="order_details">

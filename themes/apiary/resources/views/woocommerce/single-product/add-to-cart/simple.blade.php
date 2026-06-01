@@ -11,7 +11,7 @@
  *
  * @see https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 3.4.0
+ * @version 10.2.0
   --}}
 {{--  WPCS: XSS ok. --}}
 {{-- docs.woocommerce.com/document/template-structure/ --}}
@@ -29,7 +29,7 @@
 
     @php do_action( 'woocommerce_before_add_to_cart_form' ); @endphp
 
-    <form class="cart mt-8 flex"
+    <form class="cart mt-8 flex items-stretch [&_.quantity]:rounded-r-none [&_.quantity]:border-r-0"
           action="{!! esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ) !!}"
           method="post" enctype='multipart/form-data'>
         @php do_action( 'woocommerce_before_add_to_cart_button' ); @endphp
@@ -51,6 +51,8 @@
 
         <x-button-large type="submit" name="add-to-cart" value="{!! esc_attr( $product->get_id() ) !!}" class="single_add_to_cart_button button alt rounded-l-none">
             {!! esc_html( $product->single_add_to_cart_text() ) !!}
+            <span class="mx-2 opacity-50">—</span>
+            <span class="[&_del]:text-white/60 [&_del]:text-sm [&_ins]:no-underline">{!! $product->get_price_html() !!}</span>
         </x-button-large>
         @php do_action( 'woocommerce_after_add_to_cart_button' ); @endphp
     </form>

@@ -1,0 +1,43 @@
+#!/usr/bin/env php
+<?php
+
+use Illuminate\Foundation\Application;
+use Pollora\Foundation\Console\PolloraBinaryCommandLoader;
+use Pollora\Foundation\Console\PolloraBinaryManager;
+use Symfony\Component\Console\Input\ArgvInput;
+
+define('LARAVEL_START', microtime(true));
+define('POLLORA_BINARY', true);
+
+// Register the Composer autoloader...
+require __DIR__.'/vendor/autoload.php';
+
+// Bootstrap Laravel...
+/** @var Application $app */
+$app = require_once __DIR__.'/bootstrap/app.php';
+
+// Boot the kernel to get the Artisan instance with all commands loaded
+$kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
+$kernel->bootstrap();
+
+// Access Artisan via reflection (getArtisan is protected)
+$reflection = new ReflectionMethod($kernel, 'getArtisan');
+$artisan = $reflection->invoke($kernel);
+
+// Wrap the command loader to support short aliases for lazy-loaded commands
+$loaderProp = new ReflectionProperty(Symfony\Component\Console\Application::class, 'commandLoader');
+$loader = $loaderProp->getValue($artisan);
+if ($loader !== null) {
+    $artisan->setCommandLoader(new PolloraBinaryCommandLoader($loader));
+}
+
+// Remap already-resolved commands and hide non-Pollora ones
+PolloraBinaryManager::remapCommands($artisan);
+PolloraBinaryManager::filterCommands($artisan);
+
+// Run the command
+$status = $artisan->run(new ArgvInput);
+
+$kernel->terminate(new ArgvInput, $status);
+
+exit($status);

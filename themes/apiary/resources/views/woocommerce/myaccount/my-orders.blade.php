@@ -1,13 +1,12 @@
-{{-- *
+{{--
  * My Orders - Deprecated
  *
- * @deprecated 2.6.0 this template file is no longer used. My Account shortcode uses orders.php.
- * @package WooCommerce\Templates
-  --}}
+ * @see     https://woocommerce.com/document/template-structure/
+ * @package Theme\Apiary\WooCommerce
+ --}}
 @php
 
 
-defined( 'ABSPATH' ) || exit;
 
 $my_orders_columns = apply_filters(
 	'woocommerce_my_account_my_orders_columns',

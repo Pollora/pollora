@@ -11,13 +11,12 @@
  *
  * @see https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 3.5.0
+ * @version 7.8.0
   --}}
 {{-- docs.woocommerce.com/document/template-structure/ --}}
 @php
 
 
-defined( 'ABSPATH' ) || exit;
 @endphp
 
 <p class="order-again">

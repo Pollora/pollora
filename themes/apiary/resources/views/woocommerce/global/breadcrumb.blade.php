@@ -1,23 +1,28 @@
+{{--
+ * Breadcrumb navigation
+ *
+ * @see     https://woocommerce.com/document/template-structure/
+ * @package Theme\Apiary\WooCommerce
+ * @version 2.3.0
+ --}}
+@if ( !empty($breadcrumb) && !is_front_page() )
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <nav aria-label="Breadcrumb" class="border-b border-gray-200">
-        <ol role="list" class="flex items-center space-x-4 px-0 py-4 list-none">
+    <nav aria-label="Breadcrumb" class="py-3">
+        <ol role="list" class="flex items-center gap-1.5 list-none pl-0">
             @foreach ( $breadcrumb as $key => $crumb )
                 @if ( ! empty( $crumb[1] ) && sizeof( $breadcrumb ) !== $key + 1 )
-                    <li>
-                        <div class="flex items-center">
-                            <a href="{{ $crumb[1] }}" class="mr-4 text-sm font-medium text-gray-900">
-                                {{ $crumb[0] }}
-                            </a>
-                            <svg viewBox="0 0 6 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                                 class="h-5 w-auto text-gray-300">
-                                <path d="M4.878 4.34H3.551L.27 16.532h1.327l3.281-12.19z" fill="currentColor"></path>
-                            </svg>
-                        </div>
+                    <li class="flex items-center gap-1.5">
+                        <a href="{{ $crumb[1] }}" class="text-xs text-muted hover:text-foreground transition-colors">
+                            {!! $crumb[0] !!}
+                        </a>
+                        <svg class="h-3 w-3 shrink-0 text-outline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+                        </svg>
                     </li>
                 @else
-                    <li class="text-sm">
-                        <span aria-current="page" class="font-medium text-gray-500 hover:text-gray-600">
-                            {{ $crumb[0] }}
+                    <li class="text-xs">
+                        <span aria-current="page" class="text-subtle">
+                            {!! $crumb[0] !!}
                         </span>
                     </li>
                 @endif
@@ -25,3 +30,4 @@
         </ol>
     </nav>
 </div>
+@endif

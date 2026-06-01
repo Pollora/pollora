@@ -1,24 +1,79 @@
+/*
+ * Select2 — Apiary theme overrides
+ * Aligns Select2 dropdowns (WooCommerce country/state) with the design token system.
+ */
+
 .select2-container .select2-selection--single {
-    height: 38px;
-}
-
-.select2-container--default .select2-selection--single {
-    @apply block w-full border-gray-300 rounded-md shadow-xs focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm;
-}
-
-.select2-results__option {
-    @apply text-sm text-gray-700;
+    height: 42px;
+    border: 1px solid var(--color-outline);
+    border-radius: 0.5rem;
+    background-color: white;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    transition: border-color 0.15s, box-shadow 0.15s;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
-    line-height: 38px;
+    line-height: 42px;
+    padding-left: 0.875rem;
+    padding-right: 2rem;
+    color: var(--color-foreground);
+    font-size: 0.875rem;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+    color: var(--color-subtle);
 }
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {
-    height: 36px;
+    height: 40px;
     width: 30px;
 }
 
-.select2-container--default .select2-results__option--highlighted[aria-selected], .select2-container--default .select2-results__option--highlighted[data-selected] {
-    @apply bg-indigo-500;
+/* Focus state — matches form inputs */
+.select2-container--default.select2-container--open .select2-selection--single {
+    border-color: var(--color-ring);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-ring) 20%, transparent);
+    outline: none;
+}
+
+/* Dropdown panel */
+.select2-dropdown {
+    border-color: var(--color-outline);
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    overflow: hidden;
+}
+
+/* Search input inside dropdown */
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    border-color: var(--color-outline);
+    border-radius: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    color: var(--color-foreground);
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field:focus {
+    border-color: var(--color-ring);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-ring) 20%, transparent);
+    outline: none;
+}
+
+/* Result items */
+.select2-results__option {
+    font-size: 0.875rem;
+    color: var(--color-foreground);
+    padding: 0.5rem 0.75rem;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected],
+.select2-container--default .select2-results__option--highlighted[data-selected] {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.select2-container--default .select2-results__option[aria-selected="true"],
+.select2-container--default .select2-results__option[data-selected="true"] {
+    background-color: var(--color-surface-alt);
+    color: var(--color-foreground);
 }

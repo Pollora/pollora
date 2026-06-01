@@ -1,3 +1,8 @@
+{{--
+ * Search results page
+ *
+ * @package Theme\Apiary
+ --}}
 @extends('layouts.app')
 
 @section('content')

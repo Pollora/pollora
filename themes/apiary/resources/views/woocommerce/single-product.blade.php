@@ -1,3 +1,10 @@
+{{--
+ * Single product page layout
+ *
+ * @see     https://woocommerce.com/document/template-structure/
+ * @package Theme\Apiary\WooCommerce
+ * @version 1.6.4
+ --}}
 @extends('layouts.app')
 
 @section('content')

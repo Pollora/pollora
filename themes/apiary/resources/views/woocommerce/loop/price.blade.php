@@ -12,5 +12,5 @@
 @endphp
 
 @if ( $price_html = $product->get_price_html() )
-    <span class="mt-1 text-lg text-gray-900 price">{!! str_replace('<ins>', '<ins class="font-medium">', $price_html) !!}</span>
+    <span class="mt-1 text-sm text-foreground price">{!! str_replace(['<del>', '<ins>'], ['<del class="text-subtle font-normal">', '<ins class="font-semibold no-underline">'], $price_html) !!}</span>
 @endif

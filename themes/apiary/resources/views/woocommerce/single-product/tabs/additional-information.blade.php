@@ -17,7 +17,6 @@
 @php
 
 
-defined( 'ABSPATH' ) || exit;
 
 global $product;
 

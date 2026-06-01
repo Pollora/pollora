@@ -1,3 +1,8 @@
+{{--
+ * Search result content partial
+ *
+ * @package Theme\Apiary
+ --}}
 <article id="post-{{ get_the_ID() }}" {!! post_class() !!}>
     <header class="entry-header">
         <h2 class="entry-title">

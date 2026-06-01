@@ -11,7 +11,7 @@
  *
  * @see https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 5.2.0
+ * @version 8.2.0
   --}}
 {{--  phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited --}}
 {{-- docs.woocommerce.com/document/template-structure/ --}}
@@ -88,8 +88,10 @@
 		</tfoot>
 	</table>
 
+	@php do_action( 'woocommerce_pay_order_before_payment' ); @endphp
+
 	<div id="payment">
-		
+
 @if ( $order->needs_payment() )
 
 			<ul class="wc_payment_methods payment_methods methods">

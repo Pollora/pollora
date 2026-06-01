@@ -157,7 +157,7 @@ window.Components = {}, window.Components.listbox = function(e) {
                 this.active = e.value
             }));
             window.addEventListener("focus", (() => {
-                console.log("Focus change"), t.includes(document.activeElement) || (console.log("HIT"), this.active = void 0)
+                t.includes(document.activeElement) || (this.active = void 0)
             }), !0)
         }
     }

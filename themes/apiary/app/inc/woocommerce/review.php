@@ -1,21 +1,40 @@
 <?php
 
+declare(strict_types=1);
+
+/**
+ * WooCommerce product review form and display customizations.
+ *
+ * Global scope is intentional — functions are WooCommerce overrides or passed
+ * as string callbacks to filters (e.g. 'wc_review_comment_form_args').
+ *
+ * @package Theme\Apiary
+ */
+
 use Pollora\Support\Facades\Action;
 use Pollora\Support\Facades\Filter;
 
 if (! function_exists('wc_review_comment_form_args')) {
     /**
-     * Custom review comment form arguments
+     * Customize the product review form with Tailwind-styled inputs, labels, and submit button.
+     *
+     * Reads CSS classes from `config/woocommerce.php` under the `review.form` key
+     * and injects them into the default WordPress comment form markup via string replacement.
+     *
+     * @param  array  $args  Default `comment_form()` arguments.
+     * @return array Modified arguments with themed classes applied.
+     *
+     * @see config('theme.woocommerce.review.form')
      */
     function wc_review_comment_form_args(array $args): array
     {
-        $form_class = config('woocommerce.review.form.wrapper.class', 'mt-4 mb-6');
-        $label_class = config('woocommerce.review.form.label.class', 'block text-sm font-medium text-gray-700 mb-1');
-        $field_class = config('woocommerce.review.form.field.class', 'py-3');
-        $textarea_class = config('woocommerce.review.form.textarea.class', 'shadow-xs focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md');
-        $input_class = config('woocommerce.review.form.textarea.class', 'mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-xs sm:text-sm border-gray-300 rounded-md');
-        $submit_wrapper_class = config('woocommerce.review.form.submit.wrapper.class', 'py-3 text-right');
-        $submit_class = config('woocommerce.review.form.submit.class', 'inline-flex justify-center py-2 px-4 border border-transparent shadow-xs text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500');
+        $form_class = config('theme.woocommerce.review.form.wrapper.class', 'mt-4 mb-6');
+        $label_class = config('theme.woocommerce.review.form.label.class', 'block text-sm font-medium text-muted mb-1');
+        $field_class = config('theme.woocommerce.review.form.field.class', 'py-3');
+        $textarea_class = config('theme.woocommerce.review.form.textarea.class', 'px-3.5 py-2.5 bg-white-gray mt-1 block w-full sm:text-sm border border-outline rounded-md');
+        $input_class = config('theme.woocommerce.review.form.input.class', 'px-3.5 py-2.5 mt-1 bg-white-gray block w-full sm:text-sm border border-outline rounded-md');
+        $submit_wrapper_class = config('theme.woocommerce.review.form.submit.wrapper.class', 'pt-4');
+        $submit_class = config('theme.woocommerce.review.form.submit.class', 'w-full sm:w-auto inline-flex justify-center py-2.5 px-6 border border-transparent shadow-xs text-sm font-semibold rounded-lg text-white bg-primary hover:bg-primary-hover focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-ring transition-colors');
 
         $args['class_form'] = 'comment-form '.$form_class;
 
@@ -42,7 +61,6 @@ if (! function_exists('wc_review_comment_form_args')) {
         }
 
         $args['comment_field'] = str_replace($search, $replace, $args['comment_field']);
-        $args['comment_field'] = str_replace('class="', 'class="', $args['comment_field']);
         $args['class_submit'] = $submit_class;
         $args['submit_button'] = '<div class="'.$submit_wrapper_class.'"><input name="%1$s" type="submit" id="%2$s" class="%3$s" value="%4$s" /></div>';
 
@@ -52,10 +70,11 @@ if (! function_exists('wc_review_comment_form_args')) {
 
 Filter::add('woocommerce_product_review_comment_form_args', 'wc_review_comment_form_args', 50);
 
+// Style the "Save my name/email" cookie consent checkbox with theme classes
 Filter::add('comment_form_field_cookies', function ($output) {
-    $label_class = config('woocommerce.review.form.cookie.label.class', 'text-sm font-medium text-gray-700 mb-1 ml-3');
-    $wrapper_class = config('woocommerce.review.form.cookie.wrapper.class', 'py-3 flex items-start');
-    $checkbox_class = config('woocommerce.review.form.cookie.checkbox.class', 'focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-xs');
+    $label_class = config('theme.woocommerce.review.form.cookie.label.class', 'text-sm font-medium text-muted mb-1 ml-3');
+    $wrapper_class = config('theme.woocommerce.review.form.cookie.wrapper.class', 'py-3 flex items-start');
+    $checkbox_class = config('theme.woocommerce.review.form.cookie.checkbox.class', 'focus:ring-ring h-4 w-4 text-primary border-outline rounded-xs');
 
     $search = [
         '<label for="',
@@ -73,37 +92,34 @@ Filter::add('comment_form_field_cookies', function ($output) {
     return str_replace($search, $replace, $output);
 });
 
-// Register the comment template loader
+// Ensure WooCommerce's comment template loader is used for product reviews
 Filter::add('comments_template', [WC_Template_Loader::class, 'comments_template_loader']);
 
+// Replace the default gravatar with a custom Blade avatar partial
 Action::add('woocommerce_init', function () {
     Action::remove('woocommerce_review_before', 'woocommerce_review_display_gravatar', 10);
-}, 10);
-
-// Remove the default avatar hook
-
-// Avatar view declaration
-Action::add('woocommerce_init', function () {
     Action::add('woocommerce_review_before', function ($comment) {
         echo view('woocommerce.single-product.review-avatar', ['comment' => $comment]);
     }, 10);
 }, 10);
 
-
-Action::add('woocommerce_init', function() {
-    // Move the rating stars
+// Move star rating from before the comment meta to before the comment text
+Action::add('woocommerce_init', function () {
     Action::remove('woocommerce_review_before_comment_meta', 'woocommerce_review_display_rating', 10);
     Action::add('woocommerce_review_before_comment_text', 'woocommerce_review_display_rating', 10);
 });
 
-// Custom product rating html
+// Replace the default star rating HTML with a Blade-rendered SVG star component
 Filter::add('woocommerce_product_get_rating_html', function ($html, $rating, $count) {
-    $rating = round($rating);
-    echo view('woocommerce.global.rating-stars', ['rating' => $rating, 'count' => $count]);
+    $rating = round((float) $rating);
+    return view('woocommerce.global.rating-stars', ['rating' => $rating, 'count' => $count])->render();
 }, 20, 3);
 
 /**
- *  Override the woocommerce_review_display_comment_text function
+ * Render the review comment text via a Blade partial.
+ *
+ * Overrides WooCommerce's default `woocommerce_review_display_comment_text()`
+ * to use `woocommerce.single-product.review-comment`.
  */
 function woocommerce_review_display_comment_text()
 {

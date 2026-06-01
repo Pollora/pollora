@@ -1,44 +1,50 @@
 {{--
  * Product quantity inputs
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/global/quantity-input.php.
- *
- * HOWEVER, on occasion WooCommerce will need to update template files and you
- * (the theme developer) will need to copy the new files to your theme to
- * maintain compatibility. We try to do this as little as possible, but it does
- * happen. When this occurs the version of the template file will be bumped and
- * the readme will list any important changes.
- *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 4.0.0
-  --}}
-{{-- docs.woocommerce.com/document/template-structure/ --}}
+ * @version 10.1.0
+ --}}
+@php
+	$type     = isset( $type ) ? $type : 'number';
+	$readonly = isset( $readonly ) ? $readonly : false;
+@endphp
 @if ( $max_value && $min_value === $max_value )
 	<div class="quantity hidden">
 		<input type="hidden" id="{!! esc_attr( $input_id ) !!}" class="qty" name="{!! esc_attr( $input_name ) !!}" value="{!! esc_attr( $min_value ) !!}" />
 	</div>
-	{{--  translators: %s: Quantity.  --}}
 @else
 	@php
 		$label = ! empty( $args['product_name'] ) ? sprintf( esc_html__( '%s quantity', 'woocommerce' ), wp_strip_all_tags( $args['product_name'] ) ) : esc_html__( 'Quantity', 'woocommerce' );
 	@endphp
-	<div class="quantity">
+	<div class="quantity inline-flex items-center border border-outline rounded-md">
 		@php do_action( 'woocommerce_before_quantity_input_field' ); @endphp
-		<label class="screen-reader-text" for="{!! esc_attr( $input_id ) !!}">{!! esc_attr( $label ) !!}</label>
+		<label class="sr-only" for="{!! esc_attr( $input_id ) !!}">{!! esc_attr( $label ) !!}</label>
+		@if ( ! $readonly )
+		<button type="button" class="qty-minus flex items-center justify-center py-2 w-10 h-full text-muted hover:text-foreground transition-colors" aria-label="{{ __('Decrease quantity', 'woocommerce') }}">
+			<svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"/></svg>
+		</button>
+		@endif
 		<input
-			type="number"
+			type="{!! esc_attr( $type ) !!}"
 			id="{!! esc_attr( $input_id ) !!}"
-			class="h-full box-border text-base shadow-xs focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md {!! esc_attr( join( ' ', (array) $classes ) ) !!}"
+			class="qty w-14 h-full border-0 text-center text-sm font-medium text-foreground bg-transparent focus:outline-hidden focus:ring-0 [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none {!! esc_attr( join( ' ', (array) $classes ) ) !!}"
 			step="{!! esc_attr( $step ) !!}"
 			min="{!! esc_attr( $min_value ) !!}"
 			max="{!! esc_attr( 0 < $max_value ? $max_value : '' ) !!}"
 			name="{!! esc_attr( $input_name ) !!}"
 			value="{!! esc_attr( $input_value ) !!}"
 			title="{!! esc_attr_x( 'Qty', 'Product quantity input tooltip', 'woocommerce' ) !!}"
+			aria-label="{!! esc_attr__( 'Product quantity', 'woocommerce' ) !!}"
 			size="4"
 			placeholder="{!! esc_attr( $placeholder ) !!}"
-			inputmode="{!! esc_attr( $inputmode ) !!}" />
+			inputmode="{!! esc_attr( $inputmode ) !!}"
+			{!! $readonly ? 'readonly="readonly"' : '' !!} />
+		@if ( ! $readonly )
+		<button type="button" class="qty-plus flex items-center justify-center w-10 h-full text-muted hover:text-foreground transition-colors" aria-label="{{ __('Increase quantity', 'woocommerce') }}">
+			<svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+		</button>
+		@endif
 		@php do_action( 'woocommerce_after_quantity_input_field' ); @endphp
 	</div>
 @endif

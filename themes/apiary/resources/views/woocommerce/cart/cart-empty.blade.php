@@ -13,13 +13,12 @@
  * the readme will list any important changes.
  *
  * @see     https: * @package WooCommerce\Templates
- * @version 3.5.0
+ * @version 7.0.1
   --}}
 {{-- docs.woocommerce.com/document/template-structure/ --}}
 @php
 
 
-defined( 'ABSPATH' ) || exit;
 
 
 do_action( 'woocommerce_cart_is_empty' );
@@ -27,7 +26,7 @@ do_action( 'woocommerce_cart_is_empty' );
 @if ( wc_get_page_id( 'shop' ) > 0 )
 
 	<p class="return-to-shop">
-		<a class="button wc-backward" href="{!! esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ) !!}">
+		<a class="button wc-backward {!! esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ) !!}" href="{!! esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ) !!}">
 			{{-- *
 				 * Filter "Return To Shop" text.
 				 *

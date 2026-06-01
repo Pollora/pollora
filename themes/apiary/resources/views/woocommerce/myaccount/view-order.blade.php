@@ -1,77 +1,71 @@
-{{-- *
+{{--
  * View Order
  *
  * Shows the details of a particular order on the account page.
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/myaccount/view-order.php.
- *
- * HOWEVER, on occasion WooCommerce will need to update template files and you
- * (the theme developer) will need to copy the new files to your theme to
- * maintain compatibility. We try to do this as little as possible, but it does
- * happen. When this occurs the version of the template file will be bumped and
- * the readme will list any important changes.
- *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 3.0.0
-  --}}
-{{-- docs.woocommerce.com/document/template-structure/ --}}
+ * @version 10.6.0
+ --}}
 @php
-	$notes = $order->get_customer_order_notes();
+    $icons = config('theme.woocommerce.myaccount.icons', []);
+    $notes = $order->get_customer_order_notes();
+    $status = $order->get_status();
+    $status_colors = config('theme.woocommerce.myaccount.order_status_colors', []);
+    $badge_class = $status_colors[$status] ?? 'bg-surface-alt text-muted ring-outline';
 @endphp
-<p class="mt-2 text-sm text-gray-500 mb-6">
-{{--  translators: 1: order number 2: order date 3: order status  --}}
-@php
-printf(
-	esc_html__(
-        'Order #%1$s was placed on %2$s and is currently %3$s.', 'woocommerce' ),
-		'<mark class="order-number font-medium text-gray-900 bg-transparent">' . $order->get_order_number() . '</mark>',
-		'<mark class="order-date font-medium text-gray-900 bg-transparent">' . wc_format_datetime( $order->get_date_created() ) . '</mark>',
-		'<mark class="order-status font-medium text-gray-900 bg-transparent">' . wc_get_order_status_name( $order->get_status() ) . '</mark>'
-	);
-@endphp
-</p>
 
+{{-- Order header --}}
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+    <div>
+        <h2 class="mt-0 text-xl font-bold text-foreground">
+            @php printf( esc_html__( 'Order #%s', 'woocommerce' ), $order->get_order_number() ); @endphp
+        </h2>
+        <p class="mt-1 text-sm text-muted">
+            <time datetime="{{ esc_attr( $order->get_date_created()->date( 'c' ) ) }}">
+                {!! esc_html( wc_format_datetime( $order->get_date_created() ) ) !!}
+            </time>
+        </p>
+    </div>
+    <span class="inline-flex self-start items-center rounded-full px-3 py-1 text-sm font-medium ring-1 ring-inset {{ $badge_class }}">
+        {!! esc_html( wc_get_order_status_name( $status ) ) !!}
+    </span>
+</div>
+
+{{-- Order updates timeline --}}
 @if ( $notes )
-	<div class="divide-y divide-gray-200 mb-6">
-		<div class="pb-4">
-			<h2 class="text-lg font-medium text-gray-900">@php esc_html_e( 'Order updates', 'woocommerce' ); @endphp</h2>
-		</div>
-		<div class="pt-6">
-			<div class="flow-root">
-				<ol class="woocommerce-OrderUpdates commentlist notes overflow-hidden">
-					@foreach ( $notes as $note )
-						<li class="woocommerce-OrderUpdate comment note">
-							<div class="relative pb-8">
-								<span class="absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-200"></span>
-								<div class="relative flex items-start space-x-3">
-									<div class="relative px-1">
-										<div class="h-8 w-8 bg-gray-100 rounded-full ring-8 ring-white flex items-center justify-center">
-											<svg class="h-5 w-5 text-gray-400" x-description="Heroicon name: solid/chat-alt" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-												<path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd"></path>
-											</svg>
-										</div>
-									</div>
-									<div class="woocommerce-OrderUpdate-inner comment_container min-w-0 flex-1 py-1.5">
-										<div class="woocommerce-OrderUpdate-text comment-text">
-											<p class="woocommerce-OrderUpdate-meta meta mt-0.5 text-sm text-gray-500">
-												{!! date_i18n( esc_html__( 'l jS \o\f F Y, h:ia', 'woocommerce' ), strtotime( $note->comment_date ) ) !!}
-											</p>
-											<div class="woocommerce-OrderUpdate-description description mt-2 text-sm text-gray-700 rte">
-												{!! wpautop( wptexturize( $note->comment_content ) ) !!}
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</li>
-					@endforeach
-				</ol>
-			</div>
-		</div>
-	</div>
+    <div class="rounded-xl border border-outline bg-white p-5 sm:p-6 mb-6">
+        <h3 class="text-base font-semibold text-foreground mb-4">
+            @php esc_html_e( 'Order updates', 'woocommerce' ); @endphp
+        </h3>
+        <ol class="woocommerce-OrderUpdates commentlist notes relative space-y-6">
+            @foreach ( $notes as $index => $note )
+                <li class="woocommerce-OrderUpdate comment note relative {{ $index < count($notes) - 1 ? 'pb-6' : '' }}">
+                    @if ($index < count($notes) - 1)
+                        <span class="absolute left-4 top-9 -ml-px h-full w-0.5 bg-outline"></span>
+                    @endif
+                    <div class="relative flex gap-4">
+                        <div class="flex size-8 shrink-0 items-center justify-center rounded-full bg-surface-alt ring-4 ring-white">
+                            @if (!empty($icons['comment']))
+                                <span class="text-muted">{!! $icons['comment'] !!}</span>
+                            @endif
+                        </div>
+                        <div class="min-w-0 flex-1">
+                            <p class="text-xs font-medium text-muted">
+                                {!! date_i18n( esc_html__( 'l jS \o\f F Y, h:ia', 'woocommerce' ), strtotime( $note->comment_date ) ) !!}
+                            </p>
+                            <div class="mt-1 text-sm text-foreground prose prose-sm max-w-none">
+                                {!! wp_kses_post( wpautop( wptexturize( $note->comment_content ) ) ) !!}
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            @endforeach
+        </ol>
+    </div>
 @endif
 
-<div class="max-w-3xl">
-	@php do_action( 'woocommerce_view_order', $order_id ); @endphp
+{{-- Order details (rendered by WooCommerce hooks) --}}
+<div>
+    @php do_action( 'woocommerce_view_order', $order_id ); @endphp
 </div>

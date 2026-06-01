@@ -1,29 +1,24 @@
-{{-- *
- * Show messages
- *
- * This template can be overridden by copying it to yourtheme/woocommerce/notices/notice.php.
- *
- * HOWEVER, on occasion WooCommerce will need to update template files and you
- * (the theme developer) will need to copy the new files to your theme to
- * maintain compatibility. We try to do this as little as possible, but it does
- * happen. When this occurs the version of the template file will be bumped and
- * the readme will list any important changes.
+{{--
+ * Show info/notice messages as floating toast notifications
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 3.9.0
-  --}}
-{{-- docs.woocommerce.com/document/template-structure/ --}}
+ * @version 10.4.0
+ --}}
 @php
-	if ( ! $notices ) {
-		return;
-	}
+if ( ! $notices ) {
+	return;
+}
 @endphp
 
-
 @foreach ( $notices as $notice )
-	<div class="woocommerce-info bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 my-5 text-sm"{!! wc_get_notice_data_attr( $notice ) !!}>
-		{!! wc_kses_notice( $notice['notice'] ) !!}
+	@php $dataAttr = wc_get_notice_data_attr( $notice ); @endphp
+	<div class="apiary-toast fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 max-w-md px-4 py-3 rounded-xl bg-white shadow-lg ring-1 ring-outline/80 text-sm text-foreground [&_a]:font-semibold [&_a]:text-primary [&_a]:no-underline hover:[&_a]:text-primary-hover"
+	     role="status" {!! $dataAttr !!}>
+		<svg class="w-5 h-5 shrink-0 text-info" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+		<div class="flex-1">{!! wc_kses_notice( $notice['notice'] ) !!}</div>
+		<button class="apiary-toast-close shrink-0 p-1 text-subtle hover:text-foreground transition-colors cursor-pointer" aria-label="{{ __('Dismiss', 'apiary') }}">
+			<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+		</button>
 	</div>
 @endforeach
-

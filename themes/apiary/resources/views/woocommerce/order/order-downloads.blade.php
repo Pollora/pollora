@@ -17,9 +17,6 @@
 @php
 
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
 @endphp
 <section class="woocommerce-order-downloads">
 	

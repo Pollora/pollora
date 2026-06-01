@@ -1,0 +1,864 @@
+/*
+ * WooCommerce Blocks (Cart/Checkout) — Apiary theme overrides
+ * These pages use React-rendered Block Editor components.
+ * We override WC Blocks defaults to match our design token system.
+ *
+ * Specificity strategy: all rules nested inside `html` to gain +1 type
+ * selector specificity (0-x-1 vs 0-x-0), avoiding !important in most cases.
+ * !important is kept ONLY where WC Blocks uses inline styles or !important itself.
+ */
+
+html {
+
+    .wp-block-woocommerce-checkout {
+        padding-top: 0;
+    }
+
+    /* ═══════════════════════════════════════
+       Global — Typography & Base
+       ═══════════════════════════════════════ */
+
+    & .wc-block-cart,
+    & .wc-block-checkout {
+        font-family: inherit;
+        color: var(--color-foreground);
+    }
+
+    & .wc-block-cart h2,
+    & .wc-block-checkout h2 {
+        font-weight: 700;
+        color: var(--color-foreground);
+    }
+
+    /* ═══════════════════════════════════════
+       Buttons — Primary action
+       ═══════════════════════════════════════ */
+
+    & .wc-block-components-button {
+        background-color: var(--color-primary);
+        color: white;
+        border-radius: 0.75rem;
+        font-weight: 600;
+        font-size: 0.875rem;
+        padding: 0.75rem 1.5rem;
+        transition: background-color 0.15s, box-shadow 0.15s;
+        border: none;
+    }
+
+    & .wc-block-components-button .wc-block-components-button__text {
+        color: white;
+    }
+
+    & .wc-block-components-button:hover {
+        background-color: var(--color-primary-hover);
+    }
+
+    & .wc-block-components-button:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px white, 0 0 0 4px var(--color-ring);
+    }
+
+    & .wc-block-components-button.outlined {
+        background-color: transparent;
+        border: 1px solid var(--color-outline);
+        color: var(--color-muted);
+    }
+
+    & .wc-block-components-button.outlined:hover {
+        background-color: var(--color-surface-alt);
+        color: var(--color-foreground);
+    }
+
+    & .wc-block-components-button.outlined .wc-block-components-button__text {
+        color: inherit;
+    }
+
+    /* ═══════════════════════════════════════
+       Links
+       ═══════════════════════════════════════ */
+
+    & .wc-block-cart a,
+    & .wc-block-checkout a {
+        color: var(--color-primary);
+        text-decoration: none;
+    }
+
+    & .wc-block-cart a:hover,
+    & .wc-block-checkout a:hover {
+        color: var(--color-primary-hover);
+    }
+
+    /* ═══════════════════════════════════════
+       Cart — Layout
+       ═══════════════════════════════════════ */
+
+    & .wc-block-cart__main {
+        padding-right: 2rem;
+    }
+
+    /* Cart sidebar — summary */
+
+    & .wc-block-cart__sidebar {
+        background-color: var(--color-surface);
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+        position: sticky;
+        top: 6rem;
+    }
+
+    & .wc-block-cart__totals-title {
+        color: var(--color-foreground);
+        font-weight: 700;
+        font-size: 1rem;
+        text-transform: none !important;
+        letter-spacing: normal !important;
+        margin-bottom: 0.75rem;
+    }
+
+    /* Proceed to checkout — full width in sidebar */
+
+    & .wc-block-cart__submit-container {
+        margin-top: 1rem;
+    }
+
+    & .wc-block-cart__submit-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Sticky mobile proceed button — needs !important (React inline styles) */
+
+    & .wc-block-cart__submit-container--sticky {
+        background-color: white !important;
+        border-top: 1px solid var(--color-outline) !important;
+        padding: 1rem !important;
+        box-shadow: 0 -4px 6px -1px rgb(0 0 0 / 0.05);
+    }
+
+    /* ═══════════════════════════════════════
+       Cart — Items
+       ═══════════════════════════════════════ */
+
+    & .wc-block-cart-items__header {
+        border-bottom: 1px solid var(--color-outline);
+    }
+
+    & .wc-block-cart-items__header th {
+        color: var(--color-muted);
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding-bottom: 0.75rem;
+    }
+
+    & .wc-block-cart-items__row {
+        border-bottom: 1px solid var(--color-outline);
+        padding: 1.25rem 0;
+    }
+
+    & .wc-block-cart-items__row:last-child {
+        border-bottom: none;
+    }
+
+    /* Product image */
+
+    & .wc-block-cart-item__image img {
+        border-radius: 0.75rem;
+        object-fit: cover;
+    }
+
+    /* Product name */
+
+    & .wc-block-cart-item__product .wc-block-components-product-name {
+        color: var(--color-foreground);
+        font-weight: 600;
+        font-size: 0.875rem;
+    }
+
+    & .wc-block-cart-item__product .wc-block-components-product-name:hover {
+        color: var(--color-primary);
+    }
+
+    /* Product metadata (variations) */
+
+    & .wc-block-components-product-metadata {
+        color: var(--color-muted);
+        font-size: 0.75rem;
+    }
+
+    /* Prices */
+
+    & .wc-block-cart-item__prices {
+        color: var(--color-foreground);
+    }
+
+    & .wc-block-cart-item__prices .price {
+        font-weight: 600;
+    }
+
+    & .wc-block-cart-item__prices del {
+        color: var(--color-subtle);
+    }
+
+    /* Remove link */
+
+    & .wc-block-cart-item__remove-link {
+        color: var(--color-subtle);
+        font-size: 0.75rem;
+        transition: color 0.15s;
+    }
+
+    & .wc-block-cart-item__remove-link:hover {
+        color: var(--color-error);
+    }
+
+    /* ═══════════════════════════════════════
+       Quantity selector
+       ═══════════════════════════════════════ */
+
+    & .wc-block-components-quantity-selector {
+        border-color: var(--color-outline);
+        border-radius: 0.5rem;
+        overflow: hidden;
+    }
+
+    & .wc-block-components-quantity-selector input {
+        color: var(--color-foreground);
+        font-weight: 500;
+    }
+
+    & .wc-block-components-quantity-selector .wc-block-components-quantity-selector__button {
+        color: var(--color-muted);
+        transition: color 0.15s, background-color 0.15s;
+    }
+
+    & .wc-block-components-quantity-selector .wc-block-components-quantity-selector__button:hover {
+        color: var(--color-foreground);
+        background-color: var(--color-surface-alt);
+    }
+
+    /* ═══════════════════════════════════════
+       Sale / discount badges
+       ═══════════════════════════════════════ */
+
+    & .wc-block-components-sale-badge {
+        background-color: var(--color-accent);
+        color: var(--color-foreground);
+        border: none;
+        border-radius: 9999px;
+        font-size: 0.6875rem;
+        font-weight: 600;
+        padding: 0.125rem 0.5rem;
+    }
+
+    /* ═══════════════════════════════════════
+       Checkout — Layout
+       ═══════════════════════════════════════ */
+
+    & .wc-block-checkout__main {
+        padding-right: 2rem;
+    }
+
+    /* Checkout sidebar — order summary */
+
+    & .wp-block-woocommerce-checkout-order-summary-block {
+        background-color: var(--color-surface);
+        border-radius: 0.75rem;
+    }
+
+    /* ═══════════════════════════════════════
+       Checkout — Sections / Panels
+       ═══════════════════════════════════════ */
+
+    & .wc-block-checkout__form .wc-block-components-checkout-step {
+        border: none;
+        padding: 0;
+        margin-bottom: 2rem;
+    }
+
+    & .wc-block-components-checkout-step__heading {
+        margin-bottom: 1rem;
+    }
+
+    & .wc-block-components-checkout-step__title {
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--color-foreground);
+    }
+
+    & .wc-block-components-checkout-step__description {
+        color: var(--color-muted);
+        font-size: 0.8125rem;
+    }
+
+    /* Panel (expandable sections) */
+
+    & .wc-block-components-panel__button {
+        color: var(--color-primary);
+        font-weight: 500;
+    }
+
+    & .wc-block-components-panel__button:hover {
+        color: var(--color-primary-hover);
+    }
+
+    & .wc-block-components-panel .wc-block-components-panel__content {
+        padding-top: 0.75rem;
+    }
+
+    /* ═══════════════════════════════════════
+       Form — Text inputs & Selects
+       ═══════════════════════════════════════ */
+
+    & .wc-block-components-text-input input,
+    & .wc-block-components-text-input select,
+    & .wc-block-components-textarea textarea,
+    & .wc-block-components-combobox .components-combobox-control input,
+    & .wc-block-components-country-input .components-combobox-control input {
+        border-color: var(--color-outline);
+        color: var(--color-foreground);
+        transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    & .wc-block-components-text-input input:focus,
+    & .wc-block-components-text-input select:focus,
+    & .wc-block-components-textarea textarea:focus,
+    & .wc-block-components-combobox .components-combobox-control input:focus,
+    & .wc-block-components-country-input .components-combobox-control input:focus {
+        border-color: var(--color-ring);
+        box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-ring) 20%, transparent);
+        outline: none;
+    }
+
+    & .wc-block-components-text-input label,
+    & .wc-block-components-combobox label,
+    & .wc-block-components-country-input label {
+        color: var(--color-muted);
+    }
+
+    & .wc-block-components-text-input.has-error input {
+        border-color: var(--color-error);
+    }
+
+    & .wc-block-components-text-input.has-error input:focus {
+        box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-error) 20%, transparent);
+    }
+
+    /* Textarea (order notes) */
+
+    & .wc-block-components-textarea textarea {
+        min-height: 5rem;
+        resize: vertical;
+    }
+
+    /* ═══════════════════════════════════════
+       Form — Checkboxes
+       ═══════════════════════════════════════ */
+
+    & .wc-block-components-checkbox .wc-block-components-checkbox__input[type="checkbox"]:checked {
+        border-color: 1px solid color-mix(in srgb, var(--color-ring) 48%, transparent);
+    }
+
+    /* ═══════════════════════════════════════
+       Form — Radio controls (shipping methods, payment)
+       ═══════════════════════════════════════ */
+
+    & .wc-block-components-radio-control--highlight-checked .wc-block-components-radio-control-accordion-option--checked-option-highlighted,
+    & .wc-block-components-radio-control--highlight-checked label.wc-block-components-radio-control__option--checked-option-highlighted {
+        box-shadow: inset 0 0 0 1.5px var(--color-ring);
+    }
+
+    & .wc-block-components-radio-control .wc-block-components-radio-control__input:checked:before {
+        background: var(--color-ring);
+    }
+
+    & .wc-block-components-radio-control .wc-block-components-radio-control__input:checked {
+        border: 1px solid color-mix(in srgb, var(--color-ring) 80%, transparent);
+    }
+
+    /* ═══════════════════════════════════════
+       Totals (cart sidebar + checkout)
+       ═══════════════════════════════════════ */
+
+    & .wc-block-components-totals-wrapper {
+        border-top-color: var(--color-outline);
+        padding: 0.625rem 0;
+    }
+
+    /* Remove excessive empty space in totals */
+
+    & .wc-block-components-totals-wrapper:empty,
+    & .wc-block-components-totals-wrapper:has(> :empty) {
+        padding: 0;
+        min-height: 0;
+    }
+
+    & .wc-block-components-totals-item__label {
+        color: var(--color-muted);
+        font-size: 0.875rem;
+    }
+
+    & .wc-block-components-totals-item__value {
+        color: var(--color-foreground);
+        font-weight: 600;
+        font-size: 0.875rem;
+    }
+
+    /* Grand total — larger */
+
+    & .wc-block-components-totals-footer-item .wc-block-components-totals-item__label,
+    & .wc-block-components-totals-footer-item .wc-block-components-totals-item__value {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--color-foreground);
+    }
+
+    /* Shipping total */
+
+    & .wc-block-components-totals-shipping .wc-block-components-totals-shipping__via {
+        color: var(--color-muted);
+        font-size: 0.8125rem;
+    }
+
+    /* Coupon code display */
+
+    & .wc-block-components-totals-discount .wc-block-components-totals-item__value {
+        color: var(--color-success);
+    }
+
+    /* ═══════════════════════════════════════
+       Coupon form
+       ═══════════════════════════════════════ */
+
+    & .wc-block-components-totals-coupon .wc-block-components-panel__button {
+        font-size: 0.8125rem;
+    }
+
+    & .wc-block-components-totals-coupon__content {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    & .wc-block-components-totals-coupon__content input {
+        border-color: var(--color-outline);
+        border-radius: 0.5rem;
+        font-size: 0.875rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    & .wc-block-components-totals-coupon__content input:focus {
+        border-color: var(--color-ring);
+        box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-ring) 20%, transparent);
+        outline: none;
+    }
+
+    & .wc-block-components-totals-coupon__content button {
+        border-radius: 0.5rem;
+    }
+
+    /* ═══════════════════════════════════════
+       Shipping calculator
+       ═══════════════════════════════════════ */
+
+    & .wc-block-components-shipping-calculator-address {
+        padding: 1rem 0;
+    }
+
+    /* ═══════════════════════════════════════
+       Order summary (checkout sidebar)
+       ═══════════════════════════════════════ */
+
+    & .wc-block-components-order-summary .wc-block-components-panel__button {
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: var(--color-foreground);
+    }
+
+    & .wc-block-components-order-summary-item {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--color-outline);
+    }
+
+    & .wc-block-components-order-summary-item:last-child {
+        border-bottom: none;
+    }
+
+    & .wc-block-components-order-summary-item__image img {
+        border-radius: 0.5rem;
+    }
+
+    & .wc-block-components-order-summary-item__description .wc-block-components-product-name {
+        font-weight: 500;
+        font-size: 0.8125rem;
+        color: var(--color-foreground);
+    }
+
+    & .wc-block-components-order-summary-item__description .wc-block-components-product-metadata {
+        font-size: 0.6875rem;
+        color: var(--color-muted);
+    }
+
+    & .wc-block-components-order-summary-item__total-price {
+        font-weight: 600;
+        font-size: 0.8125rem;
+    }
+
+    /* Item quantity badge — needs !important (React inline styles on badge) */
+
+    & .wc-block-components-order-summary-item__quantity {
+        background-color: var(--color-primary) !important;
+        color: white !important;
+        border: 2px solid white;
+        box-shadow: 0 1px 2px rgb(0 0 0 / 0.1);
+        font-size: 0.6875rem;
+        font-weight: 600;
+    }
+
+    /* ═══════════════════════════════════════
+       Notices / Snackbars
+       ═══════════════════════════════════════ */
+
+    & .wc-block-components-notice-banner {
+        border-radius: 0.75rem;
+        padding: 0.875rem 1rem;
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+    }
+
+    & .wc-block-components-notice-banner.is-success {
+        border-color: var(--color-success);
+        background-color: var(--color-success-light);
+    }
+
+    & .wc-block-components-notice-banner.is-error {
+        border-color: var(--color-error);
+        background-color: var(--color-error-light);
+    }
+
+    & .wc-block-components-notice-banner.is-info {
+        border-color: var(--color-info);
+        background-color: var(--color-info-light);
+    }
+
+    & .wc-block-components-notice-banner.is-warning {
+        border-color: var(--color-warning);
+        background-color: var(--color-warning-light);
+    }
+
+    & .wc-block-components-notice-banner .components-notice__dismiss button {
+        color: var(--color-muted);
+    }
+
+    /* Snackbar (floating notifications) */
+
+    & .wc-block-components-notice-snackbar-list {
+        bottom: 1.5rem;
+        left: 1.5rem;
+    }
+
+    & .components-snackbar {
+        border-radius: 0.75rem;
+        background-color: var(--color-foreground);
+        color: white;
+        box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.15);
+    }
+
+    /* ═══════════════════════════════════════
+       Loading / skeleton states
+       ═══════════════════════════════════════ */
+
+    & .wc-block-cart--is-loading .wc-block-cart-items__row,
+    & .wc-block-components-placeholder {
+        animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    /* ═══════════════════════════════════════
+       Empty cart
+       ═══════════════════════════════════════ */
+
+    & .wc-block-cart__empty-cart__title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--color-foreground);
+    }
+
+    /* ═══════════════════════════════════════
+       Place order button (checkout)
+       ═══════════════════════════════════════ */
+
+    & .wc-block-checkout__actions .wc-block-components-checkout-place-order-button {
+        width: 100%;
+        justify-content: center;
+        padding: 0.875rem 2rem;
+        font-size: 1rem;
+        border-radius: 0.75rem;
+    }
+
+    /* Return to cart link */
+
+    & .wc-block-checkout__actions .wc-block-components-checkout-return-to-cart-button {
+        color: var(--color-muted);
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+
+    & .wc-block-checkout__actions .wc-block-components-checkout-return-to-cart-button:hover {
+        color: var(--color-foreground);
+    }
+
+    /* ═══════════════════════════════════════
+       Validation / error messages
+       ═══════════════════════════════════════ */
+
+    & .wc-block-components-validation-error {
+        color: var(--color-error);
+        font-size: 0.75rem;
+        margin-top: 0.25rem;
+    }
+
+    /* ═══════════════════════════════════════
+       Chips / Combobox suggestions
+       ═══════════════════════════════════════ */
+
+    & .wc-block-components-combobox .components-form-token-field__suggestions-list li {
+        font-size: 0.875rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    & .wc-block-components-combobox .components-form-token-field__suggestions-list li:hover,
+    & .wc-block-components-combobox .components-form-token-field__suggestions-list li.is-selected {
+        background-color: var(--color-surface-alt);
+    }
+
+    & .wc-block-components-combobox .components-form-token-field__suggestions-list li.is-selected {
+        font-weight: 500;
+    }
+
+    /* ═══════════════════════════════════════
+       Address card (saved addresses)
+       ═══════════════════════════════════════ */
+
+    & .wc-block-components-address-card {
+        border: 1px solid var(--color-outline);
+        border-radius: 0.75rem;
+        padding: 1rem;
+    }
+
+    & .wc-block-components-address-card .wc-block-components-address-card__edit {
+        color: var(--color-primary);
+        font-size: 0.8125rem;
+        font-weight: 500;
+    }
+
+    & .wc-block-components-address-card .wc-block-components-address-card__address-section {
+        color: var(--color-foreground);
+        font-size: 0.875rem;
+    }
+
+
+
+    /* ═══════════════════════════════════════
+       Sidebar sticky — disable below lg breakpoint
+       WC Blocks uses ResizeObserver (is-large/is-small) not media queries,
+       and injects is-sticky class. We force static below lg to prevent
+       the sidebar from overlapping the form on narrow viewports.
+       ═══════════════════════════════════════ */
+    @container (max-width: 699px) {
+
+        .wc-block-components-title.wc-block-components-title,
+        .wp-block-woocommerce-checkout-order-summary-block .wc-block-components-checkout-order-summary__title .wc-block-components-checkout-order-summary__title-text {
+            font-size: var(--wp--preset--font-size--base,16px);
+        }
+
+        .wp-block-woocommerce-checkout-order-summary-block .wc-block-components-checkout-order-summary__content.is-open {
+            border-bottom: none;
+        }
+
+        & .wp-block-woocommerce-checkout-order-summary-block {
+            padding: 20px;
+        }
+
+        .wp-block-woocommerce-checkout-order-summary-block .wc-block-components-checkout-order-summary__title {
+            margin-top: 0;
+            padding: 0;
+            border: none;
+        }
+
+        & .wc-block-cart__sidebar,
+        & .wc-block-checkout__sidebar,
+        & .wc-block-cart__sidebar.is-sticky,
+        & .wc-block-checkout__sidebar.is-sticky {
+            position: static !important;
+            top: auto !important;
+            margin-top: 1.5rem !important;
+        }
+
+        /* Layout overrides — needs !important (WC Blocks forces column layout) */
+        & .wc-block-cart__main,
+        & .wc-block-checkout__main {
+            padding-right: 0 !important;
+        }
+
+        /* Bigger touch targets on mobile */
+        & .wc-block-components-quantity-selector .wc-block-components-quantity-selector__button {
+            min-width: 2.5rem;
+            min-height: 2.5rem;
+        }
+
+        & .wc-block-cart__sidebar, & .wc-block-checkout__sidebar, & .wc-block-cart__sidebar.is-sticky, & .wc-block-checkout__sidebar.is-sticky {
+            margin-top: 0 !important;
+        }
+
+        /* ───────────────────────────────────────
+           Mobile conversion — Compact form layout
+           ─────────────────────────────────────── */
+
+        /* Tighter section spacing */
+        & .wc-block-checkout__form .wc-block-components-checkout-step {
+            margin-bottom: 1.25rem;
+        }
+
+        & .wc-block-components-checkout-step__heading {
+            margin-bottom: 0.625rem;
+        }
+
+        /* Section headings — smaller on mobile */
+        & .wc-block-components-checkout-step__title {
+            font-size: 0.9375rem;
+        }
+
+        /* Postal code + City on same row via grid */
+        & .wc-block-components-address-form-wrapper > .wc-block-components-address-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+
+        /* Fields that should span full width */
+        & .wc-block-components-address-form-wrapper > .wc-block-components-address-form > .wc-block-components-address-form__country,
+        & .wc-block-components-address-form-wrapper > .wc-block-components-address-form > .wc-block-components-address-form__address_1,
+        & .wc-block-components-address-form-wrapper > .wc-block-components-address-form > .wc-block-components-address-form__address_2-toggle,
+        & .wc-block-components-address-form-wrapper > .wc-block-components-address-form > .wc-block-components-address-form__address_2-hidden-input,
+        & .wc-block-components-address-form-wrapper > .wc-block-components-address-form > .wc-block-components-address-form__phone {
+            grid-column: 1 / -1;
+        }
+
+        /* ───────────────────────────────────────
+           Mobile conversion — Payment section compact
+           ─────────────────────────────────────── */
+
+        /* Reduce payment description verbosity on mobile */
+        & .wc-block-components-radio-control-accordion-option .wc-block-components-radio-control-accordion-content {
+            font-size: 0.75rem;
+            line-height: 1.4;
+            color: var(--color-muted);
+        }
+
+        /* Terms text — smaller, less distracting */
+        & .wc-block-checkout__terms {
+            font-size: 0.6875rem;
+            color: var(--color-subtle);
+        }
+    }
+
+
+}
+
+/* end html */
+
+/* ═══════════════════════════════════════
+   Mobile conversion — Sticky CTA bar
+   The Place Order button must ALWAYS be visible on mobile.
+   Uses @media (viewport-level) since position:fixed is viewport-relative.
+   ═══════════════════════════════════════ */
+
+@media (max-width: 782px) {
+
+    /* Sticky bottom bar */
+    .wc-block-checkout__actions.wp-block-woocommerce-checkout-actions-block {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: white;
+        border-top: 1px solid var(--color-outline);
+        padding: 0.75rem 1rem;
+        padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+        box-shadow: 0 -4px 16px rgb(0 0 0 / 0.08);
+        margin: 0;
+    }
+
+    .wc-block-checkout__actions_row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    /* Place Order — dominant CTA */
+    .wc-block-checkout__actions .wc-block-components-checkout-place-order-button {
+        flex: 1;
+        justify-content: center;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9375rem;
+        border-radius: 0.625rem;
+        min-height: 2.75rem;
+    }
+
+    /* Return to cart — icon-only pill button */
+    html .wc-block-checkout__actions .wc-block-components-checkout-return-to-cart-button {
+        font-size: 0 !important;
+        line-height: 0;
+        padding: 0.875rem;
+        color: var(--color-muted);
+        flex-shrink: 0;
+        border: 1px solid var(--color-outline);
+        border-radius: 0.625rem;
+        background: var(--color-surface);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 2.75rem;
+        min-width: 2.75rem;
+        transition: color 0.15s, border-color 0.15s;
+    }
+
+    html .wc-block-checkout__actions .wc-block-components-checkout-return-to-cart-button:hover {
+        color: var(--color-foreground);
+        border-color: var(--color-ring);
+    }
+
+    /* Arrow icon */
+    html .wc-block-checkout__actions .wc-block-components-checkout-return-to-cart-button svg {
+        width: 1.25rem;
+        height: 1.25rem;
+        left: auto;
+        top: auto;
+        transform: inherit;
+        position: relative;
+    }
+
+    /* Hide empty spacer divs in actions to keep bar tight */
+    .wc-block-checkout__actions .css-0,
+    .wc-block-checkout__actions .wc-block-components-notices:empty,
+    .wc-block-checkout__actions .wc-block-components-notice-snackbar-list:empty {
+        display: none;
+    }
+
+    /* ───────────────────────────────────────
+       Mobile conversion — Trust signals
+       ─────────────────────────────────────── */
+
+    /* Add lock icon + "Paiement sécurisé" above the sticky bar via pseudo-element */
+    .wc-block-checkout__actions.wp-block-woocommerce-checkout-actions-block::before {
+        content: "\1F512  Paiement sécurisé";
+        display: block;
+        text-align: center;
+        font-size: 0.6875rem;
+        color: var(--color-muted);
+        letter-spacing: 0.02em;
+        margin-bottom: 0.5rem;
+    }
+}

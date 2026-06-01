@@ -11,13 +11,12 @@
  *
  * @see https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 3.5.5
+ * @version 9.6.0
   --}}
 {{-- docs.woocommerce.com/document/template-structure/ --}}
 @php
 
 
-defined( 'ABSPATH' ) || exit;
 
 global $product;
 
@@ -37,7 +36,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); @endphp
 	
 @else
 
-		<table class="variations" cellspacing="0">
+		<table class="variations" cellspacing="0" role="presentation">
 			<tbody>
 				
 @foreach ( $attributes as $attribute_name => $options )
@@ -54,7 +53,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); @endphp
 										'product'   => $product,
 									)
 								);
-								echo end( $attribute_keys ) === $attribute_name ? wp_kses_post( apply_filters( 'woocommerce_reset_variations_link', '<a class="reset_variations" href="#">' . esc_html__( 'Clear', 'woocommerce' ) . '</a>' ) ) : '';
+								echo end( $attribute_keys ) === $attribute_name ? wp_kses_post( apply_filters( 'woocommerce_reset_variations_link', '<a class="reset_variations" href="#" aria-label="' . esc_attr__( 'Clear options', 'woocommerce' ) . '">' . esc_html__( 'Clear', 'woocommerce' ) . '</a>' ) ) : '';
 							@endphp
 						</td>
 					</tr>
@@ -63,6 +62,10 @@ do_action( 'woocommerce_before_add_to_cart_form' ); @endphp
 
 			</tbody>
 		</table>
+
+		<div class="reset_variations_alert screen-reader-text" role="alert" aria-live="polite" aria-relevant="all"></div>
+
+		@php do_action( 'woocommerce_after_variations_table' ); @endphp
 
 		<div class="single_variation_wrap">
 			{{-- *

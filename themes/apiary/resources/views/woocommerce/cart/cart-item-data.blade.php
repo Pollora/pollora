@@ -13,6 +13,6 @@
  * @package     WooCommerce\Templates
  * @version     2.4.0
 --}}
-<div class="variation mt-1 flex text-sm text-gray-500">
+<div class="variation mt-1 flex text-sm text-muted">
         {!! wc_cart_item_data_format($item_data) !!}
 </div>

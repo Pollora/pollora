@@ -1,0 +1,1977 @@
+# Copyright (C) 2026 AmphiBee
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Apiary 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/apiary\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-05-26T11:17:49+02:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: apiary\n"
+
+#. Theme Name of the theme
+#: style.css
+msgid "Apiary"
+msgstr ""
+
+#. Theme URI of the theme
+#. Author URI of the theme
+#: style.css
+msgid "https://amphibee.fr/"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "WooCommerce Theme based on Tailwind UI"
+msgstr ""
+
+#. Author of the theme
+#: style.css
+msgid "AmphiBee"
+msgstr ""
+
+#: app/Cms/WooCommerce/PageTitle.php:55
+msgid "Page title"
+msgstr ""
+
+#: app/Cms/WooCommerce/PageTitle.php:84
+msgid "Hide the page title (H1)"
+msgstr ""
+
+#: app/inc/template-tags.php:25
+#, php-format
+msgctxt "post date"
+msgid "Posted on %s"
+msgstr ""
+
+#: app/inc/template-tags.php:41
+#, php-format
+msgctxt "post author"
+msgid "by %s"
+msgstr ""
+
+#. translators: used between list items, there is a space after the comma
+#: app/inc/template-tags.php:88
+msgid ", "
+msgstr ""
+
+#: app/inc/template-tags.php:93
+#, php-format
+msgid "Posted in %1$s"
+msgstr ""
+
+#. translators: used between list items, there is a space after the comma
+#: app/inc/template-tags.php:99
+msgctxt "list item separator"
+msgid ", "
+msgstr ""
+
+#: app/inc/template-tags.php:104
+#, php-format
+msgid "Tagged %1$s"
+msgstr ""
+
+#. translators: %s: post title
+#: app/inc/template-tags.php:116
+#, php-format
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr ""
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: app/inc/template-tags.php:133
+#: resources/views/parts/content-page.blade.php:25
+#, php-format
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr ""
+
+#: app/inc/template-tags.php:159
+#, php-format
+msgid "One thought on &ldquo;%1$s&rdquo;"
+msgstr ""
+
+#: app/inc/template-tags.php:165
+#, php-format
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: app/inc/template-tags.php:181
+#, php-format
+msgid "Try looking in the monthly archives. %1$s"
+msgstr ""
+
+#: app/Providers/AssetServiceProvider.php:38
+#, php-format
+msgid "%s added to cart."
+msgstr ""
+
+#: app/Providers/AssetServiceProvider.php:39
+msgid "Product added to cart."
+msgstr ""
+
+#: app/Providers/AssetServiceProvider.php:40
+#: resources/views/woocommerce/notices/notice.blade.php:21
+#: resources/views/woocommerce/notices/success.blade.php:22
+#: resources/views/woocommerce/parts/modal-add-to-cart.blade.php:34
+msgid "Dismiss"
+msgstr ""
+
+#: app/Providers/AssetServiceProvider.php:41
+#: resources/views/woocommerce/parts/modal-add-to-cart.blade.php:9
+#: resources/views/woocommerce/parts/modal-add-to-cart.blade.php:46
+msgid "Added to cart"
+msgstr ""
+
+#: app/Providers/AssetServiceProvider.php:42
+#: resources/views/woocommerce/parts/modal-add-to-cart.blade.php:69
+msgid "View cart"
+msgstr ""
+
+#: app/Providers/AssetServiceProvider.php:43
+#: resources/views/woocommerce/parts/modal-add-to-cart.blade.php:73
+msgid "Continue shopping"
+msgstr ""
+
+#: app/Providers/AssetServiceProvider.php:44
+#: resources/views/woocommerce/parts/modal-add-to-cart.blade.php:65
+msgid "Checkout"
+msgstr ""
+
+#: app/Providers/AssetServiceProvider.php:45
+msgid "Recently viewed"
+msgstr ""
+
+#: app/Providers/AssetServiceProvider.php:46
+msgid "You may also like"
+msgstr ""
+
+#: app/Walkers/MenuPrimary.php:103
+#: app/Walkers/MenuPrimary.php:118
+msgid "See all"
+msgstr ""
+
+#: resources/views/404.blade.php:6
+#: resources/views/errors/404.blade.php:6
+msgid "Page not found"
+msgstr ""
+
+#: resources/views/404.blade.php:7
+#: resources/views/errors/404.blade.php:7
+msgid "Sorry, we couldn't find the page you're looking for. It might have been moved or no longer exists."
+msgstr ""
+
+#: resources/views/404.blade.php:11
+#: resources/views/errors/404.blade.php:10
+#: resources/views/woocommerce/coming-soon.blade.php:48
+msgid "Go home"
+msgstr ""
+
+#: resources/views/archive.blade.php:25
+msgid "No posts found."
+msgstr ""
+
+#: resources/views/comments/list.blade.php:18
+msgid "Comments are closed."
+msgstr ""
+
+#: resources/views/home.blade.php:8
+msgid "Check out the latest additions to our collection."
+msgstr ""
+
+#: resources/views/home.blade.php:27
+msgid "Shop by category"
+msgstr ""
+
+#: resources/views/home.blade.php:56
+msgid "Great deals on selected items."
+msgstr ""
+
+#: resources/views/layouts/app.blade.php:16
+#: resources/views/woocommerce/layouts/checkout.blade.php:15
+msgid "Skip to content"
+msgstr ""
+
+#: resources/views/pages/search.blade.php:6
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: resources/views/parts/content-none.blade.php:3
+msgid "Nothing Found"
+msgstr ""
+
+#: resources/views/parts/content-none.blade.php:10
+#, php-format
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: resources/views/parts/content-none.blade.php:22
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#: resources/views/parts/content-none.blade.php:26
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: resources/views/parts/content-page.blade.php:12
+#: resources/views/parts/content.blade.php:36
+msgid "Pages:"
+msgstr ""
+
+#: resources/views/parts/content.blade.php:25
+#, php-format
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: resources/views/parts/footer.blade.php:54
+msgid "About"
+msgstr ""
+
+#: resources/views/parts/header.blade.php:43
+msgid "Toggle menu"
+msgstr ""
+
+#: resources/views/parts/header.blade.php:112
+#, php-format
+msgid "Cart, %d items"
+msgstr ""
+
+#: resources/views/parts/header.blade.php:128
+#: resources/views/parts/header.blade.php:194
+msgid "Primary navigation"
+msgstr ""
+
+#: resources/views/parts/header.blade.php:207
+msgid "Close menu"
+msgstr ""
+
+#: resources/views/parts/header.blade.php:254
+msgid "Shopping cart"
+msgstr ""
+
+#: resources/views/search.blade.php:7
+#, php-format
+msgid "Search results for: \"%s\""
+msgstr ""
+
+#: resources/views/search.blade.php:25
+msgid "No results found."
+msgstr ""
+
+#: resources/views/search.blade.php:26
+msgid "Try a different search term."
+msgstr ""
+
+#: resources/views/woocommerce/cart/mini-cart.blade.php:22
+msgid "Close panel"
+msgstr ""
+
+#: resources/views/woocommerce/cart/mini-cart.blade.php:142
+msgid "or"
+msgstr ""
+
+#: resources/views/woocommerce/coming-soon.blade.php:35
+msgid "Great things are on the horizon"
+msgstr ""
+
+#: resources/views/woocommerce/coming-soon.blade.php:39
+msgid "Something big is brewing! Our store is in the works and will be launching soon!"
+msgstr ""
+
+#: resources/views/woocommerce/myaccount/form-login.blade.php:25
+msgid "Already have an account? Sign in below."
+msgstr ""
+
+#: resources/views/woocommerce/myaccount/form-login.blade.php:62
+msgid "Or"
+msgstr ""
+
+#: resources/views/woocommerce/myaccount/form-login.blade.php:68
+msgid "Create an account to track orders and save your details."
+msgstr ""
+
+#: resources/views/woocommerce/parts/footer/footer-checkout.blade.php:10
+msgid "All rights reserved."
+msgstr ""
+
+#: resources/views/woocommerce/parts/footer/footer-checkout.blade.php:30
+msgid "Secure payment"
+msgstr ""
+
+#: resources/views/woocommerce/parts/header/header-checkout.blade.php:81
+#, php-format
+msgid "Step %1$d of %2$d"
+msgstr ""
+
+#: resources/views/woocommerce/parts/header/header-checkout.blade.php:91
+msgid "Secure checkout"
+msgstr ""
+
+#: resources/views/woocommerce/single-product-reviews.blade.php:33
+#: resources/views/woocommerce/single-product-reviews.blade.php:71
+msgid "Write a review"
+msgstr ""
+
+#: resources/views/woocommerce/single-product-reviews.blade.php:68
+msgid "What do you think?"
+msgstr ""
+
+#: resources/views/woocommerce/single-product-reviews.blade.php:69
+#, php-format
+msgid "Only %d review so far — your opinion matters."
+msgid_plural "Only %d reviews so far — your opinion matters."
+msgstr[0] ""
+msgstr[1] ""
+
+#: resources/views/woocommerce/single-product-reviews.blade.php:84
+msgid "Be the first to share your experience."
+msgstr ""
+
+#: resources/views/woocommerce/single-product/description.blade.php:2
+msgid "Description"
+msgstr ""
+
+#: resources/views/woocommerce/single-product/product-image.blade.php:23
+msgid "Images"
+msgstr ""
+
+#: resources/views/woocommerce/single-product/sticky-bar.blade.php:103
+msgid "Close"
+msgstr ""
+
+#: resources/views/blocks/example/block.json
+msgctxt "block title"
+msgid "Example"
+msgstr ""
+
+#: resources/views/blocks/example/block.json
+msgctxt "block description"
+msgid "A bloc example"
+msgstr ""
+
+#: resources/views/blocks/example/block.json
+msgctxt "block style label"
+msgid "Default"
+msgstr ""
+
+#: resources/views/blocks/example/block.json
+msgctxt "block style label"
+msgid "Other"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "sans"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "serif"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "mono"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "xs"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "sm"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "base"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "lg"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "xl"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "2xl"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "3xl"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "4xl"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "5xl"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "6xl"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "7xl"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "8xl"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "9xl"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Red (50)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Red (100)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Red (200)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Red (300)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Red (400)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Red (500)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Red (600)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Red (700)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Red (800)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Red (900)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Red (950)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Orange (50)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Orange (100)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Orange (200)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Orange (300)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Orange (400)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Orange (500)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Orange (600)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Orange (700)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Orange (800)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Orange (900)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Orange (950)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Amber (50)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Amber (100)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Amber (200)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Amber (300)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Amber (400)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Amber (500)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Amber (600)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Amber (700)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Amber (800)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Amber (900)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Amber (950)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Yellow (50)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Yellow (100)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Yellow (200)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Yellow (300)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Yellow (400)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Yellow (500)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Yellow (600)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Yellow (700)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Yellow (800)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Yellow (900)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Yellow (950)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Lime (50)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Lime (100)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Lime (200)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Lime (300)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Lime (400)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Lime (500)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Lime (600)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Lime (700)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Lime (800)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Lime (900)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Lime (950)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Green (50)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Green (100)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Green (200)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Green (300)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Green (400)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Green (500)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Green (600)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Green (700)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Green (800)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Green (900)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Green (950)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Emerald (50)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Emerald (100)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Emerald (200)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Emerald (300)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Emerald (400)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Emerald (500)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Emerald (600)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Emerald (700)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Emerald (800)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Emerald (900)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Emerald (950)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Teal (50)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Teal (100)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Teal (200)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Teal (300)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Teal (400)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Teal (500)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Teal (600)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Teal (700)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Teal (800)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Teal (900)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Teal (950)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Cyan (50)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Cyan (100)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Cyan (200)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Cyan (300)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Cyan (400)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Cyan (500)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Cyan (600)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Cyan (700)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Cyan (800)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Cyan (900)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Cyan (950)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Sky (50)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Sky (100)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Sky (200)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Sky (300)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Sky (400)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Sky (500)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Sky (600)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Sky (700)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Sky (800)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Sky (900)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Sky (950)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Blue (50)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Blue (100)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Blue (200)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Blue (300)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Blue (400)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Blue (500)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Blue (600)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Blue (700)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Blue (800)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Blue (900)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Blue (950)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Indigo (50)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Indigo (100)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Indigo (200)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Indigo (300)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Indigo (400)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Indigo (500)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Indigo (600)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Indigo (700)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Indigo (800)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Indigo (900)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Indigo (950)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Violet (50)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Violet (100)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Violet (200)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Violet (300)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Violet (400)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Violet (500)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Violet (600)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Violet (700)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Violet (800)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Violet (900)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Violet (950)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Purple (50)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Purple (100)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Purple (200)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Purple (300)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Purple (400)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Purple (500)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Purple (600)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Purple (700)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Purple (800)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Purple (900)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Purple (950)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Fuchsia (50)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Fuchsia (100)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Fuchsia (200)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Fuchsia (300)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Fuchsia (400)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Fuchsia (500)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Fuchsia (600)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Fuchsia (700)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Fuchsia (800)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Fuchsia (900)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Fuchsia (950)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Pink (50)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Pink (100)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Pink (200)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Pink (300)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Pink (400)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Pink (500)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Pink (600)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Pink (700)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Pink (800)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Pink (900)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Pink (950)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Rose (50)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Rose (100)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Rose (200)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Rose (300)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Rose (400)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Rose (500)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Rose (600)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Rose (700)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Rose (800)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Rose (900)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Rose (950)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Slate (50)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Slate (100)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Slate (200)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Slate (300)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Slate (400)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Slate (500)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Slate (600)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Slate (700)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Slate (800)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Slate (900)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Slate (950)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray (50)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray (100)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray (200)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray (300)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray (400)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray (500)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray (600)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray (700)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray (800)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray (900)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray (950)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Zinc (50)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Zinc (100)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Zinc (200)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Zinc (300)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Zinc (400)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Zinc (500)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Zinc (600)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Zinc (700)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Zinc (800)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Zinc (900)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Zinc (950)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Neutral (50)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Neutral (100)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Neutral (200)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Neutral (300)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Neutral (400)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Neutral (500)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Neutral (600)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Neutral (700)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Neutral (800)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Neutral (900)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Neutral (950)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Stone (50)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Stone (100)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Stone (200)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Stone (300)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Stone (400)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Stone (500)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Stone (600)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Stone (700)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Stone (800)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Stone (900)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Stone (950)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Mauve (50)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Mauve (100)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Mauve (200)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Mauve (300)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Mauve (400)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Mauve (500)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Mauve (600)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Mauve (700)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Mauve (800)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Mauve (900)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Mauve (950)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Olive (50)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Olive (100)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Olive (200)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Olive (300)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Olive (400)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Olive (500)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Olive (600)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Olive (700)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Olive (800)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Olive (900)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Olive (950)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Mist (50)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Mist (100)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Mist (200)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Mist (300)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Mist (400)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Mist (500)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Mist (600)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Mist (700)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Mist (800)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Mist (900)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Mist (950)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Taupe (50)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Taupe (100)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Taupe (200)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Taupe (300)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Taupe (400)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Taupe (500)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Taupe (600)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Taupe (700)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Taupe (800)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Taupe (900)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Taupe (950)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Black"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "White"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary (Hover)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Accent"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Foreground"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Muted"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Subtle"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Surface"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Surface (Alt)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Outline"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Ring"
+msgstr ""
+
+#: theme.json
+msgctxt "Border radius size name"
+msgid "xs"
+msgstr ""
+
+#: theme.json
+msgctxt "Border radius size name"
+msgid "sm"
+msgstr ""
+
+#: theme.json
+msgctxt "Border radius size name"
+msgid "md"
+msgstr ""
+
+#: theme.json
+msgctxt "Border radius size name"
+msgid "lg"
+msgstr ""
+
+#: theme.json
+msgctxt "Border radius size name"
+msgid "xl"
+msgstr ""
+
+#: theme.json
+msgctxt "Border radius size name"
+msgid "2xl"
+msgstr ""
+
+#: theme.json
+msgctxt "Border radius size name"
+msgid "3xl"
+msgstr ""
+
+#: theme.json
+msgctxt "Border radius size name"
+msgid "4xl"
+msgstr ""
