@@ -5,7 +5,9 @@ All notable changes to the Pollora skeleton will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/Pollora/pollora/compare/v13.32.0-beta...main)
+## [Unreleased](https://github.com/Pollora/pollora/compare/v13.32.0-beta.2...main)
+
+## [v13.32.0-beta.2](https://github.com/Pollora/pollora/compare/v13.32.0-beta...v13.32.0-beta.2) - 2026-09-17
 
 ### Added
 - [pollora.dev](https://pollora.dev) as the project website and documentation, in `composer.json` (`homepage`, `support`) and the README
@@ -14,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - A fresh install no longer answers 500: `.env.example` sets `CACHE_STORE=database`, but no migration created the `cache` table, so discovery and the theme's view composers failed on the first request. Adds Laravel's `cache` and `cache_locks` migration
 
 ### Changed
+- Locks [`pollora/framework` v13.32.0-beta.2](https://github.com/Pollora/framework/releases/tag/v13.32.0-beta.2), which completes `pollora:install` without interaction, keeps the former command names as aliases and renders Gutenberg blocks from `resources/views/blocks` with Blade
 - CI installs the skeleton from scratch under DDEV (PHP 8.4, MariaDB 10.11, Apache — the stack of the local test install) and runs the installation tests, on every push, pull request and nightly, against both the locked framework and its `develop` branch. The previous workflow only ran on `master` and `*.x` with PHP 8.1/8.2, so it never ran
 
 ## [v13.32.0-beta](https://github.com/Pollora/pollora/compare/v13.4.0...v13.32.0-beta) - 2026-09-17
