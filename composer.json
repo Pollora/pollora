@@ -9,6 +9,12 @@
         "wordpress"
     ],
     "license": "MIT",
+    "homepage": "https://pollora.dev",
+    "support": {
+        "docs": "https://pollora.dev",
+        "issues": "https://github.com/Pollora/framework/issues",
+        "source": "https://github.com/Pollora/pollora"
+    },
     "repositories": [
         {
             "type": "composer",

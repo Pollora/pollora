@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/Pollora/pollora">
+  <a href="https://pollora.dev">
     <img src="resources/images/pollora-logo.svg" width="400" alt="Pollora">
   </a>
 </p>
@@ -25,7 +25,7 @@ Pollora bridges **Laravel** and **WordPress**, combining Laravel's architecture 
 
 ## Documentation
 
-Full documentation is available at [github.com/Pollora/documentation](https://github.com/Pollora/documentation).
+Full documentation is available at **[pollora.dev](https://pollora.dev)**, starting with the [installation guide](https://pollora.dev/getting-started/installation/).
 
 ## Quick Start
 
