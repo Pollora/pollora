@@ -22,7 +22,7 @@
         "laravel/framework": "^13.32",
         "laravel/sanctum": "^4.3 || ^5.0",
         "laravel/tinker": "^3.0",
-        "pollora/framework": "^13.4"
+        "pollora/framework": "^13.32@beta"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -51,7 +51,7 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan pollora:env-setup --install"
+            "@php artisan pollora:env:setup --install"
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"

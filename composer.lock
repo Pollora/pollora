@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6e7cced665de5a6e705c7b9c6712861",
+    "content-hash": "7f6a5ae02656230c216a2117054077ed",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -211,16 +211,16 @@
         },
         {
             "name": "brick/math",
-            "version": "0.18.0",
+            "version": "0.19.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/brick/math.git",
-                "reference": "82944324d1c1bdb2c2618e89978d4e2ad78d69ad"
+                "reference": "a89bc96a7cf3d7b59e725afe57ccb95eb03cf6ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brick/math/zipball/82944324d1c1bdb2c2618e89978d4e2ad78d69ad",
-                "reference": "82944324d1c1bdb2c2618e89978d4e2ad78d69ad",
+                "url": "https://api.github.com/repos/brick/math/zipball/a89bc96a7cf3d7b59e725afe57ccb95eb03cf6ce",
+                "reference": "a89bc96a7cf3d7b59e725afe57ccb95eb03cf6ce",
                 "shasum": ""
             },
             "require": {
@@ -258,7 +258,7 @@
             ],
             "support": {
                 "issues": "https://github.com/brick/math/issues",
-                "source": "https://github.com/brick/math/tree/0.18.0"
+                "source": "https://github.com/brick/math/tree/0.19.1"
             },
             "funding": [
                 {
@@ -266,7 +266,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-06-14T18:21:03+00:00"
+            "time": "2026-08-08T23:03:16+00:00"
         },
         {
             "name": "carbonphp/carbon-doctrine-types",
@@ -3953,6 +3953,106 @@
             "time": "2026-08-24T00:54:40+00:00"
         },
         {
+            "name": "pollora/abilities",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Pollora/abilities.git",
+                "reference": "709f5d8f4fe76d19e7659d39be09e72aaedd1982"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Pollora/abilities/zipball/709f5d8f4fe76d19e7659d39be09e72aaedd1982",
+                "reference": "709f5d8f4fe76d19e7659d39be09e72aaedd1982",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.3"
+            },
+            "require-dev": {
+                "brain/monkey": "^2.6",
+                "laravel/pint": "^1.22",
+                "mockery/mockery": "^1.6",
+                "pestphp/pest": "^3.8",
+                "phpstan/phpstan": "^2.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pollora\\Abilities\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Amphibee",
+                    "email": "contact@amphibee.fr"
+                }
+            ],
+            "description": "A modern PHP package for the WordPress Abilities API, with a fluent declaration API and a hexagonal architecture",
+            "keywords": [
+                "abilities",
+                "abilities-api",
+                "ai",
+                "mcp",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/Pollora/abilities/issues",
+                "source": "https://github.com/Pollora/abilities/tree/v1.0.0"
+            },
+            "time": "2026-08-31T13:33:08+00:00"
+        },
+        {
+            "name": "pollora/ajax",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Pollora/ajax.git",
+                "reference": "73884b74690e673a7bd91f191d9704c7f46c2ade"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Pollora/ajax/zipball/73884b74690e673a7bd91f191d9704c7f46c2ade",
+                "reference": "73884b74690e673a7bd91f191d9704c7f46c2ade",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "laravel/pint": "^v1.22.1",
+                "mockery/mockery": "^2.0.x-dev",
+                "pestphp/pest": "^v3.8.2",
+                "phpstan/phpstan": "^2.1.16"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pollora\\Ajax\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Amphibee",
+                    "email": "contact@amphibee.fr"
+                }
+            ],
+            "description": "A modern PHP package for WordPress AJAX action management with fluent API",
+            "support": {
+                "issues": "https://github.com/Pollora/ajax/issues",
+                "source": "https://github.com/Pollora/ajax/tree/v1.1.0"
+            },
+            "time": "2026-06-23T07:29:41+00:00"
+        },
+        {
             "name": "pollora/colt",
             "version": "10.0.0",
             "source": {
@@ -4073,34 +4173,38 @@
         },
         {
             "name": "pollora/framework",
-            "version": "v13.4.3",
+            "version": "v13.32.0-beta",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
-                "reference": "f9e99181ca2803185a3a9041d2039ab55c7cf119"
+                "reference": "fb3094b5fe68d6d6efa5ed48be37994cf2f0444c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/f9e99181ca2803185a3a9041d2039ab55c7cf119",
-                "reference": "f9e99181ca2803185a3a9041d2039ab55c7cf119",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/fb3094b5fe68d6d6efa5ed48be37994cf2f0444c",
+                "reference": "fb3094b5fe68d6d6efa5ed48be37994cf2f0444c",
                 "shasum": ""
             },
             "require": {
                 "coduo/php-humanizer": "5.0.3",
                 "cweagans/composer-patches": "^1.7",
-                "illuminate/auth": "^13.5",
-                "illuminate/config": "^13.5",
-                "illuminate/console": "^13.5",
-                "illuminate/database": "^13.5",
-                "illuminate/routing": "^13.5",
-                "illuminate/support": "^13.5",
+                "illuminate/auth": "^13.32",
+                "illuminate/config": "^13.32",
+                "illuminate/console": "^13.32",
+                "illuminate/database": "^13.32",
+                "illuminate/routing": "^13.32",
+                "illuminate/support": "^13.32",
                 "laravel/prompts": "^0.3.17",
                 "log1x/sage-directives": "^2.0",
                 "nwidart/laravel-modules": "^13.0",
                 "php": "^8.3",
+                "pollora/abilities": "^1.0",
+                "pollora/ajax": "^1.0",
                 "pollora/colt": "^10.0",
                 "pollora/entity": "^1.2",
-                "pollora/helper-overrider": "^1.0",
+                "pollora/helper-overrider": "^1.2",
+                "pollora/hook": "^1.0",
+                "pollora/option": "^1.0",
                 "pollora/query": "^1.0",
                 "roots/bedrock-autoloader": "^1.1",
                 "spatie/php-structure-discoverer": "^2.4",
@@ -4113,7 +4217,7 @@
                 "larastan/larastan": "^3.0",
                 "laravel/pint": "^v1.29.1",
                 "mockery/mockery": "^1.6",
-                "orchestra/testbench": "^10.0|^11.0",
+                "orchestra/testbench": "^11.0",
                 "pestphp/pest": "^v3.8.2",
                 "pestphp/pest-plugin-type-coverage": "^3.6",
                 "php-stubs/wordpress-stubs": "6.*",
@@ -4128,12 +4232,11 @@
                     "aliases": {
                         "Ajax": "Pollora\\Support\\Facades\\Ajax",
                         "Hash": "Pollora\\Support\\Facades\\WPHash",
-                        "Loop": "Pollora\\Support\\Facades\\Loop",
                         "Asset": "Pollora\\Support\\Facades\\Asset",
-                        "Query": "Pollora\\Support\\Facades\\Query",
                         "Theme": "Pollora\\Support\\Facades\\Theme",
                         "Action": "Pollora\\Support\\Facades\\Action",
                         "Filter": "Pollora\\Support\\Facades\\Filter",
+                        "Ability": "Pollora\\Support\\Facades\\Ability",
                         "PostType": "Pollora\\Support\\Facades\\PostType",
                         "Taxonomy": "Pollora\\Support\\Facades\\Taxonomy",
                         "Wordpress": "Pollora\\Support\\WordPress"
@@ -4181,9 +4284,9 @@
             "description": "Laravel & WordPress blend for coding as sweet as honey. Join the hive!",
             "support": {
                 "issues": "https://github.com/Pollora/framework/issues",
-                "source": "https://github.com/Pollora/framework/tree/v13.4.3"
+                "source": "https://github.com/Pollora/framework/tree/v13.32.0-beta"
             },
-            "time": "2026-08-31T12:14:14+00:00"
+            "time": "2026-09-17T12:34:32+00:00"
         },
         {
             "name": "pollora/helper-overrider",
@@ -4240,6 +4343,99 @@
                 "source": "https://github.com/Pollora/Helper-Overrider/tree/1.2.0"
             },
             "time": "2026-09-03T15:28:35+00:00"
+        },
+        {
+            "name": "pollora/hook",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Pollora/hook.git",
+                "reference": "e2d3e9d5fbed193332d52430dcae646f1bfb54c3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Pollora/hook/zipball/e2d3e9d5fbed193332d52430dcae646f1bfb54c3",
+                "reference": "e2d3e9d5fbed193332d52430dcae646f1bfb54c3",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "laravel/pint": "^v1.22.1",
+                "mockery/mockery": "^1.6",
+                "pestphp/pest": "^v3.8.2",
+                "phpstan/phpstan": "^2.1.16"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pollora\\Hook\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Amphibee",
+                    "email": "contact@amphibee.fr"
+                }
+            ],
+            "description": "A modern PHP package for WordPress hook (action/filter) management with callback resolution and reflection caching",
+            "support": {
+                "issues": "https://github.com/Pollora/hook/issues",
+                "source": "https://github.com/Pollora/hook/tree/v1.1.0"
+            },
+            "time": "2026-06-23T10:28:40+00:00"
+        },
+        {
+            "name": "pollora/option",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Pollora/option.git",
+                "reference": "2f527f5fa0e6a47a16354e93474fbbb56542450e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Pollora/option/zipball/2f527f5fa0e6a47a16354e93474fbbb56542450e",
+                "reference": "2f527f5fa0e6a47a16354e93474fbbb56542450e",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "brain/monkey": "^2.6",
+                "laravel/pint": "^v1.22.1",
+                "mockery/mockery": "^1.6",
+                "pestphp/pest": "^v3.8.2",
+                "phpstan/phpstan": "^2.1.16"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pollora\\Option\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Amphibee",
+                    "email": "contact@amphibee.fr"
+                }
+            ],
+            "description": "A modern PHP package for WordPress option management with validation and immutable value objects",
+            "support": {
+                "issues": "https://github.com/Pollora/option/issues",
+                "source": "https://github.com/Pollora/option/tree/v1.1.0"
+            },
+            "time": "2026-06-23T10:28:55+00:00"
         },
         {
             "name": "pollora/query",
@@ -4905,20 +5101,20 @@
         },
         {
             "name": "ramsey/uuid",
-            "version": "4.9.3",
+            "version": "4.9.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/uuid.git",
-                "reference": "1df15849d00943a67d677dc9cfd80795f038c9f8"
+                "reference": "75d73f48d02797c2c285a7e9f348fadc0102ffe2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid/zipball/1df15849d00943a67d677dc9cfd80795f038c9f8",
-                "reference": "1df15849d00943a67d677dc9cfd80795f038c9f8",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/75d73f48d02797c2c285a7e9f348fadc0102ffe2",
+                "reference": "75d73f48d02797c2c285a7e9f348fadc0102ffe2",
                 "shasum": ""
             },
             "require": {
-                "brick/math": ">=0.8.16 <=0.18",
+                "brick/math": "^0.8.16 || ^0.9 || ^0.10 || ^0.11 || ^0.12 || ^0.13 || ^0.14 || ^0.15 || ^0.16 || ^0.17 || ^0.18 || ^0.19 || ^0.20 || ^1.0",
                 "php": "^8.0",
                 "ramsey/collection": "^1.2 || ^2.0"
             },
@@ -4977,9 +5173,9 @@
             ],
             "support": {
                 "issues": "https://github.com/ramsey/uuid/issues",
-                "source": "https://github.com/ramsey/uuid/tree/4.9.3"
+                "source": "https://github.com/ramsey/uuid/tree/4.9.4"
             },
-            "time": "2026-06-18T03:57:49+00:00"
+            "time": "2026-09-16T11:39:30+00:00"
         },
         {
             "name": "roots/bedrock-autoloader",
@@ -10363,7 +10559,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": {
+        "pollora/framework": 10
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

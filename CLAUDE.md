@@ -35,11 +35,11 @@ ddev exec php artisan pollora:install --install \
 
 ### Theme Management
 
-Themes are generated via `pollora:make-theme`, not manually created:
+Themes are generated via `pollora:make:theme`, not manually created:
 
 ```bash
 # Generate a new theme from the default template
-ddev exec php artisan pollora:make-theme my-theme
+ddev exec php artisan pollora:make:theme my-theme
 
 # Theme is placed in themes/my-theme/ and auto-activated
 ```

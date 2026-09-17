@@ -52,7 +52,7 @@ node_modules
 /storage/*.key
 /storage/pail
 
-## Themes (created via pollora:make-theme, not versioned in skeleton)
+## Themes (created via pollora:make:theme, not versioned in skeleton)
 /themes/*
 !/themes/.gitkeep
 
