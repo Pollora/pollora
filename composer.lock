@@ -4008,16 +4008,16 @@
         },
         {
             "name": "pollora/ajax",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/ajax.git",
-                "reference": "73884b74690e673a7bd91f191d9704c7f46c2ade"
+                "reference": "1c679fc7e0961248a9555577e24fe04cbfe0f693"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/ajax/zipball/73884b74690e673a7bd91f191d9704c7f46c2ade",
-                "reference": "73884b74690e673a7bd91f191d9704c7f46c2ade",
+                "url": "https://api.github.com/repos/Pollora/ajax/zipball/1c679fc7e0961248a9555577e24fe04cbfe0f693",
+                "reference": "1c679fc7e0961248a9555577e24fe04cbfe0f693",
                 "shasum": ""
             },
             "require": {
@@ -4037,7 +4037,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0-or-later"
+                "MIT"
             ],
             "authors": [
                 {
@@ -4048,9 +4048,9 @@
             "description": "A modern PHP package for WordPress AJAX action management with fluent API",
             "support": {
                 "issues": "https://github.com/Pollora/ajax/issues",
-                "source": "https://github.com/Pollora/ajax/tree/v1.1.0"
+                "source": "https://github.com/Pollora/ajax/tree/v1.1.1"
             },
-            "time": "2026-06-23T07:29:41+00:00"
+            "time": "2026-09-17T12:51:21+00:00"
         },
         {
             "name": "pollora/colt",
@@ -4125,16 +4125,16 @@
         },
         {
             "name": "pollora/entity",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/WordPressEntity.git",
-                "reference": "ebcea277e140cf15c09b137e75787dc415e20efe"
+                "reference": "202bfe21172076712053dc9ab4811d23bc189d30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/WordPressEntity/zipball/ebcea277e140cf15c09b137e75787dc415e20efe",
-                "reference": "ebcea277e140cf15c09b137e75787dc415e20efe",
+                "url": "https://api.github.com/repos/Pollora/WordPressEntity/zipball/202bfe21172076712053dc9ab4811d23bc189d30",
+                "reference": "202bfe21172076712053dc9ab4811d23bc189d30",
                 "shasum": ""
             },
             "require": {
@@ -4156,7 +4156,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0-or-later"
+                "MIT"
             ],
             "authors": [
                 {
@@ -4167,9 +4167,9 @@
             "description": "A modern PHP package for WordPress custom post types and taxonomies",
             "support": {
                 "issues": "https://github.com/Pollora/WordPressEntity/issues",
-                "source": "https://github.com/Pollora/WordPressEntity/tree/1.2.0"
+                "source": "https://github.com/Pollora/WordPressEntity/tree/1.2.1"
             },
-            "time": "2026-05-12T12:04:59+00:00"
+            "time": "2026-09-17T12:51:39+00:00"
         },
         {
             "name": "pollora/framework",
@@ -4290,16 +4290,16 @@
         },
         {
             "name": "pollora/helper-overrider",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/Helper-Overrider.git",
-                "reference": "ca54c8b54c7d0e3b17d61aea26af3ffe4de3a885"
+                "reference": "cb7b834d55b96d9bfb2140a29badd449d270db64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/Helper-Overrider/zipball/ca54c8b54c7d0e3b17d61aea26af3ffe4de3a885",
-                "reference": "ca54c8b54c7d0e3b17d61aea26af3ffe4de3a885",
+                "url": "https://api.github.com/repos/Pollora/Helper-Overrider/zipball/cb7b834d55b96d9bfb2140a29badd449d270db64",
+                "reference": "cb7b834d55b96d9bfb2140a29badd449d270db64",
                 "shasum": ""
             },
             "require": {
@@ -4328,7 +4328,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0-or-later"
+                "MIT"
             ],
             "authors": [
                 {
@@ -4340,22 +4340,22 @@
             "description": "Overrides Laravel and WordPress translation helpers so a single __() serves both catalogues",
             "support": {
                 "issues": "https://github.com/Pollora/Helper-Overrider/issues",
-                "source": "https://github.com/Pollora/Helper-Overrider/tree/1.2.0"
+                "source": "https://github.com/Pollora/Helper-Overrider/tree/1.2.1"
             },
-            "time": "2026-09-03T15:28:35+00:00"
+            "time": "2026-09-17T12:51:57+00:00"
         },
         {
             "name": "pollora/hook",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/hook.git",
-                "reference": "e2d3e9d5fbed193332d52430dcae646f1bfb54c3"
+                "reference": "cf21f328b68abab973b018af8bdeffa1a78102e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/hook/zipball/e2d3e9d5fbed193332d52430dcae646f1bfb54c3",
-                "reference": "e2d3e9d5fbed193332d52430dcae646f1bfb54c3",
+                "url": "https://api.github.com/repos/Pollora/hook/zipball/cf21f328b68abab973b018af8bdeffa1a78102e4",
+                "reference": "cf21f328b68abab973b018af8bdeffa1a78102e4",
                 "shasum": ""
             },
             "require": {
@@ -4375,7 +4375,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0-or-later"
+                "MIT"
             ],
             "authors": [
                 {
@@ -4386,22 +4386,22 @@
             "description": "A modern PHP package for WordPress hook (action/filter) management with callback resolution and reflection caching",
             "support": {
                 "issues": "https://github.com/Pollora/hook/issues",
-                "source": "https://github.com/Pollora/hook/tree/v1.1.0"
+                "source": "https://github.com/Pollora/hook/tree/v1.1.1"
             },
-            "time": "2026-06-23T10:28:40+00:00"
+            "time": "2026-09-17T12:51:33+00:00"
         },
         {
             "name": "pollora/option",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/option.git",
-                "reference": "2f527f5fa0e6a47a16354e93474fbbb56542450e"
+                "reference": "4664ef7e2a8741a7b0ffda4f5af2ef10ef5c510d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/option/zipball/2f527f5fa0e6a47a16354e93474fbbb56542450e",
-                "reference": "2f527f5fa0e6a47a16354e93474fbbb56542450e",
+                "url": "https://api.github.com/repos/Pollora/option/zipball/4664ef7e2a8741a7b0ffda4f5af2ef10ef5c510d",
+                "reference": "4664ef7e2a8741a7b0ffda4f5af2ef10ef5c510d",
                 "shasum": ""
             },
             "require": {
@@ -4422,7 +4422,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0-or-later"
+                "MIT"
             ],
             "authors": [
                 {
@@ -4433,22 +4433,22 @@
             "description": "A modern PHP package for WordPress option management with validation and immutable value objects",
             "support": {
                 "issues": "https://github.com/Pollora/option/issues",
-                "source": "https://github.com/Pollora/option/tree/v1.1.0"
+                "source": "https://github.com/Pollora/option/tree/v1.1.1"
             },
-            "time": "2026-06-23T10:28:55+00:00"
+            "time": "2026-09-17T12:51:27+00:00"
         },
         {
             "name": "pollora/query",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/Query.git",
-                "reference": "0cb6267a6bcb4f0859df64ca40cbe580221bda16"
+                "reference": "97dc2ae76f847588fd18dbf3c75e74603e2e065a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/Query/zipball/0cb6267a6bcb4f0859df64ca40cbe580221bda16",
-                "reference": "0cb6267a6bcb4f0859df64ca40cbe580221bda16",
+                "url": "https://api.github.com/repos/Pollora/Query/zipball/97dc2ae76f847588fd18dbf3c75e74603e2e065a",
+                "reference": "97dc2ae76f847588fd18dbf3c75e74603e2e065a",
                 "shasum": ""
             },
             "require": {
@@ -4469,7 +4469,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0-or-later"
+                "MIT"
             ],
             "authors": [
                 {
@@ -4481,22 +4481,22 @@
             "description": "Create WP Query in a fluent way.",
             "support": {
                 "issues": "https://github.com/Pollora/Query/issues",
-                "source": "https://github.com/Pollora/Query/tree/1.0.2"
+                "source": "https://github.com/Pollora/Query/tree/1.0.3"
             },
-            "time": "2026-05-12T11:56:12+00:00"
+            "time": "2026-09-17T12:51:45+00:00"
         },
         {
             "name": "pollora/wordpress-args",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/WordPressArguments.git",
-                "reference": "0da7debe5323e449a825311932b1aed3399a20b1"
+                "reference": "b7ebf1491f41739d1c5676f387cc6d7967423757"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/WordPressArguments/zipball/0da7debe5323e449a825311932b1aed3399a20b1",
-                "reference": "0da7debe5323e449a825311932b1aed3399a20b1",
+                "url": "https://api.github.com/repos/Pollora/WordPressArguments/zipball/b7ebf1491f41739d1c5676f387cc6d7967423757",
+                "reference": "b7ebf1491f41739d1c5676f387cc6d7967423757",
                 "shasum": ""
             },
             "require": {
@@ -4516,7 +4516,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0-or-later"
+                "MIT"
             ],
             "authors": [
                 {
@@ -4528,9 +4528,9 @@
             "description": "Manipulate WordPress arguments as an object.",
             "support": {
                 "issues": "https://github.com/Pollora/WordPressArguments/issues",
-                "source": "https://github.com/Pollora/WordPressArguments/tree/1.1.0"
+                "source": "https://github.com/Pollora/WordPressArguments/tree/1.1.1"
             },
-            "time": "2026-05-12T11:53:20+00:00"
+            "time": "2026-09-17T12:51:51+00:00"
         },
         {
             "name": "psr/clock",
