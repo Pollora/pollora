@@ -2,46 +2,93 @@ name: Tests
 
 on:
   push:
-    branches:
-      - master
-      - '*.x'
+    branches: [main]
   pull_request:
   schedule:
-    - cron: '0 0 * * *'
+    # Nightly, to catch a broken install caused by a new framework or theme release
+    - cron: '0 3 * * *'
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  tests:
+  install:
+    name: Install (${{ matrix.framework }})
     runs-on: ubuntu-latest
 
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
-        php: [8.1, 8.2]
-
-    name: PHP ${{ matrix.php }}
+        # locked: what `composer create-project` gives users
+        # develop: the next framework release, before it ships
+        framework: [locked, develop]
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+      - name: Setup DDEV
+        uses: ddev/github-action-setup-ddev@v1
         with:
-          php-version: ${{ matrix.php }}
-          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite
-          coverage: none
+          autostart: false
+
+      # Same stack as the local Pollora test install
+      - name: Configure DDEV
+        run: |
+          ddev config \
+            --project-name=pollora \
+            --project-type=wordpress \
+            --docroot=public \
+            --php-version=8.4 \
+            --webserver-type=apache-fpm \
+            --database=mariadb:10.11 \
+            --nodejs-version=22 \
+            --disable-settings-management
+
+      - name: Start DDEV
+        run: ddev start
+
+      # Mirrors post-root-package-install, with the DDEV database
+      - name: Prepare .env
+        run: |
+          cp .env.example .env
+          sed -i \
+            -e 's#^APP_URL=.*#APP_URL=https://pollora.ddev.site#' \
+            -e 's#^DB_CONNECTION=.*#DB_CONNECTION=mysql#' \
+            -e 's/^# DB_HOST=.*/DB_HOST=db/' \
+            -e 's/^# DB_PORT=.*/DB_PORT=3306/' \
+            -e 's/^# DB_DATABASE=.*/DB_DATABASE=db/' \
+            -e 's/^# DB_USERNAME=.*/DB_USERNAME=db/' \
+            -e 's/^# DB_PASSWORD=.*/DB_PASSWORD=db/' \
+            .env
 
       - name: Install Composer dependencies
-        run: composer install --prefer-dist --no-interaction --no-progress
+        run: ddev composer install --no-interaction --no-progress
 
-      - name: Copy environment file
-        run: cp .env.example .env
+      - name: Use framework develop
+        if: matrix.framework == 'develop'
+        run: ddev composer require pollora/framework:dev-develop --with-all-dependencies --no-interaction --no-progress
 
-      - name: Generate app key
-        run: php artisan key:generate
+      # Mirrors post-create-project-cmd, without prompts
+      - name: Generate application key
+        run: ddev exec php artisan key:generate --no-interaction
+
+      - name: Install WordPress
+        run: |
+          ddev exec php artisan pollora:install --install \
+            --title="Pollora" \
+            --description="Pollora CI" \
+            --admin-user=admin \
+            --admin-email=admin@example.com \
+            --admin-password=pollora-ci-password \
+            --locale=en_US \
+            --public=false \
+            --no-interaction
 
       - name: Execute tests
-        run: vendor/bin/phpunit
+        run: ddev composer test
+
+      - name: Laravel log
+        if: failure()
+        run: tail -n 200 storage/logs/laravel.log || true
