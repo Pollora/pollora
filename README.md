@@ -63,4 +63,4 @@ If you discover a security vulnerability, please report it via [GitHub Security 
 
 ## License
 
-Pollora is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Pollora is open-sourced software licensed under the [MIT license](LICENSE).
