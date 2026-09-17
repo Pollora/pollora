@@ -4173,16 +4173,16 @@
         },
         {
             "name": "pollora/framework",
-            "version": "v13.32.0-beta",
+            "version": "v13.32.0-beta.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
-                "reference": "fb3094b5fe68d6d6efa5ed48be37994cf2f0444c"
+                "reference": "13a90209347e038c69ed20108e042ea8ba180138"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/fb3094b5fe68d6d6efa5ed48be37994cf2f0444c",
-                "reference": "fb3094b5fe68d6d6efa5ed48be37994cf2f0444c",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/13a90209347e038c69ed20108e042ea8ba180138",
+                "reference": "13a90209347e038c69ed20108e042ea8ba180138",
                 "shasum": ""
             },
             "require": {
@@ -4216,11 +4216,11 @@
                 "driftingly/rector-laravel": "^2.3",
                 "larastan/larastan": "^3.0",
                 "laravel/pint": "^v1.29.1",
-                "mockery/mockery": "^1.6",
+                "mockery/mockery": "^1.6.11",
                 "orchestra/testbench": "^11.0",
                 "pestphp/pest": "^v3.8.2",
                 "pestphp/pest-plugin-type-coverage": "^3.6",
-                "php-stubs/wordpress-stubs": "6.*",
+                "php-stubs/wordpress-stubs": "^7.1",
                 "symfony/var-dumper": "^7.4 || ^8.0",
                 "symplify/vendor-patches": "^12.0",
                 "szepeviktor/phpstan-wordpress": "*",
@@ -4246,14 +4246,11 @@
                     ]
                 },
                 "patches": {
-                    "mockery/mockery": {
-                        "Fix PHP 8.4 implicit nullable deprecations": "https://raw.githubusercontent.com/Pollora/framework/refs/heads/main/patches/mockery-php84-nullable.patch"
-                    },
                     "johnpbloch/wordpress-core": {
                         "Patch __ method in l10n to stop conflicting with Laravel": "https://raw.githubusercontent.com/Pollora/framework/refs/heads/main/patches/wordpress-core.patch"
                     },
                     "php-stubs/wordpress-stubs": {
-                        "Rename __ and wp_mail functions": "https://raw.githubusercontent.com/Pollora/framework/refs/heads/main/patches/wordpress-stubs.patch"
+                        "Rename __ to __wp so Laravel can declare __()": "https://raw.githubusercontent.com/Pollora/framework/refs/heads/main/patches/wordpress-stubs.patch"
                     }
                 }
             },
@@ -4267,7 +4264,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0-or-later"
+                "MIT"
             ],
             "authors": [
                 {
@@ -4282,11 +4279,13 @@
                 }
             ],
             "description": "Laravel & WordPress blend for coding as sweet as honey. Join the hive!",
+            "homepage": "https://pollora.dev",
             "support": {
+                "docs": "https://pollora.dev",
                 "issues": "https://github.com/Pollora/framework/issues",
-                "source": "https://github.com/Pollora/framework/tree/v13.32.0-beta"
+                "source": "https://github.com/Pollora/framework"
             },
-            "time": "2026-09-17T12:34:32+00:00"
+            "time": "2026-09-17T16:32:02+00:00"
         },
         {
             "name": "pollora/helper-overrider",
