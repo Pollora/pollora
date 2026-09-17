@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://packagist.org/packages/pollora/pollora"><img src="https://img.shields.io/packagist/v/pollora/pollora" alt="Latest Stable Version"></a>
+  <a href="https://packagist.org/packages/pollora/pollora"><img src="https://img.shields.io/packagist/v/pollora/pollora?include_prereleases" alt="Latest Version"></a>
   <a href="https://packagist.org/packages/pollora/pollora"><img src="https://img.shields.io/packagist/dt/pollora/pollora" alt="Total Downloads"></a>
   <a href="https://packagist.org/packages/pollora/pollora"><img src="https://img.shields.io/packagist/l/pollora/pollora" alt="License"></a>
 </p>
