@@ -5,7 +5,26 @@ All notable changes to the Pollora skeleton will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/Pollora/pollora/compare/v13.0.0...main)
+## [Unreleased](https://github.com/Pollora/pollora/compare/v13.32.0-beta...main)
+
+## [v13.32.0-beta](https://github.com/Pollora/pollora/compare/v13.4.0...v13.32.0-beta) - 2026-09-17
+
+The skeleton now follows Laravel's version numbers, like [`pollora/framework`](https://github.com/Pollora/framework/releases/tag/v13.32.0-beta).
+
+### Added
+- `LICENSE` file with the MIT terms `composer.json` already declared
+
+### Changed
+- Requires `pollora/framework` `^13.32@beta`, Laravel 13.32 and WordPress 7.1
+- Composer scripts use the renamed `pollora:env:setup` command (was `pollora:env-setup`); `pollora:make-theme` is now `pollora:make:theme`
+- Plugins and themes are installed from [wp-packages](https://repo.wp-packages.org) (`wp-plugin/*`, `wp-theme/*`) instead of wpackagist
+- `composer dev` runs `php artisan dev`
+- `Illuminate\Support\Carbon` used instead of `Carbon\Carbon`
+
+### Removed
+- The "Silence is golden" `index.php` from `public/content/plugins`
+
+## [v13.4.0](https://github.com/Pollora/pollora/compare/v13.0.0...v13.4.0) - 2026-05-13
 
 ### Added
 - Default theme redesign with Pollora branding (gradient hero, feature cards, latest posts)
