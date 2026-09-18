@@ -313,9 +313,17 @@ test('Module route does NOT leak into WordPress fallback', function() use ($base
 // ─── 8. HYBRID ROUTING (WordPress conditions + Laravel routing coexistence) ───
 echo "\n\033[1m── Hybrid Routing (WP conditions + Laravel coexistence) ──\033[0m\n";
 
-test('Route::wp(home) renders home template marker', function() use ($baseUrl) {
+test('Homepage is rendered by the template hierarchy', function() use ($baseUrl) {
+    // Until v13.32.0-beta.3 this asserted a data-pollora-template="home"
+    // marker, which came from the Route::wp('home') entry that release removed
+    // from routes/web.php. The homepage now goes through the hierarchy like
+    // every other request, and which template it lands on is the theme's
+    // business — front-page, home or index — so the marker is no longer the
+    // thing to assert. What must hold is that a real document comes back.
     $r = httpGet($baseUrl);
-    return $r['status'] === 200 && str_contains($r['body'], 'data-pollora-template="home"');
+    return $r['status'] === 200
+        && strlen(trim($r['body'])) > 0
+        && str_contains($r['body'], '</html>');
 });
 
 test('Route::wp(singular, post) matches only posts, not CPTs', function() use ($baseUrl) {
