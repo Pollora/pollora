@@ -16,24 +16,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 /**
- * Explicit WordPress routes (Route::wp).
+ * WordPress routes.
  *
- * These take priority over the template hierarchy fallback.
- * Use them when you need controller logic, middleware, or named routes.
- * Simple view rendering can also be handled by the template hierarchy
- * (see FrontendController) — just create the corresponding Blade view.
+ * Nothing to declare here for plain view rendering: the template hierarchy
+ * resolves a request to the matching Blade view in
+ * themes/{theme}/resources/views/ — home, single, page, archive, category,
+ * author, search, taxonomy, 404 — through the FrontendController fallback.
+ *
+ * Use Route::wp() only when a request needs controller logic, middleware or a
+ * named route.
  */
-Route::wp('home', function () {
-    return view('home');
-});
-
-Route::wp('singular', 'post', function () {
-    return view('post');
-});
-
-Route::wp('page', function () {
-    return view('page');
-});
-// Note: 404 and template hierarchy templates (archive, category, search, author,
-// single-{post_type}) are handled by the FrontendController fallback.
-// Just create the corresponding Blade view in themes/{theme}/resources/views/.
