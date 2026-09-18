@@ -5,7 +5,12 @@ All notable changes to the Pollora skeleton will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/Pollora/pollora/compare/v13.32.0-beta.2...main)
+## [Unreleased](https://github.com/Pollora/pollora/compare/v13.32.0-beta.3...main)
+
+## [v13.32.0-beta.3](https://github.com/Pollora/pollora/compare/v13.32.0-beta.2...v13.32.0-beta.3) - 2026-09-18
+
+### Changed
+- `routes/web.php` no longer declares WordPress routes. Its four `Route::wp()` entries — `home`, `single` → `post`, `page`, `404` — took priority over the template hierarchy, so a theme's own naming never applied: an article rendered whatever `view('post')` resolved to, and a theme naming its templates after the hierarchy (`single.blade.php`) was ignored. Anything they did not cover — categories, tags, authors, dates, search, custom post types — had no route at all and already fell through to the hierarchy, which is where every request belongs. `Route::wp()` stays available for requests that need controller logic, middleware or a named route
 
 ## [v13.32.0-beta.2](https://github.com/Pollora/pollora/compare/v13.32.0-beta...v13.32.0-beta.2) - 2026-09-17
 
