@@ -16,20 +16,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 /**
- * WordPress routes
+ * WordPress routes.
+ *
+ * Nothing to declare here to render a template: the WordPress template
+ * hierarchy resolves each request to the matching Blade view of the active
+ * theme — home, single, page, archive, category, tag, author, date, search,
+ * taxonomy, 404 — and falls back to index.blade.php.
+ *
+ * Use Route::wp() only when a request needs controller logic, middleware or a
+ * named route.
  */
-Route::wp('home', function () {
-    return view('home');
-});
-
-Route::wp('single', function () {
-    return view('post');
-});
-
-Route::wp('page', function () {
-    return view('page');
-});
-
-Route::wp('404', function () {
-    return response()->view('errors.404', [], 404);
-});
