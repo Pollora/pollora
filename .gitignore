@@ -28,7 +28,11 @@ Homestead.yaml
 /.fleet
 
 ## Containers and Docker development specific files
-.ddev
+/.ddev/*
+# The decoy server the install integration tests need is part of the suite,
+# so it is versioned; the rest of .ddev stays local.
+!/.ddev/docker-compose.decoy.yaml
+!/.ddev/decoy/
 .docker
 .data
 

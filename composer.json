@@ -85,6 +85,8 @@
             "@php artisan config:clear --ansi",
             "@php artisan test"
         ],
+        "test:install": "@php tests/install/run.php",
+        "test:integration": "@php tests/integration.php",
         "pre-package-uninstall": [
             "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"
         ]

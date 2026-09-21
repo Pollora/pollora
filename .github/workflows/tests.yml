@@ -89,6 +89,85 @@ jobs:
       - name: Execute tests
         run: ddev composer test
 
+      - name: Execute HTTP integration suite
+        run: ddev exec bash -c 'POLLORA_TEST_URL=https://pollora.ddev.site composer test:integration'
+
+      - name: Laravel log
+        if: failure()
+        run: tail -n 200 storage/logs/laravel.log || true
+
+  # The install path is what four of the six v13.32.0-beta.3 fixes came from,
+  # and no test walked it. Each scenario reinstalls the site its own way, so
+  # they cannot share a job with each other or with the suite above.
+  scenarios:
+    name: Install scenario ${{ matrix.scenario }} (${{ matrix.framework }})
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        framework: [locked, develop]
+        scenario: [artisan, web, no-theme, decoy]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Setup DDEV
+        uses: ddev/github-action-setup-ddev@v1
+        with:
+          autostart: false
+
+      - name: Configure DDEV
+        run: |
+          ddev config \
+            --project-name=pollora \
+            --project-type=wordpress \
+            --docroot=public \
+            --php-version=8.4 \
+            --webserver-type=apache-fpm \
+            --database=mariadb:10.11 \
+            --nodejs-version=22 \
+            --disable-settings-management
+
+      # Brings up the decoy server too: .ddev/docker-compose.decoy.yaml is
+      # versioned, so `ddev start` picks it up for every scenario.
+      - name: Start DDEV
+        run: ddev start
+
+      - name: Prepare .env
+        run: |
+          cp .env.example .env
+          sed -i \
+            -e 's#^APP_URL=.*#APP_URL=https://pollora.ddev.site#' \
+            -e 's#^DB_CONNECTION=.*#DB_CONNECTION=mysql#' \
+            -e 's/^# DB_HOST=.*/DB_HOST=db/' \
+            -e 's/^# DB_PORT=.*/DB_PORT=3306/' \
+            -e 's/^# DB_DATABASE=.*/DB_DATABASE=db/' \
+            -e 's/^# DB_USERNAME=.*/DB_USERNAME=db/' \
+            -e 's/^# DB_PASSWORD=.*/DB_PASSWORD=db/' \
+            .env
+
+      - name: Install Composer dependencies
+        run: ddev composer install --no-interaction --no-progress
+
+      - name: Use framework develop
+        if: matrix.framework == 'develop'
+        run: ddev composer require pollora/framework:dev-develop --with-all-dependencies --no-interaction --no-progress
+
+      - name: Generate application key
+        run: ddev exec php artisan key:generate --no-interaction
+
+      # The scenario does its own install: that is the thing under test.
+      - name: Run scenario
+        run: |
+          ddev exec bash -c '
+            POLLORA_INSTALL_TESTS=1 \
+            POLLORA_TEST_URL=https://pollora.ddev.site \
+            POLLORA_DECOY_URL=http://decoy \
+            php tests/install/run.php ${{ matrix.scenario }}
+          '
+
       - name: Laravel log
         if: failure()
         run: tail -n 200 storage/logs/laravel.log || true

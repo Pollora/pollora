@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/Pollora/pollora/compare/v13.32.0-beta.3...main)
 
+### Added
+- Install integration scenarios in `tests/install`, run with `composer test:install <scenario>`. Four of the six fixes in v13.32.0-beta.3 came from the WordPress web installer, a path no test walked — and the first version of the rewrite-rules fix was inoperative while 1040 unit tests were green. Each scenario installs a site its own way and then asserts against it: `web` (the wizard, then page rendering, rewrite rules and theme resolution), `no-theme` (the wizard with `themes/` empty, which must answer 503 with instructions rather than 500), `decoy` (installing while the target URL already answers with a cookie) and `artisan` (the `pollora:install` baseline). `checks` runs the assertions against a site as it stands, without reinstalling
+- A page is only counted as rendered when it answers with a document. The theme's `index.php` stub used to answer 200 with zero bytes — no error, no content, invisible to any status-code check — so every page type is fetched and an empty or truncated body fails
+- `.ddev/docker-compose.decoy.yaml`, a small web server that answers with a `Set-Cookie`, reachable as `http://decoy`. Installing against a URL that already answers is what made the installer fatal on `WP_Http_Cookie`, and the cookie is what reproduces it
+- CI runs each scenario against both the locked framework and its `develop` branch
+
+### Changed
+- `tests/integration.php`, the HTTP suite, is now part of the repository and runs with `composer test:integration`; CI runs it after the install. It was written against a skeleton carrying demo content — `project` and `service` post types, a `project-category` taxonomy, a module route and a `starter/v1` REST namespace — none of which ships here, so the tests that need them now skip instead of failing. Its base URL comes from `POLLORA_TEST_URL`
+
 ## [v13.32.0-beta.3](https://github.com/Pollora/pollora/compare/v13.32.0-beta.2...v13.32.0-beta.3) - 2026-09-18
 
 ### Changed

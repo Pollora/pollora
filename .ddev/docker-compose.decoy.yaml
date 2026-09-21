@@ -1,0 +1,19 @@
+# Decoy web server for the install integration tests — point 1.6.
+#
+# Fix 1 (`Class "WP_Http_Cookie" not found`) only reproduces when the URL the
+# installer targets already answers, and answers with a cookie: that is what
+# drives WordPress into parsing a Set-Cookie header before the full HTTP stack
+# is loaded. This service is that "site already there".
+#
+# It is reachable from the web container as http://decoy — nothing is exposed
+# to the host, and it is started with the project like any other DDEV service.
+services:
+  decoy:
+    image: nginx:1.27-alpine
+    container_name: ddev-${DDEV_SITENAME}-decoy
+    labels:
+      com.ddev.site-name: ${DDEV_SITENAME}
+      com.ddev.approot: $DDEV_APPROOT
+    volumes:
+      - ./decoy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    restart: "no"
