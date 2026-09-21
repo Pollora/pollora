@@ -2,7 +2,13 @@ name: Tests
 
 on:
   push:
-    branches: [main]
+    # Release branches too: a release is exactly what wants testing, and it
+    # never reaches main until it is tagged — so restricting this to main
+    # leaves the install scenarios dormant for the whole stabilisation.
+    branches:
+      - main
+      - develop
+      - 'release/**'
   pull_request:
   schedule:
     # Nightly, to catch a broken install caused by a new framework or theme release
