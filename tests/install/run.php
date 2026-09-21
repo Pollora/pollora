@@ -18,8 +18,8 @@ declare(strict_types=1);
  *   artisan   the pollora:install baseline, for comparison
  *   checks    run the checks against the site as it stands, without
  *             reinstalling; seeds install-test* fixtures, drops nothing.
- *             Takes an optional group — rendering, rewrites or theme — to
- *             run just that one
+ *             Takes an optional group — rendering, rewrites, theme or
+ *             updates — to run just that one
  *
  * Every scenario but `checks` drops the database. POLLORA_INSTALL_TESTS=1 is
  * required to confirm the site is disposable.
@@ -65,6 +65,7 @@ try {
             checkPageRendering();
             checkRewriteRules();
             checkThemeResolution();
+            checkThemeUpdateGuard();
             break;
 
         case 'no-theme':
@@ -97,6 +98,7 @@ try {
             checkPageRendering();
             checkRewriteRules();
             checkThemeResolution();
+            checkThemeUpdateGuard();
             break;
 
         case 'checks':
@@ -109,8 +111,8 @@ try {
             // per fix, and the full pass is far too slow for that.
             $only = $argv[2] ?? null;
 
-            if ($only !== null && ! in_array($only, ['rendering', 'rewrites', 'theme'], true)) {
-                fwrite(STDERR, "\nUnknown group '{$only}': expected rendering, rewrites or theme\n\n");
+            if ($only !== null && ! in_array($only, ['rendering', 'rewrites', 'theme', 'updates'], true)) {
+                fwrite(STDERR, "\nUnknown group '{$only}': expected rendering, rewrites, theme or updates\n\n");
                 exit(2);
             }
 
@@ -124,6 +126,10 @@ try {
 
             if ($only === null || $only === 'theme') {
                 checkThemeResolution();
+            }
+
+            if ($only === null || $only === 'updates') {
+                checkThemeUpdateGuard();
             }
             break;
     }
