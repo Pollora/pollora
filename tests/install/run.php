@@ -16,7 +16,9 @@ declare(strict_types=1);
  *                                                               (point 1.6)
  *   artisan   the pollora:install baseline, for comparison
  *   checks    run the checks against the site as it stands, without
- *             reinstalling; seeds install-test* fixtures, drops nothing
+ *             reinstalling; seeds install-test* fixtures, drops nothing.
+ *             Takes an optional group — rendering, rewrites or theme — to
+ *             run just that one
  *
  * Every scenario but `checks` drops the database. POLLORA_INSTALL_TESTS=1 is
  * required to confirm the site is disposable.
@@ -62,8 +64,14 @@ try {
             guardDestructive($baseUrl);
             resetDatabase();
             removeThemes();
-            installViaWebWizard($baseUrl, $credentials);
-            checkMissingThemeGuidance();
+
+            // Whatever happens next, themes/ goes back where it was.
+            try {
+                installViaWebWizard($baseUrl, $credentials);
+                checkMissingThemeGuidance();
+            } finally {
+                restoreThemes();
+            }
             break;
 
         case 'decoy':
@@ -88,9 +96,28 @@ try {
             // Non-destructive, but not read-only: it seeds a handful of
             // fixtures named install-test* so the archive pages have something
             // to show. Safe to run against a development site.
-            checkPageRendering();
-            checkRewriteRules();
-            checkThemeResolution();
+            //
+            // A second argument narrows the run to one group. Checking that a
+            // group still fails when its fix is reverted means running it once
+            // per fix, and the full pass is far too slow for that.
+            $only = $argv[2] ?? null;
+
+            if ($only !== null && ! in_array($only, ['rendering', 'rewrites', 'theme'], true)) {
+                fwrite(STDERR, "\nUnknown group '{$only}': expected rendering, rewrites or theme\n\n");
+                exit(2);
+            }
+
+            if ($only === null || $only === 'rendering') {
+                checkPageRendering();
+            }
+
+            if ($only === null || $only === 'rewrites') {
+                checkRewriteRules();
+            }
+
+            if ($only === null || $only === 'theme') {
+                checkThemeResolution();
+            }
             break;
     }
 } catch (\Throwable $e) {

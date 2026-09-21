@@ -80,18 +80,58 @@ function resetDatabase(): void
 /**
  * Empty themes/ so the site genuinely has no theme to render with.
  *
- * Only the scaffolded themes are removed; .gitkeep stays so the directory
- * survives, exactly as a fresh checkout looks before pollora:install runs.
+ * Themes are moved aside rather than deleted, and restoreThemes() puts them
+ * back. A test has no business destroying a working tree it could set aside —
+ * a scaffolded theme is hours of someone's work, and this scenario runs on
+ * development machines, not only in throwaway CI containers.
+ *
+ * .gitkeep stays, so themes/ looks exactly as a fresh checkout does before
+ * pollora:install runs.
  */
+function themesHoldingArea(): string
+{
+    return base_path().'/storage/framework/testing/themes-set-aside';
+}
+
 function removeThemes(): void
 {
-    echo "  \033[2m→ emptying themes/\033[0m\n";
+    $holding = themesHoldingArea();
+    echo "  \033[2m→ moving themes/ aside\033[0m\n";
+
+    if (is_dir($holding)) {
+        throw new \RuntimeException(
+            "{$holding} already exists: a previous run did not restore themes/. "
+            .'Move its contents back into themes/ before running this again.'
+        );
+    }
+
+    run('mkdir -p '.escapeshellarg($holding));
 
     foreach (glob(base_path().'/themes/*') ?: [] as $path) {
         if (is_dir($path)) {
-            run('rm -rf '.escapeshellarg($path));
+            run('mv '.escapeshellarg($path).' '.escapeshellarg($holding.'/'));
         }
     }
+}
+
+/**
+ * Put back whatever removeThemes() set aside. Safe to call when it did not.
+ */
+function restoreThemes(): void
+{
+    $holding = themesHoldingArea();
+
+    if (! is_dir($holding)) {
+        return;
+    }
+
+    echo "  \033[2m→ moving themes/ back\033[0m\n";
+
+    foreach (glob($holding.'/*') ?: [] as $path) {
+        run('mv '.escapeshellarg($path).' '.escapeshellarg(base_path().'/themes/'));
+    }
+
+    run('rmdir '.escapeshellarg($holding));
 }
 
 /**
