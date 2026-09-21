@@ -6,34 +6,92 @@
  * Covers routing, module discovery, post type and taxonomy registration,
  * template hierarchy, hooks and middleware, by asking a real site over HTTP.
  *
- * Parts of it were written against a skeleton carrying demo content. That
- * content does not ship on `main`, so those tests skip themselves rather than
- * fail — see the fixture helpers below.
+ * Parts of it were written against a skeleton carrying demo content — a
+ * "project" post type, a "project-category" taxonomy, a module answering on
+ * /toto, a theme that annotates its templates. None of that ships on `main`,
+ * so those tests declare what they need through skipUnless() and are listed,
+ * by name and by reason, in a "Not run" block at the end. Set
+ * POLLORA_INTEGRATION_STRICT=1 where the fixtures are supposed to be there —
+ * CI does — and a test that cannot run becomes a failure.
+ *
+ * Nothing here skips on a 404 any more. An archive answering 404 is what a
+ * missing rewrite flush looks like, so a test that stepped aside on one could
+ * not fail for the reason it was written: that is how fix 5 shipped
+ * inoperative behind a green suite.
  *
  * Run: ddev composer test:integration
  */
 
 $baseUrl = rtrim(getenv('POLLORA_TEST_URL') ?: 'https://pollora-test.ddev.site', '/');
+
+/**
+ * Whether a test that cannot run counts as a failure.
+ *
+ * Off by default, so the suite stays usable against a bare install. CI turns
+ * it on: there, every fixture the suite wants is supposed to be present, and a
+ * test quietly not running is the thing this suite got caught doing.
+ */
+$strict = getenv('POLLORA_INTEGRATION_STRICT') === '1';
+
 $passed = 0;
 $failed = 0;
-$skipped = 0;
+
+/** @var array<string, list<string>> reason => the tests it disabled */
+$skippedBy = [];
+
+/**
+ * Thrown by skipUnless() when a test's precondition is absent.
+ *
+ * A bare `return null` used to mean "skipped" and said nothing more. That is
+ * how `Template hierarchy: author renders author template` disappeared from
+ * the run without anyone noticing, and how a test that skipped on 404 —
+ * exactly the symptom it was written to catch — reported green.
+ */
+final class Skipped extends \RuntimeException {}
+
+/**
+ * Declare what a test needs, and why it is not this test's job to provide it.
+ *
+ * The reason is a sentence, not a flag: it is printed at the end of the run
+ * next to the names of every test it silenced, so an empty suite cannot look
+ * like a passing one.
+ */
+function skipUnless(bool $available, string $reason): void {
+    if (! $available) {
+        throw new Skipped($reason);
+    }
+}
 
 function test(string $name, callable $fn): void {
-    global $passed, $failed, $skipped;
+    global $passed, $failed, $skippedBy, $strict;
     try {
         $result = $fn();
         if ($result === null) {
-            echo "  SKIP  $name\n";
-            $skipped++;
+            // Nothing should reach this any more: an unrunnable test says so
+            // through skipUnless(), which records why.
+            $failed++;
+            echo "  \033[31m✗\033[0m  $name — returned null without declaring a reason\n";
             return;
         }
-        if ($result) {
+        if ($result === true) {
             echo "  \033[32m✓\033[0m  $name\n";
             $passed++;
         } else {
-            echo "  \033[31m✗\033[0m  $name\n";
+            $detail = is_string($result) ? " — {$result}" : '';
+            echo "  \033[31m✗\033[0m  $name{$detail}\n";
             $failed++;
         }
+    } catch (Skipped $e) {
+        $reason = $e->getMessage();
+        $skippedBy[$reason][] = $name;
+
+        if ($strict) {
+            echo "  \033[31m✗\033[0m  $name — needs {$reason}, and POLLORA_INTEGRATION_STRICT is set\n";
+            $failed++;
+            return;
+        }
+
+        echo "  \033[33m•\033[0m  $name \033[2m(needs {$reason})\033[0m\n";
     } catch (\Throwable $e) {
         echo "  \033[31m✗\033[0m  $name — {$e->getMessage()}\n";
         $failed++;
@@ -137,6 +195,44 @@ function hasModuleRoute(string $path): bool {
     return $cache[$path];
 }
 
+/**
+ * Assert which template answered, and say what happened when it did not.
+ *
+ * These checks used to skip on a 404 — the very symptom they exist to catch,
+ * since an archive answering 404 is what a missing rewrite flush looks like.
+ * Now the status and the byte count are part of the failure, because "✗" alone
+ * sent the last round of debugging down the wrong path.
+ */
+function rendersTemplate(array $r, string $template): bool|string {
+    if ($r['status'] !== 200) {
+        return "answered {$r['status']}";
+    }
+    if (str_contains($r['body'], 'data-pollora-template="' . $template . '"')) {
+        return true;
+    }
+    if (preg_match('/data-pollora-template="([^"]+)"/', $r['body'], $m) === 1) {
+        return "rendered the {$m[1]} template, not {$template}";
+    }
+    return 'rendered no template marker at all (' . strlen($r['body']) . ' bytes)';
+}
+
+/**
+ * Assert a page did NOT render a given template.
+ *
+ * A negative assertion is satisfied by an empty body, so a 404 reads as a
+ * pass. That makes it the weakest kind of test in the file, and the only
+ * defence is to prove the page answered before looking at what it rendered.
+ */
+function doesNotRenderTemplate(array $r, string $template): bool|string {
+    if ($r['status'] !== 200) {
+        return "answered {$r['status']}, so this check proves nothing";
+    }
+    if (preg_match('/data-pollora-template="([^"]+)"/', $r['body'], $m) !== 1) {
+        return 'rendered no template marker at all, so this check proves nothing';
+    }
+    return $m[1] === $template ? "rendered the {$template} template" : true;
+}
+
 echo "\n\033[1m=== Pollora HTTP Integration Tests ===\033[0m\n\n";
 
 // ─── 1. ROUTING (DDD refactoring: UseCases, WordPressRoutingService) ───
@@ -152,15 +248,15 @@ test('Homepage contains valid HTML', function() use ($baseUrl) {
 });
 
 test('404 page returns 404 with correct template', function() use ($baseUrl) {
-    if (!themeMarksTemplates()) return null;
+    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
     $r = httpGet("$baseUrl/this-page-does-not-exist-" . time());
     return $r['status'] === 404 && str_contains($r['body'], 'data-pollora-template="404"');
 });
 
 test('Search returns 200 with search template', function() use ($baseUrl) {
-    if (!themeMarksTemplates()) return null;
+    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
     $r = httpGet("$baseUrl/?s=test");
-    return $r['status'] === 200 && str_contains($r['body'], 'data-pollora-template="search"');
+    return rendersTemplate($r, 'search');
 });
 
 test('API routes excluded from WordPress fallback (^(?!api/))', function() use ($baseUrl) {
@@ -206,50 +302,50 @@ test('RSS feed accessible', function() use ($baseUrl) {
 echo "\n\033[1m── Post Type Registration (setArg/getArg refactoring) ──\033[0m\n";
 
 test('Project CPT registered and exposed in REST API', function() use ($baseUrl) {
-    if (!hasPostType('project')) return null;
+    skipUnless(hasPostType('project'), 'the demo "project" post type');
     $r = httpGet("$baseUrl/cms/?rest_route=/wp/v2/types/project");
     return $r['status'] === 200 && str_contains($r['body'], '"project"');
 });
 
 test('Project CPT slug is correct', function() use ($baseUrl) {
-    if (!hasPostType('project')) return null;
+    skipUnless(hasPostType('project'), 'the demo "project" post type');
     $data = json_decode(httpGet("$baseUrl/cms/?rest_route=/wp/v2/types/project")['body'], true);
     return ($data['slug'] ?? '') === 'project';
 });
 
 test('Project has_archive enabled (#[HasArchive] → setArg)', function() use ($baseUrl) {
-    if (!hasPostType('project')) return null;
+    skipUnless(hasPostType('project'), 'the demo "project" post type');
     $data = json_decode(httpGet("$baseUrl/cms/?rest_route=/wp/v2/types/project")['body'], true);
     return !empty($data['has_archive']);
 });
 
 test('Project is publicly queryable (#[PubliclyQueryable] → setArg)', function() use ($baseUrl) {
-    if (!hasPostType('project')) return null;
+    skipUnless(hasPostType('project'), 'the demo "project" post type');
     // WP REST doesn't expose supports array; verify queryable instead
     $r = httpGet("$baseUrl/cms/?rest_route=/wp/v2/project");
     return $r['status'] === 200;
 });
 
 test('Project name label is "Projects" (auto-generated from class)', function() use ($baseUrl) {
-    if (!hasPostType('project')) return null;
+    skipUnless(hasPostType('project'), 'the demo "project" post type');
     $data = json_decode(httpGet("$baseUrl/cms/?rest_route=/wp/v2/types/project")['body'], true);
     return ($data['name'] ?? '') === 'Projects';
 });
 
 test('Project show_in_rest=true (#[ShowInRest] → setArg)', function() use ($baseUrl) {
-    if (!hasPostType('project')) return null;
+    skipUnless(hasPostType('project'), 'the demo "project" post type');
     $data = json_decode(httpGet("$baseUrl/cms/?rest_route=/wp/v2/types/project")['body'], true);
     return ($data['rest_base'] ?? '') === 'project';
 });
 
 test('Service CPT registered and exposed in REST', function() use ($baseUrl) {
-    if (!hasPostType('service')) return null;
+    skipUnless(hasPostType('service'), 'the demo "service" post type');
     $r = httpGet("$baseUrl/cms/?rest_route=/wp/v2/types/service");
     return $r['status'] === 200;
 });
 
 test('Project archive page accessible', function() use ($baseUrl) {
-    if (!hasPostType('project')) return null;
+    skipUnless(hasPostType('project'), 'the demo "project" post type');
     $r = httpGet("$baseUrl/project/");
     return $r['status'] === 200;
 });
@@ -258,25 +354,25 @@ test('Project archive page accessible', function() use ($baseUrl) {
 echo "\n\033[1m── Taxonomy Registration (setArg/getArg refactoring) ──\033[0m\n";
 
 test('project-category taxonomy exposed in REST', function() use ($baseUrl) {
-    if (!hasTaxonomy('project-category')) return null;
+    skipUnless(hasTaxonomy('project-category'), 'the demo "project-category" taxonomy');
     $r = httpGet("$baseUrl/cms/?rest_route=/wp/v2/taxonomies/project-category");
     return $r['status'] === 200;
 });
 
 test('project-category is hierarchical (#[Hierarchical] → setArg)', function() use ($baseUrl) {
-    if (!hasTaxonomy('project-category')) return null;
+    skipUnless(hasTaxonomy('project-category'), 'the demo "project-category" taxonomy');
     $data = json_decode(httpGet("$baseUrl/cms/?rest_route=/wp/v2/taxonomies/project-category")['body'], true);
     return ($data['hierarchical'] ?? false) === true;
 });
 
 test('project-category labels applied (#[Labels] → setArg with merge)', function() use ($baseUrl) {
-    if (!hasTaxonomy('project-category')) return null;
+    skipUnless(hasTaxonomy('project-category'), 'the demo "project-category" taxonomy');
     $data = json_decode(httpGet("$baseUrl/cms/?rest_route=/wp/v2/taxonomies/project-category")['body'], true);
     return ($data['name'] ?? '') === 'Project Categories';
 });
 
 test('project-category linked to project CPT', function() use ($baseUrl) {
-    if (!hasTaxonomy('project-category')) return null;
+    skipUnless(hasTaxonomy('project-category'), 'the demo "project-category" taxonomy');
     $data = json_decode(httpGet("$baseUrl/cms/?rest_route=/wp/v2/taxonomies/project-category")['body'], true);
     $types = $data['types'] ?? [];
     return in_array('project', $types);
@@ -286,13 +382,13 @@ test('project-category linked to project CPT', function() use ($baseUrl) {
 echo "\n\033[1m── Module Discovery (UseCases) ──\033[0m\n";
 
 test('Framework modules discovered: custom CPTs available', function() use ($baseUrl) {
-    if (!hasPostType('project')) return null;
+    skipUnless(hasPostType('project'), 'the demo "project" post type');
     $data = json_decode(httpGet("$baseUrl/cms/?rest_route=/wp/v2/types")['body'], true);
     return isset($data['project']) && isset($data['service']);
 });
 
 test('Framework modules discovered: custom taxonomies available', function() use ($baseUrl) {
-    if (!hasTaxonomy('project-category')) return null;
+    skipUnless(hasTaxonomy('project-category'), 'the demo "project-category" taxonomy');
     $data = json_decode(httpGet("$baseUrl/cms/?rest_route=/wp/v2/taxonomies")['body'], true);
     return isset($data['project-category']);
 });
@@ -339,7 +435,7 @@ test('WP REST API has wp/v2 namespace', function() use ($baseUrl) {
 echo "\n\033[1m── Module Routing ──\033[0m\n";
 
 test('Module route /toto resolves (Modules/Test)', function() use ($baseUrl) {
-    if (!hasModuleRoute('/toto')) return null;
+    skipUnless(hasModuleRoute('/toto'), 'the demo module that registers /toto');
     $r = httpGet("$baseUrl/toto");
     // Module defines Route::get('/toto', fn() => dd('toto'))
     // dd() may return 500 but the content proves the route was matched
@@ -347,7 +443,7 @@ test('Module route /toto resolves (Modules/Test)', function() use ($baseUrl) {
 });
 
 test('Module route does NOT leak into WordPress fallback', function() use ($baseUrl) {
-    if (!hasModuleRoute('/toto')) return null;
+    skipUnless(hasModuleRoute('/toto'), 'the demo module that registers /toto');
     // /toto should be handled by the module route, not by WP template hierarchy
     $r = httpGet("$baseUrl/toto");
     return !str_contains($r['body'], 'Page not found')
@@ -371,32 +467,29 @@ test('Homepage is rendered by the template hierarchy', function() use ($baseUrl)
 });
 
 test('Route::wp(singular, post) matches only posts, not CPTs', function() use ($baseUrl) {
-    if (!hasPostType('project')) return null;
+    skipUnless(hasPostType('project'), 'the demo "project" post type');
     // Project archive exists at /project/ — should NOT be matched by Route::wp('singular', 'post')
     $r = httpGet("$baseUrl/project/");
     return $r['status'] === 200;
 });
 
 test('Template hierarchy: category renders category template', function() use ($baseUrl) {
-    if (!themeMarksTemplates()) return null;
+    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
     $r = httpGet("$baseUrl/category/uncategorized/");
-    if ($r['status'] === 404) return null; // skip if no posts in category
-    return str_contains($r['body'], 'data-pollora-template="category"');
+    return rendersTemplate($r, 'category');
 });
 
 test('Template hierarchy: author renders author template', function() use ($baseUrl) {
-    if (!themeMarksTemplates()) return null;
+    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
     $r = httpGet("$baseUrl/author/admin/");
-    if ($r['status'] === 404) return null;
-    return str_contains($r['body'], 'data-pollora-template="author"');
+    return rendersTemplate($r, 'author');
 });
 
 test('Template hierarchy: date archive renders archive template', function() use ($baseUrl) {
-    if (!themeMarksTemplates()) return null;
+    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
     $year = date('Y');
     $r = httpGet("$baseUrl/$year/");
-    if ($r['status'] === 404) return null;
-    return str_contains($r['body'], 'data-pollora-template="archive"');
+    return rendersTemplate($r, 'archive');
 });
 
 test('Standard Laravel route /up (health check) coexists with WP routes', function() use ($baseUrl) {
@@ -434,17 +527,17 @@ test('Theme assets load (CSS/JS references in HTML)', function() use ($baseUrl) 
 });
 
 test('Project archive renders archive template via hierarchy', function() use ($baseUrl) {
-    if (!themeMarksTemplates()) return null;
-    if (!hasPostType('project')) return null;
+    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
+    skipUnless(hasPostType('project'), 'the demo "project" post type');
     $r = httpGet("$baseUrl/project/");
-    return $r['status'] === 200 && str_contains($r['body'], 'data-pollora-template="archive"');
+    return rendersTemplate($r, 'archive');
 });
 
 // ─── 10. EDGE CASES ───
 echo "\n\033[1m── Edge Cases ──\033[0m\n";
 
 test('Trailing slash handling consistent', function() use ($baseUrl) {
-    if (!themeMarksTemplates()) return null;
+    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
     $r1 = httpGet("$baseUrl/project");
     $r2 = httpGet("$baseUrl/project/");
     // Both should resolve (redirect or direct 200)
@@ -496,74 +589,67 @@ test('HEAD requests work on WP routes', function() use ($baseUrl) {
 echo "\n\033[1m── Real Content Routing ──\033[0m\n";
 
 test('Route::wp(page) renders page template for sample-page', function() use ($baseUrl) {
-    if (!themeMarksTemplates()) return null;
+    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
     $r = httpGet("$baseUrl/sample-page/");
-    if ($r['status'] === 404) return null;
-    return $r['status'] === 200 && str_contains($r['body'], 'data-pollora-template="page"');
+    return rendersTemplate($r, 'page');
 });
 
 test('Route::wp(singular, post) renders single template for hello-world', function() use ($baseUrl) {
-    if (!themeMarksTemplates()) return null;
+    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
     $r = httpGet("$baseUrl/hello-world/");
-    if ($r['status'] === 404) return null;
-    return $r['status'] === 200 && str_contains($r['body'], 'data-pollora-template="single"');
+    return rendersTemplate($r, 'single');
 });
 
 test('Single project renders single-project template (not generic single)', function() use ($baseUrl) {
-    if (!themeMarksTemplates()) return null;
-    if (!hasPostType('project')) return null;
+    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
+    skipUnless(hasPostType('project'), 'the demo "project" post type');
     $r = httpGet("$baseUrl/project/test-project/");
-    if ($r['status'] === 404) return null;
-    return $r['status'] === 200 && str_contains($r['body'], 'data-pollora-template="single-project"');
+    return rendersTemplate($r, 'single-project');
 });
 
 test('Single project does NOT get the generic single (post) template', function() use ($baseUrl) {
-    if (!themeMarksTemplates()) return null;
-    if (!hasPostType('project')) return null;
+    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
+    skipUnless(hasPostType('project'), 'the demo "project" post type');
     $r = httpGet("$baseUrl/project/test-project/");
-    if ($r['status'] === 404) return null;
-    return !str_contains($r['body'], 'data-pollora-template="single"')
-        || str_contains($r['body'], 'data-pollora-template="single-project"');
+    return doesNotRenderTemplate($r, 'single');
 });
 
 test('Taxonomy archive project-category/web renders taxonomy template', function() use ($baseUrl) {
-    if (!themeMarksTemplates()) return null;
-    if (!hasTaxonomy('project-category')) return null;
+    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
+    skipUnless(hasTaxonomy('project-category'), 'the demo "project-category" taxonomy');
     $r = httpGet("$baseUrl/project-category/web/");
-    if ($r['status'] === 404) return null;
-    return $r['status'] === 200 && str_contains($r['body'], 'data-pollora-template="taxonomy"');
+    return rendersTemplate($r, 'taxonomy');
 });
 
 test('Page does NOT render home template', function() use ($baseUrl) {
-    if (!themeMarksTemplates()) return null;
+    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
     $r = httpGet("$baseUrl/sample-page/");
-    if ($r['status'] === 404) return null;
-    return !str_contains($r['body'], 'data-pollora-template="home"');
+    return doesNotRenderTemplate($r, 'home');
 });
 
 test('Single post does NOT render page template', function() use ($baseUrl) {
+    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
     $r = httpGet("$baseUrl/hello-world/");
-    if ($r['status'] === 404) return null;
-    return !str_contains($r['body'], 'data-pollora-template="page"');
+    return doesNotRenderTemplate($r, 'page');
 });
 
 // ─── 12. CUSTOM REST API (discovery of app/Cms/Rest controllers) ───
 echo "\n\033[1m── Custom REST API Discovery ──\033[0m\n";
 
 test('Custom namespace starter/v1 registered', function() use ($baseUrl) {
-    if (!hasRestNamespace('starter/v1')) return null;
+    skipUnless(hasRestNamespace('starter/v1'), 'the demo starter/v1 REST namespace');
     $data = json_decode(httpGet("$baseUrl/cms/?rest_route=/")['body'], true);
     return in_array('starter/v1', $data['namespaces'] ?? []);
 });
 
 test('Custom endpoint /starter/v1/status accessible', function() use ($baseUrl) {
-    if (!hasRestNamespace('starter/v1')) return null;
+    skipUnless(hasRestNamespace('starter/v1'), 'the demo starter/v1 REST namespace');
     $r = httpGet("$baseUrl/cms/?rest_route=/starter/v1/status");
     return $r['status'] === 200;
 });
 
 test('Custom endpoint /starter/v1/projects accessible', function() use ($baseUrl) {
-    if (!hasRestNamespace('starter/v1')) return null;
+    skipUnless(hasRestNamespace('starter/v1'), 'the demo starter/v1 REST namespace');
     $r = httpGet("$baseUrl/cms/?rest_route=/starter/v1/projects");
     return in_array($r['status'], [200, 401]); // May require auth
 });
@@ -590,7 +676,6 @@ test('Hook discovery: no errors on pages with hooked content', function() use ($
     // Content hooks modify the_title, body_class etc.
     // If discovery failed, these would throw or cause visible errors
     $r = httpGet("$baseUrl/hello-world/");
-    if ($r['status'] === 404) return null;
     return !str_contains($r['body'], 'Fatal error') && !str_contains($r['body'], 'Warning:');
 });
 
@@ -658,9 +743,32 @@ test('WordPress cron endpoints accessible', function() use ($baseUrl) {
 });
 
 // ─── Summary ───
+
+$skipped = array_sum(array_map('count', $skippedBy));
+
+// What did not run, and why. A count on its own reads as a detail; the names
+// read as work. The whole point of this block is that a run where nothing
+// could be measured must not look like a run where everything passed.
+if ($skippedBy !== []) {
+    echo "\n\033[1m── Not run ──\033[0m\n";
+
+    ksort($skippedBy);
+
+    foreach ($skippedBy as $reason => $names) {
+        $count = count($names);
+        echo "\n  \033[33m{$count}\033[0m needing \033[1m{$reason}\033[0m:\n";
+
+        foreach ($names as $name) {
+            echo "      \033[2m{$name}\033[0m\n";
+        }
+    }
+
+    echo "\n  \033[2mSet POLLORA_INTEGRATION_STRICT=1 to make these failures.\033[0m\n";
+}
+
 echo "\n\033[1m══════════════════════════════════════════\033[0m\n";
 $color = $failed > 0 ? '31' : '32';
-echo "  \033[{$color}mPassed: $passed  |  Failed: $failed  |  Skipped: $skipped\033[0m\n";
+echo "  \033[{$color}mPassed: $passed  |  Failed: $failed  |  Not run: $skipped\033[0m\n";
 echo "\033[1m══════════════════════════════════════════\033[0m\n\n";
 
 exit($failed > 0 ? 1 : 0);
