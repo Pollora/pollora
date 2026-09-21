@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * The six check groups of the install integration suite.
+ * The check groups of the install integration suite.
  *
  * Each group maps to one of the fixes released in v13.32.0-beta.3, and each is
  * meant to fail when its fix is reverted. That property is the point: a check
@@ -295,4 +295,137 @@ function checkRespondingUrlInstall(string $decoyUrl): void
 
         return ($siteurl !== null && $siteurl !== '') ? true : 'siteurl is unset — the install did not finish';
     });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 1.7 — wordpress.org offers no update for the project's themes (fix 6)
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Build the update offer wordpress.org sends for a theme it distributes.
+ *
+ * The shape matters: WordPress keys `response` and `no_update` by stylesheet
+ * and reads `new_version` from the entry, so a shorter fake would be filtered
+ * correctly and still tell us nothing about what the admin displays.
+ *
+ * @return string a PHP array literal, for embedding in a wp eval
+ */
+function themeUpdateOffer(string $stylesheet): string
+{
+    return var_export([
+        'theme' => $stylesheet,
+        'new_version' => '99.0.0',
+        'url' => 'https://wordpress.org/themes/'.$stylesheet.'/',
+        'package' => 'https://downloads.wordpress.org/theme/'.$stylesheet.'.99.0.0.zip',
+        'requires' => '6.0',
+        'requires_php' => '8.0',
+    ], true);
+}
+
+/**
+ * Fix 6: a theme scaffolded into the project must never be offered an update
+ * from wordpress.org.
+ *
+ * The danger is a name collision. `pollora:install` generates a theme called
+ * `default`, wordpress.org publishes a theme called `default`, and WordPress
+ * sends every installed stylesheet to the update API keyed by its directory
+ * name. Accepting the offer replaces the project's theme — and the user's
+ * work — with that download.
+ *
+ * Only the live site can show this. The guard is a filter on
+ * `site_transient_update_themes`, so what is under test is that the hook is
+ * registered at all, which no unit test can see: ThemeUpdateGuardTest already
+ * proves the filtering logic and passed while nothing called it.
+ *
+ * The control case is the half that makes this falsifiable. A guard that
+ * emptied `response` wholesale would pass every "no update offered" check and
+ * silently stop the site from ever hearing about a real theme update, so an
+ * offer for a stylesheet outside the project's themes directory has to
+ * survive.
+ */
+function checkThemeUpdateGuard(): void
+{
+    section("1.7 — wordpress.org updates for the project's themes");
+
+    $stylesheet = wpEval('echo get_stylesheet();');
+
+    if ($stylesheet === '') {
+        test('An active theme is present', fn (): string => 'no theme is active — there is nothing this group can measure');
+
+        return;
+    }
+
+    // A stylesheet that is deliberately not one of ours: no directory of this
+    // name exists under the project's themes path, so the guard must leave it
+    // alone.
+    $foreign = 'twentytwentyfour';
+
+    $seed = '$t = get_site_transient("update_themes");'
+        .' $t = is_object($t) ? $t : new stdClass();'
+        .' $t->response = is_array($t->response ?? null) ? $t->response : [];'
+        .' $t->no_update = is_array($t->no_update ?? null) ? $t->no_update : [];'
+        .' $t->checked = is_array($t->checked ?? null) ? $t->checked : [];'
+        .' $t->response['.var_export($stylesheet, true).'] = '.themeUpdateOffer($stylesheet).';'
+        .' $t->response['.var_export($foreign, true).'] = '.themeUpdateOffer($foreign).';'
+        .' $t->checked['.var_export($stylesheet, true).'] = "1.0.0";'
+        .' $t->checked['.var_export($foreign, true).'] = "1.0.0";'
+        // remove_filter first: set_site_transient does not run the read
+        // filter, but a stale value from an earlier run would.
+        .' set_site_transient("update_themes", $t);'
+        .' echo "seeded";';
+
+    $seeded = wpEval($seed);
+
+    test('The update transient can be seeded with a wordpress.org offer', function () use ($seeded) {
+        return $seeded === 'seeded' ? true : "could not seed update_themes: {$seeded}";
+    });
+
+    // Everything below reads the transient back, which is what runs the guard.
+    $read = '$t = get_site_transient("update_themes");'
+        .' echo json_encode(["response" => array_keys((array) ($t->response ?? [])), "no_update" => array_keys((array) ($t->no_update ?? []))]);';
+
+    $state = json_decode(wpEval($read), true) ?: ['response' => [], 'no_update' => []];
+
+    test('The project theme is dropped from the update offers', function () use ($state, $stylesheet) {
+        return in_array($stylesheet, $state['response'], true)
+            ? "wordpress.org is offering an update for {$stylesheet} — accepting it overwrites the project's theme"
+            : true;
+    });
+
+    test('The project theme is moved to no_update, not merely removed', function () use ($state, $stylesheet) {
+        // Dropping it outright leaves WordPress considering the theme
+        // unchecked, so it asks again on every admin page load.
+        return in_array($stylesheet, $state['no_update'], true)
+            ? true
+            : "{$stylesheet} is in neither list — WordPress will keep re-checking it on every admin page";
+    });
+
+    test('An update for a theme outside the project is left alone', function () use ($state, $foreign) {
+        return in_array($foreign, $state['response'], true)
+            ? true
+            : "the guard also swallowed {$foreign} — the site would never hear about a real theme update";
+    });
+
+    test('wp-admin counts no theme update for the project theme', function () use ($stylesheet) {
+        $updates = wpEval(
+            'require_once ABSPATH."wp-admin/includes/update.php";'
+            .' echo implode(",", array_keys(get_theme_updates()));'
+        );
+
+        return in_array($stylesheet, array_filter(explode(',', $updates)), true)
+            ? "wp-admin still lists an update for {$stylesheet}"
+            : true;
+    });
+
+    test('wp theme list reports no available update', function () use ($stylesheet) {
+        $update = wpRaw('theme list --name='.escapeshellarg($stylesheet).' --field=update');
+
+        return $update['code'] === 0 && trim($update['out']) === 'none'
+            ? true
+            : "wp theme list says the update column is '{$update['out']}' for {$stylesheet}";
+    });
+
+    // The seeded transient is fiction. Drop it so the site goes back to
+    // whatever WordPress decides on its own.
+    wpEval('delete_site_transient("update_themes"); echo "cleaned";');
 }
