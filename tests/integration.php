@@ -168,10 +168,33 @@ test('API routes excluded from WordPress fallback (^(?!api/))', function() use (
     return $r['status'] !== 200;
 });
 
-test('WordPress login page accessible or redirected', function() use ($baseUrl) {
+test('WordPress login page answers 200 with a login form', function() use ($baseUrl) {
+    // This accepted 404 outright, explained away as "Pollora handles auth
+    // differently", and so never reported that the login page had been
+    // answering 404 with a perfectly good form underneath it. A page that
+    // renders must say so: a 404 here is the bug, not a variant.
     $r = httpGet("$baseUrl/cms/wp-login.php");
-    // May return 200 or 404 (Pollora handles auth differently)
-    return in_array($r['status'], [200, 302, 404]);
+
+    if ($r['status'] !== 200) {
+        return false;
+    }
+
+    return str_contains($r['body'], 'loginform') || str_contains($r['body'], 'user_login');
+});
+
+test('WordPress install root does not serve a template source', function() use ($baseUrl) {
+    // /cms/ is served by WordPress's own index.php, whose template loader
+    // includes whatever the hierarchy hands it — Blade sources included, which
+    // PHP prints verbatim.
+    $r = httpGet("$baseUrl/cms/");
+
+    foreach (['@extends', '@section', '@php', '{{--'] as $directive) {
+        if (str_contains($r['body'], $directive)) {
+            return "Blade source leaked: found {$directive}";
+        }
+    }
+
+    return true;
 });
 
 test('RSS feed accessible', function() use ($baseUrl) {
