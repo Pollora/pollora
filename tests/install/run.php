@@ -18,8 +18,8 @@ declare(strict_types=1);
  *   artisan   the pollora:install baseline, for comparison
  *   checks    run the checks against the site as it stands, without
  *             reinstalling; seeds install-test* fixtures, drops nothing.
- *             Takes an optional group — rendering, rewrites, theme or
- *             updates — to run just that one
+ *             Takes an optional group — rendering, rewrites, theme,
+ *             updates or views — to run just that one
  *
  * Every scenario but `checks` drops the database. POLLORA_INSTALL_TESTS=1 is
  * required to confirm the site is disposable.
@@ -66,6 +66,7 @@ try {
             checkRewriteRules();
             checkThemeResolution();
             checkThemeUpdateGuard();
+            checkViewPathPrecedence();
             break;
 
         case 'no-theme':
@@ -99,6 +100,7 @@ try {
             checkRewriteRules();
             checkThemeResolution();
             checkThemeUpdateGuard();
+            checkViewPathPrecedence();
             break;
 
         case 'checks':
@@ -111,8 +113,8 @@ try {
             // per fix, and the full pass is far too slow for that.
             $only = $argv[2] ?? null;
 
-            if ($only !== null && ! in_array($only, ['rendering', 'rewrites', 'theme', 'updates'], true)) {
-                fwrite(STDERR, "\nUnknown group '{$only}': expected rendering, rewrites, theme or updates\n\n");
+            if ($only !== null && ! in_array($only, ['rendering', 'rewrites', 'theme', 'updates', 'views'], true)) {
+                fwrite(STDERR, "\nUnknown group '{$only}': expected rendering, rewrites, theme, updates or views\n\n");
                 exit(2);
             }
 
@@ -130,6 +132,10 @@ try {
 
             if ($only === null || $only === 'updates') {
                 checkThemeUpdateGuard();
+            }
+
+            if ($only === null || $only === 'views') {
+                checkViewPathPrecedence();
             }
             break;
     }

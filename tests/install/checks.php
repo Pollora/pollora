@@ -429,3 +429,81 @@ function checkThemeUpdateGuard(): void
     // whatever WordPress decides on its own.
     wpEval('delete_site_transient("update_themes"); echo "cleaned";');
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 1.8 — Which view path wins inside a module (fix 3, second half)
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Fix 3 reversed the order a module's view paths are registered in.
+ *
+ * Each path is prepended to the finder, so registering them front to back left
+ * them reversed. For a theme that put its root ahead of resources/views — and
+ * a theme root holds only the PHP stubs WordPress needs to consider the theme
+ * valid, index.php being "Silence is golden". Every request the hierarchy
+ * could not match to something more specific rendered the stub: HTTP 200 with
+ * an empty body, and no error anywhere.
+ *
+ * Measured on a live site, reverting the array_reverse() in ModuleAssetManager:
+ * the finder order flips, and the category archive goes from 34 094 bytes to 0.
+ * That pair is what this group pins — the mechanism and the symptom — because
+ * the symptom alone has many possible causes and the mechanism alone is what
+ * a unit test already covers.
+ *
+ * On the debt this closes: the reversal applies to every module, not only
+ * themes, so a module holding both `views/` and `resources/views/` has its
+ * priority changed by it. For a theme that turns out to be moot — a theme's
+ * `views/` never reaches the finder at all on a real install, measured — and
+ * for plain modules the ordering is pinned by ModuleViewPathsTest in the
+ * framework. What was missing, and is here, is the real-site half.
+ */
+function checkViewPathPrecedence(): void
+{
+    section('1.8 — Which view path wins inside a module');
+
+    $themeRoot = wpEval('echo get_stylesheet_directory();');
+
+    $paths = explode("\n", wpEval('echo implode("\n", app("view")->getFinder()->getPaths());'));
+    $paths = array_values(array_filter(array_map('trim', $paths)));
+
+    test("The theme's resources/views is registered", function () use ($paths, $themeRoot) {
+        return in_array($themeRoot.'/resources/views', $paths, true)
+            ? true
+            : "resources/views is not among the view paths (".implode(', ', $paths).")";
+    });
+
+    test('resources/views outranks the theme root', function () use ($paths, $themeRoot) {
+        $views = array_search($themeRoot.'/resources/views', $paths, true);
+        $root = array_search($themeRoot, $paths, true);
+
+        if ($views === false || $root === false) {
+            return 'one of the two paths is missing, so their order says nothing';
+        }
+
+        return $views < $root
+            ? true
+            : "the theme root is searched first — every view the theme ships is shadowed by a PHP stub";
+    });
+
+    // The symptom, in a browser. checkPageRendering() already refuses an empty
+    // archive; this one says why it would be empty, next to the mechanism.
+    test('The archive fallback renders the Blade view, not the stub', function () {
+        $link = wpEval('$t = get_terms(["taxonomy" => "category", "hide_empty" => false, "number" => 1]); echo $t && ! is_wp_error($t) ? get_category_link($t[0]) : "";');
+
+        if ($link === '') {
+            return 'no category to request — this check would prove nothing';
+        }
+
+        $response = http($link);
+
+        if ($response['status'] !== 200) {
+            return "the category archive answered {$response['status']}";
+        }
+
+        $bytes = strlen(trim($response['body']));
+
+        return $bytes > 0 && str_contains($response['body'], '</html>')
+            ? true
+            : "the archive answered 200 with {$bytes} bytes — the theme root's index.php stub rendered";
+    });
+}
