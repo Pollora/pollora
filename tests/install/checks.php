@@ -203,6 +203,105 @@ function checkThemeResolution(): void
             ? true
             : "active theme {$stylesheet} is absent from the themes list ({$listed})";
     });
+
+    checkStandardThemesDirectory();
+}
+
+/**
+ * The second themes directory fix 4 registers, and what it costs.
+ *
+ * get_raw_theme_root() answers a hardcoded '/themes' whenever a single
+ * directory is registered, and wp_get_theme() resolves that against
+ * WP_CONTENT_DIR — landing outside Pollora's themes directory. Registering
+ * WordPress's own directory alongside Pollora's lifts that shortcut, so the
+ * stylesheet_root option decides instead.
+ *
+ * The price is that WP_CONTENT_DIR/themes is now scanned. It is empty in the
+ * skeleton, so nothing showed; a project that keeps themes there will see them
+ * listed, and the question nobody had answered is whether one of them can
+ * displace the active theme. It cannot, and that is what this pins — by
+ * putting a theme there and looking.
+ */
+function checkStandardThemesDirectory(): void
+{
+    $contentDir = wpEval('echo defined("WP_CONTENT_DIR") ? WP_CONTENT_DIR : "";');
+
+    if ($contentDir === '') {
+        test('WP_CONTENT_DIR is defined', fn (): string => 'WP_CONTENT_DIR is not defined, so fix 4 registers nothing extra');
+
+        return;
+    }
+
+    $standard = $contentDir.'/themes';
+    $slug = 'install-test-stray-'.bin2hex(random_bytes(3));
+    $created = ! is_dir($standard);
+
+    $before = wpEval('echo get_stylesheet();');
+
+    mkdir($standard.'/'.$slug, 0755, true);
+
+    try {
+        // The minimum WordPress needs to consider a directory a theme.
+        file_put_contents($standard.'/'.$slug.'/style.css', "/*
+Theme Name: Stray {$slug}
+Version: 1.0
+*/
+");
+        file_put_contents($standard.'/'.$slug.'/index.php', "<?php
+// Silence is golden.
+");
+
+        test('A theme in WP_CONTENT_DIR/themes is visible', function () use ($slug) {
+            $listed = explode(',', wpEval('echo implode(",", array_keys(wp_get_themes()));'));
+
+            return in_array($slug, $listed, true)
+                ? true
+                : "the standard themes directory is not scanned at all — fix 4 no longer registers it";
+        });
+
+        test('It does not displace the active theme', function () use ($before) {
+            $now = wpEval('echo get_stylesheet();');
+
+            return $now === $before
+                ? true
+                : "the active theme changed from {$before} to {$now} because of a theme sitting in WP_CONTENT_DIR/themes";
+        });
+
+        test('The active theme still resolves to the project directory', function () use ($contentDir) {
+            $directory = wpEval('echo wp_get_theme()->get_stylesheet_directory();');
+
+            if (! is_dir($directory)) {
+                return "wp_get_theme() points at {$directory}, which does not exist";
+            }
+
+            return str_starts_with($directory, $contentDir.'/themes/')
+                ? "the active theme resolved into WP_CONTENT_DIR/themes ({$directory}) instead of the project's themes directory"
+                : true;
+        });
+
+        test('Both themes directories are registered', function () use ($standard) {
+            $roots = explode(',', wpEval('echo implode(",", (array) ($GLOBALS["wp_theme_directories"] ?? []));'));
+            $roots = array_values(array_filter($roots));
+
+            if (count($roots) < 2) {
+                return 'only '.implode(', ', $roots).' is registered — get_raw_theme_root() takes its shortcut again';
+            }
+
+            return in_array($standard, $roots, true)
+                ? true
+                : $standard.' is not among the registered roots ('.implode(', ', $roots).')';
+        });
+    } finally {
+        foreach (glob($standard.'/'.$slug.'/*') ?: [] as $file) {
+            unlink($file);
+        }
+
+        rmdir($standard.'/'.$slug);
+
+        if ($created) {
+            @rmdir($standard);
+        }
+    }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
