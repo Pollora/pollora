@@ -235,3 +235,90 @@ function installViaArtisan(array $credentials): void
         throw new \RuntimeException("pollora:install failed: {$result['out']}");
     }
 }
+
+/**
+ * Install with the site URL pointed at a server that already answers.
+ *
+ * This is the literal reproduction of fix 1, and the reason the `decoy`
+ * scenario was the weakest of the six: it checked that WP_Http_Cookie was
+ * loaded and that a cookie-bearing response could be parsed, which is the
+ * mechanism, but nothing walked the path that actually broke.
+ *
+ * wp_install() calls wp_install_maybe_enable_pretty_permalinks(), which does a
+ * wp_remote_get() on the site's own URL. WP_Http turns every Set-Cookie of
+ * that response into a WP_Http_Cookie, and the install bootstrap had not
+ * loaded the class. Hijacking DNS inside the container is not needed to get
+ * there: WP_HOME and WP_SITEURL are built from APP_URL, so pointing APP_URL at
+ * the decoy makes the installer fetch it for real.
+ *
+ * The .env is put back whatever happens, because everything after this expects
+ * the site to be at its own address — and the stored URL is read before that,
+ * because WP_HOME is a constant built from APP_URL: asking WordPress for the
+ * option afterwards returns the restored address and would report the
+ * reproduction as having failed no matter what happened.
+ *
+ * @return array{code: int, out: string, siteurl: string}
+ */
+function installViaArtisanAgainst(string $url, array $credentials): array
+{
+    echo "  \033[2m→ installing with APP_URL pointed at {$url}\033[0m\n";
+
+    $env = base_path().'/.env';
+    $original = file_get_contents($env);
+
+    if ($original === false) {
+        throw new \RuntimeException('cannot read .env');
+    }
+
+    $rewritten = preg_replace('/^APP_URL=.*$/m', 'APP_URL='.$url, $original);
+
+    if ($rewritten === null || $rewritten === $original) {
+        throw new \RuntimeException('APP_URL is not set in .env, so it cannot be pointed anywhere');
+    }
+
+    try {
+        file_put_contents($env, $rewritten);
+        run('php artisan config:clear');
+
+        $result = run('php artisan pollora:install --install'
+            .' --title='.escapeshellarg($credentials['title'])
+            .' --admin-user='.escapeshellarg($credentials['user'])
+            .' --admin-email='.escapeshellarg($credentials['email'])
+            .' --admin-password='.escapeshellarg($credentials['password'])
+            .' --locale=en_US --public=false --no-interaction');
+
+        $result['siteurl'] = storedSiteUrl();
+
+        return $result;
+    } finally {
+        file_put_contents($env, $original);
+        run('php artisan config:clear');
+    }
+}
+
+/**
+ * The site URL as it sits in the database, not as WordPress reports it.
+ *
+ * get_option('siteurl') is filtered by the WP_SITEURL constant, which Pollora
+ * builds from APP_URL — so it answers with whatever .env says at the moment of
+ * the question, never with what the install wrote. Only the row is evidence.
+ */
+function storedSiteUrl(): string
+{
+    $script = base_path().'/.pollora-stored-siteurl.php';
+
+    file_put_contents($script, <<<'PHP'
+<?php
+global $wpdb;
+$row = $wpdb->get_var("SELECT option_value FROM {$wpdb->options} WHERE option_name = 'siteurl'");
+echo (string) $row;
+PHP);
+
+    try {
+        $result = wpRaw('eval-file '.escapeshellarg($script));
+
+        return $result['code'] === 0 ? trim($result['out']) : '';
+    } finally {
+        unlink($script);
+    }
+}

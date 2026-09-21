@@ -252,11 +252,17 @@ function checkMissingThemeGuidance(): void
 // 1.6 — Installing against a URL that already answers (fix 1)
 // ─────────────────────────────────────────────────────────────────────────────
 
-function checkRespondingUrlInstall(string $decoyUrl): void
+/**
+ * The install that fix 1 died on, walked for real.
+ *
+ * @param  array{code: int, out: string, siteurl: string}  $install  the result of
+ *         installing with the site URL pointed at the decoy
+ */
+function checkInstallAgainstRespondingUrl(array $install, string $decoyUrl): void
 {
-    section('1.6 — Install against a URL that already answers');
+    section('1.6a — Installing with the site URL already answering');
 
-    test('Decoy server answers with a Set-Cookie', function () use ($decoyUrl) {
+    test('The decoy answers the installer with a Set-Cookie', function () use ($decoyUrl) {
         $response = http($decoyUrl, [], false);
 
         return stripos($response['headers'], 'set-cookie:') !== false
@@ -264,13 +270,54 @@ function checkRespondingUrlInstall(string $decoyUrl): void
             : 'the decoy did not set a cookie — this scenario cannot reproduce fix 1';
     });
 
-    // WP_Http_Cookie is only reached when a response actually carries a cookie
-    // to parse. That is the whole trigger: a site already answering on the
-    // target URL made the installer fatal before the full HTTP stack was loaded.
-    test('WP_Http_Cookie is available to the installer', function () {
+    // The failure was `Class "WP_Http_Cookie" not found`, raised inside
+    // wp_install() while it fetched the site's own URL. Nothing short of
+    // running that install reaches it.
+    test('The install completes instead of dying on WP_Http_Cookie', function () use ($install) {
+        if (str_contains($install['out'], 'WP_Http_Cookie')) {
+            return 'the install named WP_Http_Cookie — fix 1 is gone: '.trim($install['out']);
+        }
+
+        if (str_contains($install['out'], 'not found') && str_contains($install['out'], 'Class')) {
+            return 'the install died on a missing class: '.trim($install['out']);
+        }
+
+        return $install['code'] === 0
+            ? true
+            : "pollora:install exited {$install['code']}: ".trim($install['out']);
+    });
+
+    test('The install really targeted the responding URL', function () use ($install, $decoyUrl) {
+        // Without this the check above would pass just as well against an
+        // install that never went near the decoy. The value is read from the
+        // options row while .env still pointed there: get_option('siteurl') is
+        // filtered by the WP_SITEURL constant and would answer with whatever
+        // .env says now.
+        $stored = $install['siteurl'];
+
+        if ($stored === '') {
+            return 'the install wrote no siteurl at all';
+        }
+
+        return str_starts_with($stored, rtrim($decoyUrl, '/'))
+            ? true
+            : "the install wrote {$stored}, not {$decoyUrl} — the reproduction did not happen";
+    });
+}
+
+function checkRespondingUrlInstall(string $decoyUrl): void
+{
+    section('1.6b — The mechanism fix 1 restored');
+
+    // On a site that has finished installing, WordPress loads its whole HTTP
+    // stack anyway, so this says nothing about install time — measured:
+    // removing the fix leaves it green. What it does cover is the class being
+    // reachable at all, which the install bootstrap is a subset of. The
+    // install-time question is 1.6a's, and only 1.6a's.
+    test('WP_Http_Cookie is available at runtime', function () {
         $available = wpEval('echo class_exists("WP_Http_Cookie") ? "yes" : "no";');
 
-        return $available === 'yes' ? true : 'WP_Http_Cookie is not loaded — the install would fatal';
+        return $available === 'yes' ? true : 'WP_Http_Cookie is not loaded at all';
     });
 
     test('A cookie-setting response is parsed without a fatal', function () use ($decoyUrl) {

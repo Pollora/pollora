@@ -85,10 +85,21 @@ try {
 
         case 'decoy':
             guardDestructive($baseUrl);
+
+            // Two installs, because the two halves need different sites.
+            //
+            // First the reproduction: APP_URL pointed at the decoy, so
+            // wp_install() fetches a server that already answers — with a
+            // cookie — which is the exact path fix 1 died on. That leaves the
+            // site installed at the decoy's address and unusable.
             resetDatabase();
-            // The decoy answers on its own host; what matters is that a
-            // cookie-setting response is parsed at install time at all.
-            installViaWebWizard($baseUrl, $credentials);
+            $install = installViaArtisanAgainst($decoyUrl, $credentials);
+            checkInstallAgainstRespondingUrl($install, $decoyUrl);
+
+            // Then the site is put back at its own address, and the mechanism
+            // is checked from a working install.
+            resetDatabase();
+            installViaArtisan($credentials);
             checkRespondingUrlInstall($decoyUrl);
             break;
 
