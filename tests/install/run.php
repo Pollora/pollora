@@ -8,8 +8,9 @@ declare(strict_types=1);
  *
  * Usage:  php tests/install/run.php <scenario>
  *
- *   web       install through the WordPress web wizard, then check rendering,
- *             rewrite rules and theme resolution   (points 1.1 → 1.4)
+ *   web       install through the WordPress web wizard, scaffold a theme the
+ *             way a user would, then check rendering, rewrite rules and theme
+ *             resolution                            (points 1.1 → 1.4)
  *   no-theme  install through the wizard with themes/ empty: the site must
  *             answer 503 with instructions, never 500          (point 1.5)
  *   decoy     install while the target URL already answers with a Set-Cookie
@@ -55,6 +56,12 @@ try {
             guardDestructive($baseUrl);
             resetDatabase();
             installViaWebWizard($baseUrl, $credentials);
+
+            // The wizard leaves no theme; the rendering checks below need one,
+            // and creating it is what a user does next. Without this the whole
+            // scenario measures the missing-theme page instead.
+            scaffoldTheme();
+
             checkPageRendering();
             checkRewriteRules();
             checkThemeResolution();

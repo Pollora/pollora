@@ -185,6 +185,38 @@ function installViaWebWizard(string $baseUrl, array $credentials): void
 }
 
 /**
+ * Scaffold a theme, the way a user does after the web installer.
+ *
+ * The WordPress web installer never runs pollora:install, so it leaves the
+ * site with no theme at all. Asserting rendering right after it therefore
+ * measures the missing-theme page, not the templates — which is what the
+ * no-theme scenario is for. A real user's next move is to create a theme, so
+ * the scenario does the same before looking at what renders.
+ *
+ * This was found by CI, not locally: a development machine already has themes
+ * in themes/, so the step looked unnecessary until the suite ran somewhere
+ * clean.
+ */
+function scaffoldTheme(string $name = 'default'): void
+{
+    echo "  \033[2m→ scaffolding the {$name} theme\033[0m\n";
+
+    $result = run('php artisan pollora:make:theme '.escapeshellarg($name)
+        .' --theme-author=Pollora --theme-description='.escapeshellarg('Install scenario theme')
+        .' --theme-version=1.0.0 --no-interaction');
+
+    if ($result['code'] !== 0) {
+        throw new \RuntimeException("pollora:make:theme failed: {$result['out']}");
+    }
+
+    $activated = run('wp theme activate '.escapeshellarg($name));
+
+    if ($activated['code'] !== 0) {
+        throw new \RuntimeException("could not activate the {$name} theme: {$activated['out']}");
+    }
+}
+
+/**
  * The install path the CI workflow already covered, kept as the baseline the
  * other scenarios are compared against.
  */
