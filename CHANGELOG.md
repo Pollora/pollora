@@ -5,7 +5,19 @@ All notable changes to the Pollora skeleton will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/Pollora/pollora/compare/v13.32.0-beta.3...main)
+## [Unreleased](https://github.com/Pollora/pollora/compare/v13.32.0-beta.4...main)
+
+## [v13.32.0-beta.4](https://github.com/Pollora/pollora/compare/v13.32.0-beta.3...v13.32.0-beta.4) - 2026-09-22
+
+### Changed
+- Locked on `pollora/framework` v13.32.0-beta.4. Two assertions of the HTTP integration suite had been failing on the locked framework since they were written: the login page answering 200 with a form, and the install root serving no template source. Both required a fix that only `develop` carried, so `Install (locked)` was red on `main` and every pull request inherited it — which is how a genuinely broken branch stops being distinguishable from a healthy one
+
+### Added
+- The install scenarios cover the three fixes that had none. Fix 1 is now reproduced rather than approximated: `APP_URL` is pointed at the decoy so `wp_install()` really fetches a server that already answers with a cookie — no DNS hijacking needed, since `WP_HOME` and `WP_SITEURL` are built from it. Fix 3 is pinned by both its mechanism and its symptom, measured together on a live site: reverting it flips the finder order and the category archive goes from 34 094 bytes to 0. Fix 4's second themes directory is pinned by putting a theme in `WP_CONTENT_DIR/themes` and checking it cannot displace the active one
+- The integration suite reads the framework's template marker, so its fourteen template assertions run on any theme rather than only on one that annotates its own views. They assert the hierarchy chain — `category → archive → index` — instead of naming a single file, because theme-default ships none of those and correctly falls through
+
+### Fixed
+- The integration suite can fail. It had 48 silent skips, eleven of which stepped aside on a 404 — the very symptom those tests exist to catch, since an archive answering 404 is what a missing rewrite flush looks like. The 404 skips are gone; what still cannot run is listed by name under the reason that disabled it, and `POLLORA_INTEGRATION_STRICT=1` turns those into failures
 
 ## [v13.32.0-beta.3](https://github.com/Pollora/pollora/compare/v13.32.0-beta.2...v13.32.0-beta.3) - 2026-09-21
 
