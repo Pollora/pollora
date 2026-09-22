@@ -104,6 +104,37 @@ jobs:
   # The install path is what four of the six v13.32.0-beta.3 fixes came from,
   # and no test walked it. Each scenario reinstalls the site its own way, so
   # they cannot share a job with each other or with the suite above.
+  assets:
+    name: Assets (Node ${{ matrix.node }})
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        # The two floors Vite 7 accepts. Testing only the newest would let the
+        # documented minimum rot unnoticed.
+        node: ['20.19', '22']
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node }}
+
+      # `npm ci`, not `npm install`: it is the only one that fails on a
+      # package-lock.json that disagrees with itself, which is exactly the
+      # state this job exists to catch. `npm install` quietly repairs it, so a
+      # broken lock reached main and nobody noticed for as long as it took
+      # someone to clone and run `npm ci`.
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
   scenarios:
     name: Install scenario ${{ matrix.scenario }} (${{ matrix.framework }})
     runs-on: ubuntu-latest

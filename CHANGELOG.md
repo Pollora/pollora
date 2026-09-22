@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/Pollora/pollora/compare/v13.32.0-beta.6...main)
 
+### Fixed
+- `npm ci` works. The committed `package-lock.json` disagreed with itself — `npm error Invalid: lock file's emoji-regex@8.0.0 does not satisfy emoji-regex@10.6.0` — so a fresh clone could not install with the one command that installs exactly what the lock says. `composer setup` runs `npm install`, which repairs such a lock in silence, and CI ran no Node at all, so nothing was in a position to notice
+- Every open npm advisory on the dependency tree that is actually installed: `axios`, `vite`, `postcss`, `nanoid`, `esbuild`, `shell-quote` and `form-data` all move to a patched version. `npm audit` goes from 7 vulnerabilities (1 critical, 5 high, 1 low) to **0**. The declared floor for `axios` moves from `^1.8.2` to `^1.20.0`, because the old range still admitted the vulnerable version it named
+- The README asked for "Node.js 20+". Vite 7 requires `^20.19.0 || >=22.12.0`, so Node 20.0 through 20.18 would fail the build the README implied they could run
+
+### Added
+- An `Assets` CI job, on both Node floors, running `npm ci` then `npm run build`. No workflow ran Node before this, which is why a broken lockfile and seven advisories could sit on `main` undisturbed. `npm ci` is deliberate: `npm install` would have repaired the lock and reported success
+
 ### Removed
 - `yarn.lock`. The repository installs with npm — the README requires it, `composer setup` runs `npm install`, and no workflow, script or document mentions yarn anywhere — so nothing had installed from this file in a long time. It had also drifted: the security update of 2026-04-22 touched `package-lock.json` only, leaving `yarn.lock` pinning `axios` 1.8.2 where the real lock had moved to 1.15.2. A lockfile nobody installs from still gets scanned, and this one was the source of **35 of the repository's 56 Dependabot alerts**, including one of the two criticals — alerts about packages no machine has installed, drowning the ones that describe something real
 

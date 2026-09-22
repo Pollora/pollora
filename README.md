@@ -42,7 +42,7 @@ See [CLAUDE.md](CLAUDE.md) for detailed development setup with DDEV.
 
 - PHP ^8.3
 - Composer 2.x
-- Node.js 20+ & npm
+- Node.js 20.19+ or 22.12+ & npm (the floor Vite 7 requires)
 - A database (MySQL, MariaDB, or SQLite)
 
 ## Sponsors
