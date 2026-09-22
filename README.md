@@ -55,7 +55,8 @@ All notable changes are documented in the [CHANGELOG](CHANGELOG.md).
 
 ## Contributing
 
-Considering a contribution to Pollora? See the [contribution guide](CONTRIBUTE.md).
+Considering a contribution to Pollora? See the [contribution guide](CONTRIBUTING.md).
+Branch from `main` — this repository has no `develop` branch.
 
 ## Security
 

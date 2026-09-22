@@ -7,7 +7,6 @@ on:
     # leaves the install scenarios dormant for the whole stabilisation.
     branches:
       - main
-      - develop
       - 'release/**'
   pull_request:
   schedule:
