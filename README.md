@@ -56,11 +56,12 @@ All notable changes are documented in the [CHANGELOG](CHANGELOG.md).
 ## Contributing
 
 Considering a contribution to Pollora? See the [contribution guide](CONTRIBUTING.md).
-Branch from `main` — this repository has no `develop` branch.
+Branch from `main` — this repository has no `develop` branch. Participation is
+covered by our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Security
 
-If you discover a security vulnerability, please report it via [GitHub Security Advisories](https://github.com/Pollora/framework/security/advisories/new). See [SECURITY.md](SECURITY.md) for details.
+If you discover a security vulnerability, please report it privately via [GitHub Security Advisories](https://github.com/Pollora/pollora/security/advisories/new) rather than opening an issue. See [SECURITY.md](SECURITY.md) for what to include and what to expect.
 
 ## License
 

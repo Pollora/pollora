@@ -136,6 +136,14 @@ bug hunt:
 - Whether `wp-login.php` is affected too — if it is, the cause is in the boot,
   not in the theme or the template
 
+## Security
+
+Never report a vulnerability in a public issue. See [SECURITY.md](SECURITY.md).
+
+## Code of Conduct
+
+Participation is covered by our [Code of Conduct](CODE_OF_CONDUCT.md).
+
 ## Support
 
 Questions and issues: open an issue on GitHub, or write to `dev@amphibee.fr`.
