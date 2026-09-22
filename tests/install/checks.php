@@ -203,6 +203,105 @@ function checkThemeResolution(): void
             ? true
             : "active theme {$stylesheet} is absent from the themes list ({$listed})";
     });
+
+    checkStandardThemesDirectory();
+}
+
+/**
+ * The second themes directory fix 4 registers, and what it costs.
+ *
+ * get_raw_theme_root() answers a hardcoded '/themes' whenever a single
+ * directory is registered, and wp_get_theme() resolves that against
+ * WP_CONTENT_DIR — landing outside Pollora's themes directory. Registering
+ * WordPress's own directory alongside Pollora's lifts that shortcut, so the
+ * stylesheet_root option decides instead.
+ *
+ * The price is that WP_CONTENT_DIR/themes is now scanned. It is empty in the
+ * skeleton, so nothing showed; a project that keeps themes there will see them
+ * listed, and the question nobody had answered is whether one of them can
+ * displace the active theme. It cannot, and that is what this pins — by
+ * putting a theme there and looking.
+ */
+function checkStandardThemesDirectory(): void
+{
+    $contentDir = wpEval('echo defined("WP_CONTENT_DIR") ? WP_CONTENT_DIR : "";');
+
+    if ($contentDir === '') {
+        test('WP_CONTENT_DIR is defined', fn (): string => 'WP_CONTENT_DIR is not defined, so fix 4 registers nothing extra');
+
+        return;
+    }
+
+    $standard = $contentDir.'/themes';
+    $slug = 'install-test-stray-'.bin2hex(random_bytes(3));
+    $created = ! is_dir($standard);
+
+    $before = wpEval('echo get_stylesheet();');
+
+    mkdir($standard.'/'.$slug, 0755, true);
+
+    try {
+        // The minimum WordPress needs to consider a directory a theme.
+        file_put_contents($standard.'/'.$slug.'/style.css', "/*
+Theme Name: Stray {$slug}
+Version: 1.0
+*/
+");
+        file_put_contents($standard.'/'.$slug.'/index.php', "<?php
+// Silence is golden.
+");
+
+        test('A theme in WP_CONTENT_DIR/themes is visible', function () use ($slug) {
+            $listed = explode(',', wpEval('echo implode(",", array_keys(wp_get_themes()));'));
+
+            return in_array($slug, $listed, true)
+                ? true
+                : "the standard themes directory is not scanned at all — fix 4 no longer registers it";
+        });
+
+        test('It does not displace the active theme', function () use ($before) {
+            $now = wpEval('echo get_stylesheet();');
+
+            return $now === $before
+                ? true
+                : "the active theme changed from {$before} to {$now} because of a theme sitting in WP_CONTENT_DIR/themes";
+        });
+
+        test('The active theme still resolves to the project directory', function () use ($contentDir) {
+            $directory = wpEval('echo wp_get_theme()->get_stylesheet_directory();');
+
+            if (! is_dir($directory)) {
+                return "wp_get_theme() points at {$directory}, which does not exist";
+            }
+
+            return str_starts_with($directory, $contentDir.'/themes/')
+                ? "the active theme resolved into WP_CONTENT_DIR/themes ({$directory}) instead of the project's themes directory"
+                : true;
+        });
+
+        test('Both themes directories are registered', function () use ($standard) {
+            $roots = explode(',', wpEval('echo implode(",", (array) ($GLOBALS["wp_theme_directories"] ?? []));'));
+            $roots = array_values(array_filter($roots));
+
+            if (count($roots) < 2) {
+                return 'only '.implode(', ', $roots).' is registered — get_raw_theme_root() takes its shortcut again';
+            }
+
+            return in_array($standard, $roots, true)
+                ? true
+                : $standard.' is not among the registered roots ('.implode(', ', $roots).')';
+        });
+    } finally {
+        foreach (glob($standard.'/'.$slug.'/*') ?: [] as $file) {
+            unlink($file);
+        }
+
+        rmdir($standard.'/'.$slug);
+
+        if ($created) {
+            @rmdir($standard);
+        }
+    }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -252,11 +351,17 @@ function checkMissingThemeGuidance(): void
 // 1.6 — Installing against a URL that already answers (fix 1)
 // ─────────────────────────────────────────────────────────────────────────────
 
-function checkRespondingUrlInstall(string $decoyUrl): void
+/**
+ * The install that fix 1 died on, walked for real.
+ *
+ * @param  array{code: int, out: string, siteurl: string}  $install  the result of
+ *         installing with the site URL pointed at the decoy
+ */
+function checkInstallAgainstRespondingUrl(array $install, string $decoyUrl): void
 {
-    section('1.6 — Install against a URL that already answers');
+    section('1.6a — Installing with the site URL already answering');
 
-    test('Decoy server answers with a Set-Cookie', function () use ($decoyUrl) {
+    test('The decoy answers the installer with a Set-Cookie', function () use ($decoyUrl) {
         $response = http($decoyUrl, [], false);
 
         return stripos($response['headers'], 'set-cookie:') !== false
@@ -264,13 +369,54 @@ function checkRespondingUrlInstall(string $decoyUrl): void
             : 'the decoy did not set a cookie — this scenario cannot reproduce fix 1';
     });
 
-    // WP_Http_Cookie is only reached when a response actually carries a cookie
-    // to parse. That is the whole trigger: a site already answering on the
-    // target URL made the installer fatal before the full HTTP stack was loaded.
-    test('WP_Http_Cookie is available to the installer', function () {
+    // The failure was `Class "WP_Http_Cookie" not found`, raised inside
+    // wp_install() while it fetched the site's own URL. Nothing short of
+    // running that install reaches it.
+    test('The install completes instead of dying on WP_Http_Cookie', function () use ($install) {
+        if (str_contains($install['out'], 'WP_Http_Cookie')) {
+            return 'the install named WP_Http_Cookie — fix 1 is gone: '.trim($install['out']);
+        }
+
+        if (str_contains($install['out'], 'not found') && str_contains($install['out'], 'Class')) {
+            return 'the install died on a missing class: '.trim($install['out']);
+        }
+
+        return $install['code'] === 0
+            ? true
+            : "pollora:install exited {$install['code']}: ".trim($install['out']);
+    });
+
+    test('The install really targeted the responding URL', function () use ($install, $decoyUrl) {
+        // Without this the check above would pass just as well against an
+        // install that never went near the decoy. The value is read from the
+        // options row while .env still pointed there: get_option('siteurl') is
+        // filtered by the WP_SITEURL constant and would answer with whatever
+        // .env says now.
+        $stored = $install['siteurl'];
+
+        if ($stored === '') {
+            return 'the install wrote no siteurl at all';
+        }
+
+        return str_starts_with($stored, rtrim($decoyUrl, '/'))
+            ? true
+            : "the install wrote {$stored}, not {$decoyUrl} — the reproduction did not happen";
+    });
+}
+
+function checkRespondingUrlInstall(string $decoyUrl): void
+{
+    section('1.6b — The mechanism fix 1 restored');
+
+    // On a site that has finished installing, WordPress loads its whole HTTP
+    // stack anyway, so this says nothing about install time — measured:
+    // removing the fix leaves it green. What it does cover is the class being
+    // reachable at all, which the install bootstrap is a subset of. The
+    // install-time question is 1.6a's, and only 1.6a's.
+    test('WP_Http_Cookie is available at runtime', function () {
         $available = wpEval('echo class_exists("WP_Http_Cookie") ? "yes" : "no";');
 
-        return $available === 'yes' ? true : 'WP_Http_Cookie is not loaded — the install would fatal';
+        return $available === 'yes' ? true : 'WP_Http_Cookie is not loaded at all';
     });
 
     test('A cookie-setting response is parsed without a fatal', function () use ($decoyUrl) {
@@ -428,4 +574,82 @@ function checkThemeUpdateGuard(): void
     // The seeded transient is fiction. Drop it so the site goes back to
     // whatever WordPress decides on its own.
     wpEval('delete_site_transient("update_themes"); echo "cleaned";');
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 1.8 — Which view path wins inside a module (fix 3, second half)
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Fix 3 reversed the order a module's view paths are registered in.
+ *
+ * Each path is prepended to the finder, so registering them front to back left
+ * them reversed. For a theme that put its root ahead of resources/views — and
+ * a theme root holds only the PHP stubs WordPress needs to consider the theme
+ * valid, index.php being "Silence is golden". Every request the hierarchy
+ * could not match to something more specific rendered the stub: HTTP 200 with
+ * an empty body, and no error anywhere.
+ *
+ * Measured on a live site, reverting the array_reverse() in ModuleAssetManager:
+ * the finder order flips, and the category archive goes from 34 094 bytes to 0.
+ * That pair is what this group pins — the mechanism and the symptom — because
+ * the symptom alone has many possible causes and the mechanism alone is what
+ * a unit test already covers.
+ *
+ * On the debt this closes: the reversal applies to every module, not only
+ * themes, so a module holding both `views/` and `resources/views/` has its
+ * priority changed by it. For a theme that turns out to be moot — a theme's
+ * `views/` never reaches the finder at all on a real install, measured — and
+ * for plain modules the ordering is pinned by ModuleViewPathsTest in the
+ * framework. What was missing, and is here, is the real-site half.
+ */
+function checkViewPathPrecedence(): void
+{
+    section('1.8 — Which view path wins inside a module');
+
+    $themeRoot = wpEval('echo get_stylesheet_directory();');
+
+    $paths = explode("\n", wpEval('echo implode("\n", app("view")->getFinder()->getPaths());'));
+    $paths = array_values(array_filter(array_map('trim', $paths)));
+
+    test("The theme's resources/views is registered", function () use ($paths, $themeRoot) {
+        return in_array($themeRoot.'/resources/views', $paths, true)
+            ? true
+            : "resources/views is not among the view paths (".implode(', ', $paths).")";
+    });
+
+    test('resources/views outranks the theme root', function () use ($paths, $themeRoot) {
+        $views = array_search($themeRoot.'/resources/views', $paths, true);
+        $root = array_search($themeRoot, $paths, true);
+
+        if ($views === false || $root === false) {
+            return 'one of the two paths is missing, so their order says nothing';
+        }
+
+        return $views < $root
+            ? true
+            : "the theme root is searched first — every view the theme ships is shadowed by a PHP stub";
+    });
+
+    // The symptom, in a browser. checkPageRendering() already refuses an empty
+    // archive; this one says why it would be empty, next to the mechanism.
+    test('The archive fallback renders the Blade view, not the stub', function () {
+        $link = wpEval('$t = get_terms(["taxonomy" => "category", "hide_empty" => false, "number" => 1]); echo $t && ! is_wp_error($t) ? get_category_link($t[0]) : "";');
+
+        if ($link === '') {
+            return 'no category to request — this check would prove nothing';
+        }
+
+        $response = http($link);
+
+        if ($response['status'] !== 200) {
+            return "the category archive answered {$response['status']}";
+        }
+
+        $bytes = strlen(trim($response['body']));
+
+        return $bytes > 0 && str_contains($response['body'], '</html>')
+            ? true
+            : "the archive answered 200 with {$bytes} bytes — the theme root's index.php stub rendered";
+    });
 }

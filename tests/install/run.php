@@ -18,8 +18,8 @@ declare(strict_types=1);
  *   artisan   the pollora:install baseline, for comparison
  *   checks    run the checks against the site as it stands, without
  *             reinstalling; seeds install-test* fixtures, drops nothing.
- *             Takes an optional group — rendering, rewrites, theme or
- *             updates — to run just that one
+ *             Takes an optional group — rendering, rewrites, theme,
+ *             updates or views — to run just that one
  *
  * Every scenario but `checks` drops the database. POLLORA_INSTALL_TESTS=1 is
  * required to confirm the site is disposable.
@@ -66,6 +66,7 @@ try {
             checkRewriteRules();
             checkThemeResolution();
             checkThemeUpdateGuard();
+            checkViewPathPrecedence();
             break;
 
         case 'no-theme':
@@ -84,10 +85,21 @@ try {
 
         case 'decoy':
             guardDestructive($baseUrl);
+
+            // Two installs, because the two halves need different sites.
+            //
+            // First the reproduction: APP_URL pointed at the decoy, so
+            // wp_install() fetches a server that already answers — with a
+            // cookie — which is the exact path fix 1 died on. That leaves the
+            // site installed at the decoy's address and unusable.
             resetDatabase();
-            // The decoy answers on its own host; what matters is that a
-            // cookie-setting response is parsed at install time at all.
-            installViaWebWizard($baseUrl, $credentials);
+            $install = installViaArtisanAgainst($decoyUrl, $credentials);
+            checkInstallAgainstRespondingUrl($install, $decoyUrl);
+
+            // Then the site is put back at its own address, and the mechanism
+            // is checked from a working install.
+            resetDatabase();
+            installViaArtisan($credentials);
             checkRespondingUrlInstall($decoyUrl);
             break;
 
@@ -99,6 +111,7 @@ try {
             checkRewriteRules();
             checkThemeResolution();
             checkThemeUpdateGuard();
+            checkViewPathPrecedence();
             break;
 
         case 'checks':
@@ -111,8 +124,8 @@ try {
             // per fix, and the full pass is far too slow for that.
             $only = $argv[2] ?? null;
 
-            if ($only !== null && ! in_array($only, ['rendering', 'rewrites', 'theme', 'updates'], true)) {
-                fwrite(STDERR, "\nUnknown group '{$only}': expected rendering, rewrites, theme or updates\n\n");
+            if ($only !== null && ! in_array($only, ['rendering', 'rewrites', 'theme', 'updates', 'views'], true)) {
+                fwrite(STDERR, "\nUnknown group '{$only}': expected rendering, rewrites, theme, updates or views\n\n");
                 exit(2);
             }
 
@@ -130,6 +143,10 @@ try {
 
             if ($only === null || $only === 'updates') {
                 checkThemeUpdateGuard();
+            }
+
+            if ($only === null || $only === 'views') {
+                checkViewPathPrecedence();
             }
             break;
     }
