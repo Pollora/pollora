@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/Pollora/pollora/compare/v13.32.0-beta.6...main)
 
+### Removed
+- `yarn.lock`. The repository installs with npm — the README requires it, `composer setup` runs `npm install`, and no workflow, script or document mentions yarn anywhere — so nothing had installed from this file in a long time. It had also drifted: the security update of 2026-04-22 touched `package-lock.json` only, leaving `yarn.lock` pinning `axios` 1.8.2 where the real lock had moved to 1.15.2. A lockfile nobody installs from still gets scanned, and this one was the source of **35 of the repository's 56 Dependabot alerts**, including one of the two criticals — alerts about packages no machine has installed, drowning the ones that describe something real
+
 ### Changed
 - The security policy covers this repository. It was nine lines that sent every report to the **framework's** advisory page, so a vulnerability in the skeleton itself — the installer, the shipped configuration, the application shell — had no private channel of its own, and a reporter got no supported versions, no expectation of a reply, and no idea what to include. The framework routing is kept, and widened: report to either repository rather than let the question of which one delay you
 - The contribution guide is called `CONTRIBUTING.md`, which is the only spelling GitHub recognises — as `CONTRIBUTE.md` it was never linked from the sidebar when someone opened an issue or a pull request, so the one document a newcomer needs was the one they had to go looking for. It now answers the three questions a first contribution runs into: which repository owns the change, which branch to target, and how to tell the change works
