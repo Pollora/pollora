@@ -5,7 +5,13 @@ All notable changes to the Pollora skeleton will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/Pollora/pollora/compare/v13.32.0-beta.4...main)
+## [Unreleased](https://github.com/Pollora/pollora/compare/v13.32.0-beta.6...main)
+
+## [v13.32.0-beta.6](https://github.com/Pollora/pollora/compare/v13.32.0-beta.4...v13.32.0-beta.6) - 2026-09-22
+
+### Changed
+- Locked on `pollora/framework` v13.32.0-beta.6. The skeleton stayed on beta.4 while the framework shipped beta.5 and beta.6, and that gap was not cosmetic: `composer create-project` installs from the `composer.lock` the skeleton ships, not from the `^13.32@beta` constraint in its `composer.json`. Measured — `composer create-project pollora/pollora:v13.32.0-beta.4` puts v13.32.0-beta.4 in `vendor/`, never the newest beta. Every project created from the last skeleton tag therefore went without the discovery fix of beta.5 and the theme-URI fixes of beta.6. No skeleton file changed between the two tags; only the lock moves, and the two version numbers travel together again
+- The framework brought two releases in between. v13.32.0-beta.5 dresses the login screen from the theme's own `theme.json`, strictly opt-in behind a theme's `config/login.php`, and stops attribute discovery from walking a plugin's `node_modules` — 69,741 files per request on a plugin with a Vite build, a home page at 3.0s. v13.32.0-beta.6 makes `get_theme_file_uri()` answer a URL instead of an empty string, and keeps the server's filesystem path out of the public `<head>`. See the [framework changelog](https://github.com/Pollora/framework/blob/main/CHANGELOG.md) for both
 
 ## [v13.32.0-beta.4](https://github.com/Pollora/pollora/compare/v13.32.0-beta.3...v13.32.0-beta.4) - 2026-09-22
 
