@@ -8,7 +8,7 @@
  *
  * Parts of it were written against a skeleton carrying demo content — a
  * "project" post type, a "project-category" taxonomy, a module answering on
- * /toto, a theme that annotates its templates. None of that ships on `main`,
+ * /toto. None of that ships on `main`,
  * so those tests declare what they need through skipUnless() and are listed,
  * by name and by reason, in a "Not run" block at the end. Set
  * POLLORA_INTEGRATION_STRICT=1 where the fixtures are supposed to be there —
@@ -166,20 +166,45 @@ function hasRestNamespace(string $namespace): bool {
 }
 
 /**
- * Whether the active theme annotates its templates.
+ * Which template answered, according to the page.
  *
- * `data-pollora-template` is a convention of theme-apiary, not of the
- * framework: theme-default emits nothing of the kind. The assertions built on
- * it say which template answered, which is worth keeping where it works and
- * meaningless everywhere else — so they ask first instead of failing on a
- * theme that never claimed to play along.
+ * Two markers are read, because two things emit one:
+ *
+ *  - `<!-- pollora:template="single" -->`, which the framework writes on
+ *    wp_head under WP_DEBUG, from the template the request actually resolved
+ *    to. Present on every theme, and impossible to forget.
+ *  - `data-pollora-template="single"`, which theme-apiary places by hand in
+ *    each view. It predates the framework's and is still in its templates,
+ *    including on sites running a framework too old to emit the other one.
+ *
+ * The framework's is preferred when both are there: it names the template
+ * WordPress chose, while the hand-placed one names whatever view happened to
+ * be edited.
+ */
+function templateMarkerIn(string $body): ?string {
+    if (preg_match('/<!--\s*pollora:template="([^"]+)"/', $body, $m) === 1) {
+        return $m[1];
+    }
+    if (preg_match('/data-pollora-template="([^"]+)"/', $body, $m) === 1) {
+        return $m[1];
+    }
+    return null;
+}
+
+/**
+ * Whether the pages of this site say which template answered.
+ *
+ * Still asked, because the framework marker needs WP_DEBUG and a framework
+ * recent enough to emit it: a site on an older release, or one running with
+ * debug off, says nothing and there is no assertion to make. What changed is
+ * that this is no longer a property of one theme.
  */
 function themeMarksTemplates(): bool {
     global $baseUrl;
     static $marks = null;
     if ($marks === null) {
-        $marks = str_contains(httpGet($baseUrl)['body'], 'data-pollora-template=')
-            || str_contains(httpGet("$baseUrl/?s=pollora")['body'], 'data-pollora-template=');
+        $marks = templateMarkerIn(httpGet($baseUrl)['body']) !== null
+            || templateMarkerIn(httpGet("$baseUrl/?s=pollora")['body']) !== null;
     }
     return $marks;
 }
@@ -207,11 +232,12 @@ function rendersTemplate(array $r, string $template): bool|string {
     if ($r['status'] !== 200) {
         return "answered {$r['status']}";
     }
-    if (str_contains($r['body'], 'data-pollora-template="' . $template . '"')) {
+    $marker = templateMarkerIn($r['body']);
+    if ($marker === $template) {
         return true;
     }
-    if (preg_match('/data-pollora-template="([^"]+)"/', $r['body'], $m) === 1) {
-        return "rendered the {$m[1]} template, not {$template}";
+    if ($marker !== null) {
+        return "rendered the {$marker} template, not {$template}";
     }
     return 'rendered no template marker at all (' . strlen($r['body']) . ' bytes)';
 }
@@ -223,14 +249,44 @@ function rendersTemplate(array $r, string $template): bool|string {
  * pass. That makes it the weakest kind of test in the file, and the only
  * defence is to prove the page answered before looking at what it rendered.
  */
+/**
+ * Assert the answering template is somewhere in the chain WordPress walks.
+ *
+ * Naming a single template only ever held for a theme that ships it:
+ * theme-default has no category, author, search or archive view, so every one
+ * of those requests correctly falls through to index — and six assertions
+ * written against theme-apiary's richer set reported that as a failure.
+ *
+ * What the framework owes is the hierarchy, not a particular file: the most
+ * specific template the theme provides, and index as the last link. Passing
+ * the chain says exactly that, and still fails when the answer is outside it
+ * — a category rendering `page`, or `home`, is a real defect.
+ *
+ * @param  list<string>  $chain  templates in order, most specific first
+ */
+function rendersTemplateFromChain(array $r, array $chain): bool|string {
+    if ($r['status'] !== 200) {
+        return "answered {$r['status']}";
+    }
+    $marker = templateMarkerIn($r['body']);
+    if ($marker === null) {
+        return 'rendered no template marker at all (' . strlen($r['body']) . ' bytes)';
+    }
+    if (in_array($marker, $chain, true)) {
+        return true;
+    }
+    return "rendered the {$marker} template, which is not in the hierarchy for this request (" . implode(' → ', $chain) . ')';
+}
+
 function doesNotRenderTemplate(array $r, string $template): bool|string {
     if ($r['status'] !== 200) {
         return "answered {$r['status']}, so this check proves nothing";
     }
-    if (preg_match('/data-pollora-template="([^"]+)"/', $r['body'], $m) !== 1) {
+    $marker = templateMarkerIn($r['body']);
+    if ($marker === null) {
         return 'rendered no template marker at all, so this check proves nothing';
     }
-    return $m[1] === $template ? "rendered the {$template} template" : true;
+    return $marker === $template ? "rendered the {$template} template" : true;
 }
 
 echo "\n\033[1m=== Pollora HTTP Integration Tests ===\033[0m\n\n";
@@ -247,16 +303,22 @@ test('Homepage contains valid HTML', function() use ($baseUrl) {
     return str_contains($r['body'], '<html') && str_contains($r['body'], '</html>');
 });
 
-test('404 page returns 404 with correct template', function() use ($baseUrl) {
-    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
+test('404 page returns 404 from the 404 chain', function() use ($baseUrl) {
+    skipUnless(themeMarksTemplates(), 'a site that reports which template answered');
     $r = httpGet("$baseUrl/this-page-does-not-exist-" . time());
-    return $r['status'] === 404 && str_contains($r['body'], 'data-pollora-template="404"');
+    if ($r['status'] !== 404) {
+        return "answered {$r['status']}, not 404";
+    }
+    $marker = templateMarkerIn($r['body']);
+    return in_array($marker, ['404', 'index'], true)
+        ? true
+        : "rendered the {$marker} template for a missing page";
 });
 
 test('Search returns 200 with search template', function() use ($baseUrl) {
-    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
+    skipUnless(themeMarksTemplates(), 'a site that reports which template answered');
     $r = httpGet("$baseUrl/?s=test");
-    return rendersTemplate($r, 'search');
+    return rendersTemplateFromChain($r, ['search', 'index']);
 });
 
 test('API routes excluded from WordPress fallback (^(?!api/))', function() use ($baseUrl) {
@@ -474,22 +536,22 @@ test('Route::wp(singular, post) matches only posts, not CPTs', function() use ($
 });
 
 test('Template hierarchy: category renders category template', function() use ($baseUrl) {
-    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
+    skipUnless(themeMarksTemplates(), 'a site that reports which template answered');
     $r = httpGet("$baseUrl/category/uncategorized/");
-    return rendersTemplate($r, 'category');
+    return rendersTemplateFromChain($r, ['category', 'archive', 'index']);
 });
 
 test('Template hierarchy: author renders author template', function() use ($baseUrl) {
-    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
+    skipUnless(themeMarksTemplates(), 'a site that reports which template answered');
     $r = httpGet("$baseUrl/author/admin/");
-    return rendersTemplate($r, 'author');
+    return rendersTemplateFromChain($r, ['author', 'archive', 'index']);
 });
 
 test('Template hierarchy: date archive renders archive template', function() use ($baseUrl) {
-    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
+    skipUnless(themeMarksTemplates(), 'a site that reports which template answered');
     $year = date('Y');
     $r = httpGet("$baseUrl/$year/");
-    return rendersTemplate($r, 'archive');
+    return rendersTemplateFromChain($r, ['date', 'archive', 'index']);
 });
 
 test('Standard Laravel route /up (health check) coexists with WP routes', function() use ($baseUrl) {
@@ -527,7 +589,7 @@ test('Theme assets load (CSS/JS references in HTML)', function() use ($baseUrl) 
 });
 
 test('Project archive renders archive template via hierarchy', function() use ($baseUrl) {
-    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
+    skipUnless(themeMarksTemplates(), 'a site that reports which template answered');
     skipUnless(hasPostType('project'), 'the demo "project" post type');
     $r = httpGet("$baseUrl/project/");
     return rendersTemplate($r, 'archive');
@@ -537,7 +599,7 @@ test('Project archive renders archive template via hierarchy', function() use ($
 echo "\n\033[1m── Edge Cases ──\033[0m\n";
 
 test('Trailing slash handling consistent', function() use ($baseUrl) {
-    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
+    skipUnless(hasPostType('project'), 'the demo "project" post type');
     $r1 = httpGet("$baseUrl/project");
     $r2 = httpGet("$baseUrl/project/");
     // Both should resolve (redirect or direct 200)
@@ -589,46 +651,46 @@ test('HEAD requests work on WP routes', function() use ($baseUrl) {
 echo "\n\033[1m── Real Content Routing ──\033[0m\n";
 
 test('Route::wp(page) renders page template for sample-page', function() use ($baseUrl) {
-    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
+    skipUnless(themeMarksTemplates(), 'a site that reports which template answered');
     $r = httpGet("$baseUrl/sample-page/");
     return rendersTemplate($r, 'page');
 });
 
 test('Route::wp(singular, post) renders single template for hello-world', function() use ($baseUrl) {
-    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
+    skipUnless(themeMarksTemplates(), 'a site that reports which template answered');
     $r = httpGet("$baseUrl/hello-world/");
     return rendersTemplate($r, 'single');
 });
 
 test('Single project renders single-project template (not generic single)', function() use ($baseUrl) {
-    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
+    skipUnless(themeMarksTemplates(), 'a site that reports which template answered');
     skipUnless(hasPostType('project'), 'the demo "project" post type');
     $r = httpGet("$baseUrl/project/test-project/");
     return rendersTemplate($r, 'single-project');
 });
 
 test('Single project does NOT get the generic single (post) template', function() use ($baseUrl) {
-    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
+    skipUnless(themeMarksTemplates(), 'a site that reports which template answered');
     skipUnless(hasPostType('project'), 'the demo "project" post type');
     $r = httpGet("$baseUrl/project/test-project/");
     return doesNotRenderTemplate($r, 'single');
 });
 
 test('Taxonomy archive project-category/web renders taxonomy template', function() use ($baseUrl) {
-    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
+    skipUnless(themeMarksTemplates(), 'a site that reports which template answered');
     skipUnless(hasTaxonomy('project-category'), 'the demo "project-category" taxonomy');
     $r = httpGet("$baseUrl/project-category/web/");
     return rendersTemplate($r, 'taxonomy');
 });
 
 test('Page does NOT render home template', function() use ($baseUrl) {
-    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
+    skipUnless(themeMarksTemplates(), 'a site that reports which template answered');
     $r = httpGet("$baseUrl/sample-page/");
     return doesNotRenderTemplate($r, 'home');
 });
 
 test('Single post does NOT render page template', function() use ($baseUrl) {
-    skipUnless(themeMarksTemplates(), 'a theme that annotates its templates');
+    skipUnless(themeMarksTemplates(), 'a site that reports which template answered');
     $r = httpGet("$baseUrl/hello-world/");
     return doesNotRenderTemplate($r, 'page');
 });
