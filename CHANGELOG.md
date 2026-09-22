@@ -8,10 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased](https://github.com/Pollora/pollora/compare/v13.32.0-beta.6...main)
 
 ### Changed
+- The security policy covers this repository. It was nine lines that sent every report to the **framework's** advisory page, so a vulnerability in the skeleton itself — the installer, the shipped configuration, the application shell — had no private channel of its own, and a reporter got no supported versions, no expectation of a reply, and no idea what to include. The framework routing is kept, and widened: report to either repository rather than let the question of which one delay you
 - The contribution guide is called `CONTRIBUTING.md`, which is the only spelling GitHub recognises — as `CONTRIBUTE.md` it was never linked from the sidebar when someone opened an issue or a pull request, so the one document a newcomer needs was the one they had to go looking for. It now answers the three questions a first contribution runs into: which repository owns the change, which branch to target, and how to tell the change works
 - The `develop` branch is gone. It had carried nothing of its own since 2026-04-16 and sat 204 commits behind `main`, while the guide told contributors the project follows Gitflow — so a contributor who knew Gitflow was invited to branch from a five-month-old base and open a pull request against a dead branch. Releases are cut on `release/*` and merged into `main`; `main` is the base. The framework keeps its `develop` on purpose: it is installed as a dependency and needs a pre-release line others can require as `dev-develop`, which a project template has no use for
 
 ### Added
+- `CODE_OF_CONDUCT.md` — the Contributor Covenant 2.1, with enforcement at the address the contribution guide already publishes
 - Issue templates for bugs and feature requests, and a pull request template. The contribution guide had been pointing at "the bug report template provided by the repository" while no template existed. The bug form asks for the two things that most shorten a hunt: the exact package versions, and whether `/wp-login.php` shows the problem too — if it does, the cause is in the boot rather than the theme, the template or WooCommerce
 - The guide documents that every install scenario but `checks` drops the database, and that `POLLORA_INSTALL_TESTS=1` is the confirmation guarding it. That was discoverable only by reading `tests/install/install.php`, which is late to find out
 
