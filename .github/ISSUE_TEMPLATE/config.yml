@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Framework issue
+    url: https://github.com/Pollora/framework/issues/new
+    about: Routing, hooks, attributes, discovery, the themes API — the framework itself.
+  - name: Documentation issue
+    url: https://github.com/Pollora/documentation/issues/new
+    about: Anything published on pollora.dev. Never edit the website repository directly.
+  - name: Question or support
+    url: https://pollora.dev
+    about: Read the documentation first, then open an issue here or write to dev@amphibee.fr.
