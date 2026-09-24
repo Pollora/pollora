@@ -11,14 +11,14 @@ use PHPUnit\Framework\TestCase;
  *
  * WordPress defines a global `__()`; so does Laravel. pollora/framework ships
  * patches/wordpress-core.patch, which renames WordPress's to `__wp()` so that
- * pollora/helper-overrider can own `__()`. The skeleton lets dependencies patch
- * their siblings through composer-patches' `enable-patching`.
+ * pollora/helper-overrider can own `__()`. composer-patches 2 applies the
+ * patches a dependency declares for its siblings, unconditionally.
  *
  * Nothing else checked that the patch actually landed, and it can fail to in
  * silence: composer-patches skips a patch that does not apply with nothing
  * more than "Could not apply patch! Skipping." — a warning, not an error. A
  * WordPress release that moves the hunk, a patch URL that stops answering, or
- * a composer-patches upgrade that stops honouring `enable-patching` would all
+ * a patches.lock.json that no longer lists the patch would all
  * install a site with two functions named `__()` fighting over translations,
  * and every other test would stay green.
  */
