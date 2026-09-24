@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/Pollora/pollora/compare/v13.32.0-beta.7...main)
 
+### Fixed
+- `composer update` brings a changed framework patch into an existing project. composer-patches 2 reads `patches.lock.json` alone once it exists, and patches a package only when that package is installed: measured, with a lock missing the WordPress core patch, `composer install` and `composer update pollora/framework` both exit 0 and leave WordPress unpatched — two functions named `__()`. `post-update-cmd` now runs `composer patches-relock`, then `composer patches-repatch`, before anything else. Measured on the same stale lock: WordPress is patched again and the lock lists the patch; on a healthy lock, `composer update` leaves `patches.lock.json` byte for byte. The cost is one reinstall of the WordPress core from Composer's cache per update; the site's `wp-config.php` and content live outside it
+
 ## [v13.32.0-beta.7](https://github.com/Pollora/pollora/compare/v13.32.0-beta.6...v13.32.0-beta.7) - 2026-09-24
 
 ### Added

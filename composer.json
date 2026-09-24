@@ -60,6 +60,8 @@
             "@php artisan pollora:env:setup --install"
         ],
         "post-update-cmd": [
+            "@composer patches-relock --no-interaction",
+            "@composer patches-repatch --no-interaction",
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
         ],
         "post-root-package-install": [
