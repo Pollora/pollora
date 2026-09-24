@@ -109,8 +109,7 @@
                 "Modules/*/composer.json"
             ]
         },
-        "laravel": [],
-        "enable-patching": true
+        "laravel": []
     },
     "config": {
         "optimize-autoloader": true,

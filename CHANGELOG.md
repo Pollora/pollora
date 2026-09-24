@@ -5,9 +5,12 @@ All notable changes to the Pollora skeleton will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/Pollora/pollora/compare/v13.32.0-beta.6...main)
+## [Unreleased](https://github.com/Pollora/pollora/compare/v13.32.0-beta.7...main)
+
+## [v13.32.0-beta.7](https://github.com/Pollora/pollora/compare/v13.32.0-beta.6...v13.32.0-beta.7) - 2026-09-24
 
 ### Added
+- `patches.lock.json`, the lock composer-patches 2 keeps of every patch it applies, with its URL and SHA-256. Shipping it makes the patching of a new project deterministic and checked: measured, an install whose patch does not match the recorded checksum fails with `Hash mismatch` instead of applying something else. The patch URLs point at the framework commit that produced each patch, so the checksums do not move
 - A test that WordPress core carries the framework's l10n patch, which renames WordPress's `__()` to `__wp()` so Laravel's helper can have the name. Nothing checked that it landed, and it can fail to in silence: composer-patches skips a patch that does not apply with a warning, not an error. A WordPress release that moves the hunk, a patch URL that stops answering, or a composer-patches upgrade that stops honouring `enable-patching` would each have installed a site with two functions named `__()`, with every other test green. It runs in the framework's CI too, through the Skeleton install job
 - An `Assets` CI job, on both Node floors, running `npm ci` then `npm run build`. No workflow ran Node before this, which is why a broken lockfile and seven advisories could sit on `main` undisturbed. `npm ci` is deliberate: `npm install` would have repaired the lock and reported success
 - `CODE_OF_CONDUCT.md` — the Contributor Covenant 2.1, with enforcement at the address the contribution guide already publishes
@@ -15,11 +18,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The guide documents that every install scenario but `checks` drops the database, and that `POLLORA_INSTALL_TESTS=1` is the confirmation guarding it. That was discoverable only by reading `tests/install/install.php`, which is late to find out
 
 ### Changed
+- A new project installs `pollora/framework` **v13.32.0-beta.7**, which the lock now pins (it pinned beta.6). The blocks of themes, plugins and modules exist in the block editor, on the page and in the REST API — before, they existed in WP-CLI only — and preview in the editor as the page renders them. It brings `cweagans/composer-patches` **2.0.0**, the plugin applying the WordPress l10n patch
 - The security policy covers this repository. It was nine lines that sent every report to the **framework's** advisory page, so a vulnerability in the skeleton itself — the installer, the shipped configuration, the application shell — had no private channel of its own, and a reporter got no supported versions, no expectation of a reply, and no idea what to include. The framework routing is kept, and widened: report to either repository rather than let the question of which one delay you
 - The contribution guide is called `CONTRIBUTING.md`, which is the only spelling GitHub recognises — as `CONTRIBUTE.md` it was never linked from the sidebar when someone opened an issue or a pull request, so the one document a newcomer needs was the one they had to go looking for. It now answers the three questions a first contribution runs into: which repository owns the change, which branch to target, and how to tell the change works
 - The `develop` branch is gone. It had carried nothing of its own since 2026-04-16 and sat 204 commits behind `main`, while the guide told contributors the project follows Gitflow — so a contributor who knew Gitflow was invited to branch from a five-month-old base and open a pull request against a dead branch. Releases are cut on `release/*` and merged into `main`; `main` is the base. The framework keeps its `develop` on purpose: it is installed as a dependency and needs a pre-release line others can require as `dev-develop`, which a project template has no use for
 
 ### Removed
+- The `enable-patching` option. composer-patches 1 read it; version 2 applies dependency patches unconditionally and ignores it
 - `yarn.lock`. The repository installs with npm — the README requires it, `composer setup` runs `npm install`, and no workflow, script or document mentions yarn anywhere — so nothing had installed from this file in a long time. It had also drifted: the security update of 2026-04-22 touched `package-lock.json` only, leaving `yarn.lock` pinning `axios` 1.8.2 where the real lock had moved to 1.15.2. A lockfile nobody installs from still gets scanned, and this one was the source of **35 of the repository's 56 Dependabot alerts**, including one of the two criticals — alerts about packages no machine has installed, drowning the ones that describe something real
 
 ### Fixed
