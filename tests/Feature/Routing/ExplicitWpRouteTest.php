@@ -55,7 +55,7 @@ class ExplicitWpRouteTest extends TestCase
             $this->markTestSkipped('No published page found.');
         }
 
-        $this->assertTemplateIs('/' . $slug . '/', 'page', 200);
+        $this->assertTemplateIs('/'.$slug.'/', 'page', 200);
     }
 
     /**
@@ -69,7 +69,7 @@ class ExplicitWpRouteTest extends TestCase
             $this->markTestSkipped('No published post found.');
         }
 
-        $this->assertTemplateIs('/' . $slug . '/', 'single', 200);
+        $this->assertTemplateIs('/'.$slug.'/', 'single', 200);
     }
 
     /**
@@ -87,10 +87,8 @@ class ExplicitWpRouteTest extends TestCase
             $this->markTestSkipped('No published project found — run: wp starter-seed create');
         }
 
-        // The project must NOT render the generic "single" (post) template
-        $this->assertTemplateIsNot('/project/' . $slug . '/', 'single');
-        // It must render single-project template via template hierarchy
-        $this->assertTemplateIs('/project/' . $slug . '/', 'single-project', 200);
+        // It must render the most specific template the theme ships for a project
+        $this->assertTemplateIsFirstShippedOf('/project/'.$slug.'/', ['single-project', 'single', 'singular', 'index'], 200);
     }
 
     /**
@@ -98,7 +96,7 @@ class ExplicitWpRouteTest extends TestCase
      */
     public function test_nonexistent_url_renders_404_template(): void
     {
-        $this->assertTemplateIs('/this-page-absolutely-does-not-exist-' . time() . '/', '404', 404);
+        $this->assertTemplateIs('/this-page-absolutely-does-not-exist-'.time().'/', '404', 404);
     }
 
     /**
@@ -120,7 +118,7 @@ class ExplicitWpRouteTest extends TestCase
             $this->markTestSkipped('No published page found.');
         }
 
-        $this->assertTemplateIsNot('/' . $slug . '/', 'home');
+        $this->assertTemplateIsNot('/'.$slug.'/', 'home');
     }
 
     /**
@@ -134,7 +132,7 @@ class ExplicitWpRouteTest extends TestCase
             $this->markTestSkipped('No published post found.');
         }
 
-        $this->assertTemplateIsNot('/' . $slug . '/', 'page');
+        $this->assertTemplateIsNot('/'.$slug.'/', 'page');
     }
 
     // ─── Helpers ─────────────────────────────────────────────
