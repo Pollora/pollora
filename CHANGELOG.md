@@ -5,7 +5,12 @@ All notable changes to the Pollora skeleton will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/Pollora/pollora/compare/v13.32.0-beta.7...main)
+## [Unreleased](https://github.com/Pollora/pollora/compare/v13.32.0-beta.8...main)
+
+## [v13.32.0-beta.8](https://github.com/Pollora/pollora/compare/v13.32.0-beta.7...v13.32.0-beta.8) - 2026-09-25
+
+### Changed
+- A new project installs `pollora/framework` **v13.32.0-beta.8**, which the lock now pins (it pinned beta.7). The framework's code is unchanged; the release ships the browser test suite that now guards it — blocks, the template hierarchy, the framework's features and translations — run in Chromium on every pull request and in Firefox and WebKit every night. `patches.lock.json` is unchanged: no patch moved
 
 ### Fixed
 - The redirect from `/x/` to `/x` in `public/.htaccess` keeps the scheme, the method and the REST API intact. It is Laravel's "Redirect Trailing Slashes" rule, and it stays: URLs carry no trailing slash. But behind a proxy that terminates TLS — DDEV's router, a load balancer — Apache only sees HTTP, so it sent https visitors to `http://`; it redirected every method, so a POST or an OPTIONS to a URL ending in a slash was lost; and it redirected the REST index, `/wp-json/`, which is what `rest_url()` returns. Measured on a site: `/shop/` went to `http://…/shop`, and the block editor's permission check, `OPTIONS /wp-json/wp/v2/posts/`, was redirected to `http://` and blocked by the browser as mixed content. The rule now redirects GET and HEAD only, to the scheme the request arrived on (`HTTPS`, or `X-Forwarded-Proto: https`), and leaves `/wp-json` to WordPress. Existing projects can replace the four lines under `# Redirect Trailing Slashes If Not A Folder...` with the new block. The install tests check the redirect's target and that the REST API answers without one
