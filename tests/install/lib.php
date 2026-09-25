@@ -118,6 +118,38 @@ function http(string $url, array $post = [], bool $followRedirects = true): arra
 }
 
 /**
+ * Status and Location of one request, redirects not followed.
+ *
+ * @return array{status:int, location:string}
+ */
+function probe(string $url, string $method = 'GET'): array
+{
+    $ch = curl_init($url);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_CUSTOMREQUEST => $method,
+        CURLOPT_NOBODY => $method === 'HEAD',
+        CURLOPT_FOLLOWLOCATION => false,
+        CURLOPT_SSL_VERIFYPEER => false,
+        CURLOPT_SSL_VERIFYHOST => false,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_USERAGENT => 'pollora-install-tests',
+    ]);
+
+    if (curl_exec($ch) === false) {
+        throw new \RuntimeException("{$method} {$url} failed: ".curl_error($ch));
+    }
+
+    $result = [
+        'status' => (int) curl_getinfo($ch, CURLINFO_HTTP_CODE),
+        'location' => (string) curl_getinfo($ch, CURLINFO_REDIRECT_URL),
+    ];
+    curl_close($ch);
+
+    return $result;
+}
+
+/**
  * The assertion that matters most in this suite.
  *
  * Fix 3 shipped because the theme's `index.php` stub answered 200 with zero
