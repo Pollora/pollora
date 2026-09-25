@@ -113,6 +113,44 @@ function checkPageRendering(): void
         test("Renders: {$type}", fn () => rendersHtml(http($url)));
     }
 
+    // URLs carry no trailing slash — the framework strips it from every URL
+    // WordPress generates — and public/.htaccess redirects /x/ to /x, as
+    // Laravel does. That redirect used to send https visitors to http://
+    // behind a proxy that terminates TLS (DDEV's router: Apache only sees
+    // HTTP), and it redirected every method, so the block editor's permission
+    // check — OPTIONS /wp-json/wp/v2/posts/ — was blocked as mixed content.
+    if (isset($urls['single post'])) {
+        test('A trailing slash redirects to the canonical URL, same scheme', function () use ($urls) {
+            $canonical = rtrim($urls['single post'], '/');
+            $response = probe($canonical.'/');
+
+            if ($response['status'] !== 301) {
+                return "{$canonical}/ answered {$response['status']}, expected a 301 to {$canonical}";
+            }
+
+            return $response['location'] === $canonical
+                ? true
+                : "{$canonical}/ redirected to {$response['location']}, expected {$canonical}";
+        });
+    }
+
+    $restCases = [
+        'GET the REST index' => ['GET', 'echo rest_url();'],
+        'GET a REST route ending in a slash' => ['GET', 'echo rest_url("wp/v2/posts/");'],
+        'OPTIONS a REST route ending in a slash' => ['OPTIONS', 'echo rest_url("wp/v2/posts/");'],
+    ];
+
+    foreach ($restCases as $label => [$method, $php]) {
+        test("{$label} reaches WordPress, not a redirect", function () use ($method, $php) {
+            $url = wpEval($php);
+            $response = probe($url, $method);
+
+            return $response['status'] === 200
+                ? true
+                : "{$method} {$url} answered {$response['status']}".($response['location'] !== '' ? " → {$response['location']}" : '');
+        });
+    }
+
     // A 404 must still be a rendered document. An empty 404 is the same
     // silent failure as an empty 200, one status code along.
     test('Renders: 404 page', fn () => rendersHtml(http(siteUrl('/this-url-does-not-exist-'.bin2hex(random_bytes(4)))), 404));

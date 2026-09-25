@@ -14,9 +14,21 @@
     RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
 
     # Redirect Trailing Slashes If Not A Folder...
+    #
+    # Only GET and HEAD: a redirected POST or OPTIONS is lost. The REST API is
+    # left to WordPress, whose rest_url() ends in a slash. The scheme is stated
+    # because behind a proxy that terminates TLS Apache only sees HTTP, and
+    # would otherwise send https visitors to http://.
+    RewriteCond %{HTTPS} =on [OR]
+    RewriteCond %{HTTP:X-Forwarded-Proto} =https
+    RewriteRule ^ - [E=POLLORA_SCHEME:https]
+    RewriteCond %{ENV:POLLORA_SCHEME} !=https
+    RewriteRule ^ - [E=POLLORA_SCHEME:http]
+    RewriteCond %{REQUEST_METHOD} ^(GET|HEAD)$
+    RewriteCond %{REQUEST_URI} !^/wp-json(/|$)
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} (.+)/$
-    RewriteRule ^ %1 [L,R=301]
+    RewriteRule ^ %{ENV:POLLORA_SCHEME}://%{HTTP_HOST}%1 [L,R=301]
 
     # Send Requests To Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
