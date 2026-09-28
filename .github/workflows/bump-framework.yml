@@ -13,6 +13,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  issues: write
   # Pull requests opened with GITHUB_TOKEN start no workflow, so the tests are
   # dispatched by hand on the branch below.
   actions: write
@@ -65,6 +66,9 @@ jobs:
             gh pr close "$number" --delete-branch \
               --comment "Superseded by ${NEW}."
           done
+          for number in $(gh issue list --label bump-framework --state open --json number -q '.[].number'); do
+            gh issue close "$number" --comment "Superseded by ${NEW}."
+          done
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -82,8 +86,21 @@ jobs:
           **The framework's patches changed.** composer-patches 2 reads \`patches.lock.json\` alone once it exists, so run \`composer patches-relock\` and \`composer patches-repatch\`, commit the new \`patches.lock.json\`, then mark this pull request ready. Merged as is, a new project would install without the patch."
           fi
 
-          gh pr create --base main --head "$branch" --title "chore: release ${NEW}" \
-            --label bump-framework --body "$body" "${draft[@]}"
+          # An organisation may forbid Actions to create pull requests; the
+          # branch is pushed all the same, so hand over the command instead.
+          if ! gh pr create --base main --head "$branch" --title "chore: release ${NEW}" \
+            --label bump-framework --body "$body" "${draft[@]}"; then
+            gh issue create --title "Framework ${NEW} is out: open the release pull request" \
+              --label bump-framework --body "${body}
+
+          GitHub Actions cannot open pull requests here, so the branch \`${branch}\` is pushed and its tests are running. Open the pull request with:
+
+          \`\`\`
+          gh pr create --base main --head ${branch} --title \"chore: release ${NEW}\" --fill
+          \`\`\`
+
+          Then merge it and tag the skeleton \`${NEW}\`."
+          fi
 
           # Start the tests on the branch: a pull request opened with
           # GITHUB_TOKEN triggers none, but a dispatched run reports on the
