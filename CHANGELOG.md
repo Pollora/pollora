@@ -5,12 +5,7 @@ All notable changes to the Pollora skeleton will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/Pollora/pollora/compare/v13.32.0-beta.9...main)
-
-## [v13.32.0-beta.9](https://github.com/Pollora/pollora/compare/v13.32.0-beta.8...v13.32.0-beta.9) - 2026-09-28
-
-### Changed
-- A new project installs `pollora/framework` **v13.32.0-beta.9**, which the lock now pins (it pinned beta.8). The release brings `<InnerBlocks />` in a block's Blade template, a block editor runtime that `pollora:make:block` now generates dynamic blocks on, and a lighter installed package (tests, CI and tooling configs are left out of the archive). `patches.lock.json` is unchanged: the framework's patches are the same
+## [Unreleased](https://github.com/Pollora/pollora/compare/v13.32.0-beta.8...main)
 
 ## [v13.32.0-beta.8](https://github.com/Pollora/pollora/compare/v13.32.0-beta.7...v13.32.0-beta.8) - 2026-09-25
 

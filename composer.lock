@@ -4247,16 +4247,16 @@
         },
         {
             "name": "pollora/framework",
-            "version": "v13.32.0-beta.9",
+            "version": "v13.32.0-beta.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
-                "reference": "ee402f0f9054b42df43baed2fbd3310236fb9306"
+                "reference": "0ef499bf804fc718beb7d5294e6e258307bdfe2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/ee402f0f9054b42df43baed2fbd3310236fb9306",
-                "reference": "ee402f0f9054b42df43baed2fbd3310236fb9306",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/0ef499bf804fc718beb7d5294e6e258307bdfe2f",
+                "reference": "0ef499bf804fc718beb7d5294e6e258307bdfe2f",
                 "shasum": ""
             },
             "require": {
@@ -4326,9 +4326,6 @@
                     "php-stubs/wordpress-stubs": {
                         "Rename __ to __wp so Laravel can declare __()": "https://raw.githubusercontent.com/Pollora/framework/b26034b3306c96098f756c0ca80631a596db25c9/patches/wordpress-stubs.patch"
                     }
-                },
-                "branch-alias": {
-                    "dev-develop": "13.x-dev"
                 }
             },
             "autoload": {
@@ -4362,7 +4359,7 @@
                 "issues": "https://github.com/Pollora/framework/issues",
                 "source": "https://github.com/Pollora/framework"
             },
-            "time": "2026-09-28T15:20:00+00:00"
+            "time": "2026-09-25T14:58:48+00:00"
         },
         {
             "name": "pollora/helper-overrider",
