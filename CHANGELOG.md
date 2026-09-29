@@ -5,7 +5,12 @@ All notable changes to the Pollora skeleton will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/Pollora/pollora/compare/v13.32.0-beta.9...main)
+## [Unreleased](https://github.com/Pollora/pollora/compare/v13.34.0-beta...main)
+
+## [v13.34.0-beta](https://github.com/Pollora/pollora/compare/v13.32.0-beta.9...v13.34.0-beta) - 2026-09-29
+
+### Changed
+- A new project installs `pollora/framework` **v13.34.0-beta** on **Laravel 13.34**: the framework's version tracks Laravel's, and this beta requires `illuminate/*` `^13.34`. The constraints follow — `laravel/framework` `^13.34` (was `^13.33`), `pollora/framework` `^13.34@beta` (was `^13.32@beta`). The release brings a third `pollora:make:theme` template, **Magazine** (a Full Site Editing block theme), Vite scripts enqueued as script modules after WordPress's import map (Firefox and Safari no longer lose the core blocks' modules), `error404` kept on a real 404 and cleared on Laravel routes, and a block theme's 404 answering HTTP 404. `patches.lock.json` is unchanged: the framework's patches are the same
 
 ## [v13.32.0-beta.9](https://github.com/Pollora/pollora/compare/v13.32.0-beta.8...v13.32.0-beta.9) - 2026-09-28
 
