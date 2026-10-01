@@ -104,12 +104,16 @@
             ],
             "public/content/themes/{$name}/": [
                 "type:wordpress-theme"
+            ],
+            "Modules/{$name}/": [
+                "vendor:pollora"
             ]
         },
         "merge-plugin": {
             "include": [
                 "Modules/*/composer.json"
-            ]
+            ],
+            "merge-dev": false
         },
         "laravel": []
     },
