@@ -96,6 +96,9 @@
     "extra": {
         "wordpress-install-dir": "public/cms",
         "installer-paths": {
+            "Modules/{$name}/": [
+                "type:laravel-library"
+            ],
             "public/content/mu-plugins/{$name}/": [
                 "type:wordpress-muplugin"
             ],
@@ -109,7 +112,8 @@
         "merge-plugin": {
             "include": [
                 "Modules/*/composer.json"
-            ]
+            ],
+            "merge-dev": false
         },
         "laravel": []
     },
