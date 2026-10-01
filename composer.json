@@ -96,9 +96,6 @@
     "extra": {
         "wordpress-install-dir": "public/cms",
         "installer-paths": {
-            "Modules/{$name}/": [
-                "vendor:pollora"
-            ],
             "public/content/mu-plugins/{$name}/": [
                 "type:wordpress-muplugin"
             ],
@@ -107,6 +104,9 @@
             ],
             "public/content/themes/{$name}/": [
                 "type:wordpress-theme"
+            ],
+            "Modules/{$name}/": [
+                "vendor:pollora"
             ]
         },
         "merge-plugin": {
