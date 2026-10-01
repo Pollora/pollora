@@ -12,7 +12,11 @@
 
 ## About Pollora
 
-Pollora bridges **Laravel** and **WordPress**, combining Laravel's architecture with WordPress's content management. It provides the best of both worlds for building modern web applications:
+**Pollora is the Laravel framework for WordPress**, and this repository is the skeleton `composer create-project` installs. WordPress runs inside a Laravel application: the front end uses Laravel routing, controllers, Blade and Eloquent, while the WordPress admin, database and plugins keep working as usual.
+
+[Website](https://pollora.dev) · [Documentation](https://pollora.dev/getting-started/installation/) · [Why Pollora](https://pollora.dev/why/) · [Pollora vs Acorn, Sage, Radicle and Corcel](https://pollora.dev/compare/) · [1-minute tour](https://www.youtube.com/watch?v=Wk1VzPapqM8)
+
+What you get:
 
 - **WordPress routing** with `Route::wp()` and template hierarchy support
 - **PHP attributes** for hooks, post types, taxonomies, scheduling, and REST routes
@@ -29,6 +33,15 @@ Full documentation is available at **[pollora.dev](https://pollora.dev)**, start
 
 ## Quick Start
 
+With the [Pollora CLI](https://github.com/Pollora/cli), which can also set up a [DDEV](https://ddev.readthedocs.io) environment:
+
+```bash
+composer global require pollora/cli
+pollora new my-project --ddev
+```
+
+Or with Composer:
+
 ```bash
 composer create-project pollora/pollora my-project
 cd my-project
@@ -36,14 +49,15 @@ cd my-project
 php artisan pollora:install
 ```
 
-See [CLAUDE.md](CLAUDE.md) for detailed development setup with DDEV.
+The [installation guide](https://pollora.dev/getting-started/installation/) covers both paths, the interactive setup and DDEV.
 
 ## Requirements
 
-- PHP ^8.3
+- PHP 8.4+ (this skeleton's `composer.lock` ships Symfony 8, which requires it)
 - Composer 2.x
 - Node.js 20.19+ or 22.12+ & npm (the floor Vite 7 requires)
 - A database (MySQL, MariaDB, or SQLite)
+- WordPress 7.1+ is installed for you through Composer
 
 ## Sponsors
 

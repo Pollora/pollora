@@ -1,7 +1,7 @@
 {
     "name": "pollora/pollora",
     "type": "project",
-    "description": "The skeleton application for the Pollora framework.",
+    "description": "Skeleton for Pollora, the Laravel framework for WordPress: create a WordPress project running inside Laravel.",
     "keywords": [
         "pollora",
         "laravel",
