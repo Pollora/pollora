@@ -4247,16 +4247,16 @@
         },
         {
             "name": "pollora/framework",
-            "version": "v13.34.0",
+            "version": "v13.34.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
-                "reference": "a373c3e4d983860c9ced43b6319bdeda98de054f"
+                "reference": "579f04e086bdea8560db697390e59c8089f621b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/a373c3e4d983860c9ced43b6319bdeda98de054f",
-                "reference": "a373c3e4d983860c9ced43b6319bdeda98de054f",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/579f04e086bdea8560db697390e59c8089f621b1",
+                "reference": "579f04e086bdea8560db697390e59c8089f621b1",
                 "shasum": ""
             },
             "require": {
@@ -4355,14 +4355,14 @@
                     "role": "Inspirer"
                 }
             ],
-            "description": "Laravel & WordPress blend for coding as sweet as honey. Join the hive!",
+            "description": "The Laravel framework for WordPress: Laravel routing, Blade and Eloquent, with PHP 8 attributes for hooks, post types, taxonomies and REST routes.",
             "homepage": "https://pollora.dev",
             "support": {
                 "docs": "https://pollora.dev",
                 "issues": "https://github.com/Pollora/framework/issues",
                 "source": "https://github.com/Pollora/framework"
             },
-            "time": "2026-09-30T12:18:43+00:00"
+            "time": "2026-10-02T16:08:11+00:00"
         },
         {
             "name": "pollora/helper-overrider",
@@ -10642,5 +10642,5 @@
         "php": "^8.3"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }
