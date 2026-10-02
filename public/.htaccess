@@ -13,6 +13,17 @@
     RewriteCond %{HTTP:x-xsrf-token} .
     RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
 
+    # WordPress Content Directories Are Not Pages...
+    #
+    # A directory, or the empty index.php WordPress ships in some of them
+    # ("Silence is golden"), answered a blank 200 or a 403: either way it told
+    # a visitor the directory exists. The front controller answers instead,
+    # with the site's own 404. Files in them (CSS, JS, images) are served as
+    # before.
+    RewriteCond %{REQUEST_FILENAME} -d [OR]
+    RewriteCond %{REQUEST_FILENAME} /index\.php$
+    RewriteRule ^(cms/wp-content|content)(/|$) index.php [L]
+
     # Redirect Trailing Slashes If Not A Folder...
     #
     # Only GET and HEAD: a redirected POST or OPTIONS is lost. The REST API is
