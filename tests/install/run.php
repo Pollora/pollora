@@ -19,7 +19,7 @@ declare(strict_types=1);
  *   checks    run the checks against the site as it stands, without
  *             reinstalling; seeds install-test* fixtures, drops nothing.
  *             Takes an optional group — rendering, rewrites, theme,
- *             updates or views — to run just that one
+ *             updates, views or directories — to run just that one
  *
  * Every scenario but `checks` drops the database. POLLORA_INSTALL_TESTS=1 is
  * required to confirm the site is disposable.
@@ -67,6 +67,7 @@ try {
             checkThemeResolution();
             checkThemeUpdateGuard();
             checkViewPathPrecedence();
+            checkContentDirectories();
             break;
 
         case 'no-theme':
@@ -112,6 +113,7 @@ try {
             checkThemeResolution();
             checkThemeUpdateGuard();
             checkViewPathPrecedence();
+            checkContentDirectories();
             break;
 
         case 'checks':
@@ -124,8 +126,8 @@ try {
             // per fix, and the full pass is far too slow for that.
             $only = $argv[2] ?? null;
 
-            if ($only !== null && ! in_array($only, ['rendering', 'rewrites', 'theme', 'updates', 'views'], true)) {
-                fwrite(STDERR, "\nUnknown group '{$only}': expected rendering, rewrites, theme, updates or views\n\n");
+            if ($only !== null && ! in_array($only, ['rendering', 'rewrites', 'theme', 'updates', 'views', 'directories'], true)) {
+                fwrite(STDERR, "\nUnknown group '{$only}': expected rendering, rewrites, theme, updates, views or directories\n\n");
                 exit(2);
             }
 
@@ -147,6 +149,10 @@ try {
 
             if ($only === null || $only === 'views') {
                 checkViewPathPrecedence();
+            }
+
+            if ($only === null || $only === 'directories') {
+                checkContentDirectories();
             }
             break;
     }

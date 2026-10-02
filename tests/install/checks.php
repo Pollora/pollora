@@ -691,3 +691,64 @@ function checkViewPathPrecedence(): void
             : "the archive answered 200 with {$bytes} bytes — the theme root's index.php stub rendered";
     });
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 1.9 — WordPress content directories answer 404 (Pollora/framework#294)
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * A directory under the content paths is not a page.
+ *
+ * WordPress ships an empty index.php ("Silence is golden") in wp-content,
+ * wp-content/plugins and wp-content/themes. Apache served it directly: a blank
+ * 200, which told anyone probing that the directory exists. A directory without
+ * one answered 403, which said the same. The skeleton's .htaccess now sends
+ * both to the front controller, so the site's own 404 answers — and a file in
+ * those directories must still be served, or every plugin's CSS would break.
+ */
+function checkContentDirectories(): void
+{
+    section('1.9 — Content directories answer 404');
+
+    $directories = [
+        '/cms/wp-content/',
+        '/cms/wp-content/index.php',
+        '/cms/wp-content/plugins/',
+        '/cms/wp-content/themes/',
+        '/content/',
+        '/content/plugins/',
+        '/content/uploads/',
+    ];
+
+    foreach ($directories as $path) {
+        test("{$path} answers the site's 404", function () use ($path) {
+            $response = http(siteUrl($path));
+
+            if ($response['status'] === 200 && trim($response['body']) === '') {
+                return "a blank 200 — WordPress's empty index.php was served directly";
+            }
+
+            return rendersHtml($response, 404);
+        });
+    }
+
+    test('A file in a content directory is still served', function () {
+        $response = http(siteUrl('/cms/wp-includes/css/dashicons.min.css'));
+
+        if ($response['status'] !== 200) {
+            return "a core stylesheet answered {$response['status']}";
+        }
+
+        // The rule is scoped to the content directories; a stylesheet in one of
+        // them must not be caught either.
+        $plugin = wpEval('$p = glob(WP_PLUGIN_DIR . "/*/*.css") ?: glob(WP_PLUGIN_DIR . "/*/*/*.css") ?: glob(WP_PLUGIN_DIR . "/*/*/*/*.css"); echo $p ? plugins_url(basename($p[0]), $p[0]) : "";');
+
+        if ($plugin === '') {
+            return true;
+        }
+
+        $status = http($plugin)['status'];
+
+        return $status === 200 ? true : "a plugin stylesheet ({$plugin}) answered {$status}";
+    });
+}
