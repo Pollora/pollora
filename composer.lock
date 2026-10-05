@@ -4128,16 +4128,16 @@
         },
         {
             "name": "pollora/colt",
-            "version": "10.0.0",
+            "version": "10.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/colt.git",
-                "reference": "658582aa56c4252ee6dbb272dce650426cd601c5"
+                "reference": "81e6501acc560ec1c36f62235ed3a3ed5325c6d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/colt/zipball/658582aa56c4252ee6dbb272dce650426cd601c5",
-                "reference": "658582aa56c4252ee6dbb272dce650426cd601c5",
+                "url": "https://api.github.com/repos/Pollora/colt/zipball/81e6501acc560ec1c36f62235ed3a3ed5325c6d5",
+                "reference": "81e6501acc560ec1c36f62235ed3a3ed5325c6d5",
                 "shasum": ""
             },
             "require": {
@@ -4193,9 +4193,9 @@
             "description": "Use WordPress backend with Laravel or any PHP framework",
             "homepage": "http://github.com/Pollora/colt",
             "support": {
-                "source": "https://github.com/Pollora/colt/tree/10.0.0"
+                "source": "https://github.com/Pollora/colt/tree/10.0.1"
             },
-            "time": "2026-04-20T07:36:14+00:00"
+            "time": "2026-10-05T09:25:22+00:00"
         },
         {
             "name": "pollora/entity",
@@ -4247,16 +4247,16 @@
         },
         {
             "name": "pollora/framework",
-            "version": "v13.34.1",
+            "version": "v13.34.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
-                "reference": "579f04e086bdea8560db697390e59c8089f621b1"
+                "reference": "9426526dc64644d88edc84bbdae11aed7f18af8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/579f04e086bdea8560db697390e59c8089f621b1",
-                "reference": "579f04e086bdea8560db697390e59c8089f621b1",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/9426526dc64644d88edc84bbdae11aed7f18af8a",
+                "reference": "9426526dc64644d88edc84bbdae11aed7f18af8a",
                 "shasum": ""
             },
             "require": {
@@ -4274,7 +4274,7 @@
                 "php": "^8.3",
                 "pollora/abilities": "^1.0",
                 "pollora/ajax": "^1.0",
-                "pollora/colt": "^10.0",
+                "pollora/colt": "^10.0.1",
                 "pollora/entity": "^1.2",
                 "pollora/helper-overrider": "^1.2",
                 "pollora/hook": "^1.0",
@@ -4362,7 +4362,7 @@
                 "issues": "https://github.com/Pollora/framework/issues",
                 "source": "https://github.com/Pollora/framework"
             },
-            "time": "2026-10-02T16:08:11+00:00"
+            "time": "2026-10-05T09:45:03+00:00"
         },
         {
             "name": "pollora/helper-overrider",
