@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a402f11a8ab204f1cbb324349413462b",
+    "content-hash": "ca3d1d6f76e02fefe8af3c937245974c",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -2242,16 +2242,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v13.34.0",
+            "version": "v13.35.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "c829b4982d29344cbcf1d7ad78eb5d2bb8ae66c4"
+                "reference": "a413a9da94884e5e9d58f4e6612884f712827804"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/c829b4982d29344cbcf1d7ad78eb5d2bb8ae66c4",
-                "reference": "c829b4982d29344cbcf1d7ad78eb5d2bb8ae66c4",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/a413a9da94884e5e9d58f4e6612884f712827804",
+                "reference": "a413a9da94884e5e9d58f4e6612884f712827804",
                 "shasum": ""
             },
             "require": {
@@ -2469,20 +2469,20 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2026-09-29T12:46:21+00:00"
+            "time": "2026-10-06T13:52:37+00:00"
         },
         {
             "name": "laravel/prompts",
-            "version": "v0.3.24",
+            "version": "v0.3.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/prompts.git",
-                "reference": "5d3cdef29e93ca3b62b1871359db3078cd99908b"
+                "reference": "21b7b49d60fcb700016dd27b582ae739c75de816"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/prompts/zipball/5d3cdef29e93ca3b62b1871359db3078cd99908b",
-                "reference": "5d3cdef29e93ca3b62b1871359db3078cd99908b",
+                "url": "https://api.github.com/repos/laravel/prompts/zipball/21b7b49d60fcb700016dd27b582ae739c75de816",
+                "reference": "21b7b49d60fcb700016dd27b582ae739c75de816",
                 "shasum": ""
             },
             "require": {
@@ -2525,10 +2525,9 @@
             ],
             "description": "Add beautiful and user-friendly forms to your command-line applications.",
             "support": {
-                "issues": "https://github.com/laravel/prompts/issues",
-                "source": "https://github.com/laravel/prompts/tree/v0.3.24"
+                "source": "https://github.com/laravel/prompts/tree/v0.3.25"
             },
-            "time": "2026-08-20T12:55:36+00:00"
+            "time": "2026-10-06T02:25:49+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -4247,27 +4246,27 @@
         },
         {
             "name": "pollora/framework",
-            "version": "v13.34.6",
+            "version": "v13.35.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
-                "reference": "80b49e2a01348b923d8e9b778cbef105ce3efed9"
+                "reference": "e14ec54269d45f63dfe19516a661e835d1772a42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/80b49e2a01348b923d8e9b778cbef105ce3efed9",
-                "reference": "80b49e2a01348b923d8e9b778cbef105ce3efed9",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/e14ec54269d45f63dfe19516a661e835d1772a42",
+                "reference": "e14ec54269d45f63dfe19516a661e835d1772a42",
                 "shasum": ""
             },
             "require": {
                 "coduo/php-humanizer": "5.0.3",
                 "cweagans/composer-patches": "^2.0",
-                "illuminate/auth": "^13.34",
-                "illuminate/config": "^13.34",
-                "illuminate/console": "^13.34",
-                "illuminate/database": "^13.34",
-                "illuminate/routing": "^13.34",
-                "illuminate/support": "^13.34",
+                "illuminate/auth": "^13.35",
+                "illuminate/config": "^13.35",
+                "illuminate/console": "^13.35",
+                "illuminate/database": "^13.35",
+                "illuminate/routing": "^13.35",
+                "illuminate/support": "^13.35",
                 "laravel/prompts": "^0.3.24",
                 "log1x/sage-directives": "^2.0",
                 "nwidart/laravel-modules": "^13.0",
@@ -4362,7 +4361,7 @@
                 "issues": "https://github.com/Pollora/framework/issues",
                 "source": "https://github.com/Pollora/framework"
             },
-            "time": "2026-10-06T12:22:33+00:00"
+            "time": "2026-10-06T17:21:36+00:00"
         },
         {
             "name": "pollora/helper-overrider",
