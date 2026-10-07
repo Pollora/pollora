@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - A Pollora module published as a Composer package installs into `Modules/`. `composer require pollora/<module>` places a `pollora/*` package of type `laravel-library` in `Modules/{$name}/` (`composer/installers` reads the module's `installer-name` for the folder's exact case), where nwidart finds it; enabling it is still a line in `modules_statuses.json`. The rule is limited to the `pollora` vendor: other Laravel packages that declare `laravel-library` (about ninety on Packagist) keep their usual place. The rule comes last in `installer-paths`: `composer/installers` applies the first rule that matches, and a `vendor:` rule ignores the package type, so placed first it sent Pollora's own WordPress plugins (`pollora/mcp-connector`, `pollora/ai-visibility`) to `Modules/` too. Existing projects can add the same rule, last, to their `composer.json`
 
+### Changed
+- README: the organization's banner and badges (with the Tests workflow), installation first, the empty Sponsors section replaced by a pointer to GitHub Discussions, and the standard Contributing and License footer
+
 ### Fixed
 - `merge-plugin` no longer merges a module's `require-dev`. A module installed by Composer is also merged through `Modules/*/composer.json`, and its development tools (PHPUnit, Rector…) became requirements of the project: measured, the next `composer install` removed WordPress core from `public/cms` and the site stopped booting. `merge-dev` is now `false`; a module's `require` is still merged. Existing projects can set it in `extra.merge-plugin`
 
