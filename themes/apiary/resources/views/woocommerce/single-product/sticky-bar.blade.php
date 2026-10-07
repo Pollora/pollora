@@ -41,7 +41,7 @@
      x-on:sticky-bar-hide.window="visible = false; expanded = false"
      x-on:panel-open.window="panelOpen = true; visible = false; expanded = false"
      x-on:panel-close.window="panelOpen = false; $nextTick(() => { const btn = document.querySelector('.single_add_to_cart_button'); if (btn && btn.getBoundingClientRect().bottom < 0) visible = true; })"
-     x-show="visible"
+     x-show="visible" x-cloak
      x-transition:enter="transition ease-out duration-300"
      x-transition:enter-start="translate-y-full"
      x-transition:enter-end="translate-y-0"
@@ -53,7 +53,7 @@
 
     {{-- Expandable panel for complex products --}}
     @if ($isComplex)
-        <div x-show="expanded"
+        <div x-show="expanded" x-cloak
              x-transition:enter="transition ease-out duration-200"
              x-transition:enter-start="opacity-0 max-h-0"
              x-transition:enter-end="opacity-100 max-h-[50vh]"

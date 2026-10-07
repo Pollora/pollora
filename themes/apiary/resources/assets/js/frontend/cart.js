@@ -79,6 +79,12 @@ const ajaxAddToCart = (form, btn) => {
     setButtonLoading(btn, true);
 
     const formData = new FormData(form);
+    // FormData(form) leaves out the button that submitted the form, and on a
+    // simple product that button is what carries add-to-cart=<id>: without it
+    // WooCommerce adds nothing, while this still announces success.
+    if (btn?.name && !formData.has(btn.name)) {
+        formData.set(btn.name, btn.value);
+    }
     if (!formData.has('add-to-cart') && formData.has('product_id')) {
         formData.set('add-to-cart', formData.get('product_id'));
     }
@@ -213,26 +219,4 @@ if (typeof jQuery !== 'undefined' && document.querySelector('.woocommerce-cart-f
             $form.submit();
         }, 600);
     });
-}
-
-// ─── Cart badge visibility ───
-const badge = document.querySelector('.cart-badge');
-const count = document.querySelector('.cart-count');
-
-if (badge && count) {
-    const updateBadge = () => {
-        const value = parseInt(count.textContent, 10) || 0;
-        badge.classList.toggle('flex', value > 0);
-        badge.classList.toggle('hidden', value === 0);
-    };
-
-    const badgeObserver = new MutationObserver(updateBadge);
-    badgeObserver.observe(count, {
-        childList: true,
-        characterData: true,
-        subtree: true,
-    });
-
-    // Cleanup on turbo/SPA navigation if applicable
-    document.addEventListener('turbo:before-render', () => badgeObserver.disconnect(), { once: true });
 }

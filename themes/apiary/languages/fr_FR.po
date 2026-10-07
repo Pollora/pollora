@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -128,23 +128,23 @@ msgstr "Images"
 #. Theme Name of the theme
 #: style.css
 msgid "Apiary"
-msgstr ""
+msgstr "Apiary"
 
 #. Theme URI of the theme
 #. Author URI of the theme
 #: style.css
 msgid "https://amphibee.fr/"
-msgstr ""
+msgstr "https://amphibee.fr/"
 
 #. Description of the theme
 #: style.css
 msgid "WooCommerce Theme based on Tailwind UI"
-msgstr ""
+msgstr "Thème WooCommerce basé sur Tailwind UI"
 
 #. Author of the theme
 #: style.css
 msgid "AmphiBee"
-msgstr ""
+msgstr "AmphiBee"
 
 #: app/Cms/WooCommerce/PageTitle.php:55
 msgid "Page title"
@@ -159,8 +159,8 @@ msgstr "Masquer le titre de la page (H1)"
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$s réflexion sur &laquo;&nbsp;%2$s&nbsp;&raquo;"
+msgstr[1] "%1$s réflexions sur &laquo;&nbsp;%2$s&nbsp;&raquo;"
 
 #: app/Providers/AssetServiceProvider.php:38
 #, php-format
@@ -181,7 +181,7 @@ msgstr "Fermer"
 #: app/Walkers/MenuPrimary.php:103
 #: app/Walkers/MenuPrimary.php:118
 msgid "See all"
-msgstr ""
+msgstr "Tout voir"
 
 #: resources/views/404.blade.php:6
 #: resources/views/errors/404.blade.php:6
@@ -191,7 +191,7 @@ msgstr "Page non trouvée"
 #: resources/views/404.blade.php:7
 #: resources/views/errors/404.blade.php:7
 msgid "Sorry, we couldn't find the page you're looking for. It might have been moved or no longer exists."
-msgstr ""
+msgstr "Désolé, nous n'avons pas trouvé la page que vous cherchez. Elle a peut-être été déplacée ou n'existe plus."
 
 #: resources/views/404.blade.php:11
 #: resources/views/errors/404.blade.php:10
@@ -201,19 +201,19 @@ msgstr "Retour à l'accueil"
 
 #: resources/views/archive.blade.php:25
 msgid "No posts found."
-msgstr ""
+msgstr "Aucun article trouvé."
 
 #: resources/views/home.blade.php:8
 msgid "Check out the latest additions to our collection."
-msgstr ""
+msgstr "Découvrez les dernières nouveautés de notre collection."
 
 #: resources/views/home.blade.php:27
 msgid "Shop by category"
-msgstr ""
+msgstr "Acheter par catégorie"
 
 #: resources/views/home.blade.php:56
 msgid "Great deals on selected items."
-msgstr ""
+msgstr "De bonnes affaires sur une sélection d'articles."
 
 #: resources/views/layouts/app.blade.php:16
 #: resources/views/woocommerce/layouts/checkout.blade.php:15
@@ -222,7 +222,7 @@ msgstr "Aller au contenu"
 
 #: resources/views/parts/footer.blade.php:54
 msgid "About"
-msgstr ""
+msgstr "À propos"
 
 #: resources/views/parts/header.blade.php:43
 msgid "Toggle menu"
@@ -231,12 +231,12 @@ msgstr "Ouvrir le menu"
 #: resources/views/parts/header.blade.php:112
 #, php-format
 msgid "Cart, %d items"
-msgstr ""
+msgstr "Panier, %d articles"
 
 #: resources/views/parts/header.blade.php:128
 #: resources/views/parts/header.blade.php:194
 msgid "Primary navigation"
-msgstr ""
+msgstr "Navigation principale"
 
 #: resources/views/parts/header.blade.php:254
 msgid "Shopping cart"
@@ -245,27 +245,27 @@ msgstr "Panier"
 #: resources/views/search.blade.php:7
 #, php-format
 msgid "Search results for: \"%s\""
-msgstr ""
+msgstr "Résultats de recherche pour : \"%s\""
 
 #: resources/views/search.blade.php:25
 msgid "No results found."
-msgstr ""
+msgstr "Aucun résultat trouvé."
 
 #: resources/views/search.blade.php:26
 msgid "Try a different search term."
-msgstr ""
+msgstr "Essayez un autre terme de recherche."
 
 #: resources/views/woocommerce/cart/mini-cart.blade.php:22
 msgid "Close panel"
-msgstr ""
+msgstr "Fermer le panneau"
 
 #: resources/views/woocommerce/coming-soon.blade.php:35
 msgid "Great things are on the horizon"
-msgstr ""
+msgstr "De grandes choses se préparent"
 
 #: resources/views/woocommerce/coming-soon.blade.php:39
 msgid "Something big is brewing! Our store is in the works and will be launching soon!"
-msgstr ""
+msgstr "Quelque chose de grand se prépare ! Notre boutique est en cours de création et sera bientôt en ligne !"
 
 #: resources/views/woocommerce/myaccount/form-login.blade.php:25
 msgid "Already have an account? Sign in below."
@@ -286,7 +286,7 @@ msgstr "Paiement sécurisé"
 #: resources/views/woocommerce/parts/header/header-checkout.blade.php:81
 #, php-format
 msgid "Step %1$d of %2$d"
-msgstr ""
+msgstr "Étape %1$d sur %2$d"
 
 #: resources/views/woocommerce/parts/header/header-checkout.blade.php:91
 msgid "Secure checkout"
@@ -295,46 +295,46 @@ msgstr "Paiement sécurisé"
 #: resources/views/woocommerce/single-product-reviews.blade.php:33
 #: resources/views/woocommerce/single-product-reviews.blade.php:71
 msgid "Write a review"
-msgstr ""
+msgstr "Écrire un avis"
 
 #: resources/views/woocommerce/single-product-reviews.blade.php:68
 msgid "What do you think?"
-msgstr ""
+msgstr "Qu'en pensez-vous ?"
 
 #: resources/views/woocommerce/single-product-reviews.blade.php:69
 #, php-format
 msgid "Only %d review so far — your opinion matters."
 msgid_plural "Only %d reviews so far — your opinion matters."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Seulement %d avis pour le moment — votre opinion compte."
+msgstr[1] "Seulement %d avis pour le moment — votre opinion compte."
 
 #: resources/views/woocommerce/single-product-reviews.blade.php:84
 msgid "Be the first to share your experience."
-msgstr ""
+msgstr "Soyez le premier à partager votre expérience."
 
 #: resources/views/woocommerce/single-product/sticky-bar.blade.php:103
 msgid "Close"
-msgstr ""
+msgstr "Fermer"
 
 #: resources/views/blocks/example/block.json
 msgctxt "block title"
 msgid "Example"
-msgstr ""
+msgstr "Exemple"
 
 #: resources/views/blocks/example/block.json
 msgctxt "block description"
 msgid "A bloc example"
-msgstr ""
+msgstr "Un exemple de bloc"
 
 #: resources/views/blocks/example/block.json
 msgctxt "block style label"
 msgid "Default"
-msgstr ""
+msgstr "Par défaut"
 
 #: resources/views/blocks/example/block.json
 msgctxt "block style label"
 msgid "Other"
-msgstr ""
+msgstr "Autre"
 
 #: theme.json
 msgctxt "Font family name"
@@ -1960,7 +1960,7 @@ msgstr "Voir le panier"
 #: app/Providers/AssetServiceProvider.php:43
 #: resources/views/woocommerce/parts/modal-add-to-cart.blade.php:73
 msgid "Continue shopping"
-msgstr ""
+msgstr "Continuer mes achats"
 
 #: app/Providers/AssetServiceProvider.php:44
 #: resources/views/woocommerce/parts/modal-add-to-cart.blade.php:65

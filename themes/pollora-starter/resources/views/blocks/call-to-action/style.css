@@ -1,0 +1,43 @@
+@reference "tailwindcss";
+
+/**
+ * Front + editor styles for Call to Action block.
+ */
+.wp-block-pollora-starter-call-to-action {
+    @apply py-12 px-8 rounded-xl text-slate-50;
+    background: linear-gradient(135deg, theme(--color-slate-900) 0%, theme(--color-slate-800) 100%);
+}
+
+.wp-block-pollora-starter-call-to-action__heading {
+    @apply text-3xl font-bold mb-4 leading-tight;
+}
+
+.wp-block-pollora-starter-call-to-action__description {
+    @apply text-lg mb-8 opacity-85 max-w-2xl;
+}
+
+.has-text-align-center .wp-block-pollora-starter-call-to-action__description {
+    @apply mx-auto;
+}
+
+.wp-block-pollora-starter-call-to-action__button-wrapper {
+    @apply flex;
+}
+
+.has-text-align-center .wp-block-pollora-starter-call-to-action__button-wrapper {
+    @apply justify-center;
+}
+
+.has-text-align-right .wp-block-pollora-starter-call-to-action__button-wrapper {
+    @apply justify-end;
+}
+
+.wp-block-pollora-starter-call-to-action__button {
+    @apply inline-block py-3 px-8 bg-blue-500 text-white rounded-lg font-semibold no-underline cursor-pointer;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.wp-block-pollora-starter-call-to-action__button:hover {
+    @apply bg-blue-600 text-white;
+    transform: translateY(-1px);
+}

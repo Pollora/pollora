@@ -10,7 +10,7 @@
      @keydown.window.escape="if (open) close()">
 
     {{-- Backdrop --}}
-    <div x-show="open"
+    <div x-show="open" x-cloak
          x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
          x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
          class="fixed inset-0 bg-black/40"
@@ -18,7 +18,7 @@
 
     {{-- Modal panel --}}
     <div class="flex min-h-full items-center justify-center p-4">
-        <div x-show="open"
+        <div x-show="open" x-cloak
              x-transition:enter="ease-out duration-300"
              x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
              x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
@@ -47,15 +47,15 @@
                 </div>
 
                 {{-- Product card --}}
-                <div class="flex gap-4" x-show="product">
+                <div class="flex gap-4" x-show="product" x-cloak>
                     <div class="shrink-0 size-20 sm:size-24 rounded-lg overflow-hidden bg-surface-alt">
                         <img :src="product?.image" :alt="product?.name" class="size-full object-cover" />
                     </div>
                     <div class="flex-1 min-w-0">
                         <h4 class="text-sm font-semibold text-foreground leading-snug" x-text="product?.name"></h4>
-                        <p class="mt-0.5 text-xs text-muted" x-show="product?.variation" x-text="product?.variation"></p>
-                        <div class="mt-1 text-xs text-muted line-clamp-2" x-show="product?.description" x-html="product?.description"></div>
-                        <div class="mt-2 text-sm font-semibold text-foreground" x-show="product?.price" x-html="product?.price"></div>
+                        <p class="mt-0.5 text-xs text-muted" x-show="product?.variation" x-cloak x-text="product?.variation"></p>
+                        <div class="mt-1 text-xs text-muted line-clamp-2" x-show="product?.description" x-cloak x-html="product?.description"></div>
+                        <div class="mt-2 text-sm font-semibold text-foreground" x-show="product?.price" x-cloak x-html="product?.price"></div>
                     </div>
                 </div>
 

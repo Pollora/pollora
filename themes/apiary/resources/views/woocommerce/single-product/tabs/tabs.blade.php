@@ -42,7 +42,7 @@ $product_tabs = apply_filters( 'woocommerce_product_tabs', array() );
 				</div>
 			</div>
 			@foreach ( $product_tabs as $key => $product_tab )
-				<div id="tab-{!! esc_attr( $key ) !!}" class="-mb-10" x-description="'{{ $product_tab['title'] }}' panel, show/hide based on tab state" x-data="Components.tabPanel(0)" aria-labelledby="tab-title-{!! esc_attr( $key ) !!}" x-init="init()" x-show="selected" @tab-select.window="onTabSelect" role="tabpanel" tabindex="0">
+				<div id="tab-{!! esc_attr( $key ) !!}" class="-mb-10" x-description="'{{ $product_tab['title'] }}' panel, show/hide based on tab state" x-data="Components.tabPanel(0)" aria-labelledby="tab-title-{!! esc_attr( $key ) !!}" x-init="init()" x-show="selected" x-cloak @tab-select.window="onTabSelect" role="tabpanel" tabindex="0">
 					@if ( isset( $product_tab['callback'] ) )
 						{!! call_user_func( $product_tab['callback'], $key, $product_tab ) !!}
 					@endif

@@ -6,7 +6,7 @@
             </h1>
         @else
             <h2 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                <a href="@permalink" class="hover:text-primary transition" rel="bookmark">
+                <a href="@permalink" class="no-underline text-inherit hover:text-primary transition" rel="bookmark">
                     @title
                 </a>
             </h2>
@@ -19,7 +19,7 @@
         @endif
     </header>
 
-    <div class="entry-content mt-8 text-base leading-relaxed text-foreground/80">
+    <div class="entry-content is-layout-flow mt-8">
         @content
     </div>
 </article>

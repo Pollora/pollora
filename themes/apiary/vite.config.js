@@ -17,12 +17,13 @@ const getBaseUrl = () => {
 
 const isHttps = getBaseUrl().startsWith('https');
 
-const blockEntries = globSync('./resources/blocks/*/{index,view}.{js,jsx,ts,tsx}')
-    .concat(globSync('./resources/blocks/*/{editor,style}.css'))
+const blockEntries = globSync([
+    './resources/views/blocks/*/{index,view}.{js,jsx,ts,tsx}',
+    './resources/views/blocks/*/{editor,style}.css',
+])
     .reduce((acc, file) => {
-        const slug = path.basename(path.dirname(file));
-        const name = path.basename(file, path.extname(file));
-        acc[`blocks/${slug}/${name}`] = file;
+        // Keyed by path: blocks sharing a file name never overwrite each other
+        acc[file.replace(/^\.\//, '').replace(/\.\w+$/, '')] = file;
         return acc;
     }, {});
 const hasBlocks = Object.keys(blockEntries).length > 0;
@@ -74,9 +75,9 @@ const getThemeConfig = () => ({
     hotFile: path.join(publicDirectory, `${themeName}.hot`),
     buildDirectory: path.join("build", "theme", themeName),
     refresh: [
-        ...refreshPaths,
-        'themes/'+themeName+'/resources/views/**',
-        'resources/blocks/**',
+        ...refreshPaths.filter((refreshPath) => refreshPath !== 'resources/views/**'),
+        'themes/'+themeName+'/resources/views/**/*.blade.php',
+        'resources/views/**/*.blade.php',
     ],
     assets: [
         'resources/assets/images/**',
@@ -94,6 +95,29 @@ export default defineConfig({
         laravel(getThemeConfig()),
         wordpressThemeJson({
             baseThemeJsonPath: './theme.json',
+            fontLabels: {
+                sans: 'Sans Serif',
+                mono: 'Monospace',
+            },
+            fontSizeLabels: {
+                xs: 'Extra Small',
+                sm: 'Small',
+                base: 'Medium',
+                lg: 'Large',
+                xl: 'Extra Large',
+                '2xl': '2X Large',
+                '3xl': '3X Large',
+                '4xl': '4X Large',
+                '5xl': '5X Large',
+            },
+            borderRadiusLabels: {
+                xs: 'Extra Small',
+                sm: 'Small',
+                md: 'Medium',
+                lg: 'Large',
+                xl: 'Extra Large',
+                '2xl': '2X Large',
+            },
         }),
         ...(hasBlocks ? [wordpressPlugin()] : []),
         {
@@ -105,19 +129,6 @@ export default defineConfig({
                         path: "*",
                     });
                 }
-            },
-        },
-        {
-            name: "copy-theme-json",
-            apply: "build",
-            async writeBundle(options) {
-                const fs = await import('fs/promises');
-                const src = path.join(options.dir, 'assets', 'theme.json');
-                const dest = path.resolve(__dirname, 'theme.json');
-                try {
-                    await fs.copyFile(src, dest);
-                    console.log('  ✓ theme.json copied to theme root');
-                } catch {}
             },
         },
     ],

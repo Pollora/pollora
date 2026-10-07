@@ -1,8 +1,15 @@
-@import "tailwindcss" theme(static);
+/*
+ * WordPress's block library and theme.json styles sit between Tailwind's reset
+ * and its utilities (app/Cms/StyleLayers.php): theme.json styles every block,
+ * a utility class still wins in the Blade templates.
+ */
+@layer theme, base, wp-core, wp, components, utilities;
+
+@import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-@source "./views";
-@source "./app";
+@source "../../views";
+@source "../../../app";
 
 @import './backend/components/limit-login-attempts.css';
 @import './backend/components/redis-object.css';
@@ -16,23 +23,29 @@
 @import './frontend/components/wc-blocks.css';
 @import './frontend/layout/single-product.css';
 
-@theme {
+/* Alpine removes x-cloak once it has initialised an element. Until then,
+   whatever it hides with x-show stays hidden instead of flashing on load. */
+[x-cloak] {
+    display: none !important;
+}
+
+@theme static {
     /* Primary action color — buttons, links, active states */
-    --color-primary: var(--wp--preset--color--primary, #1f2937);
-    --color-primary-hover: var(--wp--preset--color--primary-hover, #111827);
+    --color-primary: #1f2937;
+    --color-primary-hover: #111827;
     /* Secondary color — accents, badges, highlights */
-    --color-secondary: var(--wp--preset--color--secondary, #92400e);
-    --color-accent: var(--wp--preset--color--accent, #fbbf24);
+    --color-secondary: #92400e;
+    --color-accent: #fbbf24;
     /* Text hierarchy */
-    --color-foreground: var(--wp--preset--color--foreground, #1f2937);
-    --color-muted: var(--wp--preset--color--muted, #6b7280);
-    --color-subtle: var(--wp--preset--color--subtle, #9ca3af);
+    --color-foreground: #1f2937;
+    --color-muted: #6b7280;
+    --color-subtle: #9ca3af;
     /* Surfaces */
-    --color-surface: var(--wp--preset--color--surface, #f9fafb);
-    --color-surface-alt: var(--wp--preset--color--surface-alt, #f3f4f6);
+    --color-surface: #f9fafb;
+    --color-surface-alt: #f3f4f6;
     /* Borders */
-    --color-outline: var(--wp--preset--color--outline, #e5e7eb);
-    --color-ring: var(--wp--preset--color--ring, #6b7280);
+    --color-outline: #e5e7eb;
+    --color-ring: #6b7280;
     /* Feedback states */
     --color-success: #16a34a;
     --color-success-light: #f0fdf4;
@@ -42,6 +55,25 @@
     --color-warning-light: #fffbeb;
     --color-info: #2563eb;
     --color-info-light: #eff6ff;
+    /* Typography — the font and the type scale offered in the editor */
+    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 3rem;
+    /* Corner radii */
+    --radius-xs: 0.125rem;
+    --radius-sm: 0.25rem;
+    --radius-md: 0.375rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-2xl: 1rem;
     /* Animations */
     --animate-fade-in-down: fade-in-down 0.3s ease-out;
     --animate-fade-out-up: fade-out-up 0.2s ease-in forwards;
@@ -54,6 +86,29 @@
 @keyframes fade-out-up {
     from { opacity: 1; transform: translateX(-50%) translateY(0); }
     to { opacity: 0; transform: translateX(-50%) translateY(-0.5rem); }
+}
+
+/*
+ * The build copies the @theme colours above into the theme.json palette. They are
+ * `static`, so each one reaches it even when no utility uses it, and concrete: a
+ * preset defined through its own variable is a cycle, and CSS drops it. The
+ * utilities then read the WordPress presets, so a palette edited in the Site
+ * Editor still reaches the theme.
+ */
+@layer base {
+    :root {
+        --color-primary: var(--wp--preset--color--primary, #1f2937);
+        --color-primary-hover: var(--wp--preset--color--primary-hover, #111827);
+        --color-secondary: var(--wp--preset--color--secondary, #92400e);
+        --color-accent: var(--wp--preset--color--accent, #fbbf24);
+        --color-foreground: var(--wp--preset--color--foreground, #1f2937);
+        --color-muted: var(--wp--preset--color--muted, #6b7280);
+        --color-subtle: var(--wp--preset--color--subtle, #9ca3af);
+        --color-surface: var(--wp--preset--color--surface, #f9fafb);
+        --color-surface-alt: var(--wp--preset--color--surface-alt, #f3f4f6);
+        --color-outline: var(--wp--preset--color--outline, #e5e7eb);
+        --color-ring: var(--wp--preset--color--ring, #6b7280);
+    }
 }
 
 /*

@@ -11,14 +11,14 @@
 <body class="{{ $post->classes ?? '' }} flex min-h-full flex-col bg-surface">
     <header class="sticky top-0 z-50 border-b border-border bg-white/80 backdrop-blur-lg">
         <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4 lg:px-8">
-            <a href="{{ home_url('/') }}" class="flex items-center gap-3">
+            <a href="{{ home_url('/') }}" class="flex items-center gap-3 no-underline">
                 <img src="{{ Asset::url('images/pollora-logo.svg') }}" alt="{{ get_bloginfo('name') }}" class="h-10 w-auto">
             </a>
             <nav class="hidden md:block">
                 <ul class="flex items-center gap-1">
                     @foreach($menu as $item)
                         <li>
-                            <a class="rounded-lg px-4 py-2 text-sm font-medium text-foreground/70 transition hover:bg-surface-alt hover:text-primary"
+                            <a class="rounded-lg px-4 py-2 text-sm font-medium text-foreground/70 no-underline transition hover:bg-surface-alt hover:text-primary"
                                href="{{ $item->url }}">
                                 {{ $item->title }}
                             </a>
@@ -40,7 +40,7 @@
             <ul class="mx-auto max-w-5xl space-y-1 px-6 py-3">
                 @foreach($menu as $item)
                     <li>
-                        <a class="block rounded-lg px-4 py-2 text-sm font-medium text-foreground/70 transition hover:bg-surface-alt hover:text-primary"
+                        <a class="block rounded-lg px-4 py-2 text-sm font-medium text-foreground/70 no-underline transition hover:bg-surface-alt hover:text-primary"
                            href="{{ $item->url }}">
                             {{ $item->title }}
                         </a>
@@ -57,11 +57,11 @@
     <footer class="border-t border-border bg-white">
         <div class="mx-auto max-w-5xl px-6 py-12 lg:px-8">
             <div class="flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
-                <a href="{{ home_url('/') }}" class="flex items-center gap-2">
+                <a href="{{ home_url('/') }}" class="flex items-center gap-2 no-underline">
                     <img src="{{ Asset::url('images/pollora-logo.svg') }}" alt="{{ get_bloginfo('name') }}" class="h-8 w-auto">
                 </a>
                 <p class="text-sm text-muted">
-                    Powered by <a href="https://github.com/Pollora" class="font-medium text-foreground hover:text-primary transition">Pollora</a>
+                    Powered by <a href="https://pollora.dev" class="font-medium text-foreground no-underline hover:text-primary transition">Pollora</a>
                     — Laravel meets WordPress.
                 </p>
             </div>

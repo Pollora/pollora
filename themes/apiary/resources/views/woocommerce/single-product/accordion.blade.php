@@ -25,7 +25,7 @@
         </button>
         <div
             id="accordion-{{ $key }}"
-            x-show="open === '{{ $key }}'"
+            x-show="open === '{{ $key }}'" x-cloak
             x-collapse
             class="pb-4 prose prose-sm text-muted max-w-none"
         >

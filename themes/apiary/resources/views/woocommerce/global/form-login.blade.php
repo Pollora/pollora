@@ -21,11 +21,11 @@
     }
 @endphp
 
-<div x-show="loginModalOpen" class="first-hidden-state fixed inset-0 z-10 overflow-y-auto" aria-labelledby="modal-title"
+<div x-show="loginModalOpen" x-cloak class="fixed inset-0 z-10 overflow-y-auto" aria-labelledby="modal-title"
      x-ref="dialog" aria-modal="true">
     <div class="flex min-h-screen items-end justify-center px-4 pt-4 pb-20 text-center sm:block sm:p-0">
 
-        <div x-show="loginModalOpen"
+        <div x-show="loginModalOpen" x-cloak
              class="fixed inset-0 bg-foreground/75 transition-opacity"
              @click="loginModalOpen = false"
              x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0"
@@ -37,7 +37,7 @@
 
         <span class="hidden sm:inline-block sm:h-screen sm:align-middle" aria-hidden="true">&ZeroWidthSpace;</span>
 
-        <div x-show="loginModalOpen"
+        <div x-show="loginModalOpen" x-cloak
              class="bg-white rounded-md inline-block transform overflow-hidden px-4 pt-5 pb-4 text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6 sm:align-middle"
              x-transition:enter="ease-out duration-300"
              x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"

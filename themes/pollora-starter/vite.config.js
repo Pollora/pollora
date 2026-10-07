@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import laravel, { refreshPaths } from 'laravel-vite-plugin';
-import { wordpressPlugin } from '@roots/vite-plugin';
+import { wordpressPlugin, wordpressThemeJson } from '@roots/vite-plugin';
 import { globSync } from 'glob';
 import path from 'path';
 import tailwindcss from '@tailwindcss/vite';
@@ -17,12 +17,13 @@ const getBaseUrl = () => {
 
 const isHttps = getBaseUrl().startsWith('https');
 
-const blockEntries = globSync('./resources/blocks/*/{index,view}.{js,jsx,ts,tsx}')
-    .concat(globSync('./resources/blocks/*/{editor,style}.css'))
+const blockEntries = globSync([
+    './resources/views/blocks/*/{index,view}.{js,jsx,ts,tsx}',
+    './resources/views/blocks/*/{editor,style}.css',
+])
     .reduce((acc, file) => {
-        const slug = path.basename(path.dirname(file));
-        const name = path.basename(file, path.extname(file));
-        acc[`blocks/${slug}/${name}`] = file;
+        // Keyed by path: blocks sharing a file name never overwrite each other
+        acc[file.replace(/^\.\//, '').replace(/\.\w+$/, '')] = file;
         return acc;
     }, {});
 const hasBlocks = Object.keys(blockEntries).length > 0;
@@ -74,9 +75,9 @@ const getThemeConfig = () => ({
     hotFile: path.join(publicDirectory, `${themeName}.hot`),
     buildDirectory: path.join("build", "theme", themeName),
     refresh: [
-        ...refreshPaths,
-        'themes/'+themeName+'/resources/views/**',
-        'resources/blocks/**',
+        ...refreshPaths.filter((refreshPath) => refreshPath !== 'resources/views/**'),
+        'themes/'+themeName+'/resources/views/**/*.blade.php',
+        'resources/views/**/*.blade.php',
     ],
     assets: [
         'resources/assets/images/**',
@@ -92,6 +93,31 @@ export default defineConfig({
     plugins: [
         tailwindcss(),
         laravel(getThemeConfig()),
+        wordpressThemeJson({
+            baseThemeJsonPath: './theme.json',
+            // Inter needs its @font-face, which only theme.json can declare
+            disableTailwindFonts: true,
+            fontSizeLabels: {
+                xs: 'Extra Small',
+                sm: 'Small',
+                base: 'Medium',
+                lg: 'Large',
+                xl: 'Extra Large',
+                '2xl': '2X Large',
+                '3xl': '3X Large',
+                '4xl': '4X Large',
+                '5xl': '5X Large',
+                '6xl': '6X Large',
+                '7xl': '7X Large',
+            },
+            borderRadiusLabels: {
+                sm: 'Small',
+                md: 'Medium',
+                lg: 'Large',
+                xl: 'Extra Large',
+                '2xl': '2X Large',
+            },
+        }),
         ...(hasBlocks ? [wordpressPlugin()] : []),
         {
             name: "blade",

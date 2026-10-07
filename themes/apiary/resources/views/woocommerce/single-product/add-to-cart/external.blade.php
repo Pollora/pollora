@@ -15,10 +15,14 @@
   --}}
 {{-- docs.woocommerce.com/document/template-structure/ --}}
 @php
+    global $product;
 
+    if ( ! $product ) {
+        return;
+    }
 
-
-do_action( 'woocommerce_before_add_to_cart_form' ); @endphp
+    do_action( 'woocommerce_before_add_to_cart_form' );
+@endphp
 
 <form class="cart mt-8" action="{!! esc_url( $product_url ) !!}" method="get">
 	@php do_action( 'woocommerce_before_add_to_cart_button' ); @endphp

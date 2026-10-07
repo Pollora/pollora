@@ -32,7 +32,7 @@
             @if ($show_title)
                 <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">@title</h1>
             @endif
-            <div class="{{ $show_title ? 'mt-6' : '' }} prose max-w-none">
+            <div class="{{ $show_title ? 'mt-6' : '' }} entry-content is-layout-flow">
                 @content
             </div>
         </div>

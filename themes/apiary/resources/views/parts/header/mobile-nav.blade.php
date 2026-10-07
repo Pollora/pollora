@@ -8,7 +8,7 @@ use \Theme\Apiary\Walkers\MenuPrimary;
      x-on:panel-open.window="open = ($event.detail.panel === 'menu')"
      x-on:panel-close.window="open = false"
      @keydown.window.escape="if (open) { window.dispatchEvent(new CustomEvent('panel-close')); }"
-     x-show="open"
+     x-show="open" x-cloak
      x-transition:enter="transform transition ease-in-out duration-300"
      x-transition:enter-start="-translate-x-full"
      x-transition:enter-end="translate-x-0"

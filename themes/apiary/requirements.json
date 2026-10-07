@@ -1,5 +1,5 @@
 {
     "composer": {
-        "wpackagist-plugin/woocommerce": "WooCommerce e-commerce plugin"
+        "wp-plugin/woocommerce": "WooCommerce e-commerce plugin"
     }
 }

@@ -58,7 +58,7 @@
 
 		{{-- Address card (compact view — shown when pre-filled and not editing) --}}
 		@if ( $prefilled )
-			<div x-show="!editing" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" class="border border-outline rounded-xl p-4 flex items-start justify-between gap-4">
+			<div x-show="!editing" @unless ( $prefilled ) x-cloak @endunless x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" class="border border-outline rounded-xl p-4 flex items-start justify-between gap-4">
 				<address class="not-italic min-w-0">
 					<span class="block text-sm font-medium text-foreground">{{ $full_name }}</span>
 					<span class="block text-sm text-muted mt-0.5">{{ $address_line }}</span>

@@ -10,7 +10,7 @@
 
     {!! post_thumbnail() !!}
 
-    <div class="entry-content">
+    <div class="entry-content is-layout-flow">
         @content
         {!! wp_link_pages([
             'before' => '<div class="page-links">'.esc_html__('Pages:', 'apiary'),

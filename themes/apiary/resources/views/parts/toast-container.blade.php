@@ -3,7 +3,7 @@
      aria-live="polite"
      class="fixed top-4 right-4 z-50 flex flex-col items-end gap-3 pointer-events-none">
     <template x-for="toast in $store.toasts.list" :key="toast.id">
-        <div x-show="toast.visible"
+        <div x-show="toast.visible" x-cloak
              x-transition:enter="transition ease-out duration-300"
              x-transition:enter-start="opacity-0 translate-y-2"
              x-transition:enter-end="opacity-100 translate-y-0"

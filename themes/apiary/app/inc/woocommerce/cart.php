@@ -26,9 +26,11 @@ if (! function_exists('wc_get_cart_item_count')) {
     }
 }
 
-// Update the header cart badge count via WooCommerce's AJAX fragment system
+// Update the header cart badge via WooCommerce's AJAX fragment system. The
+// whole badge is replaced, not only its count: it starts hidden on an empty
+// cart, and a fragment carrying the count alone left it hidden after an add.
 Filter::add('woocommerce_add_to_cart_fragments', function ($fragments) {
-    $fragments['.cart-count'] = '<span class="cart-count">'.wc_get_cart_item_count().'</span>';
+    $fragments['.cart-badge'] = view('parts.header.cart-badge')->render();
 
     return $fragments;
 });

@@ -47,7 +47,7 @@
                     <input type="hidden" name="post_type" value="product">
 
                     {{-- Loading spinner inside input --}}
-                    <svg x-show="loading" class="absolute right-3.5 top-1/2 -translate-y-1/2 animate-spin size-4 text-subtle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" style="display: none;">
+                    <svg x-show="loading" x-cloak class="absolute right-3.5 top-1/2 -translate-y-1/2 animate-spin size-4 text-subtle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" style="display: none;">
                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
@@ -94,7 +94,7 @@
                     <svg class="w-5.5 h-5.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/>
                     </svg>
-                    <span class="cart-badge absolute -top-0.5 -right-0.5 items-center justify-center size-[18px] text-[10px] font-bold text-white bg-primary rounded-full {{ wc_get_cart_item_count() > 0 ? 'flex' : 'hidden' }}"><span class="cart-count">{{ wc_get_cart_item_count() }}</span></span>
+                    @include('parts.header.cart-badge')
                 </button>
             </div>
         </div>

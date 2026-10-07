@@ -3,7 +3,7 @@
      x-on:panel-open.window="panelOpen = ($event.detail.panel === 'search')"
      x-on:panel-close.window="panelOpen = false"
      @keydown.window.escape="if (panelOpen) { window.dispatchEvent(new CustomEvent('panel-close')); }"
-     x-show="panelOpen"
+     x-show="panelOpen" x-cloak
      x-transition:enter="transition ease-out duration-200"
      x-transition:enter-start="opacity-0 -translate-y-2"
      x-transition:enter-end="opacity-100 translate-y-0"
@@ -36,7 +36,7 @@
             <input type="hidden" name="post_type" value="product">
 
             {{-- Loading spinner inside input --}}
-            <svg x-show="loading" class="absolute right-4 top-1/2 -translate-y-1/2 animate-spin size-4 text-subtle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" style="display: none;">
+            <svg x-show="loading" x-cloak class="absolute right-4 top-1/2 -translate-y-1/2 animate-spin size-4 text-subtle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true" style="display: none;">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>
