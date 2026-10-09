@@ -4246,16 +4246,16 @@
         },
         {
             "name": "pollora/framework",
-            "version": "v13.35.2",
+            "version": "v13.35.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
-                "reference": "54fb1241131eb4737effeb925142b7f415b35efe"
+                "reference": "3499598a5db3cb4ba477786c170f57bc354b8953"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/54fb1241131eb4737effeb925142b7f415b35efe",
-                "reference": "54fb1241131eb4737effeb925142b7f415b35efe",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/3499598a5db3cb4ba477786c170f57bc354b8953",
+                "reference": "3499598a5db3cb4ba477786c170f57bc354b8953",
                 "shasum": ""
             },
             "require": {
@@ -4276,7 +4276,7 @@
                 "pollora/colt": "^10.0.1",
                 "pollora/entity": "^1.2",
                 "pollora/helper-overrider": "^1.2",
-                "pollora/hook": "^1.4",
+                "pollora/hook": "^1.5",
                 "pollora/option": "^1.1",
                 "pollora/query": "^1.0",
                 "roots/bedrock-autoloader": "^1.1",
@@ -4361,7 +4361,7 @@
                 "issues": "https://github.com/Pollora/framework/issues",
                 "source": "https://github.com/Pollora/framework"
             },
-            "time": "2026-10-07T20:16:51+00:00"
+            "time": "2026-10-09T12:22:47+00:00"
         },
         {
             "name": "pollora/helper-overrider",
@@ -4421,16 +4421,16 @@
         },
         {
             "name": "pollora/hook",
-            "version": "v1.4.1",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/hook.git",
-                "reference": "fcdb211e554dfe90022584b39236752c42301a8c"
+                "reference": "d22b619236f03948b03c2c98271fefae09f2e252"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/hook/zipball/fcdb211e554dfe90022584b39236752c42301a8c",
-                "reference": "fcdb211e554dfe90022584b39236752c42301a8c",
+                "url": "https://api.github.com/repos/Pollora/hook/zipball/d22b619236f03948b03c2c98271fefae09f2e252",
+                "reference": "d22b619236f03948b03c2c98271fefae09f2e252",
                 "shasum": ""
             },
             "require": {
@@ -4465,9 +4465,9 @@
             "description": "A modern PHP package for WordPress hook (action/filter) management with callback resolution and reflection caching",
             "support": {
                 "issues": "https://github.com/Pollora/hook/issues",
-                "source": "https://github.com/Pollora/hook/tree/v1.4.1"
+                "source": "https://github.com/Pollora/hook/tree/v1.5.0"
             },
-            "time": "2026-10-07T15:49:13+00:00"
+            "time": "2026-10-09T08:30:48+00:00"
         },
         {
             "name": "pollora/option",
