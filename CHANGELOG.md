@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased](https://github.com/Pollora/pollora/compare/v13.34.0-beta...main)
 
 ### Added
+- `config/modules.php`, Pollora's modules configuration (framework v13.35.3): where a module's enabled state lives (`MODULES_CONNECTOR`, `json` by default, as before: `modules_statuses.json`), states forced by `MODULES_LOCKED_ENABLED` / `MODULES_LOCKED_DISABLED`, and who may switch modules from Plugins › Modules. nwidart/laravel-modules reads it while it registers, so these settings only apply from this file. `module:make` still writes Pollora's lean module
 - A Pollora module published as a Composer package installs into `Modules/`. `composer require pollora/<module>` places a `pollora/*` package of type `laravel-library` in `Modules/{$name}/` (`composer/installers` reads the module's `installer-name` for the folder's exact case), where nwidart finds it; enabling it is still a line in `modules_statuses.json`. The rule is limited to the `pollora` vendor: other Laravel packages that declare `laravel-library` (about ninety on Packagist) keep their usual place. The rule comes last in `installer-paths`: `composer/installers` applies the first rule that matches, and a `vendor:` rule ignores the package type, so placed first it sent Pollora's own WordPress plugins (`pollora/mcp-connector`, `pollora/ai-visibility`) to `Modules/` too. Existing projects can add the same rule, last, to their `composer.json`
 
 ### Changed
