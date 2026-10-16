@@ -2242,16 +2242,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v13.36.0",
+            "version": "v13.37.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "e5626e38137cf0d82b1e52f15b16283e8442c13c"
+                "reference": "685f8d6c2ab4547287500bc80ccdf2ca12635109"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/e5626e38137cf0d82b1e52f15b16283e8442c13c",
-                "reference": "e5626e38137cf0d82b1e52f15b16283e8442c13c",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/685f8d6c2ab4547287500bc80ccdf2ca12635109",
+                "reference": "685f8d6c2ab4547287500bc80ccdf2ca12635109",
                 "shasum": ""
             },
             "require": {
@@ -2358,7 +2358,7 @@
                 "aws/aws-sdk-php": "^3.322.9",
                 "ext-gmp": "*",
                 "fakerphp/faker": "^1.24",
-                "intervention/image": "^4.0",
+                "intervention/image": "^4.2",
                 "laravel/pint": "^1.18",
                 "league/flysystem-aws-s3-v3": "^3.25.1",
                 "league/flysystem-ftp": "^3.25.1",
@@ -2397,7 +2397,7 @@
                 "ext-redis": "Required to use the Redis cache and queue drivers (^4.0 || ^5.0 || ^6.0).",
                 "fakerphp/faker": "Required to generate fake data using the fake() helper (^1.23).",
                 "filp/whoops": "Required for friendly error pages in development (^2.14.3).",
-                "intervention/image": "Required to use the image processing features (^4.0).",
+                "intervention/image": "Required to use the image processing features (^4.2).",
                 "laravel/tinker": "Required to use the tinker console command (^2.0).",
                 "league/flysystem-aws-s3-v3": "Required to use the Flysystem S3 driver (^3.25.1).",
                 "league/flysystem-ftp": "Required to use the Flysystem FTP driver (^3.25.1).",
@@ -2469,7 +2469,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2026-10-13T13:21:00+00:00"
+            "time": "2026-10-16T04:59:27+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -3101,20 +3101,21 @@
         },
         {
             "name": "league/uri",
-            "version": "7.8.1",
+            "version": "7.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/uri.git",
-                "reference": "08cf38e3924d4f56238125547b5720496fac8fd4"
+                "reference": "fcc872a3d872aa13f935e0cd1887b9abb06da07f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/uri/zipball/08cf38e3924d4f56238125547b5720496fac8fd4",
-                "reference": "08cf38e3924d4f56238125547b5720496fac8fd4",
+                "url": "https://api.github.com/repos/thephpleague/uri/zipball/fcc872a3d872aa13f935e0cd1887b9abb06da07f",
+                "reference": "fcc872a3d872aa13f935e0cd1887b9abb06da07f",
                 "shasum": ""
             },
             "require": {
-                "league/uri-interfaces": "^7.8.1",
+                "ext-mbstring": "*",
+                "league/uri-interfaces": "^7.9.0",
                 "php": "^8.1",
                 "psr/http-factory": "^1"
             },
@@ -3187,7 +3188,7 @@
                 "docs": "https://uri.thephpleague.com",
                 "forum": "https://thephpleague.slack.com",
                 "issues": "https://github.com/thephpleague/uri-src/issues",
-                "source": "https://github.com/thephpleague/uri/tree/7.8.1"
+                "source": "https://github.com/thephpleague/uri/tree/7.9.0"
             },
             "funding": [
                 {
@@ -3195,20 +3196,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-03-15T20:22:25+00:00"
+            "time": "2026-10-16T15:19:33+00:00"
         },
         {
             "name": "league/uri-interfaces",
-            "version": "7.8.1",
+            "version": "7.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/uri-interfaces.git",
-                "reference": "85d5c77c5d6d3af6c54db4a78246364908f3c928"
+                "reference": "eb5f6d24e6a4fe0a8e9c78ded4eb1dfff1404f58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/uri-interfaces/zipball/85d5c77c5d6d3af6c54db4a78246364908f3c928",
-                "reference": "85d5c77c5d6d3af6c54db4a78246364908f3c928",
+                "url": "https://api.github.com/repos/thephpleague/uri-interfaces/zipball/eb5f6d24e6a4fe0a8e9c78ded4eb1dfff1404f58",
+                "reference": "eb5f6d24e6a4fe0a8e9c78ded4eb1dfff1404f58",
                 "shasum": ""
             },
             "require": {
@@ -3271,7 +3272,7 @@
                 "docs": "https://uri.thephpleague.com",
                 "forum": "https://thephpleague.slack.com",
                 "issues": "https://github.com/thephpleague/uri-src/issues",
-                "source": "https://github.com/thephpleague/uri-interfaces/tree/7.8.1"
+                "source": "https://github.com/thephpleague/uri-interfaces/tree/7.9.0"
             },
             "funding": [
                 {
@@ -3279,7 +3280,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-03-08T20:05:35+00:00"
+            "time": "2026-10-16T15:19:33+00:00"
         },
         {
             "name": "log1x/sage-directives",
@@ -4126,17 +4127,75 @@
             "time": "2026-09-17T12:51:21+00:00"
         },
         {
-            "name": "pollora/attributes",
+            "name": "pollora/assets",
             "version": "v0.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Pollora/attributes.git",
-                "reference": "d186894fa6c68699510fd7c836e71df348e42f76"
+                "url": "https://github.com/Pollora/assets.git",
+                "reference": "69ee3dd77eca320e2db36dbeb1c2cdbee24e4665"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/attributes/zipball/d186894fa6c68699510fd7c836e71df348e42f76",
-                "reference": "d186894fa6c68699510fd7c836e71df348e42f76",
+                "url": "https://api.github.com/repos/Pollora/assets/zipball/69ee3dd77eca320e2db36dbeb1c2cdbee24e4665",
+                "reference": "69ee3dd77eca320e2db36dbeb1c2cdbee24e4665",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.3",
+                "pollora/hook": "^2.0.1",
+                "psr/log": "^3.0"
+            },
+            "require-dev": {
+                "antecedent/patchwork": "^2.2",
+                "brain/monkey": "^2.7",
+                "laravel/pint": "^1.22.1",
+                "mockery/mockery": "^1.6.12",
+                "pestphp/pest": "^3.8.2",
+                "phpstan/phpstan": "^2.1.16",
+                "szepeviktor/phpstan-wordpress": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pollora\\Asset\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Amphibee",
+                    "email": "contact@amphibee.fr"
+                }
+            ],
+            "description": "Scripts, styles and Vite builds for WordPress: enqueue an asset with a fluent API, resolve its URL from the Vite manifest or the dev server, per theme, plugin or module. Runs with or without Laravel.",
+            "homepage": "https://pollora.dev/theming/assets-vite/",
+            "keywords": [
+                "assets",
+                "pollora",
+                "vite",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/Pollora/assets/issues",
+                "source": "https://github.com/Pollora/assets"
+            },
+            "time": "2026-10-15T09:17:55+00:00"
+        },
+        {
+            "name": "pollora/attributes",
+            "version": "v0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Pollora/attributes.git",
+                "reference": "cc4aa70d17e603b5e6923070c6a8eb6e6902dda3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Pollora/attributes/zipball/cc4aa70d17e603b5e6923070c6a8eb6e6902dda3",
+                "reference": "cc4aa70d17e603b5e6923070c6a8eb6e6902dda3",
                 "shasum": ""
             },
             "require": {
@@ -4186,7 +4245,71 @@
                 "issues": "https://github.com/Pollora/attributes/issues",
                 "source": "https://github.com/Pollora/attributes"
             },
-            "time": "2026-10-12T14:59:58+00:00"
+            "time": "2026-10-15T13:27:03+00:00"
+        },
+        {
+            "name": "pollora/block-bindings",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Pollora/block-bindings.git",
+                "reference": "38544c02c9f497deb6791303b61495850324f26c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Pollora/block-bindings/zipball/38544c02c9f497deb6791303b61495850324f26c",
+                "reference": "38544c02c9f497deb6791303b61495850324f26c",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.3",
+                "pollora/attributes": "^0.1.1 || ^1.0",
+                "pollora/colt": "^10.0.1",
+                "pollora/discovery": "^0.1 || ^1.0",
+                "pollora/hook": "^2.0.1",
+                "pollora/meta": "^0.1",
+                "psr/container": "^2.0",
+                "psr/log": "^3.0"
+            },
+            "require-dev": {
+                "antecedent/patchwork": "^2.2",
+                "brain/monkey": "^2.7",
+                "laravel/pint": "^1.22.1",
+                "mockery/mockery": "^1.6.12",
+                "pestphp/pest": "^3.8.2",
+                "phpstan/phpstan": "^2.1.16",
+                "szepeviktor/phpstan-wordpress": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pollora\\BlockBinding\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Amphibee",
+                    "email": "contact@amphibee.fr"
+                }
+            ],
+            "description": "WordPress Block Bindings declared with attributes: a #[BlockBinding] class is a source, its methods are fields, and the post meta, term meta, author meta and options Pollora ships are ready to bind. Runs with or without Laravel.",
+            "homepage": "https://pollora.dev/blocks/block-bindings/",
+            "keywords": [
+                "block-bindings",
+                "blocks",
+                "gutenberg",
+                "pollora",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/Pollora/block-bindings/issues",
+                "source": "https://github.com/Pollora/block-bindings"
+            },
+            "time": "2026-10-15T15:37:37+00:00"
         },
         {
             "name": "pollora/colt",
@@ -4369,16 +4492,16 @@
         },
         {
             "name": "pollora/framework",
-            "version": "v13.36.0",
+            "version": "v13.36.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
-                "reference": "59ce67c123c9936c741f108c7c099f0aa7b37e60"
+                "reference": "c919610c5cc198df6ccbed8943c85b8b3b2edb5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/59ce67c123c9936c741f108c7c099f0aa7b37e60",
-                "reference": "59ce67c123c9936c741f108c7c099f0aa7b37e60",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/c919610c5cc198df6ccbed8943c85b8b3b2edb5e",
+                "reference": "c919610c5cc198df6ccbed8943c85b8b3b2edb5e",
                 "shasum": ""
             },
             "require": {
@@ -4396,14 +4519,18 @@
                 "php": "^8.3",
                 "pollora/abilities": "^1.0",
                 "pollora/ajax": "^1.1",
-                "pollora/attributes": "^0.1 || ^1.0",
+                "pollora/assets": "^0.1",
+                "pollora/attributes": "^0.1.1 || ^1.0",
+                "pollora/block-bindings": "^0.1",
                 "pollora/colt": "^10.0.1",
                 "pollora/discovery": "^0.1 || ^1.0",
                 "pollora/entity": "^1.2",
                 "pollora/helper-overrider": "^1.2",
                 "pollora/hook": "^2.0.1",
+                "pollora/meta": "^0.1",
                 "pollora/option": "^1.1",
-                "pollora/query": "^1.0",
+                "pollora/query": "^1.0 || ^2.0",
+                "pollora/roles": "^0.1",
                 "pollora/schedule": "^1.0",
                 "pollora/wp-cli": "^0.1 || ^1.0",
                 "pollora/wp-rest": "^0.1 || ^1.0",
@@ -4489,7 +4616,7 @@
                 "issues": "https://github.com/Pollora/framework/issues",
                 "source": "https://github.com/Pollora/framework"
             },
-            "time": "2026-10-14T14:46:15+00:00"
+            "time": "2026-10-16T12:18:36+00:00"
         },
         {
             "name": "pollora/helper-overrider",
@@ -4599,6 +4726,73 @@
             "time": "2026-10-14T13:49:59+00:00"
         },
         {
+            "name": "pollora/meta",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Pollora/meta.git",
+                "reference": "34f60db7f8e175c25104ced2da86c996f60be1fd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Pollora/meta/zipball/34f60db7f8e175c25104ced2da86c996f60be1fd",
+                "reference": "34f60db7f8e175c25104ced2da86c996f60be1fd",
+                "shasum": ""
+            },
+            "require": {
+                "nesbot/carbon": "^3.0",
+                "php": "^8.3",
+                "pollora/attributes": "^0.1 || ^1.0",
+                "pollora/discovery": "^0.1 || ^1.0",
+                "pollora/hook": "^2.0.1",
+                "psr/container": "^2.0",
+                "psr/log": "^3.0"
+            },
+            "require-dev": {
+                "antecedent/patchwork": "^2.2",
+                "brain/monkey": "^2.7",
+                "laravel/pint": "^1.22.1",
+                "mockery/mockery": "^1.6.12",
+                "pestphp/pest": "^3.8.2",
+                "phpstan/phpstan": "^2.1.16",
+                "pollora/colt": "^10.0.1",
+                "szepeviktor/phpstan-wordpress": "^2.0"
+            },
+            "suggest": {
+                "pollora/colt": "Registers a Colt model class declared with a post type attribute as that post type's model"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pollora\\Meta\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Amphibee",
+                    "email": "contact@amphibee.fr"
+                }
+            ],
+            "description": "Typed WordPress meta declared with attributes: register_meta(), typed reads and writes, rules, schemas for UI drivers. Runs with or without Laravel.",
+            "homepage": "https://pollora.dev/content/typed-meta/",
+            "keywords": [
+                "meta",
+                "pollora",
+                "post-meta",
+                "typed",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/Pollora/meta/issues",
+                "source": "https://github.com/Pollora/meta"
+            },
+            "time": "2026-10-15T13:27:13+00:00"
+        },
+        {
             "name": "pollora/option",
             "version": "v1.1.2",
             "source": {
@@ -4647,16 +4841,16 @@
         },
         {
             "name": "pollora/query",
-            "version": "1.0.3",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/Query.git",
-                "reference": "97dc2ae76f847588fd18dbf3c75e74603e2e065a"
+                "reference": "61be9806c49aa8eeccf786cd0bc375a37adc6d2a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/Query/zipball/97dc2ae76f847588fd18dbf3c75e74603e2e065a",
-                "reference": "97dc2ae76f847588fd18dbf3c75e74603e2e065a",
+                "url": "https://api.github.com/repos/Pollora/Query/zipball/61be9806c49aa8eeccf786cd0bc375a37adc6d2a",
+                "reference": "61be9806c49aa8eeccf786cd0bc375a37adc6d2a",
                 "shasum": ""
             },
             "require": {
@@ -4664,7 +4858,7 @@
                 "pollora/wordpress-args": "^1.1"
             },
             "require-dev": {
-                "laravel/pint": "^1.13",
+                "laravel/pint": "^1.30",
                 "nunomaduro/phpinsights": "^2.8",
                 "pestphp/pest": "^2.19",
                 "rector/rector": "^0.18.4"
@@ -4689,9 +4883,68 @@
             "description": "Create WP Query in a fluent way.",
             "support": {
                 "issues": "https://github.com/Pollora/Query/issues",
-                "source": "https://github.com/Pollora/Query/tree/1.0.3"
+                "source": "https://github.com/Pollora/Query/tree/2.0.0"
             },
-            "time": "2026-09-17T12:51:45+00:00"
+            "time": "2026-10-15T14:11:52+00:00"
+        },
+        {
+            "name": "pollora/roles",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Pollora/roles.git",
+                "reference": "eb603e83494667f4240db612e8b91a3045cabd79"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Pollora/roles/zipball/eb603e83494667f4240db612e8b91a3045cabd79",
+                "reference": "eb603e83494667f4240db612e8b91a3045cabd79",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.3",
+                "pollora/attributes": "^0.1.1 || ^1.0",
+                "pollora/discovery": "^0.1 || ^1.0",
+                "psr/log": "^3.0"
+            },
+            "require-dev": {
+                "antecedent/patchwork": "^2.2",
+                "brain/monkey": "^2.7",
+                "laravel/pint": "^1.22.1",
+                "mockery/mockery": "^1.6.12",
+                "pestphp/pest": "^3.8.2",
+                "phpstan/phpstan": "^2.1.16",
+                "szepeviktor/phpstan-wordpress": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pollora\\Role\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Amphibee",
+                    "email": "contact@amphibee.fr"
+                }
+            ],
+            "description": "WordPress roles and capabilities declared with attributes: a #[Role] class, #[ModifyRole] adjustments, post type and taxonomy capabilities, compiled into the roles WordPress stores. Runs with or without Laravel.",
+            "homepage": "https://pollora.dev/advanced/roles-capabilities/",
+            "keywords": [
+                "capabilities",
+                "pollora",
+                "roles",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/Pollora/roles/issues",
+                "source": "https://github.com/Pollora/roles"
+            },
+            "time": "2026-10-15T14:19:41+00:00"
         },
         {
             "name": "pollora/schedule",
