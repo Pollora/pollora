@@ -62,3 +62,16 @@ RewriteRule . /index.php [L]
 </IfModule>
 
 # END WordPress
+
+# Image sizes made by pollora/media
+#
+# The file of a declared size is named photo-card-600x400-{signature}.webp and
+# never changes while the size does not: a year, immutable. A size that does
+# not exist yet is sent to the front controller by the rule above, made at the
+# path of its URL and served with the same header; this one covers the files
+# Apache serves once they exist.
+<IfModule mod_headers.c>
+    <FilesMatch "-[a-z0-9_]+(-[0-9]+w)?-[0-9]+x[0-9]+-[0-9a-f]{12}\.(webp|avif|jpe?g|png)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+</IfModule>
