@@ -28,7 +28,7 @@
         "laravel/framework": "^13.38",
         "laravel/sanctum": "^4.3 || ^5.0",
         "laravel/tinker": "^3.0",
-        "pollora/framework": "^13.36"
+        "pollora/framework": "^13.37"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

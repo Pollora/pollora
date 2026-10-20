@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "85c5103b2cdcc144a73fd77e26ac08aa",
+    "content-hash": "864938c6e29cb3a092027ecddbdac783",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -4494,16 +4494,16 @@
         },
         {
             "name": "pollora/framework",
-            "version": "v13.36.1",
+            "version": "v13.37.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
-                "reference": "c919610c5cc198df6ccbed8943c85b8b3b2edb5e"
+                "reference": "5ffbbb4faf7fe7ad9ce9e11b07071b06f41cc9e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/c919610c5cc198df6ccbed8943c85b8b3b2edb5e",
-                "reference": "c919610c5cc198df6ccbed8943c85b8b3b2edb5e",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/5ffbbb4faf7fe7ad9ce9e11b07071b06f41cc9e5",
+                "reference": "5ffbbb4faf7fe7ad9ce9e11b07071b06f41cc9e5",
                 "shasum": ""
             },
             "require": {
@@ -4529,10 +4529,11 @@
                 "pollora/entity": "^1.2",
                 "pollora/helper-overrider": "^1.2",
                 "pollora/hook": "^2.0.1",
+                "pollora/media": "^0.8",
                 "pollora/meta": "^0.1",
                 "pollora/option": "^1.1",
                 "pollora/query": "^1.0 || ^2.0",
-                "pollora/roles": "^0.1",
+                "pollora/roles": "^0.2",
                 "pollora/schedule": "^1.0",
                 "pollora/wp-cli": "^0.1 || ^1.0",
                 "pollora/wp-rest": "^0.1 || ^1.0",
@@ -4618,7 +4619,7 @@
                 "issues": "https://github.com/Pollora/framework/issues",
                 "source": "https://github.com/Pollora/framework"
             },
-            "time": "2026-10-16T12:18:36+00:00"
+            "time": "2026-10-20T15:25:09+00:00"
         },
         {
             "name": "pollora/helper-overrider",
@@ -4726,6 +4727,71 @@
                 "source": "https://github.com/Pollora/hook/tree/v2.0.1"
             },
             "time": "2026-10-14T13:49:59+00:00"
+        },
+        {
+            "name": "pollora/media",
+            "version": "v0.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Pollora/media.git",
+                "reference": "4e103f2a083949ba138568f247f170ee2a60f662"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Pollora/media/zipball/4e103f2a083949ba138568f247f170ee2a60f662",
+                "reference": "4e103f2a083949ba138568f247f170ee2a60f662",
+                "shasum": ""
+            },
+            "require": {
+                "league/flysystem": "^3.0",
+                "php": "^8.3",
+                "pollora/hook": "^2.0.1",
+                "psr/log": "^3.0"
+            },
+            "require-dev": {
+                "antecedent/patchwork": "^2.2",
+                "brain/monkey": "^2.7",
+                "laravel/pint": "^1.22.1",
+                "mockery/mockery": "^1.6.12",
+                "pestphp/pest": "^3.8.2",
+                "php-stubs/wp-cli-stubs": "dev-master",
+                "phpstan/phpstan": "^2.1.16",
+                "szepeviktor/phpstan-wordpress": "^2.0"
+            },
+            "suggest": {
+                "league/flysystem-aws-s3-v3": "For S3 and S3-compatible storage (R2, Scaleway, MinIO, OVH)"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pollora\\Media\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Amphibee",
+                    "email": "contact@amphibee.fr"
+                }
+            ],
+            "description": "WordPress media on any Flysystem disk: uploads, public URLs, private files, image sizes and thumbnails, behind two settings. Runs with or without Laravel.",
+            "homepage": "https://pollora.dev/",
+            "keywords": [
+                "Flysystem",
+                "media",
+                "pollora",
+                "s3",
+                "uploads",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/Pollora/media/issues",
+                "source": "https://github.com/Pollora/media"
+            },
+            "time": "2026-10-20T08:49:25+00:00"
         },
         {
             "name": "pollora/meta",
@@ -4891,16 +4957,16 @@
         },
         {
             "name": "pollora/roles",
-            "version": "v0.1.0",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/roles.git",
-                "reference": "eb603e83494667f4240db612e8b91a3045cabd79"
+                "reference": "bf470a0b843559091631b79834f3386c2fcdbaa2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/roles/zipball/eb603e83494667f4240db612e8b91a3045cabd79",
-                "reference": "eb603e83494667f4240db612e8b91a3045cabd79",
+                "url": "https://api.github.com/repos/Pollora/roles/zipball/bf470a0b843559091631b79834f3386c2fcdbaa2",
+                "reference": "bf470a0b843559091631b79834f3386c2fcdbaa2",
                 "shasum": ""
             },
             "require": {
@@ -4946,7 +5012,7 @@
                 "issues": "https://github.com/Pollora/roles/issues",
                 "source": "https://github.com/Pollora/roles"
             },
-            "time": "2026-10-15T14:19:41+00:00"
+            "time": "2026-10-16T16:59:24+00:00"
         },
         {
             "name": "pollora/schedule",
