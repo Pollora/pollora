@@ -4494,27 +4494,27 @@
         },
         {
             "name": "pollora/framework",
-            "version": "v13.37.0",
+            "version": "v13.37.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
-                "reference": "5ffbbb4faf7fe7ad9ce9e11b07071b06f41cc9e5"
+                "reference": "3b95ddd690c2aae03dad9a5e1fa6faaadff707d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/5ffbbb4faf7fe7ad9ce9e11b07071b06f41cc9e5",
-                "reference": "5ffbbb4faf7fe7ad9ce9e11b07071b06f41cc9e5",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/3b95ddd690c2aae03dad9a5e1fa6faaadff707d5",
+                "reference": "3b95ddd690c2aae03dad9a5e1fa6faaadff707d5",
                 "shasum": ""
             },
             "require": {
                 "coduo/php-humanizer": "5.0.3",
                 "cweagans/composer-patches": "^2.0",
-                "illuminate/auth": "^13.36",
-                "illuminate/config": "^13.36",
-                "illuminate/console": "^13.36",
-                "illuminate/database": "^13.36",
-                "illuminate/routing": "^13.36",
-                "illuminate/support": "^13.36",
+                "illuminate/auth": "^13.37",
+                "illuminate/config": "^13.37",
+                "illuminate/console": "^13.37",
+                "illuminate/database": "^13.37",
+                "illuminate/routing": "^13.37",
+                "illuminate/support": "^13.37",
                 "laravel/prompts": "^0.3.25",
                 "log1x/sage-directives": "^2.0",
                 "nwidart/laravel-modules": "^13.0",
@@ -4619,7 +4619,7 @@
                 "issues": "https://github.com/Pollora/framework/issues",
                 "source": "https://github.com/Pollora/framework"
             },
-            "time": "2026-10-20T15:25:09+00:00"
+            "time": "2026-10-20T19:34:00+00:00"
         },
         {
             "name": "pollora/helper-overrider",
