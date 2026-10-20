@@ -5,7 +5,7 @@ All notable changes to the Pollora skeleton will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/Pollora/pollora/compare/v13.37.0...main)
+## [Unreleased](https://github.com/Pollora/pollora/compare/v13.37.1...main)
 
 ### Added
 
@@ -19,6 +19,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - `merge-plugin` no longer merges a module's `require-dev`. A module installed by Composer is also merged through `Modules/*/composer.json`, and its development tools (PHPUnit, Rector…) became requirements of the project: measured, the next `composer install` removed WordPress core from `public/cms` and the site stopped booting. `merge-dev` is now `false`; a module's `require` is still merged. Existing projects can set it in `extra.merge-plugin`
+
+## [v13.37.1](https://github.com/Pollora/pollora/compare/v13.37.0...v13.37.1) - 2026-10-20
+
+Pollora skeleton for framework 13.37.1: `pollora/framework` ^13.37 locked at v13.37.1, which requires Laravel ^13.37 (locked at 13.38.0).
+
+See the [framework release](https://github.com/Pollora/framework/releases/tag/v13.37.1).
 
 ## [v13.37.0](https://github.com/Pollora/pollora/compare/v13.36.1...v13.37.0) - 2026-10-20
 
