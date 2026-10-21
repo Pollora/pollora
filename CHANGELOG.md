@@ -5,23 +5,29 @@ All notable changes to the Pollora skeleton will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/Pollora/pollora/compare/v13.38.0...main)
+## [Unreleased](https://github.com/Pollora/pollora/compare/v13.38.1...main)
 
 ### Added
 
-- `LocalValetDriver.php`, the driver Laravel Valet and Laravel Herd read from the project. Both send every `.php` URL to the front controller, so WordPress's own entry points (`/cms/wp-login.php`, `/cms/wp-admin/index.php`, `wp-cron.php`) answered the site's 404 and the admin could not be reached. The driver lets PHP run the file when it exists under `public/` (never under `uploads/`). Existing projects can copy the file to their root
 - `config/modules.php`, Pollora's modules configuration (framework v13.35.3): where a module's enabled state lives (`MODULES_CONNECTOR`, `json` by default, as before: `modules_statuses.json`), states forced by `MODULES_LOCKED_ENABLED` / `MODULES_LOCKED_DISABLED`, and who may switch modules from Plugins › Modules. nwidart/laravel-modules reads it while it registers, so these settings only apply from this file. `module:make` still writes Pollora's lean module
 - A Pollora module published as a Composer package installs into `Modules/`. `composer require pollora/<module>` places a `pollora/*` package of type `laravel-library` in `Modules/{$name}/` (`composer/installers` reads the module's `installer-name` for the folder's exact case), where nwidart finds it; enabling it is still a line in `modules_statuses.json`. The rule is limited to the `pollora` vendor: other Laravel packages that declare `laravel-library` (about ninety on Packagist) keep their usual place. The rule comes last in `installer-paths`: `composer/installers` applies the first rule that matches, and a `vendor:` rule ignores the package type, so placed first it sent Pollora's own WordPress plugins (`pollora/mcp-connector`, `pollora/ai-visibility`) to `Modules/` too. Existing projects can add the same rule, last, to their `composer.json`
 
 ### Changed
-
-- `composer.json` sets `config.platform.php` to `8.3.0`, so the lock is resolved for the lowest PHP the skeleton supports. It was resolved on PHP 8.4 and held Symfony 8, which requires PHP 8.4.1: a project installed with a PHP 8.4 command line but served by PHP 8.3 (MAMP's default, a Herd site on 8.3) stopped with "Your Composer dependencies require a PHP version >= 8.4.1", a blank page without `WP_DEBUG`. The lock now holds Symfony 7.4, which runs on 8.3 and 8.4. Existing projects can add the same setting and run `composer update "symfony/*" --with-all-dependencies`
 
 - README: the organization's banner and badges (with the Tests workflow), installation first, the empty Sponsors section replaced by a pointer to GitHub Discussions, and the standard Contributing and License footer
 
 ### Fixed
 
 - `merge-plugin` no longer merges a module's `require-dev`. A module installed by Composer is also merged through `Modules/*/composer.json`, and its development tools (PHPUnit, Rector…) became requirements of the project: measured, the next `composer install` removed WordPress core from `public/cms` and the site stopped booting. `merge-dev` is now `false`; a module's `require` is still merged. Existing projects can set it in `extra.merge-plugin`
+
+## [v13.38.1](https://github.com/Pollora/pollora/compare/v13.38.0...v13.38.1) - 2026-10-21
+
+Pollora skeleton for framework 13.38.1: `pollora/framework` ^13.38 locked at v13.38.1, which serves the home page and `/cms/wp-admin/` under Valet and Herd, reads an `APP_URL` without a scheme and reports a document root that exposes `.env` (Pollora/framework#513).
+
+- `LocalValetDriver.php`, read by Laravel Valet and Laravel Herd from the project root. Both send every `.php` URL to the front controller, so `wp-login.php` and `wp-admin/index.php` answered the site's 404 under Herd; the driver lets PHP run an existing file under `public/` (never under `uploads/`). Existing projects can copy the file to their root
+- `config.platform.php` is `8.3.0` in `composer.json`: the lock was resolved on PHP 8.4 and held Symfony 8, which needs PHP 8.4.1, so a project served by PHP 8.3 (MAMP's default) stopped on Composer's platform check. The lock holds Symfony 7.4, which runs on 8.3 and 8.4. Existing projects can add the same setting and run `composer update "symfony/*" --with-all-dependencies`
+
+See the [framework release](https://github.com/Pollora/framework/releases/tag/v13.38.1).
 
 ## [v13.38.0](https://github.com/Pollora/pollora/compare/v13.37.1...v13.38.0) - 2026-10-21
 
