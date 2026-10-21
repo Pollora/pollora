@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "864938c6e29cb3a092027ecddbdac783",
+    "content-hash": "d0f01ec799a36a3e0a1736dda734b735",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -4494,27 +4494,27 @@
         },
         {
             "name": "pollora/framework",
-            "version": "v13.37.1",
+            "version": "v13.38.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
-                "reference": "3b95ddd690c2aae03dad9a5e1fa6faaadff707d5"
+                "reference": "95edcc984c7972f373919e8794e6fc1871161309"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/3b95ddd690c2aae03dad9a5e1fa6faaadff707d5",
-                "reference": "3b95ddd690c2aae03dad9a5e1fa6faaadff707d5",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/95edcc984c7972f373919e8794e6fc1871161309",
+                "reference": "95edcc984c7972f373919e8794e6fc1871161309",
                 "shasum": ""
             },
             "require": {
                 "coduo/php-humanizer": "5.0.3",
                 "cweagans/composer-patches": "^2.0",
-                "illuminate/auth": "^13.37",
-                "illuminate/config": "^13.37",
-                "illuminate/console": "^13.37",
-                "illuminate/database": "^13.37",
-                "illuminate/routing": "^13.37",
-                "illuminate/support": "^13.37",
+                "illuminate/auth": "^13.38",
+                "illuminate/config": "^13.38",
+                "illuminate/console": "^13.38",
+                "illuminate/database": "^13.38",
+                "illuminate/routing": "^13.38",
+                "illuminate/support": "^13.38",
                 "laravel/prompts": "^0.3.25",
                 "log1x/sage-directives": "^2.0",
                 "nwidart/laravel-modules": "^13.0",
@@ -4619,7 +4619,7 @@
                 "issues": "https://github.com/Pollora/framework/issues",
                 "source": "https://github.com/Pollora/framework"
             },
-            "time": "2026-10-20T19:34:00+00:00"
+            "time": "2026-10-21T09:02:35+00:00"
         },
         {
             "name": "pollora/helper-overrider",
