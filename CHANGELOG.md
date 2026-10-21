@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- `composer.json` sets `config.platform.php` to `8.3.0`, so the lock is resolved for the lowest PHP the skeleton supports. It was resolved on PHP 8.4 and held Symfony 8, which requires PHP 8.4.1: a project installed with a PHP 8.4 command line but served by PHP 8.3 (MAMP's default, a Herd site on 8.3) stopped with "Your Composer dependencies require a PHP version >= 8.4.1", a blank page without `WP_DEBUG`. The lock now holds Symfony 7.4, which runs on 8.3 and 8.4. Existing projects can add the same setting and run `composer update "symfony/*" --with-all-dependencies`
+
 - README: the organization's banner and badges (with the Tests workflow), installation first, the empty Sponsors section replaced by a pointer to GitHub Discussions, and the standard Contributing and License footer
 
 ### Fixed
