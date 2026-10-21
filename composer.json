@@ -132,6 +132,9 @@
             "php-http/discovery": true,
             "pollora/helper-overrider": true,
             "wikimedia/composer-merge-plugin": true
+        },
+        "platform": {
+            "php": "8.3.0"
         }
     },
     "prefer-stable": true
