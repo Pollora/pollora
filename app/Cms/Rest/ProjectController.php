@@ -6,6 +6,7 @@ namespace App\Cms\Rest;
 
 use Pollora\Attributes\WpRestRoute;
 use Pollora\Attributes\WpRestRoute\Method;
+use Pollora\WpRest\Permissions\Everyone;
 use WP_REST_Request;
 use WP_REST_Response;
 
@@ -15,7 +16,7 @@ use WP_REST_Response;
  * Uses the #[WpRestRoute] attribute to register REST endpoints.
  * This class appears in the Pollora dashboard under "REST API Routes".
  */
-#[WpRestRoute(namespace: 'starter/v1', route: '/projects')]
+#[WpRestRoute(namespace: 'starter/v1', route: '/projects', permissionCallback: Everyone::class)]
 class ProjectController
 {
     /**

@@ -6,6 +6,7 @@ namespace App\Cms\Rest;
 
 use Pollora\Attributes\WpRestRoute;
 use Pollora\Attributes\WpRestRoute\Method;
+use Pollora\WpRest\Permissions\Everyone;
 use WP_REST_Request;
 use WP_REST_Response;
 
@@ -22,7 +23,7 @@ use WP_REST_Response;
  * Endpoints:
  *   GET  /wp-json/starter/v1/status
  */
-#[WpRestRoute(namespace: 'starter/v1', route: '/status')]
+#[WpRestRoute(namespace: 'starter/v1', route: '/status', permissionCallback: Everyone::class)]
 class StatusController
 {
     /**
