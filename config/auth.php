@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+use Pollora\Models\User;
 
 return [
 
@@ -14,7 +15,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'wp',
-            'model' => \Pollora\Models\User::class,
+            'model' => User::class,
         ],
     ],
 

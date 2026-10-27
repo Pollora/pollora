@@ -11,7 +11,7 @@ class SiteHealthTest extends TestCase
 {
     private function siteUrl(string $path = '/'): string
     {
-        return rtrim(config('app.url'), '/') . $path;
+        return rtrim(config('app.url'), '/').$path;
     }
 
     public function test_homepage_returns_200(): void
@@ -27,7 +27,7 @@ class SiteHealthTest extends TestCase
 
         $this->assertTrue(
             in_array($response->status(), [301, 302]),
-            'Expected /wp-admin/ to redirect (301 or 302), got ' . $response->status()
+            'Expected /wp-admin/ to redirect (301 or 302), got '.$response->status()
         );
     }
 

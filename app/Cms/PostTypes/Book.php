@@ -20,6 +20,4 @@ use Pollora\PostType\AbstractPostType;
 #[HasArchive]
 #[Supports(['title'])]
 #[MenuIcon('dashicons-admin-post')]
-class Book extends AbstractPostType
-{
-}
+class Book extends AbstractPostType {}
