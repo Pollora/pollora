@@ -16,10 +16,13 @@ declare(strict_types=1);
 |
 */
 
+use Illuminate\Contracts\Http\Kernel;
+use Illuminate\Foundation\Bootstrap\BootProviders;
 use Illuminate\Foundation\Bootstrap\HandleExceptions;
 use Illuminate\Foundation\Bootstrap\LoadConfiguration;
 use Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables;
 use Illuminate\Foundation\Bootstrap\RegisterFacades;
+use Illuminate\Foundation\Bootstrap\RegisterProviders;
 use Illuminate\Foundation\Bootstrap\SetRequestForConsole;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Facade;
@@ -52,7 +55,7 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 |
 */
 
-$kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
+$kernel = $app->make(Kernel::class);
 
 $app->bootstrapWith([
     LoadEnvironmentVariables::class,
@@ -76,8 +79,8 @@ url()->useOrigin(config('app.url'));
 $table_prefix = config('database.connections.mysql.prefix', 'wp_');
 
 $app->bootstrapWith([
-    Illuminate\Foundation\Bootstrap\RegisterProviders::class,
-    Illuminate\Foundation\Bootstrap\BootProviders::class,
+    RegisterProviders::class,
+    BootProviders::class,
 ]);
 
 /* Fake require in order to make WP cli works !

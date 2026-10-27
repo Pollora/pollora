@@ -156,7 +156,7 @@ try {
             }
             break;
     }
-} catch (\Throwable $e) {
+} catch (Throwable $e) {
     echo "\n\033[31mScenario aborted: {$e->getMessage()}\033[0m\n\n";
     exit(1);
 }

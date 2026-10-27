@@ -1,0 +1,4 @@
+# Two examples in documentation, not secrets: a STRIPE_SECRET line in a Laravel
+# best-practices rule (May 2026) and a sample key in a 2011 crypt page.
+56384cfeca38b0ee0353a094afe7d71aa83ac38e:.claude/skills/laravel-best-practices/rules/config.md:generic-api-key:30
+bfaf6950c691dc3b56cabac85d1b9cebe0483162:documentation/other/crypt.md:generic-api-key:14

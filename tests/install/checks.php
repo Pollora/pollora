@@ -9,7 +9,6 @@ declare(strict_types=1);
  * meant to fail when its fix is reverted. That property is the point: a check
  * that cannot fail is what let fix 5 ship broken behind 1040 green tests.
  */
-
 function wpEval(string $php): string
 {
     return wp('eval '.escapeshellarg($php));
@@ -103,7 +102,7 @@ function checkPageRendering(): void
 
     try {
         $urls = seedRenderingFixtures();
-    } catch (\Throwable $e) {
+    } catch (Throwable $e) {
         test('Seed rendering fixtures', fn () => "could not seed content: {$e->getMessage()}");
 
         return;
@@ -285,16 +284,16 @@ Theme Name: Stray {$slug}
 Version: 1.0
 */
 ");
-        file_put_contents($standard.'/'.$slug.'/index.php', "<?php
+        file_put_contents($standard.'/'.$slug.'/index.php', '<?php
 // Silence is golden.
-");
+');
 
         test('A theme in WP_CONTENT_DIR/themes is visible', function () use ($slug) {
             $listed = explode(',', wpEval('echo implode(",", array_keys(wp_get_themes()));'));
 
             return in_array($slug, $listed, true)
                 ? true
-                : "the standard themes directory is not scanned at all — fix 4 no longer registers it";
+                : 'the standard themes directory is not scanned at all — fix 4 no longer registers it';
         });
 
         test('It does not displace the active theme', function () use ($before) {
@@ -393,7 +392,7 @@ function checkMissingThemeGuidance(): void
  * The install that fix 1 died on, walked for real.
  *
  * @param  array{code: int, out: string, siteurl: string}  $install  the result of
- *         installing with the site URL pointed at the decoy
+ *                                                                   installing with the site URL pointed at the decoy
  */
 function checkInstallAgainstRespondingUrl(array $install, string $decoyUrl): void
 {
@@ -653,7 +652,7 @@ function checkViewPathPrecedence(): void
     test("The theme's resources/views is registered", function () use ($paths, $themeRoot) {
         return in_array($themeRoot.'/resources/views', $paths, true)
             ? true
-            : "resources/views is not among the view paths (".implode(', ', $paths).")";
+            : 'resources/views is not among the view paths ('.implode(', ', $paths).')';
     });
 
     test('resources/views outranks the theme root', function () use ($paths, $themeRoot) {
@@ -666,7 +665,7 @@ function checkViewPathPrecedence(): void
 
         return $views < $root
             ? true
-            : "the theme root is searched first — every view the theme ships is shadowed by a PHP stub";
+            : 'the theme root is searched first — every view the theme ships is shadowed by a PHP stub';
     });
 
     // The symptom, in a browser. checkPageRendering() already refuses an empty

@@ -1,0 +1,17 @@
+name: Harness
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  harness:
+    uses: Pollora/harness/.github/workflows/template.yml@v0.1.10
+    with:
+      mode: enforce
+    permissions:
+      contents: read

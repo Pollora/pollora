@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Feature\Installation;
 
+use Illuminate\Support\Facades\DB;
 use Tests\Helpers\WordPressAssertions;
 use Tests\TestCase;
 
@@ -52,7 +53,7 @@ class WordPressInstallTest extends TestCase
 
     public function test_admin_user_exists(): void
     {
-        $users = \Illuminate\Support\Facades\DB::table('users')->count();
+        $users = DB::table('users')->count();
 
         $this->assertGreaterThan(0, $users, 'No admin user found in users table');
     }

@@ -15,7 +15,7 @@ trait WordPressAssertions
 
     protected function assertWordPressTableExists(string $table): void
     {
-        $fullTable = $this->getPrefix() . $table;
+        $fullTable = $this->getPrefix().$table;
 
         $results = DB::select("SHOW TABLES LIKE '{$fullTable}'");
         $this->assertNotEmpty($results, "WordPress table '{$fullTable}' does not exist.");

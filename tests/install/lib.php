@@ -11,11 +11,12 @@ declare(strict_types=1);
  * So everything here talks to a real site over HTTP, or to WordPress through
  * wp-cli — never to a mock.
  */
-
 final class Results
 {
     public static int $passed = 0;
+
     public static int $failed = 0;
+
     public static int $skipped = 0;
 }
 
@@ -36,7 +37,7 @@ function test(string $name, callable $fn): void
 {
     try {
         $result = $fn();
-    } catch (\Throwable $e) {
+    } catch (Throwable $e) {
         echo "  \033[31m✗\033[0m  {$name} — {$e->getMessage()}\n";
         Results::$failed++;
 
@@ -107,7 +108,7 @@ function http(string $url, array $post = [], bool $followRedirects = true): arra
     curl_close($ch);
 
     if ($response === false) {
-        throw new \RuntimeException("request to {$url} failed: {$error}");
+        throw new RuntimeException("request to {$url} failed: {$error}");
     }
 
     return [
@@ -137,7 +138,7 @@ function probe(string $url, string $method = 'GET'): array
     ]);
 
     if (curl_exec($ch) === false) {
-        throw new \RuntimeException("{$method} {$url} failed: ".curl_error($ch));
+        throw new RuntimeException("{$method} {$url} failed: ".curl_error($ch));
     }
 
     $result = [
@@ -195,7 +196,7 @@ function wpRaw(string $args): array
     $process = proc_open('wp '.$args.' 2>&1', $descriptors, $pipes, base_path());
 
     if (! is_resource($process)) {
-        throw new \RuntimeException("could not run: wp {$args}");
+        throw new RuntimeException("could not run: wp {$args}");
     }
 
     $out = stream_get_contents($pipes[1]) ?: '';
@@ -211,7 +212,7 @@ function wp(string $args): string
     $result = wpRaw($args);
 
     if ($result['code'] !== 0) {
-        throw new \RuntimeException("wp {$args} failed: {$result['out']}");
+        throw new RuntimeException("wp {$args} failed: {$result['out']}");
     }
 
     return $result['out'];
@@ -243,7 +244,7 @@ function siteUrl(string $path = '/'): string
         $base = getenv('POLLORA_TEST_URL') ?: wpOption('home');
 
         if (! $base) {
-            throw new \RuntimeException('cannot determine the site URL: set POLLORA_TEST_URL');
+            throw new RuntimeException('cannot determine the site URL: set POLLORA_TEST_URL');
         }
 
         $base = rtrim($base, '/');

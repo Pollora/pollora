@@ -9,14 +9,13 @@ declare(strict_types=1);
  * destructive by design. They refuse to run anywhere that does not look like a
  * throwaway development or CI site — see guardDestructive().
  */
-
 function run(string $command, ?string $cwd = null): array
 {
     $descriptors = [1 => ['pipe', 'w'], 2 => ['pipe', 'w']];
     $process = proc_open($command.' 2>&1', $descriptors, $pipes, $cwd ?? base_path());
 
     if (! is_resource($process)) {
-        throw new \RuntimeException("could not run: {$command}");
+        throw new RuntimeException("could not run: {$command}");
     }
 
     $out = stream_get_contents($pipes[1]) ?: '';
@@ -66,14 +65,14 @@ function resetDatabase(): void
     $reset = run('wp db reset --yes');
 
     if ($reset['code'] !== 0) {
-        throw new \RuntimeException("wp db reset failed: {$reset['out']}");
+        throw new RuntimeException("wp db reset failed: {$reset['out']}");
     }
 
     echo "  \033[2m→ running Laravel migrations\033[0m\n";
     $migrate = run('php artisan migrate --force --no-interaction');
 
     if ($migrate['code'] !== 0) {
-        throw new \RuntimeException("artisan migrate failed: {$migrate['out']}");
+        throw new RuntimeException("artisan migrate failed: {$migrate['out']}");
     }
 }
 
@@ -99,7 +98,7 @@ function removeThemes(): void
     echo "  \033[2m→ moving themes/ aside\033[0m\n";
 
     if (is_dir($holding)) {
-        throw new \RuntimeException(
+        throw new RuntimeException(
             "{$holding} already exists: a previous run did not restore themes/. "
             .'Move its contents back into themes/ before running this again.'
         );
@@ -148,11 +147,11 @@ function installViaWebWizard(string $baseUrl, array $credentials): void
     $step1 = http($baseUrl.'/cms/wp-admin/install.php');
 
     if ($step1['status'] !== 200) {
-        throw new \RuntimeException("the installer did not answer: HTTP {$step1['status']}");
+        throw new RuntimeException("the installer did not answer: HTTP {$step1['status']}");
     }
 
     if (str_contains($step1['body'], 'Already Installed') || str_contains($step1['body'], 'already installed')) {
-        throw new \RuntimeException('WordPress is already installed — the reset did not take');
+        throw new RuntimeException('WordPress is already installed — the reset did not take');
     }
 
     $response = http($baseUrl.'/cms/wp-admin/install.php?step=2', [
@@ -167,7 +166,7 @@ function installViaWebWizard(string $baseUrl, array $credentials): void
     ]);
 
     if ($response['status'] !== 200) {
-        throw new \RuntimeException("the wizard answered HTTP {$response['status']}");
+        throw new RuntimeException("the wizard answered HTTP {$response['status']}");
     }
 
     $succeeded = str_contains($response['body'], 'wp-login.php')
@@ -175,7 +174,7 @@ function installViaWebWizard(string $baseUrl, array $credentials): void
 
     if (! $succeeded) {
         $excerpt = trim(strip_tags($response['body']));
-        throw new \RuntimeException('the wizard did not report success: '.substr($excerpt, 0, 300));
+        throw new RuntimeException('the wizard did not report success: '.substr($excerpt, 0, 300));
     }
 
     // The wizard leaves plain permalinks. A real user goes to Settings →
@@ -206,13 +205,13 @@ function scaffoldTheme(string $name = 'default'): void
         .' --theme-version=1.0.0 --no-interaction');
 
     if ($result['code'] !== 0) {
-        throw new \RuntimeException("pollora:make:theme failed: {$result['out']}");
+        throw new RuntimeException("pollora:make:theme failed: {$result['out']}");
     }
 
     $activated = run('wp theme activate '.escapeshellarg($name));
 
     if ($activated['code'] !== 0) {
-        throw new \RuntimeException("could not activate the {$name} theme: {$activated['out']}");
+        throw new RuntimeException("could not activate the {$name} theme: {$activated['out']}");
     }
 }
 
@@ -232,7 +231,7 @@ function installViaArtisan(array $credentials): void
         .' --locale=en_US --public=false --no-interaction');
 
     if ($result['code'] !== 0) {
-        throw new \RuntimeException("pollora:install failed: {$result['out']}");
+        throw new RuntimeException("pollora:install failed: {$result['out']}");
     }
 }
 
@@ -267,13 +266,13 @@ function installViaArtisanAgainst(string $url, array $credentials): array
     $original = file_get_contents($env);
 
     if ($original === false) {
-        throw new \RuntimeException('cannot read .env');
+        throw new RuntimeException('cannot read .env');
     }
 
     $rewritten = preg_replace('/^APP_URL=.*$/m', 'APP_URL='.$url, $original);
 
     if ($rewritten === null || $rewritten === $original) {
-        throw new \RuntimeException('APP_URL is not set in .env, so it cannot be pointed anywhere');
+        throw new RuntimeException('APP_URL is not set in .env, so it cannot be pointed anywhere');
     }
 
     try {
