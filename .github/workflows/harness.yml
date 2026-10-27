@@ -10,7 +10,7 @@ permissions: {}
 
 jobs:
   harness:
-    uses: Pollora/harness/.github/workflows/template.yml@feat/template-workflow
+    uses: Pollora/harness/.github/workflows/template.yml@v0.1.10
     with:
       mode: enforce
     permissions:
