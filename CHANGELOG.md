@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- The development npm dependencies are updated in `package-lock.json` to fix known vulnerabilities (`concurrently` 10.0.6 brings `shell-quote` 1.12.0; `vite` 7.3.7, `follow-redirects` 1.16.2, `source-map-js` 1.2.2). `npm audit` reports none.
 - `merge-plugin` no longer merges a module's `require-dev`. A module installed by Composer is also merged through `Modules/*/composer.json`, and its development tools (PHPUnit, Rector…) became requirements of the project: measured, the next `composer install` removed WordPress core from `public/cms` and the site stopped booting. `merge-dev` is now `false`; a module's `require` is still merged. Existing projects can set it in `extra.merge-plugin`
 
 ## [v13.38.1](https://github.com/Pollora/pollora/compare/v13.38.0...v13.38.1) - 2026-10-21
