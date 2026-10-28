@@ -31,6 +31,7 @@
         "laravel/sanctum": "^4.3 || ^5.0",
         "laravel/tinker": "^3.0",
         "pollora/framework": "dev-develop",
+        "pollora/woocommerce": "^0.1",
         "wp-plugin/woocommerce": "^10.8"
     },
     "require-dev": {
