@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- `symfony/mime` is locked at v7.4.22 (it was v7.4.19) to fix CVE-2026-45070, an email header injection through the names of MIME parameters (medium)
+- WordPress 7.1.4 (`johnpbloch/wordpress` locked at 7.1.4, it was 7.1.3); the constraint `^7.1` already accepted it
 - README: the organization's banner and badges (with the Tests workflow), installation first, the empty Sponsors section replaced by a pointer to GitHub Discussions, and the standard Contributing and License footer
 
 ### Fixed
