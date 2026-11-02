@@ -64,6 +64,8 @@ All notable changes are documented in the [CHANGELOG](CHANGELOG.md).
 
 ## Support the project
 
+If Pollora is useful to you, **[star this repository](https://github.com/Pollora/pollora)**: it helps other WordPress developers find it.
+
 Questions, ideas and feedback are welcome in [GitHub Discussions](https://github.com/Pollora/pollora/discussions).
 
 ## Contributing
