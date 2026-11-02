@@ -40,7 +40,7 @@ Requirements:
 - PHP 8.4+ (this skeleton's `composer.lock` ships Symfony 8, which requires it)
 - Composer 2.x
 - Node.js 20.19+ or 22.12+ & npm (the floor Vite 7 requires)
-- A database (MySQL, MariaDB, or SQLite)
+- MySQL 5.7+ or MariaDB 10.3+ (SQLite and PostgreSQL are not supported: WordPress is only loaded on the `mysql` driver)
 - WordPress 7.1+ is installed for you through Composer
 
 ## What you get
