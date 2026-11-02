@@ -10,3 +10,4 @@
 /.gitleaksignore export-ignore
 CHANGELOG.md export-ignore
 .styleci.yml export-ignore
+/global_rules.md export-ignore
