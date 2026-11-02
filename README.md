@@ -13,7 +13,7 @@
 
 **Pollora is the Laravel framework for WordPress**, and this repository is the skeleton `composer create-project` installs. WordPress runs inside a Laravel application: the front end uses Laravel routing, controllers, Blade and Eloquent, while the WordPress admin, database and plugins keep working as usual. You start a WordPress site with a real Laravel project around it, instead of a theme folder full of `functions.php` code.
 
-[Website](https://pollora.dev) · [Documentation](https://pollora.dev/getting-started/installation/) · [Why Pollora](https://pollora.dev/why/) · [How Pollora compares with Acorn, Sage, Radicle and Corcel](https://pollora.dev/compare/) · [1-minute tour](https://www.youtube.com/watch?v=Wk1VzPapqM8)
+[Website](https://pollora.dev) · [Documentation](https://pollora.dev/getting-started/installation/) · [Why Pollora](https://pollora.dev/why/) · [How Pollora compares with Acorn, Sage, Radicle and Corcel](https://pollora.dev/compare/) · [1-minute tour](https://www.youtube.com/watch?v=Wk1VzPapqM8) · [Featured in Laravel News](https://laravel-news.com/pollora-wordpress-laravel)
 
 ## Installation
 
