@@ -5,7 +5,9 @@ All notable changes to the Pollora skeleton will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/Pollora/pollora/compare/v13.38.1...main)
+## [Unreleased](https://github.com/Pollora/pollora/compare/v13.40.0...main)
+
+## [v13.40.0](https://github.com/Pollora/pollora/compare/v13.39.3...v13.40.0) - 2026-11-04
 
 ### Added
 
@@ -18,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - WordPress 7.1.4 (`johnpbloch/wordpress` locked at 7.1.4, it was 7.1.3); the constraint `^7.1` already accepted it
 - README: the organization's banner and badges (with the Tests workflow), installation first, the empty Sponsors section replaced by a pointer to GitHub Discussions, and the standard Contributing and License footer
 - `global_rules.md`, a set of general coding rules that described a `src/` layout this skeleton does not have, is no longer part of the archive that `composer create-project` downloads (it stays in the repository); the `.shift` file a Laravel Shift pull request left behind is removed
+- A new project installs `pollora/framework` **v13.40.0**, which the lock now pins (it pinned v13.39.3). What changed is in the [framework's release notes](https://github.com/Pollora/framework/releases/tag/v13.40.0)
 
 ### Fixed
 
