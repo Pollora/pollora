@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- The Symfony components are locked at v7.4.23 (they were v7.4.22) for the seven security advisories of 4 November 2026 in `http-foundation`, `http-kernel`, `routing` and `yaml`; v7.4 still runs on PHP 8.3
 - `symfony/mime` is locked at v7.4.22 (it was v7.4.19) to fix CVE-2026-45070, an email header injection through the names of MIME parameters (medium)
 - WordPress 7.1.4 (`johnpbloch/wordpress` locked at 7.1.4, it was 7.1.3); the constraint `^7.1` already accepted it
 - README: the organization's banner and badges (with the Tests workflow), installation first, the empty Sponsors section replaced by a pointer to GitHub Discussions, and the standard Contributing and License footer
