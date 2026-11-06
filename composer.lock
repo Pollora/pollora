@@ -1196,69 +1196,6 @@
             "time": "2025-03-06T22:45:56+00:00"
         },
         {
-            "name": "fakerphp/faker",
-            "version": "v1.24.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/FakerPHP/Faker.git",
-                "reference": "e0ee18eb1e6dc3cda3ce9fd97e5a0689a88a64b5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/e0ee18eb1e6dc3cda3ce9fd97e5a0689a88a64b5",
-                "reference": "e0ee18eb1e6dc3cda3ce9fd97e5a0689a88a64b5",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.4 || ^8.0",
-                "psr/container": "^1.0 || ^2.0",
-                "symfony/deprecation-contracts": "^2.2 || ^3.0"
-            },
-            "conflict": {
-                "fzaninotto/faker": "*"
-            },
-            "require-dev": {
-                "bamarni/composer-bin-plugin": "^1.4.1",
-                "doctrine/persistence": "^1.3 || ^2.0",
-                "ext-intl": "*",
-                "phpunit/phpunit": "^9.5.26",
-                "symfony/phpunit-bridge": "^5.4.16"
-            },
-            "suggest": {
-                "doctrine/orm": "Required to use Faker\\ORM\\Doctrine",
-                "ext-curl": "Required by Faker\\Provider\\Image to download images.",
-                "ext-dom": "Required by Faker\\Provider\\HtmlLorem for generating random HTML.",
-                "ext-iconv": "Required by Faker\\Provider\\ru_RU\\Text::realText() for generating real Russian text.",
-                "ext-mbstring": "Required for multibyte Unicode string functionality."
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Faker\\": "src/Faker/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "François Zaninotto"
-                }
-            ],
-            "description": "Faker is a PHP library that generates fake data for you.",
-            "keywords": [
-                "data",
-                "faker",
-                "fixtures"
-            ],
-            "support": {
-                "issues": "https://github.com/FakerPHP/Faker/issues",
-                "source": "https://github.com/FakerPHP/Faker/tree/v1.24.1"
-            },
-            "time": "2024-11-21T13:46:39+00:00"
-        },
-        {
             "name": "fruitcake/php-cors",
             "version": "v1.4.0",
             "source": {
@@ -3248,21 +3185,21 @@
         },
         {
             "name": "league/uri",
-            "version": "7.9.1",
+            "version": "7.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/uri.git",
-                "reference": "40403f5c3141457a61f7f1aba6706e8fa4a0ece5"
+                "reference": "be89e2382e37acdef232259071ade5180821397b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/uri/zipball/40403f5c3141457a61f7f1aba6706e8fa4a0ece5",
-                "reference": "40403f5c3141457a61f7f1aba6706e8fa4a0ece5",
+                "url": "https://api.github.com/repos/thephpleague/uri/zipball/be89e2382e37acdef232259071ade5180821397b",
+                "reference": "be89e2382e37acdef232259071ade5180821397b",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
-                "league/uri-interfaces": "^7.9.1",
+                "league/uri-interfaces": "^7.10.0",
                 "php": "^8.1",
                 "psr/http-factory": "^1"
             },
@@ -3335,7 +3272,7 @@
                 "docs": "https://uri.thephpleague.com",
                 "forum": "https://thephpleague.slack.com",
                 "issues": "https://github.com/thephpleague/uri-src/issues",
-                "source": "https://github.com/thephpleague/uri/tree/7.9.1"
+                "source": "https://github.com/thephpleague/uri/tree/7.10.0"
             },
             "funding": [
                 {
@@ -3343,20 +3280,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-10-27T07:14:23+00:00"
+            "time": "2026-11-04T12:45:07+00:00"
         },
         {
             "name": "league/uri-interfaces",
-            "version": "7.9.1",
+            "version": "7.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/uri-interfaces.git",
-                "reference": "994300a79e17f179112dc259f8df0c4de982f736"
+                "reference": "ea66240cff4ae9a56ce85d577a04d038b771e51c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/uri-interfaces/zipball/994300a79e17f179112dc259f8df0c4de982f736",
-                "reference": "994300a79e17f179112dc259f8df0c4de982f736",
+                "url": "https://api.github.com/repos/thephpleague/uri-interfaces/zipball/ea66240cff4ae9a56ce85d577a04d038b771e51c",
+                "reference": "ea66240cff4ae9a56ce85d577a04d038b771e51c",
                 "shasum": ""
             },
             "require": {
@@ -3419,7 +3356,7 @@
                 "docs": "https://uri.thephpleague.com",
                 "forum": "https://thephpleague.slack.com",
                 "issues": "https://github.com/thephpleague/uri-src/issues",
-                "source": "https://github.com/thephpleague/uri-interfaces/tree/7.9.1"
+                "source": "https://github.com/thephpleague/uri-interfaces/tree/7.10.0"
             },
             "funding": [
                 {
@@ -3427,7 +3364,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-10-27T07:14:23+00:00"
+            "time": "2026-11-04T12:45:07+00:00"
         },
         {
             "name": "log1x/sage-directives",
@@ -4012,16 +3949,16 @@
         },
         {
             "name": "nwidart/laravel-modules",
-            "version": "v13.2.0",
+            "version": "v13.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nWidart/laravel-modules.git",
-                "reference": "59714840708a2aece19e810764473f53227c35fe"
+                "reference": "abfa48cc11eba3bd30f4a07f903c2c0235973045"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nWidart/laravel-modules/zipball/59714840708a2aece19e810764473f53227c35fe",
-                "reference": "59714840708a2aece19e810764473f53227c35fe",
+                "url": "https://api.github.com/repos/nWidart/laravel-modules/zipball/abfa48cc11eba3bd30f4a07f903c2c0235973045",
+                "reference": "abfa48cc11eba3bd30f4a07f903c2c0235973045",
                 "shasum": ""
             },
             "require": {
@@ -4084,7 +4021,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nWidart/laravel-modules/issues",
-                "source": "https://github.com/nWidart/laravel-modules/tree/v13.2.0"
+                "source": "https://github.com/nWidart/laravel-modules/tree/v13.3.0"
             },
             "funding": [
                 {
@@ -4096,7 +4033,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-10-25T18:32:55+00:00"
+            "time": "2026-10-28T20:16:53+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -4175,27 +4112,29 @@
         },
         {
             "name": "pollora/abilities",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/abilities.git",
-                "reference": "709f5d8f4fe76d19e7659d39be09e72aaedd1982"
+                "reference": "4a05c6e2b9146ab45b26443af9bcb7601dc7d9c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/abilities/zipball/709f5d8f4fe76d19e7659d39be09e72aaedd1982",
-                "reference": "709f5d8f4fe76d19e7659d39be09e72aaedd1982",
+                "url": "https://api.github.com/repos/Pollora/abilities/zipball/4a05c6e2b9146ab45b26443af9bcb7601dc7d9c9",
+                "reference": "4a05c6e2b9146ab45b26443af9bcb7601dc7d9c9",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.3"
             },
             "require-dev": {
+                "antecedent/patchwork": "^2.2",
                 "brain/monkey": "^2.6",
                 "laravel/pint": "^1.22",
                 "mockery/mockery": "^1.6",
                 "pestphp/pest": "^3.8",
-                "phpstan/phpstan": "^2.1"
+                "phpstan/phpstan": "^2.1",
+                "pollora/harness": "^0.1.8"
             },
             "type": "library",
             "autoload": {
@@ -4223,9 +4162,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Pollora/abilities/issues",
-                "source": "https://github.com/Pollora/abilities/tree/v1.0.0"
+                "source": "https://github.com/Pollora/abilities/tree/v1.0.1"
             },
-            "time": "2026-08-31T13:33:08+00:00"
+            "time": "2026-10-30T11:07:18+00:00"
         },
         {
             "name": "pollora/ajax",
@@ -4396,22 +4335,22 @@
         },
         {
             "name": "pollora/block-bindings",
-            "version": "v0.1.0",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/block-bindings.git",
-                "reference": "38544c02c9f497deb6791303b61495850324f26c"
+                "reference": "838327e9064bcf3716b813803d90f4e0f3d689e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/block-bindings/zipball/38544c02c9f497deb6791303b61495850324f26c",
-                "reference": "38544c02c9f497deb6791303b61495850324f26c",
+                "url": "https://api.github.com/repos/Pollora/block-bindings/zipball/838327e9064bcf3716b813803d90f4e0f3d689e6",
+                "reference": "838327e9064bcf3716b813803d90f4e0f3d689e6",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.3",
                 "pollora/attributes": "^0.1.1 || ^1.0",
-                "pollora/colt": "^10.0.1",
+                "pollora/colt": "^11.0",
                 "pollora/discovery": "^0.1 || ^1.0",
                 "pollora/hook": "^2.0.1",
                 "pollora/meta": "^0.1",
@@ -4425,6 +4364,7 @@
                 "mockery/mockery": "^1.6.12",
                 "pestphp/pest": "^3.8.2",
                 "phpstan/phpstan": "^2.1.16",
+                "pollora/harness": "^0.1.8",
                 "szepeviktor/phpstan-wordpress": "^2.0"
             },
             "type": "library",
@@ -4456,35 +4396,39 @@
                 "issues": "https://github.com/Pollora/block-bindings/issues",
                 "source": "https://github.com/Pollora/block-bindings"
             },
-            "time": "2026-10-15T15:37:37+00:00"
+            "time": "2026-10-28T15:32:00+00:00"
         },
         {
             "name": "pollora/colt",
-            "version": "10.0.1",
+            "version": "11.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/colt.git",
-                "reference": "81e6501acc560ec1c36f62235ed3a3ed5325c6d5"
+                "reference": "38beeb463203daf8a95abdbd54101f3d13558b17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/colt/zipball/81e6501acc560ec1c36f62235ed3a3ed5325c6d5",
-                "reference": "81e6501acc560ec1c36f62235ed3a3ed5325c6d5",
+                "url": "https://api.github.com/repos/Pollora/colt/zipball/38beeb463203daf8a95abdbd54101f3d13558b17",
+                "reference": "38beeb463203daf8a95abdbd54101f3d13558b17",
                 "shasum": ""
             },
             "require": {
                 "bordoni/phpass": "0.3.*",
-                "fakerphp/faker": "^1.19",
+                "illuminate/contracts": "^12.0 || ^13.0",
                 "illuminate/database": "^12.0 || ^13.0",
-                "illuminate/filesystem": "^12.0 || ^13.0",
                 "illuminate/support": "^12.0 || ^13.0",
-                "php": "^8.2",
+                "nesbot/carbon": "^3.0",
+                "php": "^8.3",
                 "thunderer/shortcode": "^0.7.3"
             },
             "require-dev": {
+                "cweagans/composer-patches": "^2.0",
+                "fakerphp/faker": "^1.19",
                 "laravel/legacy-factories": "^1.0",
                 "mockery/mockery": "^1.4.4",
                 "orchestra/testbench": "^10.0 || ^11.0",
+                "pestphp/pest": "^3.8",
+                "pollora/harness": "^0.1.11",
                 "symfony/thanks": "^1.0"
             },
             "type": "library",
@@ -4494,6 +4438,11 @@
                         "Pollora\\Colt\\Laravel\\ColtServiceProvider"
                     ]
                 },
+                "patches": {
+                    "php-stubs/wordpress-stubs": {
+                        "Rename __ to __wp so Laravel can declare __()": "https://raw.githubusercontent.com/Pollora/framework/b26034b3306c96098f756c0ca80631a596db25c9/patches/wordpress-stubs.patch"
+                    }
+                },
                 "branch-alias": {
                     "dev-main": "10.x-dev"
                 },
@@ -4502,8 +4451,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Pollora\\Colt\\": "src/",
-                    "Pollora\\Colt\\Tests\\": "tests/"
+                    "Pollora\\Colt\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -4525,9 +4473,9 @@
             "description": "Use WordPress backend with Laravel or any PHP framework",
             "homepage": "http://github.com/Pollora/colt",
             "support": {
-                "source": "https://github.com/Pollora/colt/tree/10.0.1"
+                "source": "https://github.com/Pollora/colt/tree/11.0.0"
             },
-            "time": "2026-10-05T09:25:22+00:00"
+            "time": "2026-10-28T14:34:12+00:00"
         },
         {
             "name": "pollora/discovery",
@@ -4591,28 +4539,29 @@
         },
         {
             "name": "pollora/entity",
-            "version": "1.2.1",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/WordPressEntity.git",
-                "reference": "202bfe21172076712053dc9ab4811d23bc189d30"
+                "reference": "1efcb32dbb011dcce2f6c0342332b3d2da202329"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/WordPressEntity/zipball/202bfe21172076712053dc9ab4811d23bc189d30",
-                "reference": "202bfe21172076712053dc9ab4811d23bc189d30",
+                "url": "https://api.github.com/repos/Pollora/WordPressEntity/zipball/1efcb32dbb011dcce2f6c0342332b3d2da202329",
+                "reference": "1efcb32dbb011dcce2f6c0342332b3d2da202329",
                 "shasum": ""
             },
             "require": {
-                "johnbillion/extended-cpts": "^5.0",
-                "php": "^8.2",
-                "pollora/wordpress-args": "^1.1"
+                "johnbillion/extended-cpts": "^5.0.3",
+                "php": "^8.3",
+                "pollora/wordpress-args": "^1.1 || ^2.0"
             },
             "require-dev": {
                 "laravel/pint": "^v1.22.1",
-                "mockery/mockery": "^2.0.x-dev",
-                "pestphp/pest": "^v3.8.2",
-                "phpstan/phpstan": "^2.1.16"
+                "mockery/mockery": "^1.6.11",
+                "pestphp/pest": "^3.8.2",
+                "phpstan/phpstan": "^2.1.16",
+                "pollora/harness": "^0.1.13"
             },
             "type": "library",
             "autoload": {
@@ -4633,9 +4582,9 @@
             "description": "A modern PHP package for WordPress custom post types and taxonomies",
             "support": {
                 "issues": "https://github.com/Pollora/WordPressEntity/issues",
-                "source": "https://github.com/Pollora/WordPressEntity/tree/1.2.1"
+                "source": "https://github.com/Pollora/WordPressEntity/tree/2.0.0"
             },
-            "time": "2026-09-17T12:51:39+00:00"
+            "time": "2026-10-29T13:19:36+00:00"
         },
         {
             "name": "pollora/framework",
@@ -4643,45 +4592,45 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
-                "reference": "f5a85c550c92db79263383f699ab074ce68fa9c7"
+                "reference": "0807a03c2e7a06f998a313842306ed7f59907689"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/f5a85c550c92db79263383f699ab074ce68fa9c7",
-                "reference": "f5a85c550c92db79263383f699ab074ce68fa9c7",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/0807a03c2e7a06f998a313842306ed7f59907689",
+                "reference": "0807a03c2e7a06f998a313842306ed7f59907689",
                 "shasum": ""
             },
             "require": {
                 "coduo/php-humanizer": "5.0.3",
                 "cweagans/composer-patches": "^2.0",
-                "illuminate/auth": "^13.39",
-                "illuminate/config": "^13.39",
-                "illuminate/console": "^13.39",
-                "illuminate/database": "^13.39",
-                "illuminate/routing": "^13.39",
-                "illuminate/support": "^13.39",
-                "laravel/prompts": "^0.3.25",
+                "illuminate/auth": "^13.40",
+                "illuminate/config": "^13.40",
+                "illuminate/console": "^13.40",
+                "illuminate/database": "^13.40",
+                "illuminate/routing": "^13.40",
+                "illuminate/support": "^13.40",
+                "laravel/prompts": "^0.3.26",
                 "log1x/sage-directives": "^2.0",
-                "nwidart/laravel-modules": "^13.0",
+                "nwidart/laravel-modules": "^13.2",
                 "php": "^8.3",
                 "pollora/abilities": "^1.0",
                 "pollora/ajax": "^1.1",
                 "pollora/assets": "^0.1",
                 "pollora/attributes": "^0.1.1 || ^1.0",
-                "pollora/block-bindings": "^0.1",
-                "pollora/colt": "^10.0.1",
+                "pollora/block-bindings": "^0.2",
+                "pollora/colt": "^11.0",
                 "pollora/discovery": "^0.1 || ^1.0",
-                "pollora/entity": "^1.2",
+                "pollora/entity": "^2.0",
                 "pollora/helper-overrider": "^1.2",
                 "pollora/hook": "^2.0.1",
                 "pollora/media": "^0.8",
                 "pollora/meta": "^0.1",
                 "pollora/option": "^1.1",
-                "pollora/query": "^1.0 || ^2.0",
+                "pollora/query": "^2.0 || ^3.0",
                 "pollora/roles": "^0.2",
                 "pollora/schedule": "^1.0",
                 "pollora/wp-cli": "^0.1 || ^1.0",
-                "pollora/wp-rest": "^0.1 || ^0.2 || ^1.0",
+                "pollora/wp-rest": "^0.1 || ^0.2 || ^1.0 || ^2.0",
                 "roots/bedrock-autoloader": "^1.1",
                 "spatie/php-structure-discoverer": "^2.4",
                 "symfony/process": "^7.4 || ^8.0",
@@ -4698,14 +4647,15 @@
                 "pestphp/pest": "^v3.8.2",
                 "pestphp/pest-plugin-type-coverage": "^3.6",
                 "php-stubs/wordpress-stubs": "^7.1",
-                "pollora/harness": "^0.1.8",
+                "pollora/harness": "^0.1.15",
                 "symfony/var-dumper": "^7.4 || ^8.0",
                 "symplify/vendor-patches": "^12.1",
                 "szepeviktor/phpstan-wordpress": "*",
                 "wp-cli/wp-cli": "^2.12"
             },
             "suggest": {
-                "pollora/woocommerce": "WooCommerce's Blade templates, Route::wp() conditions, Coming Soon page and events"
+                "pollora/woocommerce": "WooCommerce's Blade templates, Route::wp() conditions, Coming Soon page and events",
+                "pollora/wp-rocket": "Keeps WP Rocket from writing .htaccess and setting WP_CACHE unless the project asks for it"
             },
             "type": "project",
             "extra": {
@@ -4769,7 +4719,7 @@
                 "issues": "https://github.com/Pollora/framework/issues",
                 "source": "https://github.com/Pollora/framework"
             },
-            "time": "2026-10-27T15:21:24+00:00"
+            "time": "2026-11-06T07:36:20+00:00"
         },
         {
             "name": "pollora/helper-overrider",
@@ -5059,27 +5009,26 @@
         },
         {
             "name": "pollora/query",
-            "version": "2.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/Query.git",
-                "reference": "61be9806c49aa8eeccf786cd0bc375a37adc6d2a"
+                "reference": "6d7d4cddf6ea3c1028c8dc7ed9ff03c0d6a6ed28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/Query/zipball/61be9806c49aa8eeccf786cd0bc375a37adc6d2a",
-                "reference": "61be9806c49aa8eeccf786cd0bc375a37adc6d2a",
+                "url": "https://api.github.com/repos/Pollora/Query/zipball/6d7d4cddf6ea3c1028c8dc7ed9ff03c0d6a6ed28",
+                "reference": "6d7d4cddf6ea3c1028c8dc7ed9ff03c0d6a6ed28",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.2",
-                "pollora/wordpress-args": "^1.1"
+                "php": "^8.3",
+                "pollora/wordpress-args": "^1.1 || ^2.0"
             },
             "require-dev": {
                 "laravel/pint": "^1.30",
-                "nunomaduro/phpinsights": "^2.8",
-                "pestphp/pest": "^2.19",
-                "rector/rector": "^0.18.4"
+                "pestphp/pest": "^3.8",
+                "pollora/harness": "^0.1.11"
             },
             "type": "library",
             "autoload": {
@@ -5101,9 +5050,9 @@
             "description": "Create WP Query in a fluent way.",
             "support": {
                 "issues": "https://github.com/Pollora/Query/issues",
-                "source": "https://github.com/Pollora/Query/tree/2.0.0"
+                "source": "https://github.com/Pollora/Query/tree/3.0.1"
             },
-            "time": "2026-10-15T14:11:52+00:00"
+            "time": "2026-10-29T13:19:28+00:00"
         },
         {
             "name": "pollora/roles",
@@ -5302,25 +5251,26 @@
         },
         {
             "name": "pollora/wordpress-args",
-            "version": "1.1.1",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/WordPressArguments.git",
-                "reference": "b7ebf1491f41739d1c5676f387cc6d7967423757"
+                "reference": "f768234d4ba4059ab242ed905be7cf738cc74a0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/WordPressArguments/zipball/b7ebf1491f41739d1c5676f387cc6d7967423757",
-                "reference": "b7ebf1491f41739d1c5676f387cc6d7967423757",
+                "url": "https://api.github.com/repos/Pollora/WordPressArguments/zipball/f768234d4ba4059ab242ed905be7cf738cc74a0c",
+                "reference": "f768234d4ba4059ab242ed905be7cf738cc74a0c",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "^12.0 || ^13.0",
-                "php": "^8.2"
+                "php": "^8.3"
             },
             "require-dev": {
                 "laravel/pint": "^1.18",
-                "pestphp/pest": "^3.4",
+                "pestphp/pest": "^3.8.2",
+                "pollora/harness": "^0.1.13",
                 "spatie/invade": "^2.1"
             },
             "type": "library",
@@ -5343,9 +5293,9 @@
             "description": "Manipulate WordPress arguments as an object.",
             "support": {
                 "issues": "https://github.com/Pollora/WordPressArguments/issues",
-                "source": "https://github.com/Pollora/WordPressArguments/tree/1.1.1"
+                "source": "https://github.com/Pollora/WordPressArguments/tree/2.0.0"
             },
-            "time": "2026-09-17T12:51:51+00:00"
+            "time": "2026-10-29T13:19:31+00:00"
         },
         {
             "name": "pollora/wp-cli",
@@ -5412,16 +5362,16 @@
         },
         {
             "name": "pollora/wp-rest",
-            "version": "v0.2.1",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/wp-rest.git",
-                "reference": "0766c2a59617caed37e3b0532c9055670d3d2e6d"
+                "reference": "1b1a9acd006086bccd39daab389e740f5933c5f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/wp-rest/zipball/0766c2a59617caed37e3b0532c9055670d3d2e6d",
-                "reference": "0766c2a59617caed37e3b0532c9055670d3d2e6d",
+                "url": "https://api.github.com/repos/Pollora/wp-rest/zipball/1b1a9acd006086bccd39daab389e740f5933c5f0",
+                "reference": "1b1a9acd006086bccd39daab389e740f5933c5f0",
                 "shasum": ""
             },
             "require": {
@@ -5438,7 +5388,7 @@
                 "mockery/mockery": "^1.6.12",
                 "pestphp/pest": "^3.8.2",
                 "phpstan/phpstan": "^2.1.16",
-                "pollora/harness": "^0.1",
+                "pollora/harness": "^0.1.9",
                 "szepeviktor/phpstan-wordpress": "^2.0"
             },
             "type": "library",
@@ -5470,7 +5420,7 @@
                 "issues": "https://github.com/Pollora/wp-rest/issues",
                 "source": "https://github.com/Pollora/wp-rest"
             },
-            "time": "2026-10-26T15:30:21+00:00"
+            "time": "2026-10-29T14:04:03+00:00"
         },
         {
             "name": "psr/clock",
@@ -9457,6 +9407,69 @@
                 }
             ],
             "time": "2026-10-22T15:37:26+00:00"
+        },
+        {
+            "name": "fakerphp/faker",
+            "version": "v1.24.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FakerPHP/Faker.git",
+                "reference": "e0ee18eb1e6dc3cda3ce9fd97e5a0689a88a64b5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/e0ee18eb1e6dc3cda3ce9fd97e5a0689a88a64b5",
+                "reference": "e0ee18eb1e6dc3cda3ce9fd97e5a0689a88a64b5",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4 || ^8.0",
+                "psr/container": "^1.0 || ^2.0",
+                "symfony/deprecation-contracts": "^2.2 || ^3.0"
+            },
+            "conflict": {
+                "fzaninotto/faker": "*"
+            },
+            "require-dev": {
+                "bamarni/composer-bin-plugin": "^1.4.1",
+                "doctrine/persistence": "^1.3 || ^2.0",
+                "ext-intl": "*",
+                "phpunit/phpunit": "^9.5.26",
+                "symfony/phpunit-bridge": "^5.4.16"
+            },
+            "suggest": {
+                "doctrine/orm": "Required to use Faker\\ORM\\Doctrine",
+                "ext-curl": "Required by Faker\\Provider\\Image to download images.",
+                "ext-dom": "Required by Faker\\Provider\\HtmlLorem for generating random HTML.",
+                "ext-iconv": "Required by Faker\\Provider\\ru_RU\\Text::realText() for generating real Russian text.",
+                "ext-mbstring": "Required for multibyte Unicode string functionality."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "support": {
+                "issues": "https://github.com/FakerPHP/Faker/issues",
+                "source": "https://github.com/FakerPHP/Faker/tree/v1.24.1"
+            },
+            "time": "2024-11-21T13:46:39+00:00"
         },
         {
             "name": "filp/whoops",
