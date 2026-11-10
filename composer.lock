@@ -4442,16 +4442,16 @@
         },
         {
             "name": "pollora/framework",
-            "version": "v13.40.2",
+            "version": "v13.40.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
-                "reference": "551471e5b21bb7a3797014cfb5cd78a32686ab9a"
+                "reference": "380948ecdafe0e6eeb29215e8e630dd64b5f8249"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/551471e5b21bb7a3797014cfb5cd78a32686ab9a",
-                "reference": "551471e5b21bb7a3797014cfb5cd78a32686ab9a",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/380948ecdafe0e6eeb29215e8e630dd64b5f8249",
+                "reference": "380948ecdafe0e6eeb29215e8e630dd64b5f8249",
                 "shasum": ""
             },
             "require": {
@@ -4465,7 +4465,7 @@
                 "illuminate/support": "^13.40",
                 "laravel/prompts": "^0.3.26",
                 "log1x/sage-directives": "^2.0",
-                "nwidart/laravel-modules": "^13.2",
+                "nwidart/laravel-modules": "^13.3",
                 "php": "^8.3",
                 "pollora/abilities": "^1.0",
                 "pollora/ajax": "^1.1",
@@ -4494,14 +4494,14 @@
                 "antecedent/patchwork": "^2.2",
                 "brain/monkey": "^2.7",
                 "driftingly/rector-laravel": "^2.6",
-                "larastan/larastan": "^3.13",
+                "larastan/larastan": "^3.14",
                 "laravel/pint": "^v1.32.1",
                 "mockery/mockery": "^1.6.15",
                 "orchestra/testbench": "^11.3.0",
                 "pestphp/pest": "^v3.8.2",
                 "pestphp/pest-plugin-type-coverage": "^3.6",
                 "php-stubs/wordpress-stubs": "^7.1",
-                "pollora/harness": "^0.1.15",
+                "pollora/harness": "^0.1.23",
                 "symfony/var-dumper": "^7.4 || ^8.0",
                 "symplify/vendor-patches": "^12.1",
                 "szepeviktor/phpstan-wordpress": "*",
@@ -4573,8 +4573,8 @@
                 "issues": "https://github.com/Pollora/framework/issues",
                 "source": "https://github.com/Pollora/framework"
             },
-            "time": "2026-11-06T08:54:57+00:00",
-            "published-time": "2026-11-06T08:55:17+00:00"
+            "time": "2026-11-10T10:16:54+00:00",
+            "published-time": "2026-11-10T10:17:12+00:00"
         },
         {
             "name": "pollora/helper-overrider",
