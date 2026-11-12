@@ -4443,27 +4443,27 @@
         },
         {
             "name": "pollora/framework",
-            "version": "v13.40.3",
+            "version": "v13.42.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
-                "reference": "380948ecdafe0e6eeb29215e8e630dd64b5f8249"
+                "reference": "fc61545ffb720209be8da9d6215c1aef190348a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/380948ecdafe0e6eeb29215e8e630dd64b5f8249",
-                "reference": "380948ecdafe0e6eeb29215e8e630dd64b5f8249",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/fc61545ffb720209be8da9d6215c1aef190348a2",
+                "reference": "fc61545ffb720209be8da9d6215c1aef190348a2",
                 "shasum": ""
             },
             "require": {
                 "coduo/php-humanizer": "5.0.3",
                 "cweagans/composer-patches": "^2.0",
-                "illuminate/auth": "^13.40",
-                "illuminate/config": "^13.40",
-                "illuminate/console": "^13.40",
-                "illuminate/database": "^13.40",
-                "illuminate/routing": "^13.40",
-                "illuminate/support": "^13.40",
+                "illuminate/auth": "^13.42",
+                "illuminate/config": "^13.42",
+                "illuminate/console": "^13.42",
+                "illuminate/database": "^13.42",
+                "illuminate/routing": "^13.42",
+                "illuminate/support": "^13.42",
                 "laravel/prompts": "^0.3.26",
                 "log1x/sage-directives": "^2.0",
                 "nwidart/laravel-modules": "^13.3",
@@ -4574,7 +4574,8 @@
                 "issues": "https://github.com/Pollora/framework/issues",
                 "source": "https://github.com/Pollora/framework"
             },
-            "time": "2026-11-10T10:16:54+00:00"
+            "time": "2026-11-12T14:41:32+00:00",
+            "published-time": "2026-11-12T14:41:49+00:00"
         },
         {
             "name": "pollora/helper-overrider",
@@ -11519,5 +11520,5 @@
     "platform-overrides": {
         "php": "8.3.0"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.11.0"
 }
