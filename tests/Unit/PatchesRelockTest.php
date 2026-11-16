@@ -2,10 +2,6 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit;
-
-use PHPUnit\Framework\TestCase;
-
 /**
  * `composer update` relocks and re-applies the dependency patches.
  *
@@ -19,40 +15,36 @@ use PHPUnit\Framework\TestCase;
  * in — the WordPress core is reinstalled from Composer's cache; the site's
  * wp-config.php and content live outside it.
  */
-class PatchesRelockTest extends TestCase
+
+/**
+ * @return list<string>
+ */
+function patchesRelockPostUpdateCommands(): array
 {
-    /**
-     * @return list<string>
-     */
-    private function postUpdateCommands(): array
-    {
-        /** @var array{scripts?: array{post-update-cmd?: list<string>}} $composer */
-        $composer = json_decode((string) file_get_contents(dirname(__DIR__, 2).'/composer.json'), true);
+    /** @var array{scripts?: array{post-update-cmd?: list<string>}} $composer */
+    $composer = json_decode((string) file_get_contents(dirname(__DIR__, 2).'/composer.json'), true);
 
-        return $composer['scripts']['post-update-cmd'] ?? [];
-    }
-
-    public function test_an_update_relocks_the_patches_then_reapplies_them(): void
-    {
-        $commands = $this->postUpdateCommands();
-        $relock = array_search('@composer patches-relock --no-interaction', $commands, true);
-        $repatch = array_search('@composer patches-repatch --no-interaction', $commands, true);
-
-        $this->assertIsInt($relock, 'post-update-cmd does not relock the patches');
-        $this->assertIsInt($repatch, 'post-update-cmd does not re-apply the patches');
-        $this->assertLessThan($repatch, $relock, 'the patches must be relocked before they are re-applied');
-    }
-
-    public function test_the_patches_are_in_place_before_the_application_runs(): void
-    {
-        $commands = $this->postUpdateCommands();
-        $repatch = array_search('@composer patches-repatch --no-interaction', $commands, true);
-        $artisan = array_keys(array_filter($commands, fn (string $command): bool => str_starts_with($command, '@php artisan')));
-
-        $this->assertIsInt($repatch);
-
-        foreach ($artisan as $position) {
-            $this->assertLessThan($position, $repatch, 'an artisan command runs before WordPress is patched again');
-        }
-    }
+    return $composer['scripts']['post-update-cmd'] ?? [];
 }
+
+it('relocks the patches then reapplies them on an update', function (): void {
+    $commands = patchesRelockPostUpdateCommands();
+    $relock = array_search('@composer patches-relock --no-interaction', $commands, true);
+    $repatch = array_search('@composer patches-repatch --no-interaction', $commands, true);
+
+    $this->assertIsInt($relock, 'post-update-cmd does not relock the patches');
+    $this->assertIsInt($repatch, 'post-update-cmd does not re-apply the patches');
+    $this->assertLessThan($repatch, $relock, 'the patches must be relocked before they are re-applied');
+});
+
+it('has the patches in place before the application runs', function (): void {
+    $commands = patchesRelockPostUpdateCommands();
+    $repatch = array_search('@composer patches-repatch --no-interaction', $commands, true);
+    $artisan = array_keys(array_filter($commands, fn (string $command): bool => str_starts_with($command, '@php artisan')));
+
+    $this->assertIsInt($repatch);
+
+    foreach ($artisan as $position) {
+        $this->assertLessThan($position, $repatch, 'an artisan command runs before WordPress is patched again');
+    }
+});
