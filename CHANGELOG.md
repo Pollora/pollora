@@ -5,7 +5,14 @@ All notable changes to the Pollora skeleton will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/Pollora/pollora/compare/v13.43.0...main)
+## [Unreleased](https://github.com/Pollora/pollora/compare/v13.43.1...main)
+
+## [v13.43.1](https://github.com/Pollora/pollora/compare/v13.43.0...v13.43.1) - 2026-11-19
+
+### Changed
+- A new project installs `pollora/framework` **v13.43.1**, which the lock now pins (it pinned v13.43.0), and `pollora/framework` is required at `^13.43.1`. What changed is in the [framework's release notes](https://github.com/Pollora/framework/releases/tag/v13.43.1)
+- The lock now pins `pollora/media` 0.9.0 (its security fixes) and `pollora/discovery` 0.2.0 (a warm cache that reads no file), with the packages that accept it: `pollora/schedule` 1.0.1, `meta` 0.1.1, `block-bindings` 0.2.1, `roles` 0.2.1, `wp-cli` 0.1.2 and `wp-rest` 2.0.1
+- The quality workflow runs the harness at **v0.1.32** (it ran v0.1.31)
 
 ## [v13.43.0](https://github.com/Pollora/pollora/compare/v13.42.0...v13.43.0) - 2026-11-19
 
