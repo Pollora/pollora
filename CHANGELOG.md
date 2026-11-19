@@ -5,7 +5,14 @@ All notable changes to the Pollora skeleton will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/Pollora/pollora/compare/v13.42.0...main)
+## [Unreleased](https://github.com/Pollora/pollora/compare/v13.43.0...main)
+
+## [v13.43.0](https://github.com/Pollora/pollora/compare/v13.42.0...v13.43.0) - 2026-11-19
+
+### Changed
+- A new project installs `pollora/framework` **v13.43.0**, which the lock now pins (it pinned v13.42.0), with Laravel **13.43** (`laravel/framework` and `pollora/framework` are now required at `^13.43`). What changed is in the [framework's release notes](https://github.com/Pollora/framework/releases/tag/v13.43.0)
+- The lock also pins the packages published with it: `pollora/ajax` 1.3.0 (AJAX handlers can require a nonce and a capability), `pollora/attributes` 0.1.4, `pollora/colt` 11.1.0, `pollora/query` 3.1.0 and `pollora/abilities` 1.0.2
+- The quality workflow runs the harness at **v0.1.31** (it ran v0.1.28)
 
 ## [v13.42.0](https://github.com/Pollora/pollora/compare/v13.40.3...v13.42.0) - 2026-11-12
 
