@@ -1330,25 +1330,26 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "8.3.1",
+            "version": "8.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "7d9b1f430bb65ac664e120af227bf9a795ad6333"
+                "reference": "8e893188e1ac92b457eca35ddf2b574024b66280"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/7d9b1f430bb65ac664e120af227bf9a795ad6333",
-                "reference": "7d9b1f430bb65ac664e120af227bf9a795ad6333",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/8e893188e1ac92b457eca35ddf2b574024b66280",
+                "reference": "8e893188e1ac92b457eca35ddf2b574024b66280",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "guzzlehttp/promises": "^3.1",
-                "guzzlehttp/psr7": "^3.2",
+                "guzzlehttp/psr7": "^3.4",
                 "php": "^7.4 || ^8.0",
                 "psr/http-client": "^1.0",
                 "psr/http-factory": "^1.0",
+                "symfony/deprecation-contracts": "^2.5 || ^3.0",
                 "symfony/polyfill-php80": "^1.25",
                 "symfony/polyfill-php82": "^1.27"
             },
@@ -1436,7 +1437,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/8.3.1"
+                "source": "https://github.com/guzzle/guzzle/tree/8.5.2"
             },
             "funding": [
                 {
@@ -1452,20 +1453,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-10-25T21:35:34+00:00"
+            "time": "2026-11-17T16:24:00+00:00"
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "094d0ec418eb3b1411ea271a180ec95cae6ae933"
+                "reference": "863d10526fe8232e79a8005220472ea553fd0b82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/094d0ec418eb3b1411ea271a180ec95cae6ae933",
-                "reference": "094d0ec418eb3b1411ea271a180ec95cae6ae933",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/863d10526fe8232e79a8005220472ea553fd0b82",
+                "reference": "863d10526fe8232e79a8005220472ea553fd0b82",
                 "shasum": ""
             },
             "require": {
@@ -1520,7 +1521,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/promises/issues",
-                "source": "https://github.com/guzzle/promises/tree/3.1.0"
+                "source": "https://github.com/guzzle/promises/tree/3.1.1"
             },
             "funding": [
                 {
@@ -1536,26 +1537,27 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-10-18T12:48:16+00:00"
+            "time": "2026-11-20T00:03:31+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "3.2.0",
+            "version": "3.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "cdc139396207a5eba10c242d241fb014cb098390"
+                "reference": "ef2058cc884d864affa6ef7cd23a68d45e015c2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/cdc139396207a5eba10c242d241fb014cb098390",
-                "reference": "cdc139396207a5eba10c242d241fb014cb098390",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/ef2058cc884d864affa6ef7cd23a68d45e015c2f",
+                "reference": "ef2058cc884d864affa6ef7cd23a68d45e015c2f",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4 || ^8.0",
                 "psr/http-factory": "^1.1",
                 "psr/http-message": "^2.0",
+                "symfony/deprecation-contracts": "^2.5 || ^3.0",
                 "symfony/polyfill-php80": "^1.25",
                 "symfony/polyfill-php82": "^1.27"
             },
@@ -1571,6 +1573,7 @@
                 "phpunit/phpunit": "^9.6.34"
             },
             "suggest": {
+                "ext-intl": "Convert internationalized hosts with Idna",
                 "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
             },
             "type": "library",
@@ -1639,7 +1642,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/3.2.0"
+                "source": "https://github.com/guzzle/psr7/tree/3.5.1"
             },
             "funding": [
                 {
@@ -1655,7 +1658,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-10-17T23:57:19+00:00"
+            "time": "2026-11-19T20:35:18+00:00"
         },
         {
             "name": "guzzlehttp/uri-template",
@@ -2326,16 +2329,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v13.40.0",
+            "version": "v13.43.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "1449bf241017087fbd38c118ecaabef3f6797fdc"
+                "reference": "72aa7e151062e218704d8660f407e6070040d8bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/1449bf241017087fbd38c118ecaabef3f6797fdc",
-                "reference": "1449bf241017087fbd38c118ecaabef3f6797fdc",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/72aa7e151062e218704d8660f407e6070040d8bc",
+                "reference": "72aa7e151062e218704d8660f407e6070040d8bc",
                 "shasum": ""
             },
             "require": {
@@ -2361,7 +2364,7 @@
                 "league/commonmark": "^2.8.1",
                 "league/flysystem": "^3.25.1",
                 "league/flysystem-local": "^3.25.1",
-                "league/uri": "^7.5.1",
+                "league/uri": "^7.6",
                 "monolog/monolog": "^3.10",
                 "nesbot/carbon": "^3.8.4",
                 "nunomaduro/termwind": "^2.0",
@@ -2390,6 +2393,7 @@
                 "voku/portable-ascii": "^2.0.2"
             },
             "conflict": {
+                "laravel/horizon": "<5.47.0",
                 "tightenco/collect": "<5.5.33"
             },
             "provide": {
@@ -2438,11 +2442,12 @@
                 "spatie/once": "*"
             },
             "require-dev": {
-                "ably/ably-php": "^1.0",
+                "ably/pubsub-server": "^1.0|^2.0",
                 "aws/aws-sdk-php": "^3.322.9",
                 "ext-gmp": "*",
                 "fakerphp/faker": "^1.24",
                 "intervention/image": "^4.2",
+                "jasonmccreary/double": "^1.1",
                 "laravel/pint": "^1.18",
                 "league/flysystem-aws-s3-v3": "^3.25.1",
                 "league/flysystem-ftp": "^3.25.1",
@@ -2454,7 +2459,7 @@
                 "orchestra/testbench-core": "^11.6.0",
                 "pda/pheanstalk": "^7.0.0 || ^8.0.0",
                 "php-http/discovery": "^1.15",
-                "phpstan/phpstan": "2.3.1",
+                "phpstan/phpstan": "2.3.5",
                 "phpunit/phpunit": "^11.5.50 || ^12.5.8 || ^13.0.3",
                 "predis/predis": "^2.3 || ^3.0",
                 "rector/rector": "2.6.3",
@@ -2467,7 +2472,7 @@
                 "web-token/jwt-library": "^4.1"
             },
             "suggest": {
-                "ably/ably-php": "Required to use the Ably broadcast driver (^1.0).",
+                "ably/pubsub-server": "Required to use the Ably broadcast driver (^1.0|^2.0).",
                 "aws/aws-sdk-php": "Required to use the SQS queue driver, DynamoDb failed job storage, and SES mail driver (^3.322.9).",
                 "brianium/paratest": "Required to run tests in parallel (^7.0 || ^8.0).",
                 "ext-apcu": "Required to use the APC cache driver.",
@@ -2553,20 +2558,20 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2026-11-03T15:07:18+00:00"
+            "time": "2026-11-17T14:58:33+00:00"
         },
         {
             "name": "laravel/prompts",
-            "version": "v0.3.26",
+            "version": "v0.3.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/prompts.git",
-                "reference": "2d1e9bf6bab8d3f383c254db7f2b4ea8816d55e0"
+                "reference": "abdfc75a1ae6c6f21522daed50da7124cbff09d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/prompts/zipball/2d1e9bf6bab8d3f383c254db7f2b4ea8816d55e0",
-                "reference": "2d1e9bf6bab8d3f383c254db7f2b4ea8816d55e0",
+                "url": "https://api.github.com/repos/laravel/prompts/zipball/abdfc75a1ae6c6f21522daed50da7124cbff09d2",
+                "reference": "abdfc75a1ae6c6f21522daed50da7124cbff09d2",
                 "shasum": ""
             },
             "require": {
@@ -2609,9 +2614,9 @@
             ],
             "description": "Add beautiful and user-friendly forms to your command-line applications.",
             "support": {
-                "source": "https://github.com/laravel/prompts/tree/v0.3.26"
+                "source": "https://github.com/laravel/prompts/tree/v0.3.27"
             },
-            "time": "2026-10-09T14:45:13+00:00"
+            "time": "2026-11-09T16:07:10+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -2678,16 +2683,16 @@
         },
         {
             "name": "laravel/serializable-closure",
-            "version": "v2.1.0",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/serializable-closure.git",
-                "reference": "2d5869a838bbcf37e0d8b0568fc41914e81374b5"
+                "reference": "2bfb44e8af009b553ed2c060c94b0bc3c67b4769"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/serializable-closure/zipball/2d5869a838bbcf37e0d8b0568fc41914e81374b5",
-                "reference": "2d5869a838bbcf37e0d8b0568fc41914e81374b5",
+                "url": "https://api.github.com/repos/laravel/serializable-closure/zipball/2bfb44e8af009b553ed2c060c94b0bc3c67b4769",
+                "reference": "2bfb44e8af009b553ed2c060c94b0bc3c67b4769",
                 "shasum": ""
             },
             "require": {
@@ -2735,7 +2740,7 @@
                 "issues": "https://github.com/laravel/serializable-closure/issues",
                 "source": "https://github.com/laravel/serializable-closure"
             },
-            "time": "2026-09-22T14:32:34+00:00"
+            "time": "2026-10-14T21:20:29+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -3436,16 +3441,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "3.12.1",
+            "version": "3.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "d7059e4c691d05ea1222b5124bed0f961be46e15"
+                "reference": "1f5f55bb4a9a230ff6d8a4ceccea31d10b0142ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/d7059e4c691d05ea1222b5124bed0f961be46e15",
-                "reference": "d7059e4c691d05ea1222b5124bed0f961be46e15",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1f5f55bb4a9a230ff6d8a4ceccea31d10b0142ac",
+                "reference": "1f5f55bb4a9a230ff6d8a4ceccea31d10b0142ac",
                 "shasum": ""
             },
             "require": {
@@ -3525,7 +3530,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/monolog/issues",
-                "source": "https://github.com/Seldaek/monolog/tree/3.12.1"
+                "source": "https://github.com/Seldaek/monolog/tree/3.13.0"
             },
             "funding": [
                 {
@@ -3537,7 +3542,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-09-29T19:21:12+00:00"
+            "time": "2026-11-16T10:43:05+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -3862,31 +3867,31 @@
         },
         {
             "name": "nunomaduro/termwind",
-            "version": "v2.4.0",
+            "version": "v2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/termwind.git",
-                "reference": "712a31b768f5daea284c2169a7d227031001b9a8"
+                "reference": "9b85ae4d802403bfc004ea633ce542bc262ee5c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/termwind/zipball/712a31b768f5daea284c2169a7d227031001b9a8",
-                "reference": "712a31b768f5daea284c2169a7d227031001b9a8",
+                "url": "https://api.github.com/repos/nunomaduro/termwind/zipball/9b85ae4d802403bfc004ea633ce542bc262ee5c3",
+                "reference": "9b85ae4d802403bfc004ea633ce542bc262ee5c3",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
                 "php": "^8.2",
-                "symfony/console": "^7.4.4 || ^8.0.4"
+                "symfony/console": "^7.4.23 || ^8.1.11"
             },
             "require-dev": {
-                "illuminate/console": "^11.47.0",
-                "laravel/pint": "^1.27.1",
-                "mockery/mockery": "^1.6.12",
-                "pestphp/pest": "^2.36.0 || ^3.8.4 || ^4.3.2",
-                "phpstan/phpstan": "^1.12.32",
+                "illuminate/console": "^11.51 || ^12.70 || ^13.40",
+                "laravel/pint": "^1.30.4",
+                "mockery/mockery": "^1.6.15",
+                "pestphp/pest": "^2.36.1 || ^3.8.7 || ^4.7.8 || ^5.3.5",
+                "phpstan/phpstan": "^1.12.34",
                 "phpstan/phpstan-strict-rules": "^1.6.2",
-                "symfony/var-dumper": "^7.3.5 || ^8.0.4",
+                "symfony/var-dumper": "^7.4.22 || ^8.1.10",
                 "thecodingmachine/phpstan-strict-rules": "^1.0.0"
             },
             "type": "library",
@@ -3929,7 +3934,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nunomaduro/termwind/issues",
-                "source": "https://github.com/nunomaduro/termwind/tree/v2.4.0"
+                "source": "https://github.com/nunomaduro/termwind/tree/v2.4.1"
             },
             "funding": [
                 {
@@ -3945,7 +3950,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-02-16T23:10:27+00:00"
+            "time": "2026-11-07T03:57:16+00:00"
         },
         {
             "name": "nwidart/laravel-modules",
@@ -4112,16 +4117,16 @@
         },
         {
             "name": "pollora/abilities",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/abilities.git",
-                "reference": "4a05c6e2b9146ab45b26443af9bcb7601dc7d9c9"
+                "reference": "68c2fb5de0f7fd369860b95cf74564facea5a0e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/abilities/zipball/4a05c6e2b9146ab45b26443af9bcb7601dc7d9c9",
-                "reference": "4a05c6e2b9146ab45b26443af9bcb7601dc7d9c9",
+                "url": "https://api.github.com/repos/Pollora/abilities/zipball/68c2fb5de0f7fd369860b95cf74564facea5a0e7",
+                "reference": "68c2fb5de0f7fd369860b95cf74564facea5a0e7",
                 "shasum": ""
             },
             "require": {
@@ -4134,7 +4139,7 @@
                 "mockery/mockery": "^1.6",
                 "pestphp/pest": "^3.8",
                 "phpstan/phpstan": "^2.1",
-                "pollora/harness": "^0.1.8"
+                "pollora/harness": "^0.1.30"
             },
             "type": "library",
             "autoload": {
@@ -4162,22 +4167,22 @@
             ],
             "support": {
                 "issues": "https://github.com/Pollora/abilities/issues",
-                "source": "https://github.com/Pollora/abilities/tree/v1.0.1"
+                "source": "https://github.com/Pollora/abilities/tree/v1.0.2"
             },
-            "time": "2026-10-30T11:07:18+00:00"
+            "time": "2026-11-19T07:59:17+00:00"
         },
         {
             "name": "pollora/ajax",
-            "version": "v1.1.1",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/ajax.git",
-                "reference": "1c679fc7e0961248a9555577e24fe04cbfe0f693"
+                "reference": "9cd4dcc861143cb09897551b3f73046a7184b639"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/ajax/zipball/1c679fc7e0961248a9555577e24fe04cbfe0f693",
-                "reference": "1c679fc7e0961248a9555577e24fe04cbfe0f693",
+                "url": "https://api.github.com/repos/Pollora/ajax/zipball/9cd4dcc861143cb09897551b3f73046a7184b639",
+                "reference": "9cd4dcc861143cb09897551b3f73046a7184b639",
                 "shasum": ""
             },
             "require": {
@@ -4187,7 +4192,8 @@
                 "laravel/pint": "^v1.22.1",
                 "mockery/mockery": "^2.0.x-dev",
                 "pestphp/pest": "^v3.8.2",
-                "phpstan/phpstan": "^2.1.16"
+                "phpstan/phpstan": "^2.1.16",
+                "pollora/harness": "^0.1.30"
             },
             "type": "library",
             "autoload": {
@@ -4208,9 +4214,9 @@
             "description": "A modern PHP package for WordPress AJAX action management with fluent API",
             "support": {
                 "issues": "https://github.com/Pollora/ajax/issues",
-                "source": "https://github.com/Pollora/ajax/tree/v1.1.1"
+                "source": "https://github.com/Pollora/ajax/tree/v1.3.0"
             },
-            "time": "2026-09-17T12:51:21+00:00"
+            "time": "2026-11-18T17:17:56+00:00"
         },
         {
             "name": "pollora/assets",
@@ -4272,16 +4278,16 @@
         },
         {
             "name": "pollora/attributes",
-            "version": "v0.1.1",
+            "version": "v0.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/attributes.git",
-                "reference": "cc4aa70d17e603b5e6923070c6a8eb6e6902dda3"
+                "reference": "af1757b399e789e45dc1015a96ff3678a88b9a8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/attributes/zipball/cc4aa70d17e603b5e6923070c6a8eb6e6902dda3",
-                "reference": "cc4aa70d17e603b5e6923070c6a8eb6e6902dda3",
+                "url": "https://api.github.com/repos/Pollora/attributes/zipball/af1757b399e789e45dc1015a96ff3678a88b9a8c",
+                "reference": "af1757b399e789e45dc1015a96ff3678a88b9a8c",
                 "shasum": ""
             },
             "require": {
@@ -4295,9 +4301,15 @@
                 "laravel/pint": "^1.22.1",
                 "pestphp/pest": "^3.8.2",
                 "phpstan/phpstan": "^2.1.16",
+                "pollora/harness": "^0.1.30",
                 "szepeviktor/phpstan-wordpress": "^2.0"
             },
             "type": "library",
+            "extra": {
+                "pollora": {
+                    "i18n": "resources/i18n.php"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Pollora\\Schedule\\": "vocabulary/Schedule/",
@@ -4331,27 +4343,27 @@
                 "issues": "https://github.com/Pollora/attributes/issues",
                 "source": "https://github.com/Pollora/attributes"
             },
-            "time": "2026-10-15T13:27:03+00:00"
+            "time": "2026-11-18T17:21:19+00:00"
         },
         {
             "name": "pollora/block-bindings",
-            "version": "v0.2.0",
+            "version": "v0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/block-bindings.git",
-                "reference": "838327e9064bcf3716b813803d90f4e0f3d689e6"
+                "reference": "eb5c13430790b3aabed9fb6ff809953201e30bbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/block-bindings/zipball/838327e9064bcf3716b813803d90f4e0f3d689e6",
-                "reference": "838327e9064bcf3716b813803d90f4e0f3d689e6",
+                "url": "https://api.github.com/repos/Pollora/block-bindings/zipball/eb5c13430790b3aabed9fb6ff809953201e30bbe",
+                "reference": "eb5c13430790b3aabed9fb6ff809953201e30bbe",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.3",
                 "pollora/attributes": "^0.1.1 || ^1.0",
                 "pollora/colt": "^11.0",
-                "pollora/discovery": "^0.1 || ^1.0",
+                "pollora/discovery": "^0.1 || ^0.2 || ^1.0",
                 "pollora/hook": "^2.0.1",
                 "pollora/meta": "^0.1",
                 "psr/container": "^2.0",
@@ -4364,7 +4376,7 @@
                 "mockery/mockery": "^1.6.12",
                 "pestphp/pest": "^3.8.2",
                 "phpstan/phpstan": "^2.1.16",
-                "pollora/harness": "^0.1.8",
+                "pollora/harness": "^0.1.31",
                 "szepeviktor/phpstan-wordpress": "^2.0"
             },
             "type": "library",
@@ -4396,20 +4408,20 @@
                 "issues": "https://github.com/Pollora/block-bindings/issues",
                 "source": "https://github.com/Pollora/block-bindings"
             },
-            "time": "2026-10-28T15:32:00+00:00"
+            "time": "2026-11-19T10:21:29+00:00"
         },
         {
             "name": "pollora/colt",
-            "version": "11.0.0",
+            "version": "11.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/colt.git",
-                "reference": "38beeb463203daf8a95abdbd54101f3d13558b17"
+                "reference": "0c64f186f9ef70d2a9fdad5e87fab3d4775af4d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/colt/zipball/38beeb463203daf8a95abdbd54101f3d13558b17",
-                "reference": "38beeb463203daf8a95abdbd54101f3d13558b17",
+                "url": "https://api.github.com/repos/Pollora/colt/zipball/0c64f186f9ef70d2a9fdad5e87fab3d4775af4d2",
+                "reference": "0c64f186f9ef70d2a9fdad5e87fab3d4775af4d2",
                 "shasum": ""
             },
             "require": {
@@ -4428,7 +4440,7 @@
                 "mockery/mockery": "^1.4.4",
                 "orchestra/testbench": "^10.0 || ^11.0",
                 "pestphp/pest": "^3.8",
-                "pollora/harness": "^0.1.11",
+                "pollora/harness": "^0.1.30",
                 "symfony/thanks": "^1.0"
             },
             "type": "library",
@@ -4473,9 +4485,9 @@
             "description": "Use WordPress backend with Laravel or any PHP framework",
             "homepage": "http://github.com/Pollora/colt",
             "support": {
-                "source": "https://github.com/Pollora/colt/tree/11.0.0"
+                "source": "https://github.com/Pollora/colt/tree/11.1.0"
             },
-            "time": "2026-10-28T14:34:12+00:00"
+            "time": "2026-11-19T07:58:43+00:00"
         },
         {
             "name": "pollora/discovery",
@@ -4589,41 +4601,36 @@
         {
             "name": "pollora/framework",
             "version": "dev-develop",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Pollora/framework.git",
-                "reference": "0807a03c2e7a06f998a313842306ed7f59907689"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/0807a03c2e7a06f998a313842306ed7f59907689",
-                "reference": "0807a03c2e7a06f998a313842306ed7f59907689",
-                "shasum": ""
+                "type": "path",
+                "url": "/var/www/pollora-packages/framework",
+                "reference": "294cdffd7cb89371c4b38590acdadfe4e88f2d26"
             },
             "require": {
                 "coduo/php-humanizer": "5.0.3",
                 "cweagans/composer-patches": "^2.0",
-                "illuminate/auth": "^13.40",
-                "illuminate/config": "^13.40",
-                "illuminate/console": "^13.40",
-                "illuminate/database": "^13.40",
-                "illuminate/routing": "^13.40",
-                "illuminate/support": "^13.40",
-                "laravel/prompts": "^0.3.26",
+                "illuminate/auth": "^13.43",
+                "illuminate/config": "^13.43",
+                "illuminate/console": "^13.43",
+                "illuminate/database": "^13.43",
+                "illuminate/routing": "^13.43",
+                "illuminate/support": "^13.43",
+                "laravel/prompts": "^0.3.27",
                 "log1x/sage-directives": "^2.0",
-                "nwidart/laravel-modules": "^13.2",
+                "nwidart/laravel-modules": "^13.3",
                 "php": "^8.3",
                 "pollora/abilities": "^1.0",
-                "pollora/ajax": "^1.1",
+                "pollora/ajax": "^1.3",
                 "pollora/assets": "^0.1",
-                "pollora/attributes": "^0.1.1 || ^1.0",
+                "pollora/attributes": "^0.1.4 || ^1.0",
                 "pollora/block-bindings": "^0.2",
                 "pollora/colt": "^11.0",
-                "pollora/discovery": "^0.1 || ^1.0",
+                "pollora/discovery": "^0.1 || ^0.2 || ^1.0",
                 "pollora/entity": "^2.0",
                 "pollora/helper-overrider": "^1.2",
                 "pollora/hook": "^2.0.1",
-                "pollora/media": "^0.8",
+                "pollora/i18n": "^0.1.1",
+                "pollora/media": "^0.8 || ^0.9",
                 "pollora/meta": "^0.1",
                 "pollora/option": "^1.1",
                 "pollora/query": "^2.0 || ^3.0",
@@ -4640,41 +4647,29 @@
                 "antecedent/patchwork": "^2.2",
                 "brain/monkey": "^2.7",
                 "driftingly/rector-laravel": "^2.6",
-                "larastan/larastan": "^3.13",
-                "laravel/pint": "^v1.32.1",
+                "larastan/larastan": "^3.14",
+                "laravel/pint": "^v1.32.2",
                 "mockery/mockery": "^1.6.15",
                 "orchestra/testbench": "^11.3.0",
                 "pestphp/pest": "^v3.8.2",
                 "pestphp/pest-plugin-type-coverage": "^3.6",
                 "php-stubs/wordpress-stubs": "^7.1",
-                "pollora/harness": "^0.1.15",
+                "phpstan/phpstan": "^2.1 <2.3.6",
+                "pollora/harness": "^0.1.32",
                 "symfony/var-dumper": "^7.4 || ^8.0",
                 "symplify/vendor-patches": "^12.1",
                 "szepeviktor/phpstan-wordpress": "*",
                 "wp-cli/wp-cli": "^2.12"
             },
             "suggest": {
+                "nikic/php-parser": "^5.0, needed by the pollora:i18n:extract command to read the attributes of PHP files (console only, never loaded by a web request)",
                 "pollora/woocommerce": "WooCommerce's Blade templates, Route::wp() conditions, Coming Soon page and events",
                 "pollora/wp-rocket": "Keeps WP Rocket from writing .htaccess and setting WP_CACHE unless the project asks for it"
             },
             "type": "project",
             "extra": {
-                "laravel": {
-                    "aliases": {
-                        "Ajax": "Pollora\\Support\\Facades\\Ajax",
-                        "Hash": "Pollora\\Support\\Facades\\WPHash",
-                        "Asset": "Pollora\\Support\\Facades\\Asset",
-                        "Theme": "Pollora\\Support\\Facades\\Theme",
-                        "Action": "Pollora\\Support\\Facades\\Action",
-                        "Filter": "Pollora\\Support\\Facades\\Filter",
-                        "Ability": "Pollora\\Support\\Facades\\Ability",
-                        "PostType": "Pollora\\Support\\Facades\\PostType",
-                        "Taxonomy": "Pollora\\Support\\Facades\\Taxonomy",
-                        "Wordpress": "Pollora\\Support\\WordPress"
-                    },
-                    "providers": [
-                        "Pollora\\Providers\\PolloraServiceProvider"
-                    ]
+                "branch-alias": {
+                    "dev-develop": "13.x-dev"
                 },
                 "patches": {
                     "johnpbloch/wordpress-core": {
@@ -4684,19 +4679,84 @@
                         "Rename __ to __wp so Laravel can declare __()": "https://raw.githubusercontent.com/Pollora/framework/b26034b3306c96098f756c0ca80631a596db25c9/patches/wordpress-stubs.patch"
                     }
                 },
-                "branch-alias": {
-                    "dev-develop": "13.x-dev"
+                "laravel": {
+                    "providers": [
+                        "Pollora\\Providers\\PolloraServiceProvider"
+                    ],
+                    "aliases": {
+                        "Wordpress": "Pollora\\Support\\WordPress",
+                        "Action": "Pollora\\Support\\Facades\\Action",
+                        "Filter": "Pollora\\Support\\Facades\\Filter",
+                        "Hash": "Pollora\\Support\\Facades\\WPHash",
+                        "Ability": "Pollora\\Support\\Facades\\Ability",
+                        "Ajax": "Pollora\\Support\\Facades\\Ajax",
+                        "PostType": "Pollora\\Support\\Facades\\PostType",
+                        "Taxonomy": "Pollora\\Support\\Facades\\Taxonomy",
+                        "Theme": "Pollora\\Support\\Facades\\Theme",
+                        "Asset": "Pollora\\Support\\Facades\\Asset"
+                    }
                 }
             },
             "autoload": {
-                "files": [
-                    "src/helpers.php"
-                ],
                 "psr-4": {
                     "Pollora\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\": "tests/",
+                    "Workbench\\App\\": "workbench/app/",
+                    "Workbench\\Database\\Factories\\": "workbench/database/factories/",
+                    "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "scripts": {
+                "post-autoload-dump": [
+                    "@clear",
+                    "@prepare"
+                ],
+                "serve": [
+                    "Composer\\Config::disableProcessTimeout",
+                    "@build"
+                ],
+                "refacto": [
+                    "rector"
+                ],
+                "lint": [
+                    "pint"
+                ],
+                "test:refacto": [
+                    "rector --dry-run"
+                ],
+                "test:lint": [
+                    "pint --test"
+                ],
+                "test:types": [
+                    "phpstan analyse --ansi"
+                ],
+                "test:unit": [
+                    "pest --colors=always"
+                ],
+                "test:type-coverage": [
+                    "pest --type-coverage --min=98"
+                ],
+                "test": [
+                    "@test:refacto",
+                    "@test:lint",
+                    "@test:types",
+                    "@test:unit",
+                    "@test:type-coverage"
+                ],
+                "qa": [
+                    "@php vendor/bin/pollora-qa check"
+                ],
+                "qa:fast": [
+                    "@php vendor/bin/pollora-qa check --fast"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -4719,7 +4779,10 @@
                 "issues": "https://github.com/Pollora/framework/issues",
                 "source": "https://github.com/Pollora/framework"
             },
-            "time": "2026-11-06T07:36:20+00:00"
+            "transport-options": {
+                "symlink": true,
+                "relative": false
+            }
         },
         {
             "name": "pollora/helper-overrider",
@@ -4829,17 +4892,79 @@
             "time": "2026-10-14T13:49:59+00:00"
         },
         {
-            "name": "pollora/media",
-            "version": "v0.8.0",
+            "name": "pollora/i18n",
+            "version": "v0.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Pollora/media.git",
-                "reference": "4e103f2a083949ba138568f247f170ee2a60f662"
+                "url": "https://github.com/Pollora/i18n.git",
+                "reference": "210089ebf30eb83c1edc37cbfda0942c93f0e4c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/media/zipball/4e103f2a083949ba138568f247f170ee2a60f662",
-                "reference": "4e103f2a083949ba138568f247f170ee2a60f662",
+                "url": "https://api.github.com/repos/Pollora/i18n/zipball/210089ebf30eb83c1edc37cbfda0942c93f0e4c2",
+                "reference": "210089ebf30eb83c1edc37cbfda0942c93f0e4c2",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.3"
+            },
+            "require-dev": {
+                "nikic/php-parser": "^5.0",
+                "pestphp/pest": "^3.8.2",
+                "pollora/harness": "^0.1.23",
+                "symfony/console": "^7.4 || ^8.0"
+            },
+            "suggest": {
+                "illuminate/view": "Compiles Blade views to extract their strings (Tooling only)",
+                "nikic/php-parser": "^5.0, needed by AttributeSource to find the translatable attributes in PHP files (Tooling only, never loaded by a web request)",
+                "symfony/console": "^6.4 || ^7.4 || ^8.0, runs bin/pollora-i18n: extract, update and compile (Tooling only, never loaded by a web request)"
+            },
+            "bin": [
+                "bin/pollora-i18n"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pollora\\I18n\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Amphibee",
+                    "email": "contact@amphibee.fr"
+                }
+            ],
+            "description": "Translatable labels for WordPress code that declares them as constants, and the tooling to extract and compile them. Runs with or without Laravel.",
+            "homepage": "https://pollora.dev",
+            "keywords": [
+                "gettext",
+                "i18n",
+                "pollora",
+                "translation",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/Pollora/i18n/issues",
+                "source": "https://github.com/Pollora/i18n"
+            },
+            "time": "2026-11-12T15:16:40+00:00"
+        },
+        {
+            "name": "pollora/media",
+            "version": "v0.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Pollora/media.git",
+                "reference": "4cd49ed1d3833495218e52ffc73dbb61be46129a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Pollora/media/zipball/4cd49ed1d3833495218e52ffc73dbb61be46129a",
+                "reference": "4cd49ed1d3833495218e52ffc73dbb61be46129a",
                 "shasum": ""
             },
             "require": {
@@ -4856,6 +4981,7 @@
                 "pestphp/pest": "^3.8.2",
                 "php-stubs/wp-cli-stubs": "dev-master",
                 "phpstan/phpstan": "^2.1.16",
+                "pollora/harness": "^0.1.30",
                 "szepeviktor/phpstan-wordpress": "^2.0"
             },
             "suggest": {
@@ -4891,27 +5017,27 @@
                 "issues": "https://github.com/Pollora/media/issues",
                 "source": "https://github.com/Pollora/media"
             },
-            "time": "2026-10-20T08:49:25+00:00"
+            "time": "2026-11-19T07:53:10+00:00"
         },
         {
             "name": "pollora/meta",
-            "version": "v0.1.0",
+            "version": "v0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/meta.git",
-                "reference": "34f60db7f8e175c25104ced2da86c996f60be1fd"
+                "reference": "98e6fbc0c59e9fe85db34105a7cd122811b23a60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/meta/zipball/34f60db7f8e175c25104ced2da86c996f60be1fd",
-                "reference": "34f60db7f8e175c25104ced2da86c996f60be1fd",
+                "url": "https://api.github.com/repos/Pollora/meta/zipball/98e6fbc0c59e9fe85db34105a7cd122811b23a60",
+                "reference": "98e6fbc0c59e9fe85db34105a7cd122811b23a60",
                 "shasum": ""
             },
             "require": {
                 "nesbot/carbon": "^3.0",
                 "php": "^8.3",
                 "pollora/attributes": "^0.1 || ^1.0",
-                "pollora/discovery": "^0.1 || ^1.0",
+                "pollora/discovery": "^0.1 || ^0.2 || ^1.0",
                 "pollora/hook": "^2.0.1",
                 "psr/container": "^2.0",
                 "psr/log": "^3.0"
@@ -4923,7 +5049,8 @@
                 "mockery/mockery": "^1.6.12",
                 "pestphp/pest": "^3.8.2",
                 "phpstan/phpstan": "^2.1.16",
-                "pollora/colt": "^10.0.1",
+                "pollora/colt": "^11.0",
+                "pollora/harness": "^0.1.31",
                 "szepeviktor/phpstan-wordpress": "^2.0"
             },
             "suggest": {
@@ -4958,7 +5085,7 @@
                 "issues": "https://github.com/Pollora/meta/issues",
                 "source": "https://github.com/Pollora/meta"
             },
-            "time": "2026-10-15T13:27:13+00:00"
+            "time": "2026-11-19T10:21:09+00:00"
         },
         {
             "name": "pollora/option",
@@ -5009,16 +5136,16 @@
         },
         {
             "name": "pollora/query",
-            "version": "3.0.1",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/Query.git",
-                "reference": "6d7d4cddf6ea3c1028c8dc7ed9ff03c0d6a6ed28"
+                "reference": "2aef923885c102b5459f1fe4a6a83f4c2aef224b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/Query/zipball/6d7d4cddf6ea3c1028c8dc7ed9ff03c0d6a6ed28",
-                "reference": "6d7d4cddf6ea3c1028c8dc7ed9ff03c0d6a6ed28",
+                "url": "https://api.github.com/repos/Pollora/Query/zipball/2aef923885c102b5459f1fe4a6a83f4c2aef224b",
+                "reference": "2aef923885c102b5459f1fe4a6a83f4c2aef224b",
                 "shasum": ""
             },
             "require": {
@@ -5028,7 +5155,7 @@
             "require-dev": {
                 "laravel/pint": "^1.30",
                 "pestphp/pest": "^3.8",
-                "pollora/harness": "^0.1.11"
+                "pollora/harness": "^0.1.30"
             },
             "type": "library",
             "autoload": {
@@ -5050,28 +5177,28 @@
             "description": "Create WP Query in a fluent way.",
             "support": {
                 "issues": "https://github.com/Pollora/Query/issues",
-                "source": "https://github.com/Pollora/Query/tree/3.0.1"
+                "source": "https://github.com/Pollora/Query/tree/3.1.0"
             },
-            "time": "2026-10-29T13:19:28+00:00"
+            "time": "2026-11-19T07:53:51+00:00"
         },
         {
             "name": "pollora/roles",
-            "version": "v0.2.0",
+            "version": "v0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/roles.git",
-                "reference": "bf470a0b843559091631b79834f3386c2fcdbaa2"
+                "reference": "811c298ea053f7c74d26886a8c44f6e929668dec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/roles/zipball/bf470a0b843559091631b79834f3386c2fcdbaa2",
-                "reference": "bf470a0b843559091631b79834f3386c2fcdbaa2",
+                "url": "https://api.github.com/repos/Pollora/roles/zipball/811c298ea053f7c74d26886a8c44f6e929668dec",
+                "reference": "811c298ea053f7c74d26886a8c44f6e929668dec",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.3",
                 "pollora/attributes": "^0.1.1 || ^1.0",
-                "pollora/discovery": "^0.1 || ^1.0",
+                "pollora/discovery": "^0.1 || ^0.2 || ^1.0",
                 "psr/log": "^3.0"
             },
             "require-dev": {
@@ -5081,6 +5208,7 @@
                 "mockery/mockery": "^1.6.12",
                 "pestphp/pest": "^3.8.2",
                 "phpstan/phpstan": "^2.1.16",
+                "pollora/harness": "^0.1.31",
                 "szepeviktor/phpstan-wordpress": "^2.0"
             },
             "type": "library",
@@ -5111,26 +5239,26 @@
                 "issues": "https://github.com/Pollora/roles/issues",
                 "source": "https://github.com/Pollora/roles"
             },
-            "time": "2026-10-16T16:59:24+00:00"
+            "time": "2026-11-19T10:19:26+00:00"
         },
         {
             "name": "pollora/schedule",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/schedule.git",
-                "reference": "610b4b2a9351a98a5c8d08ee05307d0f11cd4dbd"
+                "reference": "54c0ba2e6b7b33fba99b28cf818ac2fa43fac438"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/schedule/zipball/610b4b2a9351a98a5c8d08ee05307d0f11cd4dbd",
-                "reference": "610b4b2a9351a98a5c8d08ee05307d0f11cd4dbd",
+                "url": "https://api.github.com/repos/Pollora/schedule/zipball/54c0ba2e6b7b33fba99b28cf818ac2fa43fac438",
+                "reference": "54c0ba2e6b7b33fba99b28cf818ac2fa43fac438",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.3",
                 "pollora/attributes": "^0.1 || ^1.0",
-                "pollora/discovery": "^0.1 || ^1.0",
+                "pollora/discovery": "^0.1 || ^0.2 || ^1.0",
                 "psr/container": "^1.1 || ^2.0",
                 "psr/log": "^3.0"
             },
@@ -5142,6 +5270,7 @@
                 "mockery/mockery": "^1.6.12",
                 "pestphp/pest": "^3.8.2",
                 "phpstan/phpstan": "^2.1.16",
+                "pollora/harness": "^0.1.31",
                 "szepeviktor/phpstan-wordpress": "^2.0"
             },
             "type": "library",
@@ -5173,20 +5302,20 @@
                 "issues": "https://github.com/Pollora/schedule/issues",
                 "source": "https://github.com/Pollora/schedule"
             },
-            "time": "2026-10-14T13:47:34+00:00"
+            "time": "2026-11-19T10:20:48+00:00"
         },
         {
             "name": "pollora/woocommerce",
-            "version": "v0.1.0",
+            "version": "v0.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/woocommerce.git",
-                "reference": "a924d624eb4b5be70b52b9ca9b87a6e8a48479ff"
+                "reference": "420bdf85cd3fb596a8e390aa48a3d9c361295035"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/woocommerce/zipball/a924d624eb4b5be70b52b9ca9b87a6e8a48479ff",
-                "reference": "a924d624eb4b5be70b52b9ca9b87a6e8a48479ff",
+                "url": "https://api.github.com/repos/Pollora/woocommerce/zipball/420bdf85cd3fb596a8e390aa48a3d9c361295035",
+                "reference": "420bdf85cd3fb596a8e390aa48a3d9c361295035",
                 "shasum": ""
             },
             "require": {
@@ -5206,7 +5335,7 @@
                 "php-stubs/woocommerce-stubs": "^11.2",
                 "php-stubs/wordpress-stubs": "^7.1",
                 "phpstan/phpstan": "^2.1.16",
-                "pollora/harness": "^0.1.7",
+                "pollora/harness": "^0.1.30",
                 "szepeviktor/phpstan-wordpress": "^2.0"
             },
             "type": "library",
@@ -5247,7 +5376,7 @@
                 "issues": "https://github.com/Pollora/woocommerce/issues",
                 "source": "https://github.com/Pollora/woocommerce"
             },
-            "time": "2026-10-27T15:46:42+00:00"
+            "time": "2026-11-19T07:57:55+00:00"
         },
         {
             "name": "pollora/wordpress-args",
@@ -5299,22 +5428,22 @@
         },
         {
             "name": "pollora/wp-cli",
-            "version": "v0.1.1",
+            "version": "v0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/wp-cli.git",
-                "reference": "c76035ed1d00bfc841a91a300c7543c7f4b55012"
+                "reference": "3928fc287dc980108ba4a372a92ceac7356fe721"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/wp-cli/zipball/c76035ed1d00bfc841a91a300c7543c7f4b55012",
-                "reference": "c76035ed1d00bfc841a91a300c7543c7f4b55012",
+                "url": "https://api.github.com/repos/Pollora/wp-cli/zipball/3928fc287dc980108ba4a372a92ceac7356fe721",
+                "reference": "3928fc287dc980108ba4a372a92ceac7356fe721",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.3",
                 "pollora/attributes": "^0.1 || ^1.0",
-                "pollora/discovery": "^0.1 || ^1.0",
+                "pollora/discovery": "^0.1 || ^0.2 || ^1.0",
                 "psr/log": "^3.0"
             },
             "require-dev": {
@@ -5324,6 +5453,7 @@
                 "mockery/mockery": "^1.6.12",
                 "pestphp/pest": "^3.8.2",
                 "phpstan/phpstan": "^2.1.16",
+                "pollora/harness": "^0.1.31",
                 "szepeviktor/phpstan-wordpress": "^2.0",
                 "wp-cli/wp-cli": "^2.12"
             },
@@ -5358,26 +5488,26 @@
                 "issues": "https://github.com/Pollora/wp-cli/issues",
                 "source": "https://github.com/Pollora/wp-cli"
             },
-            "time": "2026-10-13T08:37:24+00:00"
+            "time": "2026-11-19T10:15:16+00:00"
         },
         {
             "name": "pollora/wp-rest",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/wp-rest.git",
-                "reference": "1b1a9acd006086bccd39daab389e740f5933c5f0"
+                "reference": "32c9a65e60435891604a333692de23cf5c3d051f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/wp-rest/zipball/1b1a9acd006086bccd39daab389e740f5933c5f0",
-                "reference": "1b1a9acd006086bccd39daab389e740f5933c5f0",
+                "url": "https://api.github.com/repos/Pollora/wp-rest/zipball/32c9a65e60435891604a333692de23cf5c3d051f",
+                "reference": "32c9a65e60435891604a333692de23cf5c3d051f",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.3",
-                "pollora/attributes": "^0.1 || ^1.0",
-                "pollora/discovery": "^0.1 || ^1.0",
+                "pollora/attributes": "^0.1 || ^0.2 || ^1.0",
+                "pollora/discovery": "^0.1 || ^0.2 || ^1.0",
                 "psr/container": "^2.0",
                 "psr/log": "^3.0"
             },
@@ -5388,7 +5518,7 @@
                 "mockery/mockery": "^1.6.12",
                 "pestphp/pest": "^3.8.2",
                 "phpstan/phpstan": "^2.1.16",
-                "pollora/harness": "^0.1.9",
+                "pollora/harness": "^0.1.31",
                 "szepeviktor/phpstan-wordpress": "^2.0"
             },
             "type": "library",
@@ -5420,7 +5550,7 @@
                 "issues": "https://github.com/Pollora/wp-rest/issues",
                 "source": "https://github.com/Pollora/wp-rest"
             },
-            "time": "2026-10-29T14:04:03+00:00"
+            "time": "2026-11-19T10:15:16+00:00"
         },
         {
             "name": "psr/clock",
@@ -5991,16 +6121,16 @@
         },
         {
             "name": "ramsey/uuid",
-            "version": "4.9.4",
+            "version": "4.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/uuid.git",
-                "reference": "75d73f48d02797c2c285a7e9f348fadc0102ffe2"
+                "reference": "f9aa3efc8015fcbc013d84d699583b268ccb593a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid/zipball/75d73f48d02797c2c285a7e9f348fadc0102ffe2",
-                "reference": "75d73f48d02797c2c285a7e9f348fadc0102ffe2",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/f9aa3efc8015fcbc013d84d699583b268ccb593a",
+                "reference": "f9aa3efc8015fcbc013d84d699583b268ccb593a",
                 "shasum": ""
             },
             "require": {
@@ -6012,23 +6142,22 @@
                 "rhumsaa/uuid": "self.version"
             },
             "require-dev": {
-                "captainhook/captainhook": "^5.25",
-                "captainhook/plugin-composer": "^5.3",
-                "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
-                "ergebnis/composer-normalize": "^2.47",
-                "mockery/mockery": "^1.6",
-                "paragonie/random-lib": "^2",
-                "php-mock/php-mock": "^2.6",
-                "php-mock/php-mock-mockery": "^1.5",
+                "captainhook/captainhook": "^5.29.3",
+                "captainhook/plugin-composer": "^5.3.3",
+                "dealerdirect/phpcodesniffer-composer-installer": "^1.2.1",
+                "mockery/mockery": "^1.6.15",
+                "paragonie/random-lib": "^2.0.3",
+                "php-mock/php-mock": "^2.7.0",
+                "php-mock/php-mock-mockery": "^1.5.0",
                 "php-parallel-lint/php-parallel-lint": "^1.4.0",
                 "phpbench/phpbench": "^1.2.14",
-                "phpstan/extension-installer": "^1.4",
-                "phpstan/phpstan": "^2.1",
-                "phpstan/phpstan-mockery": "^2.0",
-                "phpstan/phpstan-phpunit": "^2.0",
-                "phpunit/phpunit": "^9.6",
-                "slevomat/coding-standard": "^8.18",
-                "squizlabs/php_codesniffer": "^3.13"
+                "phpstan/extension-installer": "^1.4.3",
+                "phpstan/phpstan": "^2.3.5",
+                "phpstan/phpstan-mockery": "^2.0.0",
+                "phpstan/phpstan-phpunit": "^2.1.2",
+                "phpunit/phpunit": "^9.6.39",
+                "slevomat/coding-standard": "^8.31.3",
+                "squizlabs/php_codesniffer": "^4.0.4"
             },
             "suggest": {
                 "ext-bcmath": "Enables faster math with arbitrary-precision integers using BCMath.",
@@ -6063,9 +6192,9 @@
             ],
             "support": {
                 "issues": "https://github.com/ramsey/uuid/issues",
-                "source": "https://github.com/ramsey/uuid/tree/4.9.4"
+                "source": "https://github.com/ramsey/uuid/tree/4.10.0"
             },
-            "time": "2026-09-16T11:39:30+00:00"
+            "time": "2026-11-14T23:23:20+00:00"
         },
         {
             "name": "roots/bedrock-autoloader",
@@ -7939,16 +8068,16 @@
         },
         {
             "name": "symfony/polyfill-php85",
-            "version": "v1.43.0",
+            "version": "v1.44.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php85.git",
-                "reference": "86a42cbcc07adc331481a5ab310a4024bfc227f6"
+                "reference": "94c794cb5ba51784bc259f11e9f128593297d8dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php85/zipball/86a42cbcc07adc331481a5ab310a4024bfc227f6",
-                "reference": "86a42cbcc07adc331481a5ab310a4024bfc227f6",
+                "url": "https://api.github.com/repos/symfony/polyfill-php85/zipball/94c794cb5ba51784bc259f11e9f128593297d8dc",
+                "reference": "94c794cb5ba51784bc259f11e9f128593297d8dc",
                 "shasum": ""
             },
             "require": {
@@ -7995,7 +8124,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php85/tree/v1.43.0"
+                "source": "https://github.com/symfony/polyfill-php85/tree/v1.44.0"
             },
             "funding": [
                 {
@@ -8015,7 +8144,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-09-25T15:46:47+00:00"
+            "time": "2026-10-30T15:20:09+00:00"
         },
         {
             "name": "symfony/polyfill-php86",
@@ -9333,16 +9462,16 @@
     "packages-dev": [
         {
             "name": "composer/semver",
-            "version": "3.5.2",
+            "version": "3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/semver.git",
-                "reference": "9dfce66f1e97360ea5e6d3e38ab14277e4cc591e"
+                "reference": "d92543b7ede9c4ec6b59853cefb061e39866d2cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/semver/zipball/9dfce66f1e97360ea5e6d3e38ab14277e4cc591e",
-                "reference": "9dfce66f1e97360ea5e6d3e38ab14277e4cc591e",
+                "url": "https://api.github.com/repos/composer/semver/zipball/d92543b7ede9c4ec6b59853cefb061e39866d2cf",
+                "reference": "d92543b7ede9c4ec6b59853cefb061e39866d2cf",
                 "shasum": ""
             },
             "require": {
@@ -9394,7 +9523,7 @@
             "support": {
                 "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/semver/issues",
-                "source": "https://github.com/composer/semver/tree/3.5.2"
+                "source": "https://github.com/composer/semver/tree/3.6.0"
             },
             "funding": [
                 {
@@ -9406,7 +9535,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-10-22T15:37:26+00:00"
+            "time": "2026-10-29T09:13:34+00:00"
         },
         {
             "name": "fakerphp/faker",
@@ -9544,16 +9673,16 @@
         },
         {
             "name": "fruitcake/laravel-debugbar",
-            "version": "v4.4.4",
+            "version": "v4.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fruitcake/laravel-debugbar.git",
-                "reference": "02274537e13944ad1990c521bd06d0fb3578ba17"
+                "reference": "679c389306cd6255dbb3d2a9350d846c2e991dcc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fruitcake/laravel-debugbar/zipball/02274537e13944ad1990c521bd06d0fb3578ba17",
-                "reference": "02274537e13944ad1990c521bd06d0fb3578ba17",
+                "url": "https://api.github.com/repos/fruitcake/laravel-debugbar/zipball/679c389306cd6255dbb3d2a9350d846c2e991dcc",
+                "reference": "679c389306cd6255dbb3d2a9350d846c2e991dcc",
                 "shasum": ""
             },
             "require": {
@@ -9631,7 +9760,7 @@
             ],
             "support": {
                 "issues": "https://github.com/fruitcake/laravel-debugbar/issues",
-                "source": "https://github.com/fruitcake/laravel-debugbar/tree/v4.4.4"
+                "source": "https://github.com/fruitcake/laravel-debugbar/tree/v4.4.5"
             },
             "funding": [
                 {
@@ -9643,7 +9772,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-09-24T10:05:29+00:00"
+            "time": "2026-10-28T13:25:29+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
@@ -9702,16 +9831,16 @@
         },
         {
             "name": "laravel/boost",
-            "version": "v2.10.3",
+            "version": "v2.10.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/boost.git",
-                "reference": "75c269a8a53e931c7252e7cd562e1a209356a7c6"
+                "reference": "9cd5e7d81300b5dee4c8b1619ec4b36f4a6367fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/boost/zipball/75c269a8a53e931c7252e7cd562e1a209356a7c6",
-                "reference": "75c269a8a53e931c7252e7cd562e1a209356a7c6",
+                "url": "https://api.github.com/repos/laravel/boost/zipball/9cd5e7d81300b5dee4c8b1619ec4b36f4a6367fd",
+                "reference": "9cd5e7d81300b5dee4c8b1619ec4b36f4a6367fd",
                 "shasum": ""
             },
             "require": {
@@ -9730,7 +9859,7 @@
                 "laravel/pint": "^1.27.0",
                 "mockery/mockery": "^1.6.12",
                 "orchestra/testbench": "^9.15.0|^10.6|^11.0",
-                "pestphp/pest": "^2.36.0|^3.8.4|^4.1.5",
+                "pestphp/pest": "^2.36.0|^3.8.4|^4.1.5|^5.3.3",
                 "phpstan/phpstan": "^2.1.27",
                 "rector/rector": "^2.1"
             },
@@ -9765,40 +9894,40 @@
                 "issues": "https://github.com/laravel/boost/issues",
                 "source": "https://github.com/laravel/boost"
             },
-            "time": "2026-10-07T19:07:19+00:00"
+            "time": "2026-10-29T18:31:16+00:00"
         },
         {
             "name": "laravel/mcp",
-            "version": "v1.1.1",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/mcp.git",
-                "reference": "e77af70cd009aaa31455626bd463b0e7e39cfcf9"
+                "reference": "a8057f222549e42384d49482042d762a547aaf2a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/mcp/zipball/e77af70cd009aaa31455626bd463b0e7e39cfcf9",
-                "reference": "e77af70cd009aaa31455626bd463b0e7e39cfcf9",
+                "url": "https://api.github.com/repos/laravel/mcp/zipball/a8057f222549e42384d49482042d762a547aaf2a",
+                "reference": "a8057f222549e42384d49482042d762a547aaf2a",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "ext-mbstring": "*",
-                "illuminate/console": "^11.45.3|^12.41.1|^13.0",
-                "illuminate/container": "^11.45.3|^12.41.1|^13.0",
-                "illuminate/contracts": "^11.45.3|^12.41.1|^13.0",
-                "illuminate/http": "^11.45.3|^12.41.1|^13.0",
+                "illuminate/console": "^12.41.1|^13.0",
+                "illuminate/container": "^12.41.1|^13.0",
+                "illuminate/contracts": "^12.41.1|^13.0",
+                "illuminate/http": "^12.41.1|^13.0",
                 "illuminate/json-schema": "^12.41.1|^13.0",
-                "illuminate/routing": "^11.45.3|^12.41.1|^13.0",
-                "illuminate/support": "^11.45.3|^12.41.1|^13.0",
-                "illuminate/validation": "^11.45.3|^12.41.1|^13.0",
+                "illuminate/routing": "^12.41.1|^13.0",
+                "illuminate/support": "^12.41.1|^13.0",
+                "illuminate/validation": "^12.41.1|^13.0",
                 "php": "^8.2",
                 "symfony/process": "^7.4.5|^8.0.5"
             },
             "require-dev": {
                 "jasonmccreary/double": "^1.0",
-                "laravel/pint": "^1.20",
-                "orchestra/testbench": "^9.15|^10.8|^11.0",
+                "laravel/pint": "^1.20,!=1.32.2",
+                "orchestra/testbench": "^10.8|^11.0",
                 "pestphp/pest": "^3.8.5|^4.3.2",
                 "phpstan/phpstan": "^2.1.27",
                 "rector/rector": "^2.2.4"
@@ -9840,7 +9969,7 @@
                 "issues": "https://github.com/laravel/mcp/issues",
                 "source": "https://github.com/laravel/mcp"
             },
-            "time": "2026-10-21T11:50:42+00:00"
+            "time": "2026-11-17T16:36:18+00:00"
         },
         {
             "name": "laravel/pail",
@@ -9924,16 +10053,16 @@
         },
         {
             "name": "laravel/pint",
-            "version": "v1.32.1",
+            "version": "v1.32.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/pint.git",
-                "reference": "006bd7825eb01daf92959d060b89cd9514fe4253"
+                "reference": "1cf8e0320bed4b3c6e51df92039a5636c3887728"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/pint/zipball/006bd7825eb01daf92959d060b89cd9514fe4253",
-                "reference": "006bd7825eb01daf92959d060b89cd9514fe4253",
+                "url": "https://api.github.com/repos/laravel/pint/zipball/1cf8e0320bed4b3c6e51df92039a5636c3887728",
+                "reference": "1cf8e0320bed4b3c6e51df92039a5636c3887728",
                 "shasum": ""
             },
             "require": {
@@ -9944,15 +10073,15 @@
                 "php": "^8.3.0"
             },
             "require-dev": {
-                "composer/semver": "^3.4.4",
-                "friendsofphp/php-cs-fixer": "^3.95.25",
-                "illuminate/view": "^13.31.0",
-                "larastan/larastan": "^3.11.0",
+                "composer/semver": "^3.6.0",
+                "friendsofphp/php-cs-fixer": "^3.95.30",
+                "illuminate/view": "^13.42.0",
+                "larastan/larastan": "^3.15.0",
                 "laravel-zero/framework": "^13.0.0",
-                "laravel/agent-detector": "^2.0.2",
-                "laravel/prompts": "^0.3.24",
+                "laravel/agent-detector": "^2.0.5",
+                "laravel/prompts": "^0.3.27",
                 "mockery/mockery": "^1.6.15",
-                "nunomaduro/termwind": "^2.4.0",
+                "nunomaduro/termwind": "^2.4.1",
                 "pestphp/pest": "^4.7.8"
             },
             "bin": [
@@ -9990,7 +10119,7 @@
                 "issues": "https://github.com/laravel/pint/issues",
                 "source": "https://github.com/laravel/pint"
             },
-            "time": "2026-09-10T10:47:55+00:00"
+            "time": "2026-11-11T16:45:13+00:00"
         },
         {
             "name": "laravel/roster",
@@ -11085,33 +11214,29 @@
         {
             "name": "pollora/debugbar",
             "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Pollora/debugbar.git",
-                "reference": "c3f6ba2a8c5431cc5ad68cc1e1320871725bbcbb"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/debugbar/zipball/c3f6ba2a8c5431cc5ad68cc1e1320871725bbcbb",
-                "reference": "c3f6ba2a8c5431cc5ad68cc1e1320871725bbcbb",
-                "shasum": ""
+                "type": "path",
+                "url": "/var/www/pollora-packages/debugbar",
+                "reference": "fea063686fca401fea5671e4e062391610b59924"
             },
             "require": {
                 "fruitcake/laravel-debugbar": "^4.4",
                 "php": "^8.3",
-                "pollora/framework": "^13.35.3"
+                "pollora/framework": "^13.36.0"
             },
             "require-dev": {
+                "antecedent/patchwork": "^2.2",
                 "brain/monkey": "^2.7",
+                "johnbillion/extended-cpts": "^5.0.3",
                 "laravel/pint": "^1.22",
                 "mockery/mockery": "^1.6",
                 "orchestra/testbench": "^11.1",
                 "pestphp/pest": "^3.8",
                 "php-stubs/wordpress-stubs": "^7.1",
                 "phpstan/phpstan": "^2.1",
+                "pollora/harness": "^0.1.32",
                 "szepeviktor/phpstan-wordpress": "^2.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -11125,7 +11250,39 @@
                     "Pollora\\Debugbar\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Pollora\\Debugbar\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "@test:unit",
+                    "@phpstan",
+                    "@lint:check"
+                ],
+                "test:unit": [
+                    "pest"
+                ],
+                "phpstan": [
+                    "phpstan analyse --memory-limit=1G"
+                ],
+                "phpstan:ci": [
+                    "phpstan analyse --memory-limit=1G --no-progress"
+                ],
+                "lint": [
+                    "pint"
+                ],
+                "lint:check": [
+                    "pint --test"
+                ],
+                "qa": [
+                    "@php vendor/bin/pollora-qa check"
+                ],
+                "qa:fast": [
+                    "@php vendor/bin/pollora-qa check --fast"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -11143,29 +11300,30 @@
                 "query-monitor",
                 "wordpress"
             ],
-            "support": {
-                "issues": "https://github.com/Pollora/debugbar/issues",
-                "source": "https://github.com/Pollora/debugbar/tree/main"
-            },
-            "time": "2026-10-09T12:47:09+00:00"
+            "transport-options": {
+                "symlink": true,
+                "relative": false
+            }
         },
         {
             "name": "pollora/nectar",
-            "version": "v1.7.0",
+            "version": "v1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/nectar.git",
-                "reference": "ac1b100cda9a4f2c2d65765bea7850c68318c78f"
+                "reference": "185bfc41bfe14af04a5916655a730c4c5e79bf7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/nectar/zipball/ac1b100cda9a4f2c2d65765bea7850c68318c78f",
-                "reference": "ac1b100cda9a4f2c2d65765bea7850c68318c78f",
+                "url": "https://api.github.com/repos/Pollora/nectar/zipball/185bfc41bfe14af04a5916655a730c4c5e79bf7a",
+                "reference": "185bfc41bfe14af04a5916655a730c4c5e79bf7a",
                 "shasum": ""
             },
             "require": {
                 "laravel/boost": "^2.0",
+                "laravel/mcp": "^1.0",
                 "php": "^8.3",
+                "pollora/discovery": "^0.1 || ^1.0",
                 "pollora/framework": "^12.0 || ^13.0"
             },
             "require-dev": {
@@ -11173,7 +11331,8 @@
                 "laravel/pint": "^1.0",
                 "orchestra/testbench": "^9.0|^10.0|^11.0",
                 "pestphp/pest": "^3.0",
-                "phpstan/phpstan": "^2.0"
+                "phpstan/phpstan": "^2.0",
+                "pollora/harness": "^0.1.30"
             },
             "type": "library",
             "extra": {
@@ -11202,9 +11361,9 @@
             "description": "AI-powered development context for Pollora — guidelines, skills, and MCP tools for AI agents.",
             "support": {
                 "issues": "https://github.com/Pollora/nectar/issues",
-                "source": "https://github.com/Pollora/nectar/tree/v1.7.0"
+                "source": "https://github.com/Pollora/nectar/tree/v1.8.0"
             },
-            "time": "2026-10-14T14:47:35+00:00"
+            "time": "2026-11-19T08:01:14+00:00"
         },
         {
             "name": "sebastian/cli-parser",
