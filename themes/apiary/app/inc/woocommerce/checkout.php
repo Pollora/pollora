@@ -7,8 +7,6 @@ declare(strict_types=1);
  *
  * Global scope is intentional — conditional tag functions are called directly
  * in Blade templates and guarded with function_exists().
- *
- * @package Theme\Apiary
  */
 
 use Pollora\Support\Facades\Action;
@@ -42,8 +40,8 @@ if (! function_exists('wc_get_shipping_method_index')) {
     /**
      * Get the zero-based index of the chosen shipping method within available methods.
      *
-     * @param  string  $chosen_method     The selected method ID (e.g. "flat_rate:1").
-     * @param  array   $available_methods Keyed array of available WC_Shipping_Rate objects.
+     * @param  string  $chosen_method  The selected method ID (e.g. "flat_rate:1").
+     * @param  array  $available_methods  Keyed array of available WC_Shipping_Rate objects.
      * @return int Position index, or 0 if not found.
      */
     function wc_get_shipping_method_index(string $chosen_method, array $available_methods): int

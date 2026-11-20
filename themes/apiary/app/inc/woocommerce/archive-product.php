@@ -10,7 +10,6 @@ declare(strict_types=1);
  * - Overrides `woocommerce_product_archive_description()` to render the shop page content via Blade.
  * - Adds configurable CSS classes to product titles in the loop.
  *
- * @package Theme\Apiary
  *
  * @see config('theme.woocommerce.archive-product.product_title.class')
  */

@@ -7,10 +7,11 @@ declare(strict_types=1);
  *
  * Global scope is intentional — woocommerce_get_product_thumbnail() is a
  * WooCommerce override detected via function_exists().
- *
- * @package Theme\Apiary
  */
 
+use Illuminate\View\Factory;
+use Illuminate\View\View;
+use Pollora\Core\Application;
 use Pollora\Support\Facades\Filter;
 
 // Override the single image size
@@ -25,7 +26,7 @@ Filter::add('woocommerce_get_image_size_single', function ($size) {
 /**
  * Override the woocommerce_get_product_thumbnail function
  *
- * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\Factory|\Illuminate\View\View|string|\Pollora\Core\Application
+ * @return Illuminate\Contracts\View\Factory|Factory|View|string|Application
  */
 function woocommerce_get_product_thumbnail(string $size = 'woocommerce_thumbnail', int $deprecated1 = 0, int $deprecated2 = 0)
 {

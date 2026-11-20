@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\DB;
  * URL values are memoized per instance to avoid redundant DB queries
  * when formatting multiple products in a single request.
  *
- * @see \Theme\Apiary\Services\ProductSearchService
+ * @see ProductSearchService
  */
 class ProductUrlResolver
 {
@@ -49,7 +49,7 @@ class ProductUrlResolver
             return (string) get_permalink((int) $row->ID);
         }
 
-        return rtrim($this->getHomeUrl(), '/') . '/product/' . $row->post_name;
+        return rtrim($this->getHomeUrl(), '/').'/product/'.$row->post_name;
     }
 
     /**
@@ -81,7 +81,7 @@ class ProductUrlResolver
                 $uploadDir = wp_get_upload_dir();
 
                 if (! empty($meta['sizes']['woocommerce_thumbnail']['file'])) {
-                    return $uploadDir['baseurl'] . '/' . dirname($meta['file']) . '/' . $meta['sizes']['woocommerce_thumbnail']['file'];
+                    return $uploadDir['baseurl'].'/'.dirname($meta['file']).'/'.$meta['sizes']['woocommerce_thumbnail']['file'];
                 }
             }
 
@@ -92,15 +92,15 @@ class ProductUrlResolver
         $meta = @unserialize($row->attachment_metadata);
 
         if (! empty($meta['sizes']['woocommerce_thumbnail']['file']) && ! empty($meta['file'])) {
-            return $this->getUploadBaseUrl() . '/' . dirname($meta['file']) . '/' . $meta['sizes']['woocommerce_thumbnail']['file'];
+            return $this->getUploadBaseUrl().'/'.dirname($meta['file']).'/'.$meta['sizes']['woocommerce_thumbnail']['file'];
         }
 
         if (! empty($meta['sizes']['medium']['file']) && ! empty($meta['file'])) {
-            return $this->getUploadBaseUrl() . '/' . dirname($meta['file']) . '/' . $meta['sizes']['medium']['file'];
+            return $this->getUploadBaseUrl().'/'.dirname($meta['file']).'/'.$meta['sizes']['medium']['file'];
         }
 
         if ($row->attached_file) {
-            return $this->getUploadBaseUrl() . '/' . $row->attached_file;
+            return $this->getUploadBaseUrl().'/'.$row->attached_file;
         }
 
         return $row->image_guid ?: '';
@@ -140,6 +140,6 @@ class ProductUrlResolver
      */
     private function getUploadBaseUrl(): string
     {
-        return $this->uploadBaseUrl ??= rtrim($this->getHomeUrl(), '/') . '/content/uploads';
+        return $this->uploadBaseUrl ??= rtrim($this->getHomeUrl(), '/').'/content/uploads';
     }
 }

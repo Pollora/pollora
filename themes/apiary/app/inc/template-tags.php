@@ -7,10 +7,7 @@ declare(strict_types=1);
  *
  * Global scope is intentional — these functions are called directly in Blade
  * templates and guarded with function_exists() to allow child theme overrides.
- *
- * @package Theme\Apiary
  */
-
 if (! function_exists('posted_on')) {
     /**
      * Return HTML with the published and (optionally) modified date for the current post.
@@ -107,7 +104,7 @@ if (! function_exists('entry_footer')) {
     function entry_footer(): void
     {
         // Hide category and tag text for pages.
-        if ('post' === get_post_type()) {
+        if (get_post_type() === 'post') {
             /* translators: used between list items, there is a space after the comma */
             $categories_list = get_the_category_list(esc_html__(', ', 'apiary'));
 
@@ -173,12 +170,11 @@ if (! function_exists('comments_title')) {
     /**
      * Return the comments title.
      *
-     * @param  int  $count The number of comments.
-     * @return string
+     * @param  int  $count  The number of comments.
      */
     function comments_title(int $count): string
     {
-        if (1 === $count) {
+        if ($count === 1) {
             return sprintf(
                 esc_html__('One thought on &ldquo;%1$s&rdquo;', 'apiary'),
                 '<span>'.get_the_title().'</span>'
@@ -196,8 +192,6 @@ if (! function_exists('comments_title')) {
 if (! function_exists('archive_content_message')) {
     /**
      * Return an archive content message.
-     *
-     * @return string
      */
     function archive_content_message(): string
     {

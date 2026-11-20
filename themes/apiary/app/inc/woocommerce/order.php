@@ -7,10 +7,7 @@ declare(strict_types=1);
  *
  * Global scope is intentional — functions are called directly in Blade
  * templates and guarded with function_exists().
- *
- * @package Theme\Apiary
  */
-
 if (! function_exists('wc_get_current_order_statuses')) {
     /**
      * Get the active order statuses

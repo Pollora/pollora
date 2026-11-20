@@ -24,8 +24,6 @@ use Illuminate\Support\Facades\Route;
  * (see FrontendController) — just create the corresponding Blade view.
  */
 
-
-
 // Note: 404 and template hierarchy templates (archive, category, search, author,
 // single-{post_type}) are handled by the FrontendController fallback.
 // Just create the corresponding Blade view in themes/{theme}/resources/views/.

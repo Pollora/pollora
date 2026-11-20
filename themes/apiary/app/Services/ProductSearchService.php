@@ -6,6 +6,7 @@ namespace Theme\Apiary\Services;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use Theme\Apiary\Http\Controllers\Api\ProductSearchController;
 
 /**
  * Weighted product search using Eloquent's query builder.
@@ -29,7 +30,7 @@ use Illuminate\Support\Facades\DB;
  * Third-party search engines (Meilisearch, Elasticsearch, Algolia) can
  * entirely replace this implementation via the `apiary/search/products` filter.
  *
- * @see \Theme\Apiary\Http\Controllers\Api\ProductSearchController
+ * @see ProductSearchController
  * @see config('theme.woocommerce.search') for min_chars, debounce, max_results
  */
 class ProductSearchService
@@ -37,8 +38,8 @@ class ProductSearchService
     /**
      * Search published products by relevance.
      *
-     * @param  string  $query       The user's search input (already trimmed and validated by the controller).
-     * @param  int     $maxResults  Maximum number of products to return.
+     * @param  string  $query  The user's search input (already trimmed and validated by the controller).
+     * @param  int  $maxResults  Maximum number of products to return.
      * @return array<int, array{id: int, title: string, url: string, image: string, price: string}>
      */
     public function search(string $query, int $maxResults = 6): array
@@ -65,15 +66,15 @@ class ProductSearchService
      * and attachment metadata. Results are grouped by product ID and ordered by a
      * computed relevance score.
      *
-     * @param  string  $query       Raw search term.
-     * @param  int     $maxResults  LIMIT clause value.
+     * @param  string  $query  Raw search term.
+     * @param  int  $maxResults  LIMIT clause value.
      * @return Collection<int, object> Raw database rows with product data and relevance score.
      */
     protected function queryProducts(string $query, int $maxResults): Collection
     {
         $prefix = DB::getTablePrefix();
-        $like = '%' . $query . '%';
-        $prefixLike = $query . '%';
+        $like = '%'.$query.'%';
+        $prefixLike = $query.'%';
 
         $relevanceExpr = "
             (CASE WHEN MAX({$prefix}pm_sku.meta_value) = ? THEN 100 ELSE 0 END)
@@ -145,13 +146,13 @@ class ProductSearchService
                     ->orWhere('p.post_excerpt', 'LIKE', $like);
             })
             ->selectRaw(
-                "{$prefix}p.ID, {$prefix}p.post_title, {$prefix}p.post_name, " .
-                "MIN({$prefix}pm_price.meta_value) as price, " .
-                "MIN({$prefix}pm_rprice.meta_value) as regular_price, " .
-                "MIN({$prefix}pm_sprice.meta_value) as sale_price, " .
-                "MIN({$prefix}att.guid) as image_guid, " .
-                "MIN({$prefix}pm_att_meta.meta_value) as attachment_metadata, " .
-                "MIN({$prefix}pm_att_file.meta_value) as attached_file, " .
+                "{$prefix}p.ID, {$prefix}p.post_title, {$prefix}p.post_name, ".
+                "MIN({$prefix}pm_price.meta_value) as price, ".
+                "MIN({$prefix}pm_rprice.meta_value) as regular_price, ".
+                "MIN({$prefix}pm_sprice.meta_value) as sale_price, ".
+                "MIN({$prefix}att.guid) as image_guid, ".
+                "MIN({$prefix}pm_att_meta.meta_value) as attachment_metadata, ".
+                "MIN({$prefix}pm_att_file.meta_value) as attached_file, ".
                 "({$relevanceExpr}) as relevance",
                 $relevanceBindings
             )
@@ -173,14 +174,14 @@ class ProductSearchService
      */
     protected function formatResults(Collection $rows): array
     {
-        $priceFormatter = new ProductPriceFormatter();
-        $urlResolver = new ProductUrlResolver();
+        $priceFormatter = new ProductPriceFormatter;
+        $urlResolver = new ProductUrlResolver;
 
         return $rows->map(function ($row) use ($priceFormatter, $urlResolver) {
             return [
-                'id'    => (int) $row->ID,
+                'id' => (int) $row->ID,
                 'title' => $row->post_title,
-                'url'   => $urlResolver->productUrl($row),
+                'url' => $urlResolver->productUrl($row),
                 'image' => $urlResolver->thumbnailUrl($row),
                 'price' => $priceFormatter->format($row->price, $row->regular_price, $row->sale_price),
             ];

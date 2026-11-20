@@ -7,8 +7,6 @@ declare(strict_types=1);
  *
  * Global scope is intentional — functions are either WooCommerce overrides
  * (detected via function_exists()) or registered as hook callbacks.
- *
- * @package Theme\Apiary
  */
 
 use Pollora\Support\Facades\Action;

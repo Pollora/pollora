@@ -37,11 +37,11 @@ class MenuPrimary extends \Walker_Nav_Menu
      * Delegates to {@see createDropdownParent()} for top-level items with children,
      * or {@see createMenuItem()} for regular links (any depth).
      *
-     * @param  string         $output  Passed by reference. Markup to append to.
-     * @param  \WP_Post       $item    Menu item data object.
-     * @param  int            $depth   Depth of menu item (0 = top-level).
-     * @param  array|object   $args    wp_nav_menu() arguments. `$args->mobile` triggers mobile mode.
-     * @param  int            $id      Current item ID (unused).
+     * @param  string  $output  Passed by reference. Markup to append to.
+     * @param  \WP_Post  $item  Menu item data object.
+     * @param  int  $depth  Depth of menu item (0 = top-level).
+     * @param  array|object  $args  wp_nav_menu() arguments. `$args->mobile` triggers mobile mode.
+     * @param  int  $id  Current item ID (unused).
      */
     public function start_el(&$output, $item, $depth = 0, $args = [], $id = 0): void
     {
@@ -50,9 +50,9 @@ class MenuPrimary extends \Walker_Nav_Menu
         }
 
         // Detect mobile from args (passed via wp_nav_menu 'mobile' => true)
-        if (is_object($args) && !empty($args->mobile)) {
+        if (is_object($args) && ! empty($args->mobile)) {
             $this->isMobile = true;
-        } elseif (is_array($args) && !empty($args['mobile'])) {
+        } elseif (is_array($args) && ! empty($args['mobile'])) {
             $this->isMobile = true;
         }
 
@@ -168,8 +168,8 @@ class MenuPrimary extends \Walker_Nav_Menu
      * Desktop: a hoverable button with chevron, positioned relative for the flyout.
      * Mobile: an accordion toggle button with animated chevron rotation.
      *
-     * @param  \WP_Post  $item       Menu item data object.
-     * @param  bool      $isCurrent  Whether this item or an ancestor is active.
+     * @param  \WP_Post  $item  Menu item data object.
+     * @param  bool  $isCurrent  Whether this item or an ancestor is active.
      * @return string Opening HTML (the closing `</div>` is handled by {@see end_el()}).
      */
     protected function createDropdownParent($item, bool $isCurrent): string
@@ -216,46 +216,46 @@ class MenuPrimary extends \Walker_Nav_Menu
      * Applies different Tailwind classes based on depth (top-level vs child)
      * and mode (desktop vs mobile), with active-state highlighting.
      *
-     * @param  \WP_Post  $item       Menu item data object.
-     * @param  int       $depth      Nesting depth (0 = top-level, 1+ = dropdown child).
-     * @param  bool      $isCurrent  Whether this item or an ancestor is active.
+     * @param  \WP_Post  $item  Menu item data object.
+     * @param  int  $depth  Nesting depth (0 = top-level, 1+ = dropdown child).
+     * @param  bool  $isCurrent  Whether this item or an ancestor is active.
      * @return string Complete `<a>` element HTML.
      */
     protected function createMenuItem($item, int $depth, bool $isCurrent): string
     {
         $atts = [
-            'href' => !empty($item->url) ? $item->url : '#',
-            'title' => !empty($item->attr_title) ? $item->attr_title : '',
-            'target' => !empty($item->target) ? $item->target : '',
-            'rel' => !empty($item->xfn) ? $item->xfn : '',
+            'href' => ! empty($item->url) ? $item->url : '#',
+            'title' => ! empty($item->attr_title) ? $item->attr_title : '',
+            'target' => ! empty($item->target) ? $item->target : '',
+            'rel' => ! empty($item->xfn) ? $item->xfn : '',
         ];
 
         if ($depth === 0) {
             // Top-level item (no children)
             if ($this->isMobile) {
                 $activeClass = $isCurrent ? 'text-primary bg-surface' : 'text-foreground';
-                $atts['class'] = 'block px-4 py-2.5 text-sm font-medium rounded-lg hover:bg-surface-alt transition-colors ' . $activeClass;
+                $atts['class'] = 'block px-4 py-2.5 text-sm font-medium rounded-lg hover:bg-surface-alt transition-colors '.$activeClass;
             } else {
                 $textClass = $isCurrent ? 'text-foreground' : 'text-muted';
                 $underlineScale = $isCurrent ? 'after:scale-x-100' : 'after:scale-x-0 hover:after:scale-x-100';
-                $atts['class'] = 'inline-flex items-center px-3 py-4 text-sm font-medium ' . $textClass . ' hover:text-foreground transition-colors relative after:absolute after:bottom-0 after:left-3 after:right-3 after:h-0.5 after:bg-primary ' . $underlineScale . ' after:transition-transform after:origin-left';
+                $atts['class'] = 'inline-flex items-center px-3 py-4 text-sm font-medium '.$textClass.' hover:text-foreground transition-colors relative after:absolute after:bottom-0 after:left-3 after:right-3 after:h-0.5 after:bg-primary '.$underlineScale.' after:transition-transform after:origin-left';
             }
         } else {
             // Child item (inside dropdown)
             if ($this->isMobile) {
                 $activeClass = $isCurrent ? 'text-foreground font-medium' : 'text-muted';
-                $atts['class'] = 'block px-3 py-2 text-sm hover:text-foreground transition-colors rounded-md ' . $activeClass;
+                $atts['class'] = 'block px-3 py-2 text-sm hover:text-foreground transition-colors rounded-md '.$activeClass;
             } else {
                 $activeClass = $isCurrent ? 'text-foreground bg-surface' : 'text-muted';
-                $atts['class'] = 'flex items-center gap-2 px-3 py-2 text-sm rounded-lg ' . $activeClass . ' hover:text-foreground hover:bg-surface transition-colors';
+                $atts['class'] = 'flex items-center gap-2 px-3 py-2 text-sm rounded-lg '.$activeClass.' hover:text-foreground hover:bg-surface transition-colors';
             }
         }
 
         $attributes = '';
         foreach ($atts as $attr => $value) {
-            if (!empty($value)) {
-                $value = ('href' === $attr) ? esc_url($value) : esc_attr($value);
-                $attributes .= ' ' . $attr . '="' . $value . '"';
+            if (! empty($value)) {
+                $value = ($attr === 'href') ? esc_url($value) : esc_attr($value);
+                $attributes .= ' '.$attr.'="'.$value.'"';
             }
         }
 

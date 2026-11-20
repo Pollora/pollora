@@ -39,7 +39,7 @@ class ContentHooks
 
         // Only on test post type to avoid polluting other titles
         if (get_post_type() === 'test_case') {
-            return $title . ' ✓';
+            return $title.' ✓';
         }
 
         return $title;
@@ -53,7 +53,7 @@ class ContentHooks
     #[Action('admin_head', priority: 1)]
     public function addMetaGenerator(): void
     {
-        echo '<!-- Pollora Test Suite Active -->' . PHP_EOL;
+        echo '<!-- Pollora Test Suite Active -->'.PHP_EOL;
     }
 
     /**

@@ -7,8 +7,6 @@ declare(strict_types=1);
  *
  * Global scope is intentional — th_inject_related_product_classes() is passed
  * as a string callback to WooCommerce filters.
- *
- * @package Theme\Apiary
  */
 
 use Pollora\Support\Facades\Action;
@@ -46,5 +44,6 @@ Action::add('woocommerce_after_related_products', fn () => Filter::remove('wooco
 Filter::add('woocommerce_output_related_products_args', function (array $args): array {
     $args['posts_per_page'] = 4;
     $args['columns'] = 4;
+
     return $args;
 });

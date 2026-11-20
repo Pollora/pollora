@@ -12,8 +12,6 @@ declare(strict_types=1);
  *
  * Global scope is intentional — hooks and filters registered here rely on
  * WordPress/Pollora facades at file load time.
- *
- * @package Theme\Apiary
  */
 
 use Pollora\Support\Facades\Action;
@@ -70,9 +68,9 @@ add_filter('acf/location/rule_values/menu_level', function (array $choices): arr
 /**
  * Evaluate whether a menu item matches the menu_level ACF location rule.
  *
- * @param  bool                 $match    Current match state.
- * @param  array{operator: string, value: string}  $rule     The rule being evaluated.
- * @param  array{nav_menu_item_depth?: int}         $options  Current screen context.
+ * @param  bool  $match  Current match state.
+ * @param  array{operator: string, value: string}  $rule  The rule being evaluated.
+ * @param  array{nav_menu_item_depth?: int}  $options  Current screen context.
  * @return bool Whether the rule matches.
  */
 add_filter('acf/location/rule_match/menu_level', function (bool $match, array $rule, array $options): bool {
@@ -97,7 +95,7 @@ add_filter('acf/location/rule_match/menu_level', function (bool $match, array $r
  */
 Action::add('wp_head', function (): void {
     if (is_singular() && pings_open()) {
-        echo '<link rel="pingback" href="' . esc_url(get_bloginfo('pingback_url')) . '">';
+        echo '<link rel="pingback" href="'.esc_url(get_bloginfo('pingback_url')).'">';
     }
 });
 

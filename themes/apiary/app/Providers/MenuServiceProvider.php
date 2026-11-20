@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Theme\Apiary\Providers;
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -30,7 +31,7 @@ class MenuServiceProvider extends ServiceProvider
     /**
      * Build empty collection stubs for each registered menu location.
      *
-     * @return array<string, \Illuminate\Support\Collection>
+     * @return array<string, Collection>
      */
     private function buildMenus(): array
     {

@@ -7,8 +7,6 @@ declare(strict_types=1);
  *
  * Global scope is intentional — functions are WooCommerce overrides or passed
  * as string callbacks to filters (e.g. 'wc_review_comment_form_args').
- *
- * @package Theme\Apiary
  */
 
 use Pollora\Support\Facades\Action;
@@ -112,6 +110,7 @@ Action::add('woocommerce_init', function () {
 // Replace the default star rating HTML with a Blade-rendered SVG star component
 Filter::add('woocommerce_product_get_rating_html', function ($html, $rating, $count) {
     $rating = round((float) $rating);
+
     return view('woocommerce.global.rating-stars', ['rating' => $rating, 'count' => $count])->render();
 }, 20, 3);
 

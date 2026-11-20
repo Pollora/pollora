@@ -7,8 +7,6 @@ declare(strict_types=1);
  *
  * Global scope is intentional — relies on global wrapper_open/wrapper_close
  * functions and registers multiple hook callbacks.
- *
- * @package Theme\Apiary
  */
 
 use Pollora\Support\Facades\Action;
@@ -27,7 +25,6 @@ Filter::add('woocommerce_sale_flash', function ($html): string {
 
     return str_replace('class="onsale"', 'class="onsale '.$sale_flash_class.'"', $html);
 });
-
 
 Action::add('woocommerce_init', function () {
     // Move star rating below the title+price flex wrapper (priority 12, after wrapper_close at 11)
@@ -70,9 +67,9 @@ Action::add('woocommerce_single_product_summary', function () {
 // The Reviews tab is excluded here — it's rendered separately in content-single-product.blade.php.
 Action::add('woocommerce_single_product_summary', function () {
     $product_tabs = apply_filters('woocommerce_product_tabs', []);
-    $accordion_tabs = array_filter($product_tabs, fn($key) => $key !== 'reviews', ARRAY_FILTER_USE_KEY);
+    $accordion_tabs = array_filter($product_tabs, fn ($key) => $key !== 'reviews', ARRAY_FILTER_USE_KEY);
 
-    if (!empty($accordion_tabs)) {
+    if (! empty($accordion_tabs)) {
         echo view('woocommerce.single-product.accordion', ['accordion_tabs' => $accordion_tabs]);
     }
 }, 45);

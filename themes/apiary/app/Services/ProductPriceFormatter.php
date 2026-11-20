@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\DB;
  * Produces the same `<span class="woocommerce-Price-amount">` markup as WooCommerce
  * so existing CSS styles apply without changes.
  *
- * @see \Theme\Apiary\Services\ProductSearchService
+ * @see ProductSearchService
  */
 class ProductPriceFormatter
 {
@@ -59,9 +59,9 @@ class ProductPriceFormatter
      * - Sale price: wraps the regular price in `<del>` and the sale price in `<ins>`.
      * - Normal price: returns a single formatted amount.
      *
-     * @param  string|null  $price         Current/effective price (`_price` meta).
+     * @param  string|null  $price  Current/effective price (`_price` meta).
      * @param  string|null  $regularPrice  Regular price before discount (`_regular_price` meta).
-     * @param  string|null  $salePrice     Discounted price (`_sale_price` meta), or null if not on sale.
+     * @param  string|null  $salePrice  Discounted price (`_sale_price` meta), or null if not on sale.
      * @return string HTML price markup, or empty string if no price.
      */
     public function format(?string $price, ?string $regularPrice, ?string $salePrice): string
@@ -76,8 +76,8 @@ class ProductPriceFormatter
             && $regularPrice !== $salePrice;
 
         if ($isOnSale) {
-            return '<del aria-hidden="true">' . $this->formatAmount($regularPrice) . '</del> '
-                . '<ins>' . $this->formatAmount($salePrice) . '</ins>';
+            return '<del aria-hidden="true">'.$this->formatAmount($regularPrice).'</del> '
+                .'<ins>'.$this->formatAmount($salePrice).'</ins>';
         }
 
         return $this->formatAmount($price);
@@ -102,7 +102,7 @@ class ProductPriceFormatter
             '<span class="woocommerce-Price-amount amount">%s</span>',
             sprintf(
                 $this->priceFormat,
-                '<span class="woocommerce-Price-currencySymbol">' . $this->currency . '</span>',
+                '<span class="woocommerce-Price-currencySymbol">'.$this->currency.'</span>',
                 $formatted,
             ),
         );
@@ -124,17 +124,17 @@ class ProductPriceFormatter
 
         $position = $this->getOption('woocommerce_currency_pos', 'right_space');
         $this->priceFormat = match ($position) {
-            'left'        => '%1$s%2$s',
-            'right'       => '%2$s%1$s',
-            'left_space'  => '%1$s&nbsp;%2$s',
-            default       => '%2$s&nbsp;%1$s',
+            'left' => '%1$s%2$s',
+            'right' => '%2$s%1$s',
+            'left_space' => '%1$s&nbsp;%2$s',
+            default => '%2$s&nbsp;%1$s',
         };
     }
 
     /**
      * Read a single WordPress option value from the database.
      *
-     * @param  string  $name     Option name (e.g. "woocommerce_currency").
+     * @param  string  $name  Option name (e.g. "woocommerce_currency").
      * @param  string  $default  Fallback value if the option does not exist.
      */
     private function getOption(string $name, string $default = ''): string

@@ -12,7 +12,7 @@ class BlocksServiceProvider extends ServiceProvider
     public function boot(BlockRegistrar $registrar): void
     {
         $registrar->registerDirectory(
-            directory: dirname(__DIR__, 2) . '/resources/blocks',
+            directory: dirname(__DIR__, 2).'/resources/blocks',
             containerName: 'module.blocks-demo',
         );
     }

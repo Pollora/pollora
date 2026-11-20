@@ -39,18 +39,18 @@ class AssetServiceProvider extends ServiceProvider
 
             $data = [
                 'addToCartConfirmation' => $confirmationEnabled,
-                'cartUrl'     => function_exists('wc_get_cart_url') ? wc_get_cart_url() : '',
+                'cartUrl' => function_exists('wc_get_cart_url') ? wc_get_cart_url() : '',
                 'checkoutUrl' => function_exists('wc_get_checkout_url') ? wc_get_checkout_url() : '',
                 'i18n' => [
-                    'addedToCart'      => __('%s added to cart.', 'apiary'),
-                    'productAdded'     => __('Product added to cart.', 'apiary'),
-                    'dismiss'          => __('Dismiss', 'apiary'),
+                    'addedToCart' => __('%s added to cart.', 'apiary'),
+                    'productAdded' => __('Product added to cart.', 'apiary'),
+                    'dismiss' => __('Dismiss', 'apiary'),
                     'addedToCartTitle' => __('Added to cart', 'apiary'),
-                    'viewCart'         => __('View cart', 'apiary'),
+                    'viewCart' => __('View cart', 'apiary'),
                     'continueShopping' => __('Continue shopping', 'apiary'),
-                    'checkout'         => __('Checkout', 'apiary'),
-                    'recentlyViewed'   => __('Recently viewed', 'apiary'),
-                    'youMayAlsoLike'   => __('You may also like', 'apiary'),
+                    'checkout' => __('Checkout', 'apiary'),
+                    'recentlyViewed' => __('Recently viewed', 'apiary'),
+                    'youMayAlsoLike' => __('You may also like', 'apiary'),
                 ],
             ];
 
@@ -58,36 +58,37 @@ class AssetServiceProvider extends ServiceProvider
                 $product = wc_get_product(get_the_ID());
                 if ($product) {
                     $data['currentProduct'] = [
-                        'id'           => $product->get_id(),
-                        'name'         => $product->get_name(),
-                        'price'        => $product->get_price_html(),
-                        'image'        => wp_get_attachment_url($product->get_image_id()) ?: wc_placeholder_img_src(),
-                        'description'  => $product->get_short_description(),
-                        'url'          => get_permalink(),
+                        'id' => $product->get_id(),
+                        'name' => $product->get_name(),
+                        'price' => $product->get_price_html(),
+                        'image' => wp_get_attachment_url($product->get_image_id()) ?: wc_placeholder_img_src(),
+                        'description' => $product->get_short_description(),
+                        'url' => get_permalink(),
                         'crossSellIds' => $product->get_cross_sell_ids(),
-                        'upsellIds'    => $product->get_upsell_ids(),
+                        'upsellIds' => $product->get_upsell_ids(),
                     ];
                 }
             }
 
-            echo '<script>window.apiaryCart = ' . wp_json_encode($data) . ';</script>' . "\n";
+            echo '<script>window.apiaryCart = '.wp_json_encode($data).';</script>'."\n";
 
             // Search suggestions config
             $searchConfig = config('theme.woocommerce.search', []);
             if (! empty($searchConfig['suggestions'])) {
                 $searchData = [
-                    'apiUrl'     => home_url('/api/products/search'),
-                    'minChars'   => (int) ($searchConfig['min_chars'] ?? 3),
-                    'debounce'   => (int) ($searchConfig['debounce'] ?? 300),
+                    'apiUrl' => home_url('/api/products/search'),
+                    'minChars' => (int) ($searchConfig['min_chars'] ?? 3),
+                    'debounce' => (int) ($searchConfig['debounce'] ?? 300),
                     'maxResults' => (int) ($searchConfig['max_results'] ?? 6),
                 ];
-                echo '<script>window.apiarySearch = ' . wp_json_encode($searchData) . ';</script>' . "\n";
+                echo '<script>window.apiarySearch = '.wp_json_encode($searchData).';</script>'."\n";
             }
         }, 1);
 
         // Remove default WooCommerce styles
         Filter::add('woocommerce_enqueue_styles', function (array $enqueueStyles) {
             unset($enqueueStyles['woocommerce-general'], $enqueueStyles['woocommerce-layout'], $enqueueStyles['woocommerce-smallscreen']);
+
             return $enqueueStyles;
         });
     }

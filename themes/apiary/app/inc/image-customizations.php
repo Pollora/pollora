@@ -10,8 +10,6 @@ namespace Theme\Apiary;
  * - Wraps standalone `<img>` tags in `<figure class="media">` elements.
  * - Overrides the `[caption]` shortcode to use semantic `<figure>/<figcaption>`.
  * - Provides a `custom_logo()` helper for rendering the site logo with configurable classes.
- *
- * @package Theme\Apiary
  */
 
 /**
@@ -36,13 +34,13 @@ add_filter('img_caption_shortcode', function (string $output, array $attr, strin
     }
 
     $attr = shortcode_atts([
-        'id'      => '',
-        'align'   => 'alignnone',
-        'width'   => '',
+        'id' => '',
+        'align' => 'alignnone',
+        'width' => '',
         'caption' => '',
     ], $attr);
 
-    if (1 > $attr['width'] || empty($attr['caption'])) {
+    if ($attr['width'] < 1 || empty($attr['caption'])) {
         return $content;
     }
 
@@ -57,9 +55,9 @@ add_filter('img_caption_shortcode', function (string $output, array $attr, strin
 /**
  * Render the custom logo with configurable image and link classes.
  *
- * @param  string  $imgClasses   CSS classes applied to the `<img>` element.
+ * @param  string  $imgClasses  CSS classes applied to the `<img>` element.
  * @param  string  $linkClasses  CSS classes applied to the wrapping `<a>` element.
- * @param  bool    $enableLink   Whether to wrap the logo in a link to the homepage.
+ * @param  bool  $enableLink  Whether to wrap the logo in a link to the homepage.
  * @return string HTML markup for the logo.
  */
 function custom_logo(string $imgClasses = 'w-8 h-8', string $linkClasses = 'custom-logo-link', bool $enableLink = true): string

@@ -17,7 +17,7 @@ class ThemeSetup
     #[Action('after_setup_theme', priority: 5)]
     public function loadTextdomain(): void
     {
-        load_theme_textdomain('apiary', get_template_directory() . '/languages');
+        load_theme_textdomain('apiary', get_template_directory().'/languages');
     }
 
     /**
