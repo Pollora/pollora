@@ -18,10 +18,10 @@ use Illuminate\Support\Facades\Route;
 /**
  * WordPress routes.
  *
- * Nothing to declare here for plain view rendering: the template hierarchy
- * resolves a request to the matching Blade view in
- * themes/{theme}/resources/views/ — home, single, page, archive, category,
- * author, search, taxonomy, 404 — through the FrontendController fallback.
+ * Nothing to declare here to render a template: the WordPress template
+ * hierarchy resolves each request to the matching Blade view of the active
+ * theme — home, single, page, archive, category, tag, author, date, search,
+ * taxonomy, 404 — and falls back to index.blade.php.
  *
  * Use Route::wp() only when a request needs controller logic, middleware or a
  * named route.

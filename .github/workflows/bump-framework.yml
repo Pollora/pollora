@@ -1,0 +1,108 @@
+name: Bump framework
+
+# A framework tag reaches new projects only once a skeleton tag carries it in
+# composer.lock (`composer create-project` installs what the lock pins). This
+# opens the pull request that moves the lock; merging it and tagging the
+# skeleton stay manual, as the tag is what ships.
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  # Pull requests opened with GITHUB_TOKEN start no workflow, so the tests are
+  # dispatched by hand on the branch below.
+  actions: write
+
+concurrency:
+  group: bump-framework
+  cancel-in-progress: false
+
+jobs:
+  bump:
+    name: Bump pollora/framework
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          tools: composer:v2
+          coverage: none
+
+      - name: Move the lock
+        id: bump
+        run: .github/scripts/bump-framework.sh | tee -a "$GITHUB_OUTPUT"
+
+      - name: Open the pull request
+        if: steps.bump.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OLD: ${{ steps.bump.outputs.old }}
+          NEW: ${{ steps.bump.outputs.new }}
+          PATCHES_CHANGED: ${{ steps.bump.outputs.patches_changed }}
+        run: |
+          branch="release/${NEW}"
+
+          # A branch that already exists is someone's work in progress (or a
+          # release merged and not yet tagged): leave it alone.
+          if git ls-remote --exit-code --heads origin "$branch" >/dev/null; then
+            echo "::notice::$branch already exists, nothing to do"
+            exit 0
+          fi
+
+          # A newer framework release replaces an older bump nobody merged.
+          gh label create bump-framework --description "Opened by the Bump framework workflow" \
+            --color 0e8a16 2>/dev/null || true
+          for number in $(gh pr list --label bump-framework --state open --json number -q '.[].number'); do
+            gh pr close "$number" --delete-branch \
+              --comment "Superseded by ${NEW}."
+          done
+          for number in $(gh issue list --label bump-framework --state open --json number -q '.[].number'); do
+            gh issue close "$number" --comment "Superseded by ${NEW}."
+          done
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add composer.lock CHANGELOG.md
+          git commit -m "chore: release ${NEW}"
+          git push origin "$branch"
+
+          body="Lock → \`pollora/framework\` ${NEW} (it pinned ${OLD}), opened by the **Bump framework** workflow."
+          draft=()
+          if [ "$PATCHES_CHANGED" = "true" ]; then
+            draft=(--draft)
+            body="${body}
+
+          **The framework's patches changed.** composer-patches 2 reads \`patches.lock.json\` alone once it exists, so run \`composer patches-relock\` and \`composer patches-repatch\`, commit the new \`patches.lock.json\`, then mark this pull request ready. Merged as is, a new project would install without the patch."
+          fi
+
+          # An organisation may forbid Actions to create pull requests; the
+          # branch is pushed all the same, so hand over the command instead.
+          if ! gh pr create --base main --head "$branch" --title "chore: release ${NEW}" \
+            --label bump-framework --body "$body" "${draft[@]}"; then
+            gh issue create --title "Framework ${NEW} is out: open the release pull request" \
+              --label bump-framework --body "${body}
+
+          GitHub Actions cannot open pull requests here, so the branch \`${branch}\` is pushed and its tests are running. Open the pull request with:
+
+          \`\`\`
+          gh pr create --base main --head ${branch} --title \"chore: release ${NEW}\" --fill
+          \`\`\`
+
+          Then merge it and tag the skeleton \`${NEW}\`."
+          fi
+
+          # Start the tests on the branch: a pull request opened with
+          # GITHUB_TOKEN triggers none, but a dispatched run reports on the
+          # commit and shows on the pull request.
+          gh workflow run tests.yml --ref "$branch"

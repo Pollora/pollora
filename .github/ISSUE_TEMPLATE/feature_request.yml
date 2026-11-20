@@ -1,0 +1,31 @@
+name: Feature request
+description: Suggest something the skeleton should do
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: >-
+        What are you trying to do that the skeleton makes hard today? Describe
+        the situation rather than the solution — it often has more than one.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you have in mind
+      description: Optional. A sketch, an API, a command, or just a direction.
+    validations:
+      required: false
+
+  - type: textarea
+    id: workaround
+    attributes:
+      label: What you do instead today
+      description: >-
+        A workaround tells us how much the gap costs, and sometimes turns out to
+        be the right answer documented in the wrong place.
+    validations:
+      required: false

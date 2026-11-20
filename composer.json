@@ -1,7 +1,7 @@
 {
     "name": "pollora/pollora",
     "type": "project",
-    "description": "The skeleton application for the Pollora framework.",
+    "description": "Skeleton for Pollora, the Laravel framework for WordPress: create a WordPress project running inside Laravel.",
     "keywords": [
         "pollora",
         "laravel",
@@ -9,15 +9,13 @@
         "wordpress"
     ],
     "license": "MIT",
+    "homepage": "https://pollora.dev",
+    "support": {
+        "docs": "https://pollora.dev",
+        "issues": "https://github.com/Pollora/framework/issues",
+        "source": "https://github.com/Pollora/pollora"
+    },
     "repositories": [
-        {
-            "type": "path",
-            "url": "/var/www/pollora-packages/*",
-            "canonical": false,
-            "options": {
-                "symlink": true
-            }
-        },
         {
             "type": "composer",
             "url": "https://repo.wp-packages.org"
@@ -26,25 +24,21 @@
     "require": {
         "php": "^8.3",
         "barryvdh/laravel-ide-helper": "^3.7",
-        "johnpbloch/wordpress": "^7.0",
-        "laravel/framework": "^13.5",
+        "johnpbloch/wordpress": "^7.1",
+        "laravel/framework": "^13.43",
         "laravel/sanctum": "^4.3 || ^5.0",
         "laravel/tinker": "^3.0",
-        "pollora/framework": "dev-develop",
-        "pollora/woocommerce": "^0.1",
-        "wp-plugin/woocommerce": "^10.8"
+        "pollora/framework": "^13.43.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
-        "laravel/boost": "^2.0",
         "laravel/pail": "^1.2.5",
         "laravel/pint": "^1.27",
         "laravel/sail": "^1.53",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
-        "phpunit/phpunit": "^11.5.3",
-        "pollora/debugbar": "dev-main",
-        "pollora/nectar": "^1.1"
+        "pestphp/pest": "^4.7",
+        "phpunit/phpunit": "^12.5.12"
     },
     "autoload": {
         "files": [
@@ -64,21 +58,23 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan pollora:env:setup --install",
-            "@php artisan pollora:install --install"
+            "@php artisan pollora:env:setup --install"
         ],
         "post-update-cmd": [
+            "@composer patches-relock --no-interaction",
+            "@composer patches-repatch --no-interaction",
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
-            "@php artisan key:generate --ansi"
+            "@php artisan key:generate --ansi",
+            "@php artisan pollora:install"
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
-            "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite"
+            "@php artisan dev"
         ],
         "setup": [
             "composer install",
@@ -90,11 +86,10 @@
         ],
         "test": [
             "@php artisan config:clear --ansi",
-            "@php artisan test --exclude-testsuite=Integration"
+            "@php artisan test"
         ],
-        "test:integration": [
-            "@php tests/integration.php"
-        ],
+        "test:install": "@php tests/install/run.php",
+        "test:integration": "@php tests/integration.php",
         "pre-package-uninstall": [
             "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"
         ]
@@ -110,15 +105,18 @@
             ],
             "public/content/themes/{$name}/": [
                 "type:wordpress-theme"
+            ],
+            "Modules/{$name}/": [
+                "vendor:pollora"
             ]
         },
         "merge-plugin": {
             "include": [
                 "Modules/*/composer.json"
-            ]
+            ],
+            "merge-dev": false
         },
-        "laravel": [],
-        "enable-patching": true
+        "laravel": []
     },
     "config": {
         "optimize-autoloader": true,
@@ -135,8 +133,10 @@
             "php-http/discovery": true,
             "pollora/helper-overrider": true,
             "wikimedia/composer-merge-plugin": true
+        },
+        "platform": {
+            "php": "8.3.0"
         }
     },
-    "minimum-stability": "dev",
     "prefer-stable": true
 }

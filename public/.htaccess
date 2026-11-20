@@ -13,10 +13,33 @@
     RewriteCond %{HTTP:x-xsrf-token} .
     RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
 
+    # WordPress Content Directories Are Not Pages...
+    #
+    # A directory, or the empty index.php WordPress ships in some of them
+    # ("Silence is golden"), answered a blank 200 or a 403: either way it told
+    # a visitor the directory exists. The front controller answers instead,
+    # with the site's own 404. Files in them (CSS, JS, images) are served as
+    # before.
+    RewriteCond %{REQUEST_FILENAME} -d [OR]
+    RewriteCond %{REQUEST_FILENAME} /index\.php$
+    RewriteRule ^(cms/wp-content|content)(/|$) index.php [L]
+
     # Redirect Trailing Slashes If Not A Folder...
+    #
+    # Only GET and HEAD: a redirected POST or OPTIONS is lost. The REST API is
+    # left to WordPress, whose rest_url() ends in a slash. The scheme is stated
+    # because behind a proxy that terminates TLS Apache only sees HTTP, and
+    # would otherwise send https visitors to http://.
+    RewriteCond %{HTTPS} =on [OR]
+    RewriteCond %{HTTP:X-Forwarded-Proto} =https
+    RewriteRule ^ - [E=POLLORA_SCHEME:https]
+    RewriteCond %{ENV:POLLORA_SCHEME} !=https
+    RewriteRule ^ - [E=POLLORA_SCHEME:http]
+    RewriteCond %{REQUEST_METHOD} ^(GET|HEAD)$
+    RewriteCond %{REQUEST_URI} !^/wp-json(/|$)
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} (.+)/$
-    RewriteRule ^ %1 [L,R=301]
+    RewriteRule ^ %{ENV:POLLORA_SCHEME}://%{HTTP_HOST}%1 [L,R=301]
 
     # Send Requests To Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
@@ -25,9 +48,9 @@
 </IfModule>
 
 # BEGIN WordPress
-# Les directives (lignes) entre « BEGIN WordPress » et « END WordPress » sont générées
-# dynamiquement, et doivent être modifiées uniquement via les filtres WordPress.
-# Toute modification des directives situées entre ces marqueurs sera surchargée.
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
@@ -39,3 +62,16 @@ RewriteRule . /index.php [L]
 </IfModule>
 
 # END WordPress
+
+# Image sizes made by pollora/media
+#
+# The file of a declared size is named photo-card-600x400-{signature}.webp and
+# never changes while the size does not: a year, immutable. A size that does
+# not exist yet is sent to the front controller by the rule above, made at the
+# path of its URL and served with the same header; this one covers the files
+# Apache serves once they exist.
+<IfModule mod_headers.c>
+    <FilesMatch "-[a-z0-9_]+(-[0-9]+w)?-[0-9]+x[0-9]+-[0-9a-f]{12}\.(webp|avif|jpe?g|png)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+</IfModule>

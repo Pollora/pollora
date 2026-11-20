@@ -1,0 +1,29 @@
+{
+    "_hash": "b1670ee28b3d45a162495e27466ecfa3f672e61993e7ca3c41f50d944962e83c",
+    "patches": {
+        "johnpbloch/wordpress-core": [
+            {
+                "package": "johnpbloch/wordpress-core",
+                "description": "Patch __ method in l10n to stop conflicting with Laravel",
+                "url": "https://raw.githubusercontent.com/Pollora/framework/5681565cb42923cdec3b1c0e855a2721b8bc3724/patches/wordpress-core.patch",
+                "sha256": "e54909905a89c376f68b0dc4988d7e48bea9929491675bab232eab068c929b33",
+                "depth": 1,
+                "extra": {
+                    "provenance": "dependency:johnpbloch/wordpress-core"
+                }
+            }
+        ],
+        "php-stubs/wordpress-stubs": [
+            {
+                "package": "php-stubs/wordpress-stubs",
+                "description": "Rename __ to __wp so Laravel can declare __()",
+                "url": "https://raw.githubusercontent.com/Pollora/framework/b26034b3306c96098f756c0ca80631a596db25c9/patches/wordpress-stubs.patch",
+                "sha256": "5374bec5ea271947b027cc9801b32f06fab21d637b586c852ad5ee730e4e534f",
+                "depth": 1,
+                "extra": {
+                    "provenance": "dependency:php-stubs/wordpress-stubs"
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,66 @@
+name: Bug report
+description: Something in the skeleton does not behave as it should
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. If the problem is in routing, hooks, attributes,
+        discovery or the themes API, it likely belongs in
+        [Pollora/framework](https://github.com/Pollora/framework/issues) — but
+        file it here if you are unsure, we will move it.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you expected, and what you got instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Ideally starting from a fresh `composer create-project`.
+      placeholder: |
+        1. composer create-project pollora/pollora:<version> demo
+        2. ...
+        3. Open /... and observe ...
+    validations:
+      required: true
+
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: >-
+        Output of `composer show pollora/pollora` and
+        `composer show pollora/framework`, plus PHP and WordPress.
+      placeholder: "skeleton v13.32.0-beta.6, framework v13.32.0-beta.6, PHP 8.4, WP 6.9"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: login-page
+    attributes:
+      label: Is /wp-login.php affected too?
+      description: >-
+        Worth thirty seconds — if that page shows the problem as well, the cause
+        is in the boot rather than in the theme, the template or WooCommerce.
+        It narrows the search a great deal.
+      options:
+        - "Not checked"
+        - "Yes — wp-login.php shows it too"
+        - "No — wp-login.php is fine"
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Relevant lines from `storage/logs/laravel.log`, if any.
+      render: shell
+    validations:
+      required: false

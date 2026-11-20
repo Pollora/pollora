@@ -2,38 +2,30 @@
 
 declare(strict_types=1);
 
-namespace Tests\Feature\Installation;
-
 use Illuminate\Support\Facades\DB;
-use Tests\TestCase;
 
-class EnvironmentSetupTest extends TestCase
-{
-    public function test_env_contains_app_key(): void
-    {
-        $this->assertNotEmpty(config('app.key'), 'APP_KEY is not set in .env');
-    }
+// The failure messages are kept: Pest's expect() has no message argument,
+// so these stay PHPUnit assertions bound to the test case.
 
-    public function test_env_contains_db_database(): void
-    {
-        $this->assertNotEmpty(config('database.connections.mysql.database'), 'DB_DATABASE is not set');
-    }
+it('contains the app key in the env', function (): void {
+    $this->assertNotEmpty(config('app.key'), 'APP_KEY is not set in .env');
+});
 
-    public function test_env_contains_app_url(): void
-    {
-        $this->assertNotEmpty(config('app.url'), 'APP_URL is not set');
-    }
+it('contains the db database in the env', function (): void {
+    $this->assertNotEmpty(config('database.connections.mysql.database'), 'DB_DATABASE is not set');
+});
 
-    public function test_app_url_matches_env(): void
-    {
-        $envUrl = env('APP_URL');
-        $configUrl = config('app.url');
+it('contains the app url in the env', function (): void {
+    $this->assertNotEmpty(config('app.url'), 'APP_URL is not set');
+});
 
-        $this->assertEquals($envUrl, $configUrl, 'config(app.url) does not match APP_URL');
-    }
+it('has an app url matching the env', function (): void {
+    $envUrl = env('APP_URL');
+    $configUrl = config('app.url');
 
-    public function test_database_connection_works(): void
-    {
-        $this->assertNotNull(DB::connection()->getPdo(), 'Database connection failed');
-    }
-}
+    $this->assertEquals($envUrl, $configUrl, 'config(app.url) does not match APP_URL');
+});
+
+it('connects to the database', function (): void {
+    $this->assertNotNull(DB::connection()->getPdo(), 'Database connection failed');
+});
