@@ -16,8 +16,8 @@ const getBaseUrl = () => {
 
 const isHttps = getBaseUrl().startsWith('https');
 
-const blockEntries = globSync('./resources/blocks/*/{index,view}.{js,jsx,ts,tsx}')
-    .concat(globSync('./resources/blocks/*/{editor,style}.css'))
+const blockEntries = globSync('./resources/views/blocks/*/{index,view}.{js,jsx,ts,tsx}')
+    .concat(globSync('./resources/views/blocks/*/{editor,style}.css'))
     .reduce((acc, file) => {
         const slug = path.basename(path.dirname(file));
         const name = path.basename(file, path.extname(file));
@@ -70,7 +70,7 @@ const getModuleConfig = () => ({
     buildDirectory: path.join("build", "module", moduleSlug),
     refresh: [
         ...refreshPaths,
-        'resources/blocks/**',
+        'resources/views/blocks/**',
     ],
 });
 
