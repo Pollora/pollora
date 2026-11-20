@@ -28,7 +28,9 @@
         "laravel/framework": "^13.43",
         "laravel/sanctum": "^4.3 || ^5.0",
         "laravel/tinker": "^3.0",
-        "pollora/framework": "^13.43.1"
+        "pollora/framework": "^13.43.1",
+        "pollora/woocommerce": "^0.1",
+        "wp-plugin/woocommerce": "^10.8"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
