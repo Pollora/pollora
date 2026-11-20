@@ -1,0 +1,21 @@
+{
+    "name": "blocks-demo-module",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "@roots/vite-plugin": "^2.0.0",
+        "@wordpress/block-editor": "^14.0.0",
+        "@wordpress/blocks": "^14.0.0",
+        "@wordpress/components": "^29.0.0",
+        "@wordpress/element": "^6.0.0",
+        "@wordpress/i18n": "^5.0.0",
+        "glob": "^11.0.0",
+        "laravel-vite-plugin": "^3.0.1",
+        "vite": "^8.0.9"
+    }
+}

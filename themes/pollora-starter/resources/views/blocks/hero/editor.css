@@ -1,0 +1,10 @@
+@reference "tailwindcss";
+
+/**
+ * Editor styles for the pollora-starter/hero block.
+ *
+ * These styles are only loaded in the block editor.
+ */
+.wp-block-pollora-starter-hero {
+    @apply border-2 border-dashed border-gray-300 p-8 text-center;
+}

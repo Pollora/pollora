@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@source "../../views";
+
+/*
+ * Ink on newsprint, one editorial accent used sparingly (rubrics, the
+ * masthead rule, a link on hover) — never as a colour field. `static` so
+ * every value reaches theme.json even where no utility class uses it, and
+ * concrete: a preset built from its own CSS variable is a cycle the build
+ * cannot resolve.
+ *
+ * Fonts, font sizes and border radii are authored by hand in theme.json
+ * instead (`disableTailwindFonts`/`FontSizes`/`BorderRadius` in
+ * vite.config.js) — Buzz's whole type scale and its two families are the
+ * design system, not a Tailwind default swapped in behind it.
+ */
+@theme static {
+    --color-paper: oklch(97% 0.01 80);
+    --color-ink: oklch(18% 0.012 75);
+    --color-caption: oklch(45% 0.02 75);
+    --color-rule: oklch(85% 0.012 75);
+    --color-rubric: oklch(48% 0.18 25);
+}
+
+/*
+ * The palette above becomes theme.json's `settings.color.palette`, so a
+ * colour edited in the Site Editor reaches every hand-authored pattern and
+ * every core block alike. These utilities read the WordPress preset instead
+ * of the literal, with the same value as a fallback for the editor iframe
+ * before the preset is registered.
+ */
+@layer base {
+    :root {
+        --color-paper: var(--wp--preset--color--paper, oklch(97% 0.01 80));
+        --color-ink: var(--wp--preset--color--ink, oklch(18% 0.012 75));
+        --color-caption: var(--wp--preset--color--caption, oklch(45% 0.02 75));
+        --color-rule: var(--wp--preset--color--rule, oklch(85% 0.012 75));
+        --color-rubric: var(--wp--preset--color--rubric, oklch(48% 0.18 25));
+    }
+
+}
+
+/*
+ * A short page (a stub article, an empty archive) must not leave the
+ * colophon stranded mid-viewport: WordPress prints the header, the main
+ * content and the footer as siblings under `.wp-site-blocks`, so the fix is
+ * the classic sticky-footer flex column — the content pattern's own <main>
+ * is the one growing child, per its `flex-grow` below.
+ */
+.wp-site-blocks {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.wp-site-blocks > main {
+    flex: 1 0 auto;
+}
+
+/* Hand-authored, non-core pieces of the masthead and colophon patterns. */
+.buzz-masthead {
+    border-bottom: 1px solid var(--color-rule);
+}
+
+/* Playfair Display's contrast is already full-strength at any size; a touch
+   of negative tracking is what a masthead needs at this scale. */
+.buzz-nameplate {
+    letter-spacing: -0.01em;
+}
+
+.buzz-colophon {
+    background: var(--color-ink);
+    color: var(--color-paper);
+}
+
+.buzz-colophon a {
+    color: var(--color-paper);
+}
+
+.buzz-colophon a:hover {
+    color: var(--color-rubric);
+}
+
+/* A journal index list: large serif titles, a hairline rule between entries. */
+.buzz-index-list > * + * {
+    border-top: 1px solid var(--color-rule);
+}
+
+.buzz-index-list > * {
+    padding-block: var(--wp--preset--spacing--md, 2rem);
+}
+
+.buzz-index-list > *:first-child {
+    padding-top: 0;
+}

@@ -1,0 +1,8 @@
+{
+    "name": "modules/blocks-demo",
+    "autoload": {
+        "psr-4": {
+            "Module\\BlocksDemo\\": "app/"
+        }
+    }
+}

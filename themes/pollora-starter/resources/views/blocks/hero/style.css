@@ -1,0 +1,15 @@
+@reference "tailwindcss";
+
+/**
+ * Styles for the pollora-starter/hero block.
+ *
+ * These styles are loaded in both the editor and the frontend.
+ */
+.wp-block-pollora-starter-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    @apply text-white py-16 px-8 text-center rounded-lg;
+}
+
+.wp-block-pollora-starter-hero p {
+    @apply text-2xl m-0;
+}

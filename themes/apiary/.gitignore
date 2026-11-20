@@ -1,0 +1,10 @@
+# Miscellaneous
+.DS_Store
+Thumbs.db
+.idea/
+.php_cs.cache
+
+# Theme
+node_modules/
+vendor/
+dist/

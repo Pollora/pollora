@@ -1,0 +1,10 @@
+{
+    "name": "BlocksDemo",
+    "alias": "blocks-demo",
+    "description": "Demo module to test Gutenberg block registration via Pollora framework.",
+    "keywords": ["blocks", "gutenberg", "demo"],
+    "active": true,
+    "order": 0,
+    "providers": [],
+    "files": []
+}

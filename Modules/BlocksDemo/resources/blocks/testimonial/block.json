@@ -1,0 +1,45 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "blocks-demo/testimonial",
+    "version": "1.0.0",
+    "title": "Testimonial",
+    "category": "design",
+    "icon": "format-quote",
+    "description": "A testimonial block with quote, author name and role.",
+    "keywords": ["testimonial", "quote", "review"],
+    "textdomain": "blocks-demo",
+    "attributes": {
+        "quote": {
+            "type": "string",
+            "default": ""
+        },
+        "authorName": {
+            "type": "string",
+            "default": ""
+        },
+        "authorRole": {
+            "type": "string",
+            "default": ""
+        },
+        "avatarUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "avatarId": {
+            "type": "number",
+            "default": 0
+        }
+    },
+    "supports": {
+        "html": false,
+        "align": ["wide"],
+        "color": {
+            "background": true,
+            "text": true
+        }
+    },
+    "editorScript": "file:./index.jsx",
+    "editorStyle": "file:./editor.css",
+    "style": "file:./style.css"
+}
