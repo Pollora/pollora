@@ -168,6 +168,33 @@ function hasTaxonomy(string $taxonomy): bool
     return $cache[$taxonomy];
 }
 
+/**
+ * Whether the demo content the "project" tests read is on the site: the
+ * "test-project" project and the "web" project-category term. The post type
+ * and the taxonomy can be registered by app/Cms on a site whose theme and
+ * content are not the demo's, where these tests have nothing to assert on.
+ */
+function hasDemoProjectContent(): bool
+{
+    global $baseUrl;
+    static $answer = null;
+    if ($answer === null) {
+        $answer = hasPostType('project') && hasTaxonomy('project-category')
+            && restCollectionHas("$baseUrl/cms/?rest_route=/wp/v2/project&slug=test-project")
+            && restCollectionHas("$baseUrl/cms/?rest_route=/wp/v2/project-category&slug=web");
+    }
+
+    return $answer;
+}
+
+function restCollectionHas(string $url): bool
+{
+    $r = httpGet($url);
+    $items = json_decode($r['body'], true);
+
+    return $r['status'] === 200 && is_array($items) && $items !== [];
+}
+
 function hasRestNamespace(string $namespace): bool
 {
     global $baseUrl;
@@ -654,7 +681,7 @@ test('Theme assets load (CSS/JS references in HTML)', function () use ($baseUrl)
 
 test('Project archive renders archive template via hierarchy', function () use ($baseUrl) {
     skipUnless(themeMarksTemplates(), 'a site that reports which template answered');
-    skipUnless(hasPostType('project'), 'the demo "project" post type');
+    skipUnless(hasDemoProjectContent(), 'the demo "project" content (test-project, web)');
     $r = httpGet("$baseUrl/project/");
 
     return rendersTemplate($r, 'archive');
@@ -736,7 +763,7 @@ test('Route::wp(singular, post) renders single template for hello-world', functi
 
 test('Single project renders single-project template (not generic single)', function () use ($baseUrl) {
     skipUnless(themeMarksTemplates(), 'a site that reports which template answered');
-    skipUnless(hasPostType('project'), 'the demo "project" post type');
+    skipUnless(hasDemoProjectContent(), 'the demo "project" content (test-project, web)');
     $r = httpGet("$baseUrl/project/test-project/");
 
     return rendersTemplate($r, 'single-project');
@@ -744,7 +771,7 @@ test('Single project renders single-project template (not generic single)', func
 
 test('Single project does NOT get the generic single (post) template', function () use ($baseUrl) {
     skipUnless(themeMarksTemplates(), 'a site that reports which template answered');
-    skipUnless(hasPostType('project'), 'the demo "project" post type');
+    skipUnless(hasDemoProjectContent(), 'the demo "project" content (test-project, web)');
     $r = httpGet("$baseUrl/project/test-project/");
 
     return doesNotRenderTemplate($r, 'single');
@@ -752,7 +779,7 @@ test('Single project does NOT get the generic single (post) template', function 
 
 test('Taxonomy archive project-category/web renders taxonomy template', function () use ($baseUrl) {
     skipUnless(themeMarksTemplates(), 'a site that reports which template answered');
-    skipUnless(hasTaxonomy('project-category'), 'the demo "project-category" taxonomy');
+    skipUnless(hasDemoProjectContent(), 'the demo "project" content (test-project, web)');
     $r = httpGet("$baseUrl/project-category/web/");
 
     return rendersTemplate($r, 'taxonomy');
