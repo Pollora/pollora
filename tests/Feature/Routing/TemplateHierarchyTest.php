@@ -19,7 +19,7 @@ use Tests\TestCase;
  * Prerequisites:
  *   - WordPress installed with content: posts with categories/tags, projects
  *   - Permalinks set to /%postname%/
- *   - Theme with template hierarchy Blade views and data-pollora-template markers
+ *   - Theme pollora-starter active (its template hierarchy Blade views and data-pollora-template markers); the tests are skipped with another theme
  *
  * @covers \Pollora\Route\UI\Http\Controllers\FrontendController
  * @covers \Pollora\View\Infrastructure\Services\WordPressTemplateHierarchyFilter
@@ -28,6 +28,13 @@ use Tests\TestCase;
 class TemplateHierarchyTest extends TestCase
 {
     use WordPressAssertions;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->skipUnlessThemeIsActive('pollora-starter');
+    }
 
     // ─── Category template ───────────────────────────────────
 

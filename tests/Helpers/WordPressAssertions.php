@@ -15,6 +15,22 @@ trait WordPressAssertions
         return config('database.connections.mysql.prefix', 'wp_');
     }
 
+    /**
+     * Skip the current test unless the given theme is the active one.
+     *
+     * Some tests rely on the views of a specific theme (for instance its
+     * category or author templates); on an install that uses another theme
+     * they cannot pass, so they are skipped instead of failing.
+     */
+    protected function skipUnlessThemeIsActive(string $stylesheet): void
+    {
+        $active = DB::table('options')->where('option_name', 'stylesheet')->value('option_value');
+
+        if ($active !== $stylesheet) {
+            $this->markTestSkipped(sprintf('Requires the "%s" theme, the active theme is "%s".', $stylesheet, $active ?? 'unknown'));
+        }
+    }
+
     protected function siteUrl(string $path = '/'): string
     {
         return rtrim(config('app.url'), '/').$path;
