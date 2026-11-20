@@ -30,10 +30,12 @@ class IntervalMaintenance
     {
         global $wpdb;
 
-        $tables = $wpdb->get_col("SHOW TABLES LIKE '{$wpdb->prefix}%'");
+        $tables = $wpdb->get_col(
+            $wpdb->prepare('SHOW TABLES LIKE %s', $wpdb->esc_like($wpdb->prefix).'%')
+        );
 
         foreach ($tables as $table) {
-            $wpdb->query("OPTIMIZE TABLE `{$table}`");
+            $wpdb->query($wpdb->prepare('OPTIMIZE TABLE %i', $table));
         }
     }
 

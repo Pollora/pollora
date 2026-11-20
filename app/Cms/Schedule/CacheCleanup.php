@@ -21,7 +21,12 @@ class CacheCleanup
         global $wpdb;
 
         $wpdb->query(
-            "DELETE FROM {$wpdb->options} WHERE option_name LIKE '_transient_timeout_%' AND option_value < UNIX_TIMESTAMP()"
+            $wpdb->prepare(
+                'DELETE FROM %i WHERE option_name LIKE %s AND option_value < %d',
+                $wpdb->options,
+                $wpdb->esc_like('_transient_timeout_').'%',
+                time()
+            )
         );
     }
 
