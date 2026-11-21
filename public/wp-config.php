@@ -76,7 +76,8 @@ url()->useOrigin(config('app.url'));
 /* ---------------------------------------------------- */
 // Database prefix (WordPress)
 /* ---------------------------------------------------- */
-$table_prefix = config('database.connections.mysql.prefix', 'wp_');
+// The prefix of the default connection: MySQL, or SQLite when DB_CONNECTION=sqlite.
+$table_prefix = config('database.connections.'.config('database.default').'.prefix', 'wp_');
 
 $app->bootstrapWith([
     RegisterProviders::class,

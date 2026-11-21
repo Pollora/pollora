@@ -5,6 +5,21 @@ declare(strict_types=1);
 return [
 
     'connections' => [
+        // Development, CI and demos only: `php artisan pollora:install --db=sqlite`
+        // needs the SQLite Database Integration plugin (composer require
+        // wp-plugin/sqlite-database-integration). Production runs on MySQL or MariaDB.
+        'sqlite' => [
+            'driver' => 'sqlite',
+            'url' => env('DB_URL'),
+            'database' => env('DB_DATABASE', database_path('database.sqlite')),
+            // Same prefix as MySQL: the WordPress tables and Laravel's share it
+            'prefix' => env('DATABASE_PREFIX', 'pf_'),
+            'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
+            'busy_timeout' => 5000,
+            'journal_mode' => 'WAL',
+            'synchronous' => 'NORMAL',
+        ],
+
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DB_URL'),

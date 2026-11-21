@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/Pollora/pollora/compare/v13.43.1...main)
 
+### Added
+- **A `sqlite` connection, opt-in, for development, CI and demos (Pollora/framework#527).** `config/database.php` declares it (file `database/database.sqlite`, already ignored by `database/.gitignore` and outside `public/`, WAL journal, same table prefix as MySQL), `public/wp-config.php` reads the table prefix of the default connection instead of the `mysql` one's, and `public/content/db.php` loads the SQLite Database Integration plugin when `DB_CONNECTION=sqlite` (and tells how to install it when it is missing). Nothing changes for a project on MySQL. Set up with `composer require wp-plugin/sqlite-database-integration` then `php artisan pollora:install --db=sqlite`. Not for production. Needs the framework release that adds `--db` (`DatabaseSettings`): raise the `pollora/framework` constraint with it.
+
 ## [v13.43.1](https://github.com/Pollora/pollora/compare/v13.43.0...v13.43.1) - 2026-11-19
 
 ### Changed
