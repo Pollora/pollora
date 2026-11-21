@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/Pollora/pollora/compare/v13.43.1...main)
 
+### Fixed
+- The per-container Vite hot files (`public/<name>.hot`, for instance `public/apiary.hot`) are now git-ignored (`/public/*.hot`; only `/public/hot` was), and the `public/apiary.hot` that was tracked is removed. A tracked hot file made a fresh clone render the theme in dev-server mode (assets requested from `:5173`) even with a valid `public/build/`
+
 ## [v13.43.1](https://github.com/Pollora/pollora/compare/v13.43.0...v13.43.1) - 2026-11-19
 
 ### Changed
