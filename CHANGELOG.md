@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/Pollora/pollora/compare/v13.43.1...main)
 
+### Changed
+
+- **No Laravel session on the WordPress routes** (`config/wordpress.php`, `'sessions' => false`). An anonymous visitor no longer starts a session (a row in the `sessions` table and two cookies on the first request), which removes a database write per visitor and lets a page cache store the response (measured in the framework: 1 `INSERT` and `Set-Cookie` with the session on, 0 query and no cookie with it off). WordPress authentication, nonces and WooCommerce do not use it. Set it back to `true` if your project adds a Laravel form (`@csrf`), `old()` or flash data on a `Route::wp()` route, or Laravel-side authentication there; Laravel-native routes keep their session either way.
+
 ## [v13.43.1](https://github.com/Pollora/pollora/compare/v13.43.0...v13.43.1) - 2026-11-19
 
 ### Changed
