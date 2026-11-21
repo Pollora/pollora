@@ -13,6 +13,38 @@
     RewriteCond %{HTTP:x-xsrf-token} .
     RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
 
+    # Multisite, sub-directory network ONLY: the administration of a sub-site
+    #
+    # WordPress lives in cms/, but a sub-site's URLs are /site2/wp-admin/,
+    # /site2/wp-login.php, /site2/wp-includes/...: there is no such file, so the
+    # front controller answers (a Laravel page, not the login). These rules
+    # send those paths to cms/ and keep the original URL (REQUEST_URI), which is
+    # what WordPress reads to find the site.
+    #
+    # Off by default, on purpose: on a single site a page "wp-admin" can be the
+    # child of another page (/about/wp-admin) and WordPress does not reserve the
+    # slug, so these rules are not inert there. Remove the leading "# " of the
+    # lines below once the site is a sub-directory network. Not needed for a
+    # sub-domain network.
+    #
+    #   * the first path segment is the site's path: [_0-9a-zA-Z-]+, never "cms";
+    #   * only what WordPress asks of a sub-site's own URL: wp-admin/,
+    #     wp-includes/ (admin and login assets), wp-login.php, wp-signup.php,
+    #     wp-activate.php, wp-comments-post.php (the comment form), wp-cron.php
+    #     (the cron spawn) and xmlrpc.php. wp-json and wp-content need nothing:
+    #     the REST API goes through the front controller and content_url() has
+    #     no site prefix;
+    #   * only when the target exists in cms/, otherwise the front controller
+    #     keeps answering (its 404).
+    #
+    # /site2/wp-admin without the slash is sent to /site2/wp-admin/ (as
+    # WordPress's own network rules do) instead of leaking /cms/wp-admin/.
+    #
+    # RewriteRule ^(?!cms/)([_0-9a-zA-Z-]+)/wp-admin$ /$1/wp-admin/ [R=301,L]
+    # RewriteCond %{DOCUMENT_ROOT}/cms/$1 -f [OR]
+    # RewriteCond %{DOCUMENT_ROOT}/cms/$1 -d
+    # RewriteRule ^(?!cms/)[_0-9a-zA-Z-]+/((?:wp-admin|wp-includes)(?:/.*)?|(?:wp-login|wp-signup|wp-activate|wp-comments-post|wp-cron|xmlrpc)\.php)$ cms/$1 [L]
+
     # WordPress Content Directories Are Not Pages...
     #
     # A directory, or the empty index.php WordPress ships in some of them

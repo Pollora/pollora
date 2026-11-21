@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/Pollora/pollora/compare/v13.43.1...main)
 
+### Added
+
+- **`public/.htaccess`: the administration of a sub-site on a sub-directory network** (Pollora/framework#674). On such a network `/site2/wp-admin/` and `/site2/wp-login.php` are not files (WordPress lives in `cms/`), so the front controller answered instead of WordPress. A documented block, **commented out by default** so that a single site is untouched, sends `wp-admin/`, `wp-includes/`, `wp-login.php`, `wp-signup.php`, `wp-activate.php`, `wp-comments-post.php`, `wp-cron.php` and `xmlrpc.php` under a one-segment site path to `cms/` and keeps the original URL; remove the leading `# ` of its four lines on a sub-directory network. Measured on Apache 2.4 with PHP-FPM and a real two-site network: login and dashboard of the sub-site, its admin assets, `/cms/` unchanged. The nginx equivalent is in the documentation.
+
 ### Changed
 
 - **No Laravel session on the WordPress routes** (`config/wordpress.php`, `'sessions' => false`). An anonymous visitor no longer starts a session (a row in the `sessions` table and two cookies on the first request), which removes a database write per visitor and lets a page cache store the response (measured in the framework: 1 `INSERT` and `Set-Cookie` with the session on, 0 query and no cookie with it off). WordPress authentication, nonces and WooCommerce do not use it. Set it back to `true` if your project adds a Laravel form (`@csrf`), `old()` or flash data on a `Route::wp()` route, or Laravel-side authentication there; Laravel-native routes keep their session either way.
