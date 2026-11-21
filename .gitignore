@@ -44,6 +44,8 @@ node_modules
 /public/build
 /public/cms
 /public/hot
+# One hot file per asset container (public/<name>.hot): local dev-server state
+/public/*.hot
 /public/storage
 /public/content/cache
 /public/content/wp-rocket-config
