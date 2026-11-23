@@ -13,7 +13,7 @@ use Pollora\Attributes\Filter;
  * Actions and filters are registered via PHP attributes.
  * This class appears in the Pollora dashboard under "Hooks".
  */
-class ThemeHooks
+final class ThemeHooks
 {
     #[Action('after_setup_theme')]
     public function setupTheme(): void

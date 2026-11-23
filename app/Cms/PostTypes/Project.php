@@ -34,4 +34,4 @@ use Pollora\Attributes\PostType\Supports;
     notFound: 'No projects found.',
     notFoundInTrash: 'No projects found in trash.',
 )]
-class Project {}
+final class Project {}

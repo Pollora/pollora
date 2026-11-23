@@ -24,7 +24,7 @@ use WP_REST_Response;
  *   GET  /wp-json/starter/v1/status
  */
 #[WpRestRoute(namespace: 'starter/v1', route: '/status', permissionCallback: Everyone::class)]
-class StatusController
+final class StatusController
 {
     /**
      * GET /wp-json/starter/v1/status

@@ -23,7 +23,7 @@ use Pollora\Attributes\Taxonomy\ShowInRest;
 #[Hierarchical]
 #[ShowInRest]
 #[ShowAdminColumn]
-class TestStatus
+final class TestStatus
 {
     /**
      * @return array<string, mixed>

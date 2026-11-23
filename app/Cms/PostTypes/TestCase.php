@@ -26,7 +26,7 @@ use Pollora\Attributes\PostType\Supports;
 #[ShowInRest]
 #[Supports(['title', 'editor', 'custom-fields'])]
 #[MenuIcon('dashicons-yes-alt')]
-class TestCase
+final class TestCase
 {
     /**
      * @return array<string, mixed>
