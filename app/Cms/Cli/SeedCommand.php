@@ -16,7 +16,7 @@ use Pollora\Attributes\WpCli\Command;
  * Usage: wp starter-seed create --count=5
  */
 #[WpCli('starter-seed')]
-class SeedCommand
+final class SeedCommand
 {
     /**
      * Create sample projects.

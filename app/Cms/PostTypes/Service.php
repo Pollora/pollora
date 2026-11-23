@@ -27,7 +27,7 @@ use Pollora\Attributes\PostType\Supports;
 #[ShowInRest]
 #[Supports(['title', 'editor', 'thumbnail'])]
 #[MenuIcon('dashicons-hammer')]
-class Service
+final class Service
 {
     /**
      * @return array<string, mixed>

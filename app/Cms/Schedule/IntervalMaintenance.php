@@ -19,7 +19,7 @@ use Pollora\Schedule\Interval;
  * @covers Pollora\Schedule\Infrastructure\Services\ScheduleDiscovery::processIntervalRecurrence()
  * @covers Pollora\Schedule\Infrastructure\Services\ScheduleDiscovery::processEveryRecurrence()
  */
-class IntervalMaintenance
+final class IntervalMaintenance
 {
     /**
      * Custom interval: every 6 hours.

@@ -24,7 +24,7 @@ use Pollora\Attributes\WpCli\Command;
  *   wp pollora-diag check-post-types
  */
 #[WpCli('pollora-diag')]
-class DiagnosticCommand
+final class DiagnosticCommand
 {
     /**
      * Display overall framework status.

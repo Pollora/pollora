@@ -17,7 +17,7 @@ use WP_REST_Response;
  * This class appears in the Pollora dashboard under "REST API Routes".
  */
 #[WpRestRoute(namespace: 'starter/v1', route: '/projects', permissionCallback: Everyone::class)]
-class ProjectController
+final class ProjectController
 {
     /**
      * GET /wp-json/starter/v1/projects

@@ -22,4 +22,4 @@ use Pollora\Attributes\Taxonomy\ShowInRest;
     name: 'Project Categories',
     singularName: 'Project Category',
 )]
-class ProjectCategory {}
+final class ProjectCategory {}
