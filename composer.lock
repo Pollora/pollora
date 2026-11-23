@@ -4502,16 +4502,16 @@
         },
         {
             "name": "pollora/framework",
-            "version": "v13.43.1",
+            "version": "v13.43.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
-                "reference": "75a5c46dc04c0055de6b3e65ff251e48753c7f02"
+                "reference": "9c397d64135251d748f640982310982efa96fbf6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/75a5c46dc04c0055de6b3e65ff251e48753c7f02",
-                "reference": "75a5c46dc04c0055de6b3e65ff251e48753c7f02",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/9c397d64135251d748f640982310982efa96fbf6",
+                "reference": "9c397d64135251d748f640982310982efa96fbf6",
                 "shasum": ""
             },
             "require": {
@@ -4555,15 +4555,15 @@
                 "antecedent/patchwork": "^2.2",
                 "brain/monkey": "^2.7",
                 "driftingly/rector-laravel": "^2.6",
-                "larastan/larastan": "^3.14",
-                "laravel/pint": "^v1.32.2",
+                "larastan/larastan": "^3.15",
+                "laravel/pint": "^v1.32.3",
                 "mockery/mockery": "^1.6.15",
                 "orchestra/testbench": "^11.3.0",
                 "pestphp/pest": "^v3.8.2",
                 "pestphp/pest-plugin-type-coverage": "^3.6",
                 "php-stubs/wordpress-stubs": "^7.1",
                 "phpstan/phpstan": "^2.1 <2.3.6",
-                "pollora/harness": "^0.1.32",
+                "pollora/harness": "^0.1.35",
                 "symfony/var-dumper": "^7.4 || ^8.0",
                 "symplify/vendor-patches": "^12.1",
                 "szepeviktor/phpstan-wordpress": "*",
@@ -4571,6 +4571,7 @@
             },
             "suggest": {
                 "nikic/php-parser": "^5.0, needed by the pollora:i18n:extract command to read the attributes of PHP files (console only, never loaded by a web request)",
+                "pollora/object-cache": "A persistent Redis object cache for WordPress (object-cache.php drop-in, Cache::store('wordpress'))",
                 "pollora/woocommerce": "WooCommerce's Blade templates, Route::wp() conditions, Coming Soon page and events",
                 "pollora/wp-rocket": "Keeps WP Rocket from writing .htaccess and setting WP_CACHE unless the project asks for it"
             },
@@ -4636,8 +4637,8 @@
                 "issues": "https://github.com/Pollora/framework/issues",
                 "source": "https://github.com/Pollora/framework"
             },
-            "time": "2026-11-19T11:07:31+00:00",
-            "published-time": "2026-11-19T11:42:58+00:00"
+            "time": "2026-11-23T13:41:07+00:00",
+            "published-time": "2026-11-23T13:41:25+00:00"
         },
         {
             "name": "pollora/helper-overrider",
