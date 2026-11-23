@@ -18,6 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **`themes/apiary`: the Dependabot security update for `uuid` can land again.** The theme pinned the `@wordpress/blocks` 14, `block-editor` 14 and `components` 29 lines, which require `uuid@^9.0.1`, so Dependabot could not reach the patched `uuid` (14.x) and three runs failed with "conflicting dependencies". The `@wordpress/*` packages are now at the same ranges as the `theme-apiary` template (`block-editor` ^20, `blocks` ^17.1, `components` ^44, `element` ^10.1, `i18n` ^7.1) and the lock resolves `uuid` 14.0.3 only. `npm audit` for the theme goes from 13 moderate findings to 4 (none high or critical; `uuid` and `showdown` are gone).
+
 - The per-container Vite hot files (`public/<name>.hot`, for instance `public/apiary.hot`) are now git-ignored (`/public/*.hot`; only `/public/hot` was), and the `public/apiary.hot` that was tracked is removed. A tracked hot file made a fresh clone render the theme in dev-server mode (assets requested from `:5173`) even with a valid `public/build/`
 
 ## [v13.43.1](https://github.com/Pollora/pollora/compare/v13.43.0...v13.43.1) - 2026-11-19
