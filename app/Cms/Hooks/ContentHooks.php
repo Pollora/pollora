@@ -17,7 +17,7 @@ use Pollora\Attributes\Filter;
  * @covers Pollora\Attributes\Action
  * @covers Pollora\Attributes\Filter
  */
-class ContentHooks
+final class ContentHooks
 {
     private string $prefix;
 

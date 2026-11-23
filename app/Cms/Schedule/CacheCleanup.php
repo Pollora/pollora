@@ -13,7 +13,7 @@ use Pollora\Schedule\Every;
  * Uses the #[Schedule] attribute with the Every enum for recurrence.
  * This class appears in the Pollora dashboard under "Scheduled Tasks".
  */
-class CacheCleanup
+final class CacheCleanup
 {
     #[Schedule(Every::DAY)]
     public function cleanExpiredTransients(): void
