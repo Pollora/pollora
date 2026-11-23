@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **A `sqlite` connection, opt-in, for development, CI and demos (Pollora/framework#527).** `config/database.php` declares it (file `database/database.sqlite`, already ignored by `database/.gitignore` and outside `public/`, WAL journal, same table prefix as MySQL), `public/wp-config.php` reads the table prefix of the default connection instead of the `mysql` one's, and `public/content/db.php` loads the SQLite Database Integration plugin when `DB_CONNECTION=sqlite` (and tells how to install it when it is missing). Nothing changes for a project on MySQL. Set up with `composer require wp-plugin/sqlite-database-integration` then `php artisan pollora:install --db=sqlite`. Not for production. Needs the framework release that adds `--db` (`DatabaseSettings`): raise the `pollora/framework` constraint with it.
+
 - **`public/.htaccess`: the administration of a sub-site on a sub-directory network** (Pollora/framework#674). On such a network `/site2/wp-admin/` and `/site2/wp-login.php` are not files (WordPress lives in `cms/`), so the front controller answered instead of WordPress. A documented block, **commented out by default** so that a single site is untouched, sends `wp-admin/`, `wp-includes/`, `wp-login.php`, `wp-signup.php`, `wp-activate.php`, `wp-comments-post.php`, `wp-cron.php` and `xmlrpc.php` under a one-segment site path to `cms/` and keeps the original URL; remove the leading `# ` of its four lines on a sub-directory network. Measured on Apache 2.4 with PHP-FPM and a real two-site network: login and dashboard of the sub-site, its admin assets, `/cms/` unchanged. The nginx equivalent is in the documentation.
 
 ### Changed
