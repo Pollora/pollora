@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ebcd25374666c53440d58f6b61cc61ea",
+    "content-hash": "83c4d5d6075cc4ebf75320be79969b75",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -4460,16 +4460,16 @@
         },
         {
             "name": "pollora/framework",
-            "version": "v13.43.3",
+            "version": "v13.43.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
-                "reference": "638fc98bd606eab8f93026be97aac4e9105ac09e"
+                "reference": "b6eaf1d663dc7e4ce2e0052bf9f3eaebb5cf9e2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/638fc98bd606eab8f93026be97aac4e9105ac09e",
-                "reference": "638fc98bd606eab8f93026be97aac4e9105ac09e",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/b6eaf1d663dc7e4ce2e0052bf9f3eaebb5cf9e2b",
+                "reference": "b6eaf1d663dc7e4ce2e0052bf9f3eaebb5cf9e2b",
                 "shasum": ""
             },
             "require": {
@@ -4596,7 +4596,7 @@
                 "issues": "https://github.com/Pollora/framework/issues",
                 "source": "https://github.com/Pollora/framework"
             },
-            "time": "2026-11-24T11:41:00+00:00"
+            "time": "2026-11-24T13:21:26+00:00"
         },
         {
             "name": "pollora/helper-overrider",

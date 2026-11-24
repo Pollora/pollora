@@ -5,7 +5,13 @@ All notable changes to the Pollora skeleton will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/Pollora/pollora/compare/v13.43.3...main)
+## [Unreleased](https://github.com/Pollora/pollora/compare/v13.43.4...main)
+
+## [v13.43.4](https://github.com/Pollora/pollora/compare/v13.43.3...v13.43.4) - 2026-11-24
+
+### Changed
+
+- The lock pins `pollora/framework` **v13.43.4** (required at `^13.43.4`): the `OBJECT_CACHE_*` environment variables of the persistent object cache (`OBJECT_CACHE_PREFETCH`, `OBJECT_CACHE_REDIS_DATABASE`...) work again, which v13.43.3 had dropped.
 
 ## [v13.43.3](https://github.com/Pollora/pollora/compare/v13.43.1...v13.43.3) - 2026-11-24
 
