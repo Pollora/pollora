@@ -14,7 +14,7 @@
         "@wordpress/components": "^29.0.0",
         "@wordpress/element": "^6.0.0",
         "@wordpress/i18n": "^5.0.0",
-        "glob": "^11.0.0",
+        "glob": "^14.0.6",
         "laravel-vite-plugin": "^3.0.1",
         "vite": "^8.0.9"
     }
