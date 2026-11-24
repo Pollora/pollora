@@ -3808,16 +3808,16 @@
         },
         {
             "name": "nwidart/laravel-modules",
-            "version": "v13.3.0",
+            "version": "v13.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nWidart/laravel-modules.git",
-                "reference": "abfa48cc11eba3bd30f4a07f903c2c0235973045"
+                "reference": "2a15565c2ecd989f7e9b3d2e4b00984c8d288939"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nWidart/laravel-modules/zipball/abfa48cc11eba3bd30f4a07f903c2c0235973045",
-                "reference": "abfa48cc11eba3bd30f4a07f903c2c0235973045",
+                "url": "https://api.github.com/repos/nWidart/laravel-modules/zipball/2a15565c2ecd989f7e9b3d2e4b00984c8d288939",
+                "reference": "2a15565c2ecd989f7e9b3d2e4b00984c8d288939",
                 "shasum": ""
             },
             "require": {
@@ -3832,9 +3832,13 @@
                 "laravel/framework": "^13.0",
                 "laravel/pint": "^1.16",
                 "mockery/mockery": "^1.6",
+                "nwidart/laravel-actuator": "^1.1",
                 "orchestra/testbench": "^11.0",
-                "phpunit/phpunit": "^12.0",
+                "phpunit/phpunit": "^12.0|^13.0",
                 "spatie/phpunit-snapshot-assertions": "^5.0"
+            },
+            "suggest": {
+                "nwidart/laravel-actuator": "Report module health on the actuator health endpoint and list the modules on a modules endpoint (^1.1)."
             },
             "type": "library",
             "extra": {
@@ -3880,7 +3884,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nWidart/laravel-modules/issues",
-                "source": "https://github.com/nWidart/laravel-modules/tree/v13.3.0"
+                "source": "https://github.com/nWidart/laravel-modules/tree/v13.4.0"
             },
             "funding": [
                 {
@@ -3892,7 +3896,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-10-28T20:16:53+00:00"
+            "time": "2026-11-23T08:46:13+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -3971,16 +3975,16 @@
         },
         {
             "name": "pollora/abilities",
-            "version": "v1.0.2",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/abilities.git",
-                "reference": "68c2fb5de0f7fd369860b95cf74564facea5a0e7"
+                "reference": "83c22c79266d3330b2efa52b3b545b3dd32932d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/abilities/zipball/68c2fb5de0f7fd369860b95cf74564facea5a0e7",
-                "reference": "68c2fb5de0f7fd369860b95cf74564facea5a0e7",
+                "url": "https://api.github.com/repos/Pollora/abilities/zipball/83c22c79266d3330b2efa52b3b545b3dd32932d4",
+                "reference": "83c22c79266d3330b2efa52b3b545b3dd32932d4",
                 "shasum": ""
             },
             "require": {
@@ -3993,7 +3997,7 @@
                 "mockery/mockery": "^1.6",
                 "pestphp/pest": "^3.8",
                 "phpstan/phpstan": "^2.1",
-                "pollora/harness": "^0.1.30"
+                "pollora/harness": "^0.1.35"
             },
             "type": "library",
             "autoload": {
@@ -4021,9 +4025,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Pollora/abilities/issues",
-                "source": "https://github.com/Pollora/abilities/tree/v1.0.2"
+                "source": "https://github.com/Pollora/abilities/tree/v1.0.3"
             },
-            "time": "2026-11-19T07:59:17+00:00"
+            "time": "2026-11-23T16:28:22+00:00"
         },
         {
             "name": "pollora/ajax",
@@ -4074,16 +4078,16 @@
         },
         {
             "name": "pollora/assets",
-            "version": "v0.1.0",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/assets.git",
-                "reference": "69ee3dd77eca320e2db36dbeb1c2cdbee24e4665"
+                "reference": "3e8f5482391116ebc2db5d428a09c3981e087996"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/assets/zipball/69ee3dd77eca320e2db36dbeb1c2cdbee24e4665",
-                "reference": "69ee3dd77eca320e2db36dbeb1c2cdbee24e4665",
+                "url": "https://api.github.com/repos/Pollora/assets/zipball/3e8f5482391116ebc2db5d428a09c3981e087996",
+                "reference": "3e8f5482391116ebc2db5d428a09c3981e087996",
                 "shasum": ""
             },
             "require": {
@@ -4098,6 +4102,7 @@
                 "mockery/mockery": "^1.6.12",
                 "pestphp/pest": "^3.8.2",
                 "phpstan/phpstan": "^2.1.16",
+                "pollora/harness": "^0.1.35",
                 "szepeviktor/phpstan-wordpress": "^2.0"
             },
             "type": "library",
@@ -4128,7 +4133,7 @@
                 "issues": "https://github.com/Pollora/assets/issues",
                 "source": "https://github.com/Pollora/assets"
             },
-            "time": "2026-10-15T09:17:55+00:00"
+            "time": "2026-11-23T13:47:53+00:00"
         },
         {
             "name": "pollora/attributes",
@@ -4201,23 +4206,23 @@
         },
         {
             "name": "pollora/block-bindings",
-            "version": "v0.2.1",
+            "version": "v0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/block-bindings.git",
-                "reference": "eb5c13430790b3aabed9fb6ff809953201e30bbe"
+                "reference": "bc6a5da675ba1e7d3e43f69a2b7d93c0f09f1587"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/block-bindings/zipball/eb5c13430790b3aabed9fb6ff809953201e30bbe",
-                "reference": "eb5c13430790b3aabed9fb6ff809953201e30bbe",
+                "url": "https://api.github.com/repos/Pollora/block-bindings/zipball/bc6a5da675ba1e7d3e43f69a2b7d93c0f09f1587",
+                "reference": "bc6a5da675ba1e7d3e43f69a2b7d93c0f09f1587",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.3",
                 "pollora/attributes": "^0.1.1 || ^1.0",
                 "pollora/colt": "^11.0",
-                "pollora/discovery": "^0.1 || ^0.2 || ^1.0",
+                "pollora/discovery": "^0.1 || ^0.2 || ^0.3 || ^1.0",
                 "pollora/hook": "^2.0.1",
                 "pollora/meta": "^0.1",
                 "psr/container": "^2.0",
@@ -4230,7 +4235,7 @@
                 "mockery/mockery": "^1.6.12",
                 "pestphp/pest": "^3.8.2",
                 "phpstan/phpstan": "^2.1.16",
-                "pollora/harness": "^0.1.31",
+                "pollora/harness": "^0.1.35",
                 "szepeviktor/phpstan-wordpress": "^2.0"
             },
             "type": "library",
@@ -4262,7 +4267,7 @@
                 "issues": "https://github.com/Pollora/block-bindings/issues",
                 "source": "https://github.com/Pollora/block-bindings"
             },
-            "time": "2026-11-19T10:21:29+00:00"
+            "time": "2026-11-23T15:14:57+00:00"
         },
         {
             "name": "pollora/colt",
@@ -4345,16 +4350,16 @@
         },
         {
             "name": "pollora/discovery",
-            "version": "v0.2.0",
+            "version": "v0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/discovery.git",
-                "reference": "dee17c799c366f6d667cd8f67efa6c314b9101bf"
+                "reference": "759e8ce85ad463791e2a2a52f503e7b7a2b656dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/discovery/zipball/dee17c799c366f6d667cd8f67efa6c314b9101bf",
-                "reference": "dee17c799c366f6d667cd8f67efa6c314b9101bf",
+                "url": "https://api.github.com/repos/Pollora/discovery/zipball/759e8ce85ad463791e2a2a52f503e7b7a2b656dd",
+                "reference": "759e8ce85ad463791e2a2a52f503e7b7a2b656dd",
                 "shasum": ""
             },
             "require": {
@@ -4370,7 +4375,7 @@
                 "mockery/mockery": "^1.6.12",
                 "pestphp/pest": "^3.8.2",
                 "phpstan/phpstan": "^2.1.16",
-                "pollora/harness": "^0.1.30"
+                "pollora/harness": "^0.1.35"
             },
             "type": "library",
             "autoload": {
@@ -4402,7 +4407,7 @@
                 "issues": "https://github.com/Pollora/discovery/issues",
                 "source": "https://github.com/Pollora/discovery"
             },
-            "time": "2026-11-19T07:54:13+00:00"
+            "time": "2026-11-23T13:46:50+00:00"
         },
         {
             "name": "pollora/entity",
@@ -4455,16 +4460,16 @@
         },
         {
             "name": "pollora/framework",
-            "version": "v13.43.2",
+            "version": "v13.43.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
-                "reference": "9c397d64135251d748f640982310982efa96fbf6"
+                "reference": "638fc98bd606eab8f93026be97aac4e9105ac09e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/9c397d64135251d748f640982310982efa96fbf6",
-                "reference": "9c397d64135251d748f640982310982efa96fbf6",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/638fc98bd606eab8f93026be97aac4e9105ac09e",
+                "reference": "638fc98bd606eab8f93026be97aac4e9105ac09e",
                 "shasum": ""
             },
             "require": {
@@ -4482,17 +4487,18 @@
                 "php": "^8.3",
                 "pollora/abilities": "^1.0",
                 "pollora/ajax": "^1.3",
-                "pollora/assets": "^0.1",
+                "pollora/assets": "^0.2",
                 "pollora/attributes": "^0.1.4 || ^1.0",
                 "pollora/block-bindings": "^0.2",
                 "pollora/colt": "^11.0",
-                "pollora/discovery": "^0.1 || ^0.2 || ^1.0",
+                "pollora/discovery": "^0.1 || ^0.2 || ^0.3 || ^1.0",
                 "pollora/entity": "^2.0",
                 "pollora/helper-overrider": "^1.2",
                 "pollora/hook": "^2.0.1",
                 "pollora/i18n": "^0.1.1",
-                "pollora/media": "^0.8 || ^0.9",
+                "pollora/media": "^0.8 || ^0.9 || ^0.10",
                 "pollora/meta": "^0.1",
+                "pollora/object-cache": "^0.3",
                 "pollora/option": "^1.1",
                 "pollora/query": "^2.0 || ^3.0",
                 "pollora/roles": "^0.2",
@@ -4523,8 +4529,8 @@
                 "wp-cli/wp-cli": "^2.12"
             },
             "suggest": {
+                "ext-redis": "phpredis, the Redis client the persistent object cache needs",
                 "nikic/php-parser": "^5.0, needed by the pollora:i18n:extract command to read the attributes of PHP files (console only, never loaded by a web request)",
-                "pollora/object-cache": "A persistent Redis object cache for WordPress (object-cache.php drop-in, Cache::store('wordpress'))",
                 "pollora/woocommerce": "WooCommerce's Blade templates, Route::wp() conditions, Coming Soon page and events",
                 "pollora/wp-rocket": "Keeps WP Rocket from writing .htaccess and setting WP_CACHE unless the project asks for it"
             },
@@ -4590,7 +4596,7 @@
                 "issues": "https://github.com/Pollora/framework/issues",
                 "source": "https://github.com/Pollora/framework"
             },
-            "time": "2026-11-23T13:41:07+00:00"
+            "time": "2026-11-24T11:41:00+00:00"
         },
         {
             "name": "pollora/helper-overrider",
@@ -4763,16 +4769,16 @@
         },
         {
             "name": "pollora/media",
-            "version": "v0.9.0",
+            "version": "v0.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/media.git",
-                "reference": "4cd49ed1d3833495218e52ffc73dbb61be46129a"
+                "reference": "f407e2730c31c4ff9a9835dc99f87e76ccec6fc0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/media/zipball/4cd49ed1d3833495218e52ffc73dbb61be46129a",
-                "reference": "4cd49ed1d3833495218e52ffc73dbb61be46129a",
+                "url": "https://api.github.com/repos/Pollora/media/zipball/f407e2730c31c4ff9a9835dc99f87e76ccec6fc0",
+                "reference": "f407e2730c31c4ff9a9835dc99f87e76ccec6fc0",
                 "shasum": ""
             },
             "require": {
@@ -4789,7 +4795,7 @@
                 "pestphp/pest": "^3.8.2",
                 "php-stubs/wp-cli-stubs": "dev-master",
                 "phpstan/phpstan": "^2.1.16",
-                "pollora/harness": "^0.1.30",
+                "pollora/harness": "^0.1.35",
                 "szepeviktor/phpstan-wordpress": "^2.0"
             },
             "suggest": {
@@ -4825,27 +4831,27 @@
                 "issues": "https://github.com/Pollora/media/issues",
                 "source": "https://github.com/Pollora/media"
             },
-            "time": "2026-11-19T07:53:10+00:00"
+            "time": "2026-11-24T07:50:45+00:00"
         },
         {
             "name": "pollora/meta",
-            "version": "v0.1.1",
+            "version": "v0.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/meta.git",
-                "reference": "98e6fbc0c59e9fe85db34105a7cd122811b23a60"
+                "reference": "89d39401041747ecfdc34e5395d17730d2b85375"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/meta/zipball/98e6fbc0c59e9fe85db34105a7cd122811b23a60",
-                "reference": "98e6fbc0c59e9fe85db34105a7cd122811b23a60",
+                "url": "https://api.github.com/repos/Pollora/meta/zipball/89d39401041747ecfdc34e5395d17730d2b85375",
+                "reference": "89d39401041747ecfdc34e5395d17730d2b85375",
                 "shasum": ""
             },
             "require": {
                 "nesbot/carbon": "^3.0",
                 "php": "^8.3",
                 "pollora/attributes": "^0.1 || ^1.0",
-                "pollora/discovery": "^0.1 || ^0.2 || ^1.0",
+                "pollora/discovery": "^0.1 || ^0.2 || ^0.3 || ^1.0",
                 "pollora/hook": "^2.0.1",
                 "psr/container": "^2.0",
                 "psr/log": "^3.0"
@@ -4858,7 +4864,7 @@
                 "pestphp/pest": "^3.8.2",
                 "phpstan/phpstan": "^2.1.16",
                 "pollora/colt": "^11.0",
-                "pollora/harness": "^0.1.31",
+                "pollora/harness": "^0.1.35",
                 "szepeviktor/phpstan-wordpress": "^2.0"
             },
             "suggest": {
@@ -4893,31 +4899,99 @@
                 "issues": "https://github.com/Pollora/meta/issues",
                 "source": "https://github.com/Pollora/meta"
             },
-            "time": "2026-11-19T10:21:09+00:00"
+            "time": "2026-11-23T16:38:36+00:00"
         },
         {
-            "name": "pollora/option",
-            "version": "v1.1.2",
+            "name": "pollora/object-cache",
+            "version": "v0.3.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Pollora/option.git",
-                "reference": "994c4b38fdd01dbe3093bf8f26760170d3a85786"
+                "url": "https://github.com/Pollora/object-cache.git",
+                "reference": "024fef31ce6837906b62bff1f7a1f101f7fcbc73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/option/zipball/994c4b38fdd01dbe3093bf8f26760170d3a85786",
-                "reference": "994c4b38fdd01dbe3093bf8f26760170d3a85786",
+                "url": "https://api.github.com/repos/Pollora/object-cache/zipball/024fef31ce6837906b62bff1f7a1f101f7fcbc73",
+                "reference": "024fef31ce6837906b62bff1f7a1f101f7fcbc73",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.3"
             },
             "require-dev": {
+                "antecedent/patchwork": "^2.2",
+                "brain/monkey": "^2.7",
+                "laravel/pint": "^1.22.1",
+                "pestphp/pest": "^3.8.2",
+                "php-stubs/wp-cli-stubs": "^2.12",
+                "phpstan/phpstan": "^2.1.16",
+                "pollora/harness": "^0.1.35"
+            },
+            "suggest": {
+                "ext-igbinary": "A faster, smaller serializer for cached values.",
+                "ext-redis": "Required to reach Redis with phpredis; without it the object cache falls back to WordPress's in-memory cache.",
+                "wp-cli/wp-cli": "Runs `wp object-cache enable|disable|status|flush` on a classic WordPress or Bedrock site."
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/Infrastructure/WpCli/register.php"
+                ],
+                "psr-4": {
+                    "Pollora\\ObjectCache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Olivier Gorzalka",
+                    "email": "olivier@amphibee.fr",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A persistent Redis object cache for WordPress, built for Pollora and Laravel.",
+            "keywords": [
+                "cache",
+                "laravel",
+                "object-cache",
+                "pollora",
+                "redis",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/Pollora/object-cache/issues",
+                "source": "https://github.com/Pollora/object-cache/tree/v0.3.0"
+            },
+            "time": "2026-11-24T09:24:29+00:00"
+        },
+        {
+            "name": "pollora/option",
+            "version": "v1.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Pollora/option.git",
+                "reference": "a8eb9c83ee5e3cb2637947533a463abb571ca57c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Pollora/option/zipball/a8eb9c83ee5e3cb2637947533a463abb571ca57c",
+                "reference": "a8eb9c83ee5e3cb2637947533a463abb571ca57c",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.3"
+            },
+            "require-dev": {
+                "antecedent/patchwork": "^2.2",
                 "brain/monkey": "^2.6",
                 "laravel/pint": "^v1.22.1",
                 "mockery/mockery": "^1.6",
                 "pestphp/pest": "^v3.8.2",
-                "phpstan/phpstan": "^2.1.16"
+                "phpstan/phpstan": "^2.1.16",
+                "pollora/harness": "^0.1.35"
             },
             "type": "library",
             "autoload": {
@@ -4938,22 +5012,22 @@
             "description": "A modern PHP package for WordPress option management with validation and immutable value objects",
             "support": {
                 "issues": "https://github.com/Pollora/option/issues",
-                "source": "https://github.com/Pollora/option/tree/v1.1.2"
+                "source": "https://github.com/Pollora/option/tree/v1.1.3"
             },
-            "time": "2026-10-07T08:36:42+00:00"
+            "time": "2026-11-23T15:54:49+00:00"
         },
         {
             "name": "pollora/query",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/Query.git",
-                "reference": "2aef923885c102b5459f1fe4a6a83f4c2aef224b"
+                "reference": "9b78c76df6026a3bca8fc055fb71713ce04d911a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/Query/zipball/2aef923885c102b5459f1fe4a6a83f4c2aef224b",
-                "reference": "2aef923885c102b5459f1fe4a6a83f4c2aef224b",
+                "url": "https://api.github.com/repos/Pollora/Query/zipball/9b78c76df6026a3bca8fc055fb71713ce04d911a",
+                "reference": "9b78c76df6026a3bca8fc055fb71713ce04d911a",
                 "shasum": ""
             },
             "require": {
@@ -4963,7 +5037,7 @@
             "require-dev": {
                 "laravel/pint": "^1.30",
                 "pestphp/pest": "^3.8",
-                "pollora/harness": "^0.1.30"
+                "pollora/harness": "^0.1.35"
             },
             "type": "library",
             "autoload": {
@@ -4985,28 +5059,28 @@
             "description": "Create WP Query in a fluent way.",
             "support": {
                 "issues": "https://github.com/Pollora/Query/issues",
-                "source": "https://github.com/Pollora/Query/tree/3.1.0"
+                "source": "https://github.com/Pollora/Query/tree/3.1.1"
             },
-            "time": "2026-11-19T07:53:51+00:00"
+            "time": "2026-11-23T16:34:16+00:00"
         },
         {
             "name": "pollora/roles",
-            "version": "v0.2.1",
+            "version": "v0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/roles.git",
-                "reference": "811c298ea053f7c74d26886a8c44f6e929668dec"
+                "reference": "774b0bf5df2d00cfbf1c7928c628d2b06cd8cde9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/roles/zipball/811c298ea053f7c74d26886a8c44f6e929668dec",
-                "reference": "811c298ea053f7c74d26886a8c44f6e929668dec",
+                "url": "https://api.github.com/repos/Pollora/roles/zipball/774b0bf5df2d00cfbf1c7928c628d2b06cd8cde9",
+                "reference": "774b0bf5df2d00cfbf1c7928c628d2b06cd8cde9",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.3",
                 "pollora/attributes": "^0.1.1 || ^1.0",
-                "pollora/discovery": "^0.1 || ^0.2 || ^1.0",
+                "pollora/discovery": "^0.1 || ^0.2 || ^0.3 || ^1.0",
                 "psr/log": "^3.0"
             },
             "require-dev": {
@@ -5016,7 +5090,7 @@
                 "mockery/mockery": "^1.6.12",
                 "pestphp/pest": "^3.8.2",
                 "phpstan/phpstan": "^2.1.16",
-                "pollora/harness": "^0.1.31",
+                "pollora/harness": "^0.1.35",
                 "szepeviktor/phpstan-wordpress": "^2.0"
             },
             "type": "library",
@@ -5047,26 +5121,26 @@
                 "issues": "https://github.com/Pollora/roles/issues",
                 "source": "https://github.com/Pollora/roles"
             },
-            "time": "2026-11-19T10:19:26+00:00"
+            "time": "2026-11-23T14:58:04+00:00"
         },
         {
             "name": "pollora/schedule",
-            "version": "v1.0.1",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/schedule.git",
-                "reference": "54c0ba2e6b7b33fba99b28cf818ac2fa43fac438"
+                "reference": "b1735cb377bad35921b01ab57d44ffce92bedc90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/schedule/zipball/54c0ba2e6b7b33fba99b28cf818ac2fa43fac438",
-                "reference": "54c0ba2e6b7b33fba99b28cf818ac2fa43fac438",
+                "url": "https://api.github.com/repos/Pollora/schedule/zipball/b1735cb377bad35921b01ab57d44ffce92bedc90",
+                "reference": "b1735cb377bad35921b01ab57d44ffce92bedc90",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.3",
                 "pollora/attributes": "^0.1 || ^1.0",
-                "pollora/discovery": "^0.1 || ^0.2 || ^1.0",
+                "pollora/discovery": "^0.1 || ^0.2 || ^0.3 || ^1.0",
                 "psr/container": "^1.1 || ^2.0",
                 "psr/log": "^3.0"
             },
@@ -5078,7 +5152,7 @@
                 "mockery/mockery": "^1.6.12",
                 "pestphp/pest": "^3.8.2",
                 "phpstan/phpstan": "^2.1.16",
-                "pollora/harness": "^0.1.31",
+                "pollora/harness": "^0.1.35",
                 "szepeviktor/phpstan-wordpress": "^2.0"
             },
             "type": "library",
@@ -5110,7 +5184,7 @@
                 "issues": "https://github.com/Pollora/schedule/issues",
                 "source": "https://github.com/Pollora/schedule"
             },
-            "time": "2026-11-19T10:20:48+00:00"
+            "time": "2026-11-23T15:58:40+00:00"
         },
         {
             "name": "pollora/wordpress-args",
@@ -5162,22 +5236,22 @@
         },
         {
             "name": "pollora/wp-cli",
-            "version": "v0.1.2",
+            "version": "v0.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/wp-cli.git",
-                "reference": "3928fc287dc980108ba4a372a92ceac7356fe721"
+                "reference": "78956ea150672873bc5b38ec6beabc32de6daff3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/wp-cli/zipball/3928fc287dc980108ba4a372a92ceac7356fe721",
-                "reference": "3928fc287dc980108ba4a372a92ceac7356fe721",
+                "url": "https://api.github.com/repos/Pollora/wp-cli/zipball/78956ea150672873bc5b38ec6beabc32de6daff3",
+                "reference": "78956ea150672873bc5b38ec6beabc32de6daff3",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.3",
                 "pollora/attributes": "^0.1 || ^1.0",
-                "pollora/discovery": "^0.1 || ^0.2 || ^1.0",
+                "pollora/discovery": "^0.1 || ^0.2 || ^0.3 || ^1.0",
                 "psr/log": "^3.0"
             },
             "require-dev": {
@@ -5187,7 +5261,7 @@
                 "mockery/mockery": "^1.6.12",
                 "pestphp/pest": "^3.8.2",
                 "phpstan/phpstan": "^2.1.16",
-                "pollora/harness": "^0.1.31",
+                "pollora/harness": "^0.1.35",
                 "szepeviktor/phpstan-wordpress": "^2.0",
                 "wp-cli/wp-cli": "^2.12"
             },
@@ -5222,26 +5296,26 @@
                 "issues": "https://github.com/Pollora/wp-cli/issues",
                 "source": "https://github.com/Pollora/wp-cli"
             },
-            "time": "2026-11-19T10:15:16+00:00"
+            "time": "2026-11-23T14:47:21+00:00"
         },
         {
             "name": "pollora/wp-rest",
-            "version": "2.0.1",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/wp-rest.git",
-                "reference": "32c9a65e60435891604a333692de23cf5c3d051f"
+                "reference": "64c72e11ae57b3303d2048c1ed0668bdadf568ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/wp-rest/zipball/32c9a65e60435891604a333692de23cf5c3d051f",
-                "reference": "32c9a65e60435891604a333692de23cf5c3d051f",
+                "url": "https://api.github.com/repos/Pollora/wp-rest/zipball/64c72e11ae57b3303d2048c1ed0668bdadf568ce",
+                "reference": "64c72e11ae57b3303d2048c1ed0668bdadf568ce",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.3",
                 "pollora/attributes": "^0.1 || ^0.2 || ^1.0",
-                "pollora/discovery": "^0.1 || ^0.2 || ^1.0",
+                "pollora/discovery": "^0.1 || ^0.2 || ^0.3 || ^1.0",
                 "psr/container": "^2.0",
                 "psr/log": "^3.0"
             },
@@ -5252,7 +5326,7 @@
                 "mockery/mockery": "^1.6.12",
                 "pestphp/pest": "^3.8.2",
                 "phpstan/phpstan": "^2.1.16",
-                "pollora/harness": "^0.1.31",
+                "pollora/harness": "^0.1.35",
                 "szepeviktor/phpstan-wordpress": "^2.0"
             },
             "type": "library",
@@ -5284,7 +5358,7 @@
                 "issues": "https://github.com/Pollora/wp-rest/issues",
                 "source": "https://github.com/Pollora/wp-rest"
             },
-            "time": "2026-11-19T10:15:16+00:00"
+            "time": "2026-11-23T14:53:13+00:00"
         },
         {
             "name": "psr/clock",
@@ -7898,16 +7972,16 @@
         },
         {
             "name": "symfony/polyfill-php85",
-            "version": "v1.43.0",
+            "version": "v1.44.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php85.git",
-                "reference": "86a42cbcc07adc331481a5ab310a4024bfc227f6"
+                "reference": "94c794cb5ba51784bc259f11e9f128593297d8dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php85/zipball/86a42cbcc07adc331481a5ab310a4024bfc227f6",
-                "reference": "86a42cbcc07adc331481a5ab310a4024bfc227f6",
+                "url": "https://api.github.com/repos/symfony/polyfill-php85/zipball/94c794cb5ba51784bc259f11e9f128593297d8dc",
+                "reference": "94c794cb5ba51784bc259f11e9f128593297d8dc",
                 "shasum": ""
             },
             "require": {
@@ -7954,7 +8028,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php85/tree/v1.43.0"
+                "source": "https://github.com/symfony/polyfill-php85/tree/v1.44.0"
             },
             "funding": [
                 {
@@ -7974,7 +8048,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-09-25T15:46:47+00:00"
+            "time": "2026-10-30T15:20:09+00:00"
         },
         {
             "name": "symfony/polyfill-php86",
