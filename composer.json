@@ -26,7 +26,7 @@
         "barryvdh/laravel-ide-helper": "^3.7",
         "johnpbloch/wordpress": "^7.1",
         "laravel/framework": "^13.44",
-        "laravel/sanctum": "^4.3 || ^5.0",
+        "laravel/sanctum": "^4.5",
         "laravel/tinker": "^3.0",
         "pollora/framework": "^13.44.0"
     },
