@@ -5,7 +5,14 @@ All notable changes to the Pollora skeleton will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/Pollora/pollora/compare/v13.43.4...main)
+## [Unreleased](https://github.com/Pollora/pollora/compare/v13.44.0...main)
+
+## [v13.44.0](https://github.com/Pollora/pollora/compare/v13.43.4...v13.44.0) - 2026-11-24
+
+### Changed
+
+- **Built on Laravel 13.44.** The skeleton requires `laravel/framework` `^13.44` and `pollora/framework` `^13.44.0`, and the lock pins Laravel v13.44.1 and Pollora framework v13.44.0. Sanctum stays at `^4.3 || ^5.0`.
+- The persistent object cache of the framework is `pollora/object-cache` 0.3.1: when the Composer autoloader named in its drop-in cannot be read by the web server, the drop-in stays inert and writes the path to the PHP error log (before 0.3.1 it could stop the site with a fatal error), and `pollora:object-cache:status` shows the autoloader. Run `pollora:object-cache:enable` again to update an installed drop-in.
 
 ## [v13.43.4](https://github.com/Pollora/pollora/compare/v13.43.3...v13.43.4) - 2026-11-24
 

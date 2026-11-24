@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "83c4d5d6075cc4ebf75320be79969b75",
+    "content-hash": "da111a6fa98b16c252028aa63c9ef630",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -2183,16 +2183,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v13.43.0",
+            "version": "v13.44.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "72aa7e151062e218704d8660f407e6070040d8bc"
+                "reference": "8a8c4a84852869e13190d89f9da873cd9a70f14c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/72aa7e151062e218704d8660f407e6070040d8bc",
-                "reference": "72aa7e151062e218704d8660f407e6070040d8bc",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/8a8c4a84852869e13190d89f9da873cd9a70f14c",
+                "reference": "8a8c4a84852869e13190d89f9da873cd9a70f14c",
                 "shasum": ""
             },
             "require": {
@@ -2301,7 +2301,7 @@
                 "ext-gmp": "*",
                 "fakerphp/faker": "^1.24",
                 "intervention/image": "^4.2",
-                "jasonmccreary/double": "^1.1",
+                "jasonmccreary/double": "^1.2.1",
                 "laravel/pint": "^1.18",
                 "league/flysystem-aws-s3-v3": "^3.25.1",
                 "league/flysystem-ftp": "^3.25.1",
@@ -2412,20 +2412,20 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2026-11-17T14:58:33+00:00"
+            "time": "2026-11-24T16:10:06+00:00"
         },
         {
             "name": "laravel/prompts",
-            "version": "v0.3.27",
+            "version": "v0.3.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/prompts.git",
-                "reference": "abdfc75a1ae6c6f21522daed50da7124cbff09d2"
+                "reference": "72247703c4d4ac1d6122955c90433aa9429bd236"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/prompts/zipball/abdfc75a1ae6c6f21522daed50da7124cbff09d2",
-                "reference": "abdfc75a1ae6c6f21522daed50da7124cbff09d2",
+                "url": "https://api.github.com/repos/laravel/prompts/zipball/72247703c4d4ac1d6122955c90433aa9429bd236",
+                "reference": "72247703c4d4ac1d6122955c90433aa9429bd236",
                 "shasum": ""
             },
             "require": {
@@ -2468,9 +2468,9 @@
             ],
             "description": "Add beautiful and user-friendly forms to your command-line applications.",
             "support": {
-                "source": "https://github.com/laravel/prompts/tree/v0.3.27"
+                "source": "https://github.com/laravel/prompts/tree/v0.3.28"
             },
-            "time": "2026-11-09T16:07:10+00:00"
+            "time": "2026-11-23T14:41:10+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -2667,16 +2667,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "2.10.7",
+            "version": "2.10.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "8eb53e906fd60c67038d22f1f1cab420ed58b8be"
+                "reference": "681e662a40c805c567f52d603b64d55282ea356c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/8eb53e906fd60c67038d22f1f1cab420ed58b8be",
-                "reference": "8eb53e906fd60c67038d22f1f1cab420ed58b8be",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/681e662a40c805c567f52d603b64d55282ea356c",
+                "reference": "681e662a40c805c567f52d603b64d55282ea356c",
                 "shasum": ""
             },
             "require": {
@@ -2770,7 +2770,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-10-31T13:35:37+00:00"
+            "time": "2026-11-24T15:44:47+00:00"
         },
         {
             "name": "league/config",
@@ -4460,27 +4460,27 @@
         },
         {
             "name": "pollora/framework",
-            "version": "v13.43.4",
+            "version": "v13.44.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/framework.git",
-                "reference": "b6eaf1d663dc7e4ce2e0052bf9f3eaebb5cf9e2b"
+                "reference": "d19e4046fffffc572266d2e935a40e6e5720e3d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/framework/zipball/b6eaf1d663dc7e4ce2e0052bf9f3eaebb5cf9e2b",
-                "reference": "b6eaf1d663dc7e4ce2e0052bf9f3eaebb5cf9e2b",
+                "url": "https://api.github.com/repos/Pollora/framework/zipball/d19e4046fffffc572266d2e935a40e6e5720e3d6",
+                "reference": "d19e4046fffffc572266d2e935a40e6e5720e3d6",
                 "shasum": ""
             },
             "require": {
                 "coduo/php-humanizer": "5.0.3",
                 "cweagans/composer-patches": "^2.0",
-                "illuminate/auth": "^13.43",
-                "illuminate/config": "^13.43",
-                "illuminate/console": "^13.43",
-                "illuminate/database": "^13.43",
-                "illuminate/routing": "^13.43",
-                "illuminate/support": "^13.43",
+                "illuminate/auth": "^13.44",
+                "illuminate/config": "^13.44",
+                "illuminate/console": "^13.44",
+                "illuminate/database": "^13.44",
+                "illuminate/routing": "^13.44",
+                "illuminate/support": "^13.44",
                 "laravel/prompts": "^0.3.27",
                 "log1x/sage-directives": "^2.0",
                 "nwidart/laravel-modules": "^13.3",
@@ -4498,7 +4498,7 @@
                 "pollora/i18n": "^0.1.1",
                 "pollora/media": "^0.8 || ^0.9 || ^0.10",
                 "pollora/meta": "^0.1",
-                "pollora/object-cache": "^0.3",
+                "pollora/object-cache": "^0.3.1",
                 "pollora/option": "^1.1",
                 "pollora/query": "^2.0 || ^3.0",
                 "pollora/roles": "^0.2",
@@ -4596,7 +4596,7 @@
                 "issues": "https://github.com/Pollora/framework/issues",
                 "source": "https://github.com/Pollora/framework"
             },
-            "time": "2026-11-24T13:21:26+00:00"
+            "time": "2026-11-24T16:39:34+00:00"
         },
         {
             "name": "pollora/helper-overrider",
@@ -4903,16 +4903,16 @@
         },
         {
             "name": "pollora/object-cache",
-            "version": "v0.3.0",
+            "version": "v0.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pollora/object-cache.git",
-                "reference": "024fef31ce6837906b62bff1f7a1f101f7fcbc73"
+                "reference": "2ac120ca77c54ee44dcf98dbb2f245c489eae02c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pollora/object-cache/zipball/024fef31ce6837906b62bff1f7a1f101f7fcbc73",
-                "reference": "024fef31ce6837906b62bff1f7a1f101f7fcbc73",
+                "url": "https://api.github.com/repos/Pollora/object-cache/zipball/2ac120ca77c54ee44dcf98dbb2f245c489eae02c",
+                "reference": "2ac120ca77c54ee44dcf98dbb2f245c489eae02c",
                 "shasum": ""
             },
             "require": {
@@ -4963,9 +4963,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Pollora/object-cache/issues",
-                "source": "https://github.com/Pollora/object-cache/tree/v0.3.0"
+                "source": "https://github.com/Pollora/object-cache/tree/v0.3.1"
             },
-            "time": "2026-11-24T09:24:29+00:00"
+            "time": "2026-11-24T15:53:54+00:00"
         },
         {
             "name": "pollora/option",
