@@ -106,3 +106,4 @@ jobs:
           # GITHUB_TOKEN triggers none, but a dispatched run reports on the
           # commit and shows on the pull request.
           gh workflow run tests.yml --ref "$branch"
+          gh workflow run upstream-versions.yml --ref "$branch"
