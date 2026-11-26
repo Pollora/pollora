@@ -5,7 +5,17 @@ All notable changes to the Pollora skeleton will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/Pollora/pollora/compare/v13.44.1...main)
+## [Unreleased](https://github.com/Pollora/pollora/compare/v13.44.2...main)
+
+## [v13.44.2](https://github.com/Pollora/pollora/compare/v13.44.1...v13.44.2) - 2026-11-26
+
+### Added
+
+- The lock pins `pollora/framework` **v13.44.2** (required at `^13.44.2`). `pollora:install` writes the eight WordPress keys and salts of a new site to `.env`; nothing generated them before. An existing project runs `php artisan pollora:salts:generate` once, which signs everyone out.
+
+### Fixed
+
+- `DB_CONNECTION=mariadb`, Laravel's own MariaDB driver, now works like `mysql`: the site answered *not set up yet* and `pollora:install` failed with `Undefined constant … WPINC`.
 
 ## [v13.44.1](https://github.com/Pollora/pollora/compare/v13.44.0...v13.44.1) - 2026-11-26
 
