@@ -1,0 +1,92 @@
+name: Bump upstream
+
+# Opens the pull request that moves WordPress and Laravel in composer.lock as
+# soon as a release is out. Merging it and tagging the skeleton stay manual.
+
+on:
+  schedule:
+    - cron: '47 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  # Pull requests opened with GITHUB_TOKEN start no workflow, so the tests are
+  # dispatched by hand on the branch below.
+  actions: write
+
+concurrency:
+  group: bump-upstream
+  cancel-in-progress: false
+
+jobs:
+  bump:
+    name: Bump WordPress and Laravel
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          ref: main
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          tools: composer:v2
+          coverage: none
+
+      - name: Move the lock
+        id: bump
+        run: .github/scripts/bump-upstream.sh | tee -a "$GITHUB_OUTPUT"
+
+      - name: Open the pull request
+        if: steps.bump.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WORDPRESS: ${{ steps.bump.outputs.wordpress }}
+          LARAVEL: ${{ steps.bump.outputs.laravel }}
+        run: |
+          branch="release/upstream-wp-${WORDPRESS}-laravel-${LARAVEL}"
+
+          if git ls-remote --exit-code --heads origin "$branch" >/dev/null; then
+            echo "::notice::$branch already exists, nothing to do"
+            exit 0
+          fi
+
+          gh label create bump-upstream --description "Opened by the Bump upstream workflow" \
+            --color 0e8a16 2>/dev/null || true
+          for number in $(gh pr list --label bump-upstream --state open --json number -q '.[].number'); do
+            gh pr close "$number" --delete-branch --comment "Superseded by ${branch}."
+          done
+          for number in $(gh issue list --label bump-upstream --state open --json number -q '.[].number'); do
+            gh issue close "$number" --comment "Superseded by ${branch}."
+          done
+
+          title="fix(deps): lock WordPress ${WORDPRESS} and Laravel ${LARAVEL}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add composer.lock CHANGELOG.md
+          git commit -m "$title"
+          git push origin "$branch"
+
+          body="Lock → WordPress ${WORDPRESS}, Laravel ${LARAVEL}, opened by the **Bump upstream** workflow. Read the release announcements: a WordPress security release should be tagged without waiting."
+
+          # An organisation may forbid Actions to create pull requests; the
+          # branch is pushed all the same, so hand over the command instead.
+          if ! gh pr create --base main --head "$branch" --title "$title" --label bump-upstream --body "$body"; then
+            gh issue create --title "WordPress ${WORDPRESS} / Laravel ${LARAVEL}: open the pull request" \
+              --label bump-upstream --body "${body}
+
+          The branch \`${branch}\` is pushed. Open the pull request with:
+
+          \`\`\`
+          gh pr create --base main --head ${branch} --fill
+          \`\`\`"
+          fi
+
+          gh workflow run tests.yml --ref "$branch"
+          gh workflow run upstream-versions.yml --ref "$branch"

@@ -1,0 +1,36 @@
+name: Upstream versions
+
+# A tag ships what composer.lock pins. This fails when the lock is behind the
+# latest WordPress, Laravel or Pollora framework: on release branches before the
+# tag, every day on main, and on the tag itself (too late to stop it, but not
+# silent).
+
+on:
+  schedule:
+    - cron: '41 5 * * *'
+  push:
+    branches: ['release/**']
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Lock is current
+    runs-on: ubuntu-latest
+    # Other pull requests are not held back by a release published upstream.
+    if: github.event_name != 'pull_request' || startsWith(github.head_ref, 'release/') || contains(github.head_ref, 'upstream-versions')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Test the check
+        run: bash .github/scripts/tests/check-upstream.test.sh
+
+      - name: Compare composer.lock with the latest releases
+        run: bash .github/scripts/check-upstream.sh
