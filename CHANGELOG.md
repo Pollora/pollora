@@ -20,6 +20,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - A provider that reads the main query (`is_*()`, `get_queried_object()`, query vars) in its `boot()` now runs before it is parsed, and so does a route file that reads it while it is loaded. Read it from a hook such as `wp`, or inside the route. A `booted()` callback is not enough: one registered in `register()`, or by a provider that boots before WordPress's, still runs before the query is parsed.
   - A project that worked around the REST problem by hooking in `register()` can move its hooks back to `boot()`; one that hooked in both gets them twice.
 
+### Security
+
+- The lock moves six Symfony packages to 7.4.24 (`http-foundation`, `http-kernel`, `mailer`, `mime`, `routing`, `var-dumper`), which answers the advisories published for `http-kernel`, `mailer` and `routing`. An existing project gets them with `composer update`.
+
 ## [v13.44.0](https://github.com/Pollora/pollora/compare/v13.43.4...v13.44.0) - 2026-11-24
 
 ### Changed
