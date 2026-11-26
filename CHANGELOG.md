@@ -5,7 +5,13 @@ All notable changes to the Pollora skeleton will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/Pollora/pollora/compare/v13.44.2...main)
+## [Unreleased](https://github.com/Pollora/pollora/compare/v13.44.3...main)
+
+## [v13.44.3](https://github.com/Pollora/pollora/compare/v13.44.2...v13.44.3) - 2026-11-26
+
+### Security
+
+- The lock pins **WordPress 7.1.5**, a [security release](https://wordpress.org/news/2026/11/wordpress-7-1-5-release/). v13.44.2 and the releases before it, published since 7.1.5 came out on 18 November, still installed 7.1.4. An existing project gets it with `composer update johnpbloch/wordpress --with-dependencies`.
 
 ## [v13.44.2](https://github.com/Pollora/pollora/compare/v13.44.1...v13.44.2) - 2026-11-26
 
