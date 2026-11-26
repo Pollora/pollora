@@ -5,7 +5,20 @@ All notable changes to the Pollora skeleton will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/Pollora/pollora/compare/v13.44.0...main)
+## [Unreleased](https://github.com/Pollora/pollora/compare/v13.44.1...main)
+
+## [v13.44.1](https://github.com/Pollora/pollora/compare/v13.44.0...v13.44.1) - 2026-11-26
+
+### Fixed
+
+- The lock pins `pollora/framework` **v13.44.1** (required at `^13.44.1`): REST requests (`/wp-json/…`, `/?rest_route=…`) get the hooks the application's and the theme's providers add in `boot()`. WordPress answered them before those providers had booted, so a `save_post` hooked there did not fire on a block editor save, and a route registered there answered `rest_no_route`.
+
+### Changed
+
+- **Behaviour change in the framework, front-end pages included: check your project before updating.** The main query is now built after the application's and the theme's providers have booted.
+  - Hooks on the main query (`pre_get_posts`, `parse_query`, `request`) added in a provider's `boot()` were not applied until now. They are applied now, so an existing site can show different content.
+  - A provider that reads the main query (`is_*()`, `get_queried_object()`, query vars) in its `boot()` now runs before it is parsed, and so does a route file that reads it while it is loaded. Read it from a hook such as `wp`, or inside the route. A `booted()` callback is not enough: one registered in `register()`, or by a provider that boots before WordPress's, still runs before the query is parsed.
+  - A project that worked around the REST problem by hooking in `register()` can move its hooks back to `boot()`; one that hooked in both gets them twice.
 
 ## [v13.44.0](https://github.com/Pollora/pollora/compare/v13.43.4...v13.44.0) - 2026-11-24
 
