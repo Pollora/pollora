@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/Pollora/pollora/compare/v13.44.3...main)
 
+### Security
+
+- **The demo site that releases v13.43.2 to v13.44.3 installed in every new project is removed.** Among it, two REST routes open to everyone: `/wp-json/starter/v1/status` answered with the PHP and WordPress versions, the active theme and the registered post types and taxonomies, and `/wp-json/starter/v1/projects` listed projects. A project created from one of those releases keeps these files until they are deleted (see *Removed*).
+
+### Removed
+
+- The demo content that had been committed to the skeleton by mistake. A project created from v13.43.2 to v13.44.3 can delete what it does not use; check first that nothing of yours was built on it:
+  - `app/Cms/`: everything except `.keep` and `PostTypes/Book.php` (`Cli/`, `Hooks/`, `Rest/`, `Schedule/`, `Taxonomies/`, `PostTypes/Project.php`, `Service.php`, `TestCase.php`). WordPress keeps the cron events these classes scheduled until they are unscheduled (`wp cron event list`).
+  - `themes/apiary`, `themes/buzz`, `themes/pollora-starter` (a theme is generated with `php artisan pollora:make:theme`). Do not delete the active theme.
+  - `Modules/BlocksDemo`, `Modules/Test` and `modules_statuses.json` (if you added modules of your own, only remove these two entries from it).
+  - The `fr_FR` files of `public/content/languages/`, unless the site is in French (WordPress can download them again).
+  - `.claude/`, the root `pollora` script, `tailwind.safelist.txt` and `tests/Feature/Routing/`.
+
 ## [v13.44.3](https://github.com/Pollora/pollora/compare/v13.44.2...v13.44.3) - 2026-11-26
 
 ### Security
