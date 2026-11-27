@@ -18,6 +18,21 @@ permissions:
   contents: read
 
 jobs:
+  # A tag ships every tracked file to new projects: v13.43.2 to v13.44.3 carried
+  # a whole demo site.
+  content:
+    name: No demo content
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Check the tracked files
+        run: bash .github/scripts/check-skeleton-content.sh
+
   install:
     name: Install (${{ matrix.framework }})
     runs-on: ubuntu-latest
