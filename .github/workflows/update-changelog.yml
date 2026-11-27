@@ -10,4 +10,4 @@ jobs:
   update:
     permissions:
       contents: write
-    uses: laravel/.github/.github/workflows/update-changelog.yml@main
+    uses: laravel/.github/.github/workflows/update-changelog.yml@1e24359c5622f79e21f46d3cd46645f634f1affb # main @ 2026-11-24, upstream has no tags
